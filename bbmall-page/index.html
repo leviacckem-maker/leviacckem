@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>BBmall Redesign · 2026 Works</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cn-font: "PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC","WenQuanYi Micro Hei","Heiti SC","SimHei","Helvetica Neue",Arial,sans-serif;
+    --en-font: "Montserrat", sans-serif;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html,body{ background:#e7e7e7; }
+  body{ overflow-x:hidden; font-family: var(--cn-font); }
+  #stage{ width:1920px; transform-origin: top left; display:flex; flex-direction:column; gap:1px; background:#e7e7e7; }
+  .frame{ position:relative; width:1920px; overflow:hidden; background:#fff; flex-shrink:0; }
+  .abs{ position:absolute; }
+  .nav{ position:absolute; left:80px; top:60px; width:1760px; z-index:5; display:flex; justify-content:space-between; align-items:center; font-family:var(--en-font); font-weight:600; font-size:16px; letter-spacing:.2px; }
+  .nav p{ font-weight:600; white-space:nowrap; margin:0; }
+  img{ display:block; max-width:none; }
+  img.abs{ z-index:1; }
+  .abs:not(img){ z-index:2; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- ===================== C01 封面 ===================== -->
+<section class="frame" id="C01" style="height:1080px; background:#ebf5ff;">
+  <div class="nav" style="color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>BBMALL</p>
+  </div>
+
+  <!-- decorative faint circle (background) -->
+  <div class="abs" style="left:1180px; top:120px; width:1380px; height:1170px; border-radius:50%; border:2px solid rgba(255,255,255,0.9); opacity:0.55; transform:rotate(-8deg); z-index:1;"></div>
+  <div class="abs" style="left:820px; top:250px; width:1380px; height:1170px; border-radius:50%; border:2px solid rgba(200,220,250,0.7); opacity:0.4; transform:rotate(6deg); z-index:1;"></div>
+
+  <div class="abs" style="left:87px; top:247px; font-family:var(--en-font); font-weight:800; font-size:102px; line-height:1; white-space:nowrap; z-index:2;">
+    <span style="color:#555AFF;">BB</span><span style="color:#111;">MALL</span><span style="color:#555AFF; font-weight:600;"> )</span>
+  </div>
+
+  <div class="abs" style="left:94px; top:480px; display:flex; align-items:baseline; gap:5px; font-weight:700; color:#111; white-space:nowrap;">
+    <p style="font-size:40px; line-height:56px;">B2B</p>
+    <p style="font-size:40px; line-height:56px;">跨境批采商城</p>
+  </div>
+
+  <p class="abs" style="left:94px; top:555px; width:681px; font-size:18px; line-height:35px; font-weight:500; color:rgba(0,0,0,0.7);">
+    BBmall是全球商品B2B服务平台，由公司原项目货仓进行升级的产品，致力链接全球品牌方、零售商、商品流通服务商，提供全球化站点的一站式交易履约服务。 业务涵盖跨境进口、中国品牌出海和全球商品流通三大场景
+  </p>
+
+  <img class="abs" src="images/c01_logo3d.png" style="left:50px; top:770px; width:510px; height:310px; z-index:2;">
+  <img class="abs" src="images/c01_phones.jpg" style="left:1010px; top:240px; width:905px; height:840px; z-index:2;">
+</section>
+
+<!-- ===================== C02 页面预览 ===================== -->
+<section class="frame" id="C02" style="height:1080px; background:#fff;">
+  <img class="abs" src="images/c02_collage.jpg" style="left:0; top:0; width:1920px; height:1024px; z-index:1;">
+  <div class="abs" style="left:1px; top:873px; width:1918px; height:207px; z-index:2; background:linear-gradient(to top, #fff 0%, rgba(255,255,255,0.2) 100%); backdrop-filter:blur(2px); -webkit-backdrop-filter:blur(2px);"></div>
+  <div class="abs" style="left:766px; top:913px; width:388px; z-index:3; display:flex; flex-direction:column; align-items:center; gap:34px; text-align:center;">
+    <p style="font-family:var(--en-font); font-weight:700; font-size:54px; line-height:60px; color:#000; width:100%;">Page Preview</p>
+    <p style="font-family:var(--en-font); font-weight:500; font-size:22px; color:rgba(0,0,0,0.7); width:100%;">/ 页面预览 /</p>
+  </div>
+</section>
+
+<!-- ===================== C03 Design Strategy ===================== -->
+<section class="frame" id="C03" style="height:1142px; background:linear-gradient(151deg, #f1f5fb 7.6%, #e6f0ff 53%, #f5f8ff 100%);">
+  <div class="nav" style="color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p><p>#2026</p><p>BBMALL</p>
+  </div>
+  <div class="abs" style="left:270px; top:0; width:1px; height:1142px; background:#d5e2ee;"></div>
+  <div class="abs" style="left:546px; top:0; width:1px; height:1142px; background:#d5e2ee;"></div>
+  <div class="abs" style="left:822px; top:0; width:1px; height:1142px; background:#d5e2ee;"></div>
+  <div class="abs" style="left:1097px; top:0; width:1px; height:1142px; background:#d5e2ee;"></div>
+  <div class="abs" style="left:1373px; top:0; width:1px; height:1142px; background:#d5e2ee;"></div>
+  <div class="abs" style="left:1649px; top:0; width:1px; height:1142px; background:#d5e2ee;"></div>
+
+  <p class="abs" style="left:89px; top:191px; font-size:24px; font-weight:500; color:#000;">设计前期分析</p>
+  <p class="abs" style="left:89px; top:249px; font-family:var(--en-font); font-weight:700; font-size:54px; line-height:60px; color:#000;">Design Strategy</p>
+
+  <!-- chart card -->
+  <div class="abs" style="left:89px; top:404px; width:764px; height:613px; background:#fff; border-radius:16px; box-shadow:0 20px 40px rgba(30,60,120,0.08);">
+    <p class="abs" style="left:45px; top:45px; font-size:24px; font-weight:600; color:#182233;">品类消费特征分布</p>
+    <p class="abs" style="left:536px; top:48px; font-size:12px; color:rgba(51,51,51,0.8);">*所展示数据均已经过处理</p>
+
+    <!-- dashed gridlines -->
+    <div class="abs" style="left:45px; top:167px; width:624px; height:1px; border-top:1px dashed #dde6f0;"></div>
+    <div class="abs" style="left:45px; top:227px; width:624px; height:1px; border-top:1px dashed #dde6f0;"></div>
+    <div class="abs" style="left:45px; top:287px; width:624px; height:1px; border-top:1px dashed #dde6f0;"></div>
+    <div class="abs" style="left:45px; top:347px; width:624px; height:1px; border-top:1px dashed #dde6f0;"></div>
+
+    <!-- bar chart -->
+    <div class="abs" style="left:45px; top:110px; width:632px; height:245px; display:flex; align-items:flex-end; gap:38px;">
+      <div style="width:45px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">
+        <p style="font-size:14px; font-weight:500; color:#333; margin-bottom:6px;">29%</p>
+        <div style="width:45px; height:182px; border-radius:8px 8px 0 0; background:linear-gradient(180deg,#82a9fb,#4c7ef5);"></div>
+        <p style="font-size:12px; color:#666; margin-top:8px; white-space:nowrap;">美妆个护</p>
+      </div>
+      <div style="width:45px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">
+        <p style="font-size:14px; font-weight:500; color:#333; margin-bottom:6px;">22%</p>
+        <div style="width:45px; height:138px; border-radius:8px 8px 0 0; background:linear-gradient(180deg,#8db3fb,#5a89f7);"></div>
+        <p style="font-size:12px; color:#666; margin-top:8px; white-space:nowrap;">母婴用品</p>
+      </div>
+      <div style="width:45px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">
+        <p style="font-size:14px; font-weight:500; color:#333; margin-bottom:6px;">18%</p>
+        <div style="width:45px; height:113px; border-radius:8px 8px 0 0; background:linear-gradient(180deg,#9bbdfc,#6a95f8);"></div>
+        <p style="font-size:12px; color:#666; margin-top:8px; white-space:nowrap;">数码电子</p>
+      </div>
+      <div style="width:45px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">
+        <p style="font-size:14px; font-weight:500; color:#333; margin-bottom:6px;">11%</p>
+        <div style="width:45px; height:69px; border-radius:8px 8px 0 0; background:linear-gradient(180deg,#aecafd,#7ea3f9);"></div>
+        <p style="font-size:12px; color:#666; margin-top:8px; white-space:nowrap;">家用电器</p>
+      </div>
+      <div style="width:45px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">
+        <p style="font-size:14px; font-weight:500; color:#333; margin-bottom:6px;">7%</p>
+        <div style="width:45px; height:44px; border-radius:8px 8px 0 0; background:linear-gradient(180deg,#bcd3fd,#8fb0fa);"></div>
+        <p style="font-size:12px; color:#666; margin-top:8px; white-space:nowrap;">营养保健</p>
+      </div>
+      <div style="width:45px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">
+        <p style="font-size:14px; font-weight:500; color:#333; margin-bottom:6px;">5%</p>
+        <div style="width:45px; height:31px; border-radius:8px 8px 0 0; background:linear-gradient(180deg,#c6dafe,#9bbafb);"></div>
+        <p style="font-size:12px; color:#666; margin-top:8px; white-space:nowrap;">居家生活</p>
+      </div>
+      <div style="width:45px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">
+        <p style="font-size:14px; font-weight:500; color:#333; margin-bottom:6px;">4%</p>
+        <div style="width:45px; height:25px; border-radius:8px 8px 0 0; background:linear-gradient(180deg,#cadefe,#a2befb);"></div>
+        <p style="font-size:12px; color:#666; margin-top:8px; white-space:nowrap;">服饰鞋包</p>
+      </div>
+      <div style="width:45px; display:flex; flex-direction:column; align-items:center; height:100%; justify-content:flex-end;">
+        <p style="font-size:14px; font-weight:500; color:#333; margin-bottom:6px;">4%</p>
+        <div style="width:45px; height:25px; border-radius:8px 8px 0 0; background:linear-gradient(180deg,#cadefe,#a2befb);"></div>
+        <p style="font-size:12px; color:#666; margin-top:8px; white-space:nowrap;">宠物天地</p>
+      </div>
+    </div>
+
+    <!-- donut -->
+    <div class="abs" style="left:45px; top:400px; width:130px; height:130px; border-radius:50%; background:conic-gradient(#678ff5 0% 21%, #32bdd4 21% 53%, #35d186 53% 80%, #ffb769 80% 96%, #ff5278 96% 100%); display:flex; align-items:center; justify-content:center;">
+      <div style="width:70px; height:70px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; color:#333; text-align:center;">消费环比</div>
+    </div>
+    <div class="abs" style="left:227px; top:410px; display:flex; flex-direction:column; gap:34px;">
+      <div style="display:flex; gap:176px;">
+        <div style="display:flex; align-items:center; gap:8px;"><span style="width:10px;height:10px;border-radius:2px;background:#678ff5;display:inline-block;"></span><span style="font-size:12px;color:rgba(51,51,51,0.8);">1-100元</span><span style="font-size:14px;color:#2cbaca;">21%</span></div>
+        <div style="display:flex; align-items:center; gap:8px;"><span style="width:10px;height:10px;border-radius:2px;background:#32bdd4;display:inline-block;"></span><span style="font-size:12px;color:rgba(51,51,51,0.8);">100-300元</span><span style="font-size:14px;color:#2cbaca;">32%</span></div>
+      </div>
+      <div style="display:flex; gap:176px;">
+        <div style="display:flex; align-items:center; gap:8px;"><span style="width:10px;height:10px;border-radius:2px;background:#35d186;display:inline-block;"></span><span style="font-size:12px;color:rgba(51,51,51,0.8);">300-600元</span><span style="font-size:14px;color:#2cbaca;">27%</span></div>
+        <div style="display:flex; align-items:center; gap:8px;"><span style="width:10px;height:10px;border-radius:2px;background:#ffb769;display:inline-block;"></span><span style="font-size:12px;color:rgba(51,51,51,0.8);">600-1000元</span><span style="font-size:14px;color:#2cbaca;">16%</span></div>
+      </div>
+      <div style="display:flex; gap:176px;">
+        <div style="display:flex; align-items:center; gap:8px;"><span style="width:10px;height:10px;border-radius:2px;background:#ff5278;display:inline-block;"></span><span style="font-size:12px;color:rgba(51,51,51,0.8);">1000元以上</span><span style="font-size:14px;color:#2cbaca;">4%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- insight cards -->
+  <div class="abs" style="left:1023px; top:258px; width:785px; background:#f4f9fe; border-left:6px solid #1d64d6; border-radius:12px; padding:24px 25px; display:flex; flex-direction:column; gap:24px;">
+    <div style="background:#1FAA6C; color:#fff; font-size:14px; font-weight:600; padding:6px 18px 6px 14px; border-radius:3px 10px 10px 3px; clip-path:polygon(0 0,86% 0,100% 50%,86% 100%,0 100%); display:inline-block; width:fit-content;">内容层</div>
+    <p style="font-size:24px; font-weight:600; color:#282935;">数据分布和现状</p>
+    <p style="font-size:16px; line-height:28px; color:#666;">图表中内容分类的偏向性很明确，应针对热门的5个板块进行<span style="color:#333;">频道页整合</span>设计，放大平台的优势</p>
+    <p style="font-size:16px; line-height:28px; color:#666; margin-top:-14px;">平台现有<span style="color:#333;">导购模式过于单一</span>，无法对多元化的用户需求进行服务，基于消费环比来看，中小卖家还是居多，可<span style="color:#333;">针对性增设导购板块</span>，例如针对品类占比设计分区、为新用户首单发力等等，更好的服务业务指标</p>
+  </div>
+
+  <div class="abs" style="left:930px; top:534px; width:785px; background:#f4f9fe; border-left:6px solid #1d64d6; border-radius:12px; padding:24px 25px; display:flex; flex-direction:column; gap:24px;">
+    <div style="background:#1FAA6C; color:#fff; font-size:14px; font-weight:600; padding:6px 18px 6px 14px; border-radius:3px 10px 10px 3px; clip-path:polygon(0 0,86% 0,100% 50%,86% 100%,0 100%); display:inline-block; width:fit-content;">表现层</div>
+    <p style="font-size:24px; font-weight:600; color:#282935;">B2B和B2C的表现层面差异</p>
+    <p style="font-size:16px; line-height:28px; color:#666;">原货仓版本偏向普通C端商城，C类用户为购物和消费需求，使用场景轻松愉悦，且C类用户更容易被强烈的视觉氛围所刺激转化，而B类用户或为企业老板、采购经理，出于采购和经营需求等使用，为办公性质，这类用户的目标往往比C明确，对于视觉氛围免疫也较强，应偏场景化的去定义平台的基调</p>
+  </div>
+
+  <div class="abs" style="left:1020px; top:820px; width:785px; background:#f4f9fe; border-left:6px solid #1d64d6; border-radius:12px; padding:24px 25px; display:flex; flex-direction:column; gap:24px;">
+    <div style="background:#1FAA6C; color:#fff; font-size:14px; font-weight:600; padding:6px 18px 6px 14px; border-radius:3px 10px 10px 3px; clip-path:polygon(0 0,86% 0,100% 50%,86% 100%,0 100%); display:inline-block; width:fit-content;">业务层</div>
+    <p style="font-size:24px; font-weight:600; color:#282935;">B类用户的使用场景关键特点</p>
+    <p style="font-size:16px; line-height:26px; color:#666;">C类用户的购物需求是多样性的，而B类用户在实际使用场景中，大多受于经营范围的原因，对于品类的需求都相对固定，或可以考虑为用户进行标签分类，同时B类用户对于比价的需求很强烈，可以考虑一品多供的模式，去除重复商品的同时，在详情页中进行批采源头梯度比价</p>
+  </div>
+</section>
+
+<!-- ===================== C04 Design Objectives ===================== -->
+<section class="frame" id="C04" style="height:1080px; background:linear-gradient(152.5deg, #f1f5fb 7.6%, #e6f0ff 53%, #f5f8ff 100%);">
+  <div class="nav" style="color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p><p>#2026</p><p>BBMALL</p>
+  </div>
+  <div class="abs" style="left:822px; top:0; width:1px; height:1080px; background:#ebf1f7;"></div>
+  <div class="abs" style="left:1097px; top:0; width:1px; height:1080px; background:#ebf1f7;"></div>
+  <div class="abs" style="left:1373px; top:0; width:1px; height:1080px; background:#ebf1f7;"></div>
+  <div class="abs" style="left:1649px; top:0; width:1px; height:1080px; background:#ebf1f7;"></div>
+
+  <p class="abs" style="left:80px; top:158px; font-size:24px; font-weight:500; color:#000;">设计前期动作</p>
+  <p class="abs" style="left:80px; top:216px; font-family:var(--en-font); font-weight:700; font-size:54px; line-height:60px; color:#000;">Design Objectives</p>
+  <p class="abs" style="left:1204px; top:227px; font-size:16px; color:#182233; white-space:nowrap;">结合运营线上调查的结果以及业务侧的一些需求，在基于现有的业务能力下制定的综合目标</p>
+
+  <!-- chat bubbles -->
+  <div class="abs" style="left:272px; top:412px; width:410px; height:62px; background:#fff; border-radius:31px; box-shadow:0 10px 24px rgba(30,60,120,0.08); display:flex; align-items:center; padding-left:56px; padding-right:20px;">
+    <img src="images/c04_avatar1.png" style="position:absolute; left:8px; top:9px; width:44px; height:44px; border-radius:50%; object-fit:cover; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+    <p style="font-size:16px; font-weight:500; color:#444;">下单的门槛再低些, 多增加些可一件拿样的商品</p>
+  </div>
+  <div class="abs" style="left:108px; top:535px; width:474px; height:62px; background:#fff; border-radius:31px; box-shadow:0 10px 24px rgba(30,60,120,0.08); display:flex; align-items:center; padding-left:56px; padding-right:20px;">
+    <img src="images/c04_avatar2.png" style="position:absolute; left:8px; top:9px; width:44px; height:44px; border-radius:50%; object-fit:cover; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+    <p style="font-size:16px; font-weight:500; color:#444;">交易模式再清晰些，比如我本人就一直买的保税商品</p>
+  </div>
+  <div class="abs" style="left:220px; top:660px; width:400px; height:62px; background:#fff; border-radius:31px; box-shadow:0 10px 24px rgba(30,60,120,0.08); display:flex; align-items:center; padding-left:56px; padding-right:20px;">
+    <img src="images/c04_avatar3.png" style="position:absolute; left:8px; top:9px; width:44px; height:44px; border-radius:50%; object-fit:cover; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+    <p style="font-size:16px; font-weight:500; color:#444;">每次找品牌有点麻烦，能不能把他保存下来</p>
+  </div>
+  <div class="abs" style="left:92px; top:786px; width:543px; height:62px; background:#fff; border-radius:31px; box-shadow:0 10px 24px rgba(30,60,120,0.08); display:flex; align-items:center; padding-left:56px; padding-right:20px;">
+    <img src="images/c04_avatar4.png" style="position:absolute; left:8px; top:9px; width:44px; height:44px; border-radius:50%; object-fit:cover; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+    <p style="font-size:16px; font-weight:500; color:#444;">不知道卖些啥好，有时候囤货多了很难处理，不囤货成本下不去</p>
+  </div>
+  <div class="abs" style="left:143px; top:912px; width:513px; height:62px; background:#fff; border-radius:31px; box-shadow:0 10px 24px rgba(30,60,120,0.08); display:flex; align-items:center; padding-left:56px; padding-right:20px;">
+    <img src="images/c04_avatar5.png" style="position:absolute; left:8px; top:9px; width:44px; height:44px; border-radius:50%; object-fit:cover; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+    <p style="font-size:16px; font-weight:500; color:#444;">重复商品太多了，一个毫升规格都要重链接，单个点很麻烦！</p>
+  </div>
+
+  <!-- card: 用户层面 -->
+  <div class="abs" style="left:768px; top:462px; width:356px; height:528px; background:#fff; border-radius:12px; box-shadow:0 1px 100px rgba(0,0,0,0.08); overflow:hidden;">
+    <div style="height:20px; width:100%; background:#333;"></div>
+    <div style="padding:40px 24px 0; display:flex; flex-direction:column; align-items:flex-start;">
+      <div style="width:44px; height:44px; border-radius:50%; background:#333; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="#fff" stroke-width="2" fill="none"/></svg>
+      </div>
+      <p style="font-size:20px; font-weight:600; color:#222;">用户层面</p>
+      <p style="font-family:var(--en-font); font-size:13px; color:#666; margin-bottom:26px;">TO-USER</p>
+      <div style="width:100%; background:#f6f8fb; border-radius:10px; padding:14px; text-align:left; font-size:17px; color:#111; margin-bottom:24px;">更细致的分类功能和导购查询</div>
+      <div style="width:100%; background:#f6f8fb; border-radius:10px; padding:14px; text-align:left; font-size:17px; color:#111; margin-bottom:24px;">更完善的需求场景设计</div>
+      <div style="width:100%; background:#f6f8fb; border-radius:10px; padding:14px; text-align:left; font-size:17px; color:#111;">更全面的梯度采购价</div>
+    </div>
+  </div>
+
+  <!-- card: 产品层面 (taller, offset up) -->
+  <div class="abs" style="left:1105px; top:376px; width:356px; height:614px; background:#fff; border-radius:12px; box-shadow:0 1px 100px rgba(0,0,0,0.08); overflow:hidden;">
+    <div style="height:20px; width:100%; background:#0684fc;"></div>
+    <div style="padding:40px 24px 0; display:flex; flex-direction:column; align-items:flex-start;">
+      <div style="width:44px; height:44px; border-radius:50%; background:#0684fc; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" stroke="#fff" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" stroke="#fff" stroke-width="2"/></svg>
+      </div>
+      <p style="font-size:20px; font-weight:600; color:#222;">产品层面</p>
+      <p style="font-family:var(--en-font); font-size:13px; color:#666; margin-bottom:26px;">TO-PRODUCT</p>
+      <div style="width:100%; background:#f6f8fb; border-radius:10px; padding:14px; text-align:left; font-size:17px; color:#111; margin-bottom:24px;">扩展新用户&新用户破零</div>
+      <div style="width:100%; background:#f6f8fb; border-radius:10px; padding:18px 14px; text-align:left; font-size:17px; line-height:24px; color:#111; margin-bottom:24px;">提高用户选品效率，更快捷和高效的选品体验</div>
+      <div style="width:100%; background:#f6f8fb; border-radius:10px; padding:14px; text-align:left; font-size:17px; color:#111;">提供多样化的营销导购场景</div>
+    </div>
+  </div>
+
+  <!-- card: 设计层面 -->
+  <div class="abs" style="left:1454px; top:462px; width:356px; height:528px; background:#fff; border-radius:12px; box-shadow:0 1px 100px rgba(0,0,0,0.08); overflow:hidden;">
+    <div style="height:20px; width:100%; background:#1ccb77;"></div>
+    <div style="padding:40px 24px 0; display:flex; flex-direction:column; align-items:flex-start;">
+      <div style="width:44px; height:44px; border-radius:50%; background:#1ccb77; display:flex; align-items:center; justify-content:center; margin-bottom:10px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21l3.5-1 11-11-2.5-2.5-11 11L3 21z" stroke="#fff" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M15 4.5L19.5 9" stroke="#fff" stroke-width="2"/></svg>
+      </div>
+      <p style="font-size:20px; font-weight:600; color:#222;">设计层面</p>
+      <p style="font-family:var(--en-font); font-size:13px; color:#666; margin-bottom:26px;">TO-DESIGN</p>
+      <div style="width:100%; background:#f6f8fb; border-radius:10px; padding:14px; text-align:left; font-size:17px; color:#111; margin-bottom:24px;">规范设计语言，优化视觉传递</div>
+      <div style="width:100%; background:#f6f8fb; border-radius:10px; padding:18px 14px; text-align:left; font-size:17px; line-height:24px; color:#111; margin-bottom:24px;">电商差异化设计，控制原版本花哨的视觉表现力</div>
+      <div style="width:100%; background:#f6f8fb; border-radius:10px; padding:14px; text-align:left; font-size:17px; color:#111;">升级体验链路、提高使用效率</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== C05 Home Design ===================== -->
+<section class="frame" id="C05" style="height:1080px; background:linear-gradient(121.5deg, #ffffff 11.5%, #e6f5ff 44.3%, #ffffff 86%);">
+  <div class="nav" style="color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p><p>#2026</p><p>BBMALL</p>
+  </div>
+
+  <p class="abs" style="left:83px; top:270px; font-family:var(--en-font); font-weight:700; font-size:64px; color:#182233; opacity:0.05; z-index:0;">HOME</p>
+  <div class="abs" style="left:80px; top:214px; font-family:var(--en-font); font-weight:700; font-size:80px; line-height:1.05; color:#182233;">
+    <p>Home</p><p>Design</p>
+  </div>
+  <p class="abs" style="left:82px; top:490px; font-size:30px; font-weight:600; color:#182233;">首页设计</p>
+
+  <div class="abs" style="left:82px; top:565px; width:351px; height:35px; border-radius:20px; background:#fff; border:1px solid #e3e6ec; display:flex; align-items:center; padding:0 16px; gap:8px;">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#b5b5b5" stroke-width="2"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="#b5b5b5" stroke-width="2"/></svg>
+    <span style="font-size:12px; color:#b5b5b5;">搜索商品名称/国际条码</span>
+  </div>
+  <p class="abs" style="left:82px; top:614px; width:447px; font-size:16px; line-height:26px; color:#666;">整体以明亮简洁的风格为主，搭配跨境蓝的主色系，营造专业和商务风的整体基调，明亮TO-B中比较高频使用的搜索功能，方便用户快速进入选品交互</p>
+
+  <div class="abs" style="left:82px; top:836px; width:352px; height:96px; border-radius:12px; background:linear-gradient(120deg,#6a7dfb,#4453e0); display:flex; flex-direction:column; justify-content:center; padding-left:24px; gap:6px;">
+    <p style="font-size:20px; font-weight:600; color:#fff;">主色</p>
+    <p style="font-size:14px; color:rgba(255,255,255,0.9);">#555AFF 跨境蓝</p>
+  </div>
+
+  <img class="abs" src="images/c05_phone.jpg" style="left:517px; top:-32px; width:768px; height:1080px; z-index:2;">
+
+  <div class="abs" style="left:1168px; top:267px; width:173px; height:1px; border-top:1.5px dashed #a8b6ff; z-index:1;"></div>
+
+  <div class="abs" style="left:1345px; top:200px; width:495px; background:rgba(255,255,255,0.65); border:2px solid #fff; border-radius:24px; padding:20px; display:flex; flex-direction:column; gap:16px;">
+    <div style="display:flex; align-items:baseline; gap:8px;">
+      <span style="width:10px;height:10px;border-radius:50%;border:3px solid #555aff;box-sizing:border-box;background:transparent;align-self:center;"></span>
+      <span style="font-size:20px; font-weight:700; color:#2f2f2f;">机会引导</span>
+      <span style="font-family:var(--en-font); font-size:12px; color:#9196a0;">/ Guide</span>
+    </div>
+    <p style="font-size:16px; line-height:24px; color:#6f7683;">在用户尚未输入关键词时，通过热门/推荐搜索词提供即时搜索入口，降低用户输入成本，同时引导商家发现热门内容和机会点</p>
+  </div>
+
+  <img class="abs" src="images/c05_iconrow.png" style="left:1345px; top:415px; width:369px; height:86px; z-index:2;">
+  <p class="abs" style="left:1345px; top:551px; width:352px; font-size:16px; line-height:28px; color:#6f7683;">ICON的风格定义上，抑制色彩质感厚度，控制图标的视觉张力，在扁平化的范围内去增设细节</p>
+
+  <div class="abs" style="left:1345px; top:672px; width:495px; background:rgba(255,255,255,0.65); border:2px solid #fff; border-radius:24px; padding:20px; display:flex; flex-direction:column; gap:16px;">
+    <div style="display:flex; align-items:baseline; gap:8px;">
+      <span style="width:10px;height:10px;border-radius:50%;border:3px solid #555aff;box-sizing:border-box;background:transparent;align-self:center;"></span>
+      <span style="font-size:20px; font-weight:700; color:#2f2f2f;">特色板块</span>
+      <span style="font-family:var(--en-font); font-size:12px; color:#9196a0;">/ Module</span>
+    </div>
+    <p style="font-size:16px; line-height:24px; color:#6f7683;">两个瓷片区服务于业务目标-新用户破零，在用户对平台信任不足的情况下，以低货值商品的特色推荐去起手，会更容易一些</p>
+  </div>
+
+  <img class="abs" src="images/c05_products.png" style="left:1345px; top:834px; width:377px; height:127px; z-index:2;">
+</section>
+
+<!-- ===================== C06 进口甄选 ===================== -->
+<section class="frame" id="C06" style="height:1080px; background:linear-gradient(135deg,#eef0fb 0%,#ffffff 55%);">
+  <div class="abs" style="left:705px; top:258px; width:1102px; height:1102px; border-radius:50%; background:radial-gradient(circle at 35% 30%, rgba(255,255,255,0.9), rgba(238,240,251,0) 70%); z-index:0;"></div>
+  <div class="nav" style="color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p><p>#2026</p><p>BBMALL</p>
+  </div>
+
+  <p class="abs" style="left:81px; top:135px; font-family:var(--en-font); font-weight:600; font-size:22px; color:#636363;">Shopping Guide Page</p>
+  <p class="abs" style="left:76px; top:172px; font-size:54px; font-weight:700; color:#000;"><span style="color:#1d3fd6;">{</span> 特殊导购页<span style="color:#1d3fd6;">}</span></p>
+  <svg class="abs" style="left:83px; top:226px;" width="350" height="37" viewBox="0 0 350 37"><path opacity="0.3" d="M2.00049 34.2489C47.0005 14.2489 119.5 6.74893 135.5 14.2489C143.09 17.8064 123.501 34.7134 151.5 24.7485C181 14.2493 321 -2.75069 347.5 3.24931" stroke="#3456FF" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+
+  <div class="abs" style="left:81px; top:378px; display:flex; align-items:baseline; gap:8px;">
+    <span style="width:10px;height:10px;border-radius:50%;border:3px solid #555aff;box-sizing:border-box;background:transparent;align-self:center;"></span>
+    <span style="font-size:20px; font-weight:700; color:#212121;">进口甄选视觉</span>
+    <span style="font-family:var(--en-font); font-size:12px; color:#9196a0;">/ Import</span>
+  </div>
+  <p class="abs" style="left:81px; top:422px; width:419px; font-size:16px; line-height:28px; color:#6f7683;">采用简洁的基调风格而塑造的商品专区，整合平台的优质进口商品，从而进行特色推荐，此频道页面在平台基调的基础上再次进行了简化，整体低饱和无冲突的视觉，可更好的体现进口甄选频道不同于普通商品的品质感</p>
+
+  <div class="abs" style="left:81px; top:631px; display:flex; align-items:baseline; gap:8px;">
+    <span style="width:10px;height:10px;border-radius:50%;border:3px solid #555aff;box-sizing:border-box;background:transparent;align-self:center;"></span>
+    <span style="font-size:20px; font-weight:700; color:#212121;">全屏头图</span>
+    <span style="font-family:var(--en-font); font-size:12px; color:#9196a0;">/ BANNER</span>
+  </div>
+  <p class="abs" style="left:79px; top:677px; width:419px; font-size:16px; line-height:28px; color:#6f7683;">全屏式无边界定义BANNER位，塑造进口板块的差异化视觉</p>
+  <p class="abs" style="left:79px; top:740px; width:419px; font-size:16px; line-height:28px; color:#6f7683;">背景&主体，在输出时分开处理，交互时，主体左右滑动出现，背景则选择渐隐的方式，减少因大面积背景色块进行移动时产生的不稳定感</p>
+
+  <img class="abs" src="images/c06_thumb1.png" style="left:79px; top:859px; width:111px; height:118px; border-radius:10px; z-index:2;">
+  <img class="abs" src="images/c06_thumb2.png" style="left:211px; top:859px; width:111px; height:118px; border-radius:10px; z-index:2;">
+
+  <img class="abs" src="images/c06_phone_left.png" style="left:762px; top:257px; width:312px; height:825px; border-radius:20px; box-shadow:0 30px 60px rgba(40,60,120,0.15); z-index:2;">
+  <img class="abs" src="images/c06_phone_mid.jpg" style="left:1120px; top:113px; width:327px; height:968px; border-radius:24px; box-shadow:0 30px 70px rgba(40,60,120,0.18); z-index:2;">
+  <img class="abs" src="images/c06_phone_right.png" style="left:1498px; top:456px; width:312px; height:400px; border-radius:20px; box-shadow:0 30px 60px rgba(40,60,120,0.15); z-index:2;">
+</section>
+
+<!-- ===================== C07 频道页设计 ===================== -->
+<section class="frame" id="C07" style="height:1080px; background:#fff;">
+  <div class="nav" style="color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p><p>#2026</p><p>BBMALL</p>
+  </div>
+
+  <p class="abs" style="left:81px; top:135px; font-family:var(--en-font); font-weight:600; font-size:22px; color:#636363;">Shopping Guide Page</p>
+  <p class="abs" style="left:76px; top:172px; font-size:54px; font-weight:700; color:#000;"><span style="color:#1d3fd6;">{</span> 频道页设计<span style="color:#1d3fd6;">}</span></p>
+  <svg class="abs" style="left:83px; top:226px;" width="350" height="37" viewBox="0 0 350 37"><path opacity="0.3" d="M2.00049 34.2489C47.0005 14.2489 119.5 6.74893 135.5 14.2489C143.09 17.8064 123.501 34.7134 151.5 24.7485C181 14.2493 321 -2.75069 347.5 3.24931" stroke="#3456FF" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+
+  <div class="abs" style="left:81px; top:428px; display:flex; align-items:baseline; gap:8px;">
+    <span style="width:10px;height:10px;border-radius:50%;border:3px solid #555aff;box-sizing:border-box;background:transparent;align-self:center;"></span>
+    <span style="font-size:20px; font-weight:700; color:#212121;">类目频道页</span>
+    <span style="font-family:var(--en-font); font-size:12px; color:#9196a0;">/ Import</span>
+  </div>
+  <p class="abs" style="left:81px; top:472px; width:419px; font-size:16px; line-height:28px; color:#6f7683;">优选分类频道页设计，集合类目下的二级分类和营销分区，并配合推荐商品列表，更细致的展现平台优势产品</p>
+
+  <div class="abs" style="left:81px; top:624px; display:flex; align-items:baseline; gap:8px;">
+    <span style="width:10px;height:10px;border-radius:50%;border:3px solid #555aff;box-sizing:border-box;background:transparent;align-self:center;"></span>
+    <span style="font-size:20px; font-weight:700; color:#212121;">KOL热销专区</span>
+    <span style="font-family:var(--en-font); font-size:12px; color:#9196a0;">/ Import</span>
+  </div>
+  <p class="abs" style="left:81px; top:668px; width:419px; font-size:16px; line-height:28px; color:#6f7683;">营销向分区，根据现有的业务运营能力，收集终端销售渠道返回的商品数据进行统计，从而整合呈现的渠道热门商品专区，用于向用户传递热门商品趋势，促进交易</p>
+
+  <img class="abs" src="images/c07_phone1.png" style="left:679px; top:231px; width:355px; height:753px; border-radius:22px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:2;">
+  <img class="abs" src="images/c07_phone2.png" style="left:1055px; top:157px; width:356px; height:830px; border-radius:22px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:2;">
+  <img class="abs" src="images/c07_phone3.jpg" style="left:1430px; top:135px; width:356px; height:945px; border-radius:22px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:2;">
+</section>
+
+<!-- ===================== C08 分类导购 ===================== -->
+<section class="frame" id="C08" style="height:1080px; background:linear-gradient(150deg,#eef0fb 0%,#ffffff 55%);">
+  <div class="nav" style="color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p><p>#2026</p><p>BBMALL</p>
+  </div>
+
+  <p class="abs" style="left:81px; top:135px; font-family:var(--en-font); font-weight:600; font-size:22px; color:#636363;">Category Page</p>
+  <p class="abs" style="left:76px; top:172px; font-size:54px; font-weight:700; color:#000;"><span style="color:#1d3fd6;">{</span> 分类导购<span style="color:#1d3fd6;">}</span></p>
+  <svg class="abs" style="left:83px; top:226px;" width="350" height="37" viewBox="0 0 350 37"><path opacity="0.3" d="M2.00049 34.2489C47.0005 14.2489 119.5 6.74893 135.5 14.2489C143.09 17.8064 123.501 34.7134 151.5 24.7485C181 14.2493 321 -2.75069 347.5 3.24931" stroke="#3456FF" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+
+  <div class="abs" style="left:81px; top:428px; display:flex; align-items:baseline; gap:8px;">
+    <span style="width:10px;height:10px;border-radius:50%;border:3px solid #555aff;box-sizing:border-box;background:transparent;align-self:center;"></span>
+    <span style="font-size:20px; font-weight:700; color:#212121;">B端消费特性-品牌分类</span>
+    <span style="font-family:var(--en-font); font-size:12px; color:#9196a0;">/ Brand Category</span>
+  </div>
+  <p class="abs" style="left:81px; top:475px; width:439px; font-size:16px; line-height:28px; color:#6f7683;">分类以品类和品牌来进行导购，品类服务于中小B卖家，用于细致查询分类商品，品牌服务于有品牌需求/或对货品有较高资质需求的商家</p>
+
+  <div class="abs" style="left:81px; top:633px; display:flex; align-items:baseline; gap:8px;">
+    <span style="width:10px;height:10px;border-radius:50%;border:3px solid #555aff;box-sizing:border-box;background:transparent;align-self:center;"></span>
+    <span style="font-size:20px; font-weight:700; color:#212121;">便捷操作</span>
+    <span style="font-family:var(--en-font); font-size:12px; color:#9196a0;">/ Convenient</span>
+  </div>
+  <p class="abs" style="left:81px; top:677px; width:439px; font-size:16px; line-height:28px; color:#6f7683;">在意品牌的厂家常有关注和采购某品牌的习惯，因此增加了经常采购的品牌分栏，方便有固定品牌需求的用户快速访问</p>
+
+  <img class="abs" src="images/c08_thumb.png" style="left:81px; top:765px; width:150px; height:150px; border-radius:10px; box-shadow:0 10px 24px rgba(30,60,120,0.12); z-index:2;">
+
+  <img class="abs" src="images/c08_phone1.png" style="left:705px; top:242px; width:350px; height:758px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c08_phone2.png" style="left:1087px; top:146px; width:350px; height:758px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c08_phone3.png" style="left:1467px; top:202px; width:350px; height:758px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c08_popup.png" style="left:506px; top:745px; width:392px; height:130px; border-radius:8px; box-shadow:0 20px 40px rgba(0,0,0,0.2); z-index:3;">
+</section>
+
+<!-- ===================== C09 商品检索 ===================== -->
+<section class="frame" id="C09" style="height:1080px; background:#fff;">
+  <div class="nav" style="color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p><p>#2026</p><p>BBMALL</p>
+  </div>
+
+  <p class="abs" style="left:83px; top:135px; font-family:var(--en-font); font-weight:600; font-size:22px; color:#636363;">Category Page</p>
+  <p class="abs" style="left:78px; top:172px; font-size:54px; font-weight:700; color:#000;"><span style="color:#1d3fd6;">{</span> 商品检索<span style="color:#1d3fd6;">}</span></p>
+  <svg class="abs" style="left:85px; top:226px;" width="350" height="37" viewBox="0 0 350 37"><path opacity="0.3" d="M2.00049 34.2489C47.0005 14.2489 119.5 6.74893 135.5 14.2489C143.09 17.8064 123.501 34.7134 151.5 24.7485C181 14.2493 321 -2.75069 347.5 3.24931" stroke="#3456FF" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+
+  <div class="abs" style="left:80px; top:377px; display:flex; align-items:baseline; gap:8px;">
+    <span style="width:10px;height:10px;border-radius:50%;border:3px solid #555aff;box-sizing:border-box;background:transparent;align-self:center;"></span>
+    <span style="font-size:20px; font-weight:700; color:#212121;">B端消费特性-品牌分类</span>
+    <span style="font-family:var(--en-font); font-size:12px; color:#9196a0;">/ Brand Category</span>
+  </div>
+  <p class="abs" style="left:80px; top:423px; width:439px; font-size:16px; line-height:28px; color:#6f7683;">分类以品类和品牌来进行导购，品类服务于中小B卖家，用于细致查询分类商品，品牌服务于有品牌需求/或对货品有较高资质需求的商家</p>
+
+  <p class="abs" style="left:80px; top:610px; font-size:16px; font-weight:600; color:#333;">可被复制的商品组件</p>
+  <img class="abs" src="images/c09_thumb.png" style="left:80px; top:656px; width:412px; height:253px; border-radius:10px; box-shadow:0 10px 24px rgba(30,60,120,0.1); z-index:2;">
+
+  <img class="abs" src="images/c09_phone1.png" style="left:707px; top:222px; width:350px; height:758px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c09_phone2.png" style="left:1087px; top:180px; width:350px; height:758px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c09_phone3.png" style="left:1467px; top:232px; width:350px; height:758px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+</section>
+
+<!-- ===================== C10 个人中心 ===================== -->
+<section class="frame" id="C10" style="height:1080px; background:linear-gradient(150deg,#eef0fb 0%,#ffffff 55%);">
+  <div class="nav" style="color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p><p>#2026</p><p>BBMALL</p>
+  </div>
+
+  <p class="abs" style="left:83px; top:135px; font-family:var(--en-font); font-weight:600; font-size:22px; color:#636363;">User Center</p>
+  <p class="abs" style="left:78px; top:172px; font-size:54px; font-weight:700; color:#000;"><span style="color:#1d3fd6;">{</span> 个人中心<span style="color:#1d3fd6;">}</span></p>
+  <svg class="abs" style="left:94px; top:232px;" width="350" height="37" viewBox="0 0 350 37"><path opacity="0.3" d="M2.00049 34.2489C47.0005 14.2489 119.5 6.74893 135.5 14.2489C143.09 17.8064 123.501 34.7134 151.5 24.7485C181 14.2493 321 -2.75069 347.5 3.24931" stroke="#3456FF" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+
+  <img class="abs" src="images/c10_phone1.png" style="left:407px; top:213px; width:330px; height:715px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c10_phone2.png" style="left:771px; top:280px; width:330px; height:715px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c10_phone3.png" style="left:1141px; top:185px; width:330px; height:715px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c10_phone4.png" style="left:1511px; top:250px; width:330px; height:715px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+</section>
+
+<!-- ===================== C11 认证流程 ===================== -->
+<section class="frame" id="C11" style="height:1080px; background:linear-gradient(150deg,#eef0fb 0%,#ffffff 55%);">
+  <div class="nav" style="color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p><p>#2026</p><p>BBMALL</p>
+  </div>
+
+  <p class="abs" style="left:83px; top:135px; font-family:var(--en-font); font-weight:600; font-size:22px; color:#636363;">User Center</p>
+  <p class="abs" style="left:78px; top:172px; font-size:54px; font-weight:700; color:#000;"><span style="color:#1d3fd6;">{</span> 认证流程<span style="color:#1d3fd6;">}</span></p>
+  <svg class="abs" style="left:94px; top:232px;" width="350" height="37" viewBox="0 0 350 37"><path opacity="0.3" d="M2.00049 34.2489C47.0005 14.2489 119.5 6.74893 135.5 14.2489C143.09 17.8064 123.501 34.7134 151.5 24.7485C181 14.2493 321 -2.75069 347.5 3.24931" stroke="#3456FF" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+
+  <p class="abs" style="left:80px; top:300px; width:299px; font-size:15px; line-height:24px; color:#666;">用户通过商家认证中心的认证后，即可解锁采购批次价格以及专属客服</p>
+
+  <div class="abs" style="left:78px; top:494px; display:flex; align-items:baseline; gap:8px;">
+    <span style="width:10px;height:10px;border-radius:50%;border:3px solid #555aff;box-sizing:border-box;background:transparent;align-self:center;"></span>
+    <span style="font-size:20px; font-weight:700; color:#212121;">身份认证流程优化</span>
+    <span style="font-family:var(--en-font); font-size:12px; color:#9196a0;">/ Brand Category</span>
+  </div>
+  <p class="abs" style="left:78px; top:540px; width:356px; font-size:16px; line-height:28px; color:#6f7683;">身份认证的初始选项，考虑选择身份时会产生比较大的页面表单变化，因此默认隐藏子表单，在用户选择之后再展示，让页面交互的体感更加稳固</p>
+
+  <img class="abs" src="images/c11_phone1.png" style="left:469px; top:158px; width:330px; height:715px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c11_phone2.png" style="left:829px; top:300px; width:330px; height:715px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c11_phone3.png" style="left:1189px; top:122px; width:330px; height:1031px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c11_phone4.png" style="left:1549px; top:148px; width:330px; height:715px; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.12); z-index:1;">
+  <img class="abs" src="images/c11_popup.png" style="left:1549px; top:755px; width:264px; height:318px; border-radius:14px; box-shadow:0 20px 50px rgba(0,0,0,0.22); z-index:3;">
+</section>
+
+</div>
+<script>
+  function fitStage(){
+    var stage = document.getElementById('stage');
+    var scale = window.innerWidth / 1920;
+    stage.style.transform = 'scale(' + scale + ')';
+    document.body.style.height = (stage.scrollHeight * scale) + 'px';
+  }
+  window.addEventListener('resize', fitStage);
+  window.addEventListener('load', fitStage);
+  fitStage();
+
+  function reportHeightToParent(){
+    try {
+      var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ __previewFrameHeight: h }, '*');
+      }
+    } catch (e) {}
+  }
+  window.addEventListener('resize', reportHeightToParent);
+  window.addEventListener('load', reportHeightToParent);
+  if (window.ResizeObserver) {
+    new ResizeObserver(reportHeightToParent).observe(document.body);
+  }
+  reportHeightToParent();
+</script>
+</body>
+</html>

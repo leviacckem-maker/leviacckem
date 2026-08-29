@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>QuantFlow - 量化投资分析平台</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="/trove-preview/manifest.json" />
+    <meta name="theme-color" content="#0B0E13" />
+
+    <!-- iOS PWA 全屏支持 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="QuantFlow" />
+    <link rel="apple-touch-icon" href="/trove-preview/icons/icon-192.png" />
+
+    <!-- 防止 iOS 电话号码自动识别 -->
+    <meta name="format-detection" content="telephone=no" />
+    <script defer src="/trove-preview/assets/index-BCXqv79v.js"></script>
+    <link rel="stylesheet" crossorigin href="/trove-preview/assets/index-Cy2ARe3m.css">
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- 注册 Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/trove-preview/sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

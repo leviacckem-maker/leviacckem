@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Misc Projects · 2026 Works</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cn-font: "PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC","WenQuanYi Micro Hei","Heiti SC","SimHei","Helvetica Neue",Arial,sans-serif;
+    --en-font: "Montserrat", sans-serif;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html,body{ background:#e7e7e7; }
+  body{ overflow-x:hidden; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeLegibility; }
+  #stage{ width:1920px; transform-origin: top left; display:flex; flex-direction:column; gap:1px; background:#e7e7e7; backface-visibility:hidden; }
+  .frame{ position:relative; width:1920px; height:1080px; overflow:hidden; background:#fff; flex-shrink:0; }
+  .abs{ position:absolute; }
+  img{ display:block; max-width:none; }
+  img.abs{ z-index:1; }
+  .abs:not(img){ z-index:2; }
+
+  /* ---- shared nav ---- */
+  .nav{ position:absolute; left:80px; top:60px; width:1760px; height:20px; display:flex; align-items:center; justify-content:space-between; font-family:var(--en-font); font-weight:600; font-size:16px; color:rgba(0,0,0,0.8); white-space:nowrap; z-index:5; }
+
+  /* ---- shared bottom-left tag ---- */
+  .tag{ position:absolute; left:80px; top:941px; height:22px; display:flex; align-items:center; gap:8px; z-index:5; }
+  .tag svg{ display:block; width:23.5723px; height:22px; flex-shrink:0; }
+  .tag span{ font-family:var(--en-font); font-weight:500; font-size:18px; color:#000; line-height:normal; white-space:nowrap; }
+
+  /* ---- shared title ---- */
+  .title{ position:absolute; left:73px; top:211px; width:490px; font-family:var(--cn-font); font-weight:700; font-size:54px; line-height:60px; color:#000; white-space:nowrap; z-index:5; }
+  .title .brace{ color:#1d3fd6; }
+
+  /* ---- shared description ---- */
+  .desc{ position:absolute; left:80px; top:311px; width:448px; font-family:var(--cn-font); font-weight:500; font-size:18px; line-height:28px; color:#6f7683; z-index:5; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- ============ C1: CCLAND 潮宠星球 ============ -->
+  <section class="frame" id="C1">
+    <img class="abs" src="images/c1_phones_v3.jpg" style="left:420px; top:0; width:1500px; height:1080px;" alt="CCLAND app screenshots collage">
+
+    <div class="nav">
+      <span>LEVI · DESIGN WORKS</span>
+      <span>#2026</span>
+      <span>CCLAND</span>
+    </div>
+
+    <div class="title">{<span> CCLAND潮宠星球</span>}</div>
+
+    <div class="desc">构建一种新世代人类与宠物之间情感交互的 “潮宠生活 ”，</div>
+
+    <div class="tag">
+      <svg viewBox="0 0 23.5723 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.42871 3.14258C9.42871 8.34979 13.6502 12.5712 18.8574 12.5713C13.6502 12.5714 9.42871 16.7928 9.42871 22C9.42871 16.7927 5.20726 12.5713 0 12.5713C5.20726 12.5713 9.42871 8.34983 9.42871 3.14258ZM18.8574 0C18.8574 2.60363 20.9686 4.71387 23.5723 4.71387C20.9686 4.71387 18.8574 6.82508 18.8574 9.42871C18.8574 6.82518 16.7471 4.71402 14.1436 4.71387C16.7471 4.71372 18.8574 2.60354 18.8574 0Z" fill="black"/></svg>
+      <span>零散作品展示-早期项目</span>
+    </div>
+  </section>
+
+  <!-- ============ C2: HAO MARKET 电商 ============ -->
+  <section class="frame" id="C2">
+    <img class="abs" src="images/c2_phones.jpg" style="left:380px; top:0; width:1540px; height:1080px;" alt="HAOMARKET app screenshots collage">
+
+    <div class="nav">
+      <span>LEVI · DESIGN WORKS</span>
+      <span>#2026</span>
+      <span>HAOMARKET</span>
+    </div>
+
+    <div class="title" style="width:525px;">{<span> HAO MARKET 电商</span>}</div>
+
+    <div class="desc" style="width:423px; font-size:16px;">HAOMARKET 归属于上海芝里商贸有限公司，一家汇聚全球24个国家及地区的3000＋好物的买手店，更是一家融合自然好物与时尚美学的艺术生活馆</div>
+
+    <div class="tag">
+      <svg viewBox="0 0 23.5723 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.42871 3.14258C9.42871 8.34979 13.6502 12.5712 18.8574 12.5713C13.6502 12.5714 9.42871 16.7928 9.42871 22C9.42871 16.7927 5.20726 12.5713 0 12.5713C5.20726 12.5713 9.42871 8.34983 9.42871 3.14258ZM18.8574 0C18.8574 2.60363 20.9686 4.71387 23.5723 4.71387C20.9686 4.71387 18.8574 6.82508 18.8574 9.42871C18.8574 6.82518 16.7471 4.71402 14.1436 4.71387C16.7471 4.71372 18.8574 2.60354 18.8574 0Z" fill="black"/></svg>
+      <span>零散作品展示-早期项目</span>
+    </div>
+  </section>
+
+  <!-- ============ C3: 诸葛驾到 ============ -->
+  <section class="frame" id="C3">
+    <img class="abs" src="images/c3_phones_v2.jpg" style="left:450px; top:0; width:1470px; height:1080px;" alt="ZhugeJiaDao app screenshots collage">
+
+    <img class="abs" src="images/c3_logo.png" style="left:84.5px; top:237px; width:80px; height:80px;" alt="诸葛驾到 logo">
+
+    <div class="nav">
+      <span>LEVI · DESIGN WORKS</span>
+      <span>#2026</span>
+      <span>ZHUGE</span>
+    </div>
+
+    <div class="title" style="top:375.89px; width:266px;">{<span> 诸葛驾到</span>}</div>
+
+    <div class="desc" style="top:467px; width:448px;">互联网大数据结合人工智能产出的驾考服务平台专注于资源整合、驾驶培训、汽车金融和车后市场等业务，以全新的智能机器人模式，结合精准的数据反馈提升用户的综合学车体验于拿证效率</div>
+
+    <div class="tag">
+      <svg viewBox="0 0 23.5723 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.42871 3.14258C9.42871 8.34979 13.6502 12.5712 18.8574 12.5713C13.6502 12.5714 9.42871 16.7928 9.42871 22C9.42871 16.7927 5.20726 12.5713 0 12.5713C5.20726 12.5713 9.42871 8.34983 9.42871 3.14258ZM18.8574 0C18.8574 2.60363 20.9686 4.71387 23.5723 4.71387C20.9686 4.71387 18.8574 6.82508 18.8574 9.42871C18.8574 6.82518 16.7471 4.71402 14.1436 4.71387C16.7471 4.71372 18.8574 2.60354 18.8574 0Z" fill="black"/></svg>
+      <span>零散作品展示-早期项目</span>
+    </div>
+  </section>
+
+</div>
+<script>
+  function fitStage(){
+    var stage = document.getElementById('stage');
+    var scale = window.innerWidth / 1920;
+    stage.style.transform = 'scale(' + scale + ')';
+    document.body.style.height = (stage.scrollHeight * scale) + 'px';
+  }
+  window.addEventListener('resize', fitStage);
+  window.addEventListener('load', fitStage);
+  fitStage();
+
+  function reportHeightToParent(){
+    try {
+      var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ __previewFrameHeight: h }, '*');
+      }
+    } catch (e) {}
+  }
+  window.addEventListener('resize', reportHeightToParent);
+  window.addEventListener('load', reportHeightToParent);
+  if (window.ResizeObserver) {
+    new ResizeObserver(reportHeightToParent).observe(document.body);
+  }
+  reportHeightToParent();
+</script>
+</body>
+</html>

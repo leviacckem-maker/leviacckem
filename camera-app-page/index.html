@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Camera App Redesign · 2026 Works</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cn-font: "PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC","WenQuanYi Micro Hei","Heiti SC","SimHei","Helvetica Neue",Arial,sans-serif;
+    --en-font: "Montserrat", sans-serif;
+    --stage-w: 1920;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html,body{ background:#e7e7e7; }
+  body{ overflow-x:hidden; }
+  #stage{
+    width:1920px;
+    transform-origin: top left;
+    display:flex;
+    flex-direction:column;
+    gap:1px;
+    background:#e7e7e7;
+  }
+  .frame{
+    position:relative;
+    width:1920px;
+    overflow:hidden;
+    background:#fff;
+    flex-shrink:0;
+  }
+  .abs{ position:absolute; }
+  .nav{
+    position:absolute; left:0; top:60px; width:100%; z-index:2;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--en-font); font-weight:600; font-size:16px;
+    letter-spacing:.2px;
+  }
+  .nav p{ font-weight:600; white-space:nowrap; }
+  img{ display:block; max-width:none; }
+  img.abs{ z-index:1; }
+  .abs:not(img){ z-index:2; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- ================= A01 COVER ================= -->
+<section class="frame" id="A01" style="height:1200px;">
+  <div class="abs" style="inset:0;background:url('images/a01_bg.jpg') center 46%/cover no-repeat;"></div>
+
+  <div class="nav" style="left:123px;width:1675px;color:rgba(255,255,255,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+
+  <p class="abs" style="left:105px;top:286px;font-family:var(--en-font);font-weight:900;font-size:88px;color:#fff;white-space:nowrap;">#REDESIGN</p>
+
+  <p class="abs" style="left:104px;top:474px;font-family:var(--en-font);font-weight:900;font-size:150px;color:#fff;white-space:nowrap;line-height:normal;">CAMERA APP</p>
+
+  <div class="abs" style="left:100px;top:587px;width:1094px;transform:scaleY(-1);overflow:hidden;height:160px;">
+    <p style="font-family:var(--en-font);font-weight:900;font-size:150px;white-space:nowrap;background:linear-gradient(to top, rgba(255,255,255,0.16), rgba(153,153,153,0) 70%);-webkit-background-clip:text;background-clip:text;color:transparent;">CAMERA APP</p>
+  </div>
+
+  <div class="abs" style="left:112.71px;top:460px;width:213.37px;height:53.06px;background:#d33e3e;clip-path:polygon(0 0, 93.68% 0, 100% 49%, 100% 51%, 93.68% 100%, 0 100%);"></div>
+  <span class="abs" style="left:303.69px;top:482.74px;width:8.66px;height:8.66px;border-radius:50%;background:#f6f6f6;"></span>
+  <p class="abs" style="left:130.17px;top:472.5px;font-family:var(--en-font);font-weight:600;font-size:22px;color:#fff;white-space:nowrap;">2026 WORKS</p>
+
+  <div class="abs" style="left:120px;top:797px;width:113px;height:4px;background:#fff;border-radius:2px;"></div>
+
+  <p class="abs" style="left:110px;top:1057px;font-family:var(--cn-font);font-weight:700;font-size:36px;color:#fff;white-space:nowrap;">智能监控终端应用</p>
+  <p class="abs" style="left:450px;top:1065px;width:260px;font-family:var(--cn-font);font-weight:500;font-size:18px;line-height:28px;color:rgba(255,255,255,0.6);">海外/国内市场  中英双语</p>
+
+  <div class="abs" style="left:1024px;top:1037px;width:2px;height:67px;background:#32f8ca;"></div>
+  <p class="abs" style="left:1055px;top:1034px;font-family:var(--en-font);font-weight:600;font-size:24px;color:#32f8ca;white-space:nowrap;">DESIGN · CONNECT · PROTECT</p>
+  <p class="abs" style="left:1055px;top:1083px;font-family:var(--en-font);font-weight:600;font-size:20px;color:#fff;white-space:nowrap;">设计 · 连接 · 守护</p>
+</section>
+
+<!-- ================= A02 DESIGN STRATEGY ================= -->
+<section class="frame" id="A02" style="height:1440px;background:#fff;">
+  <div class="nav" style="left:80px;width:1761px;color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+
+  <p class="abs" style="left:80px;top:200px;font-family:var(--cn-font);font-weight:500;font-size:24px;color:#000;white-space:nowrap;">通过分析现状·竞品调研·行业分析构建设计策略</p>
+  <p class="abs" style="left:80px;top:258px;font-family:var(--en-font);font-weight:700;font-size:54px;line-height:60px;color:#000;white-space:nowrap;">Design Strategy</p>
+  <p class="abs" style="left:calc(80px + 1332px);top:222px;font-family:var(--cn-font);font-weight:500;font-size:16px;color:#808080;white-space:nowrap;"> * 由于篇幅有限，完整体验报告放置于个人作品网站中进行展示</p>
+
+  <!-- card 1 -->
+  <div class="abs" style="left:87px;top:452px;width:542px;height:674px;border-radius:24px;background:#eff0f1;overflow:hidden;">
+    <img src="images/a02_img1.jpg" style="position:absolute;left:96px;top:0;width:351px;height:926px;object-fit:cover;">
+  </div>
+  <!-- card 2 -->
+  <div class="abs" style="left:689px;top:452px;width:542px;height:674px;border-radius:24px;background:#eff0f1;overflow:hidden;">
+    <img src="images/a02_img2.jpg" style="position:absolute;left:50%;top:0;width:372px;height:906px;transform:translateX(-50%);object-fit:cover;">
+  </div>
+  <!-- card 3 : goal list -->
+  <div class="abs" style="left:1291px;top:452px;width:542px;height:674px;border-radius:24px;background:#eff0f1;">
+    <div class="abs" style="left:40px;top:80px;width:462px;padding:20px;display:flex;align-items:center;gap:32px;background:#fff;border-radius:15px;">
+      <div style="width:60px;height:60px;border-radius:15px;background:#26b1c3;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><img src="images/a02_icon.svg" style="width:35px;height:35px;filter:brightness(0) invert(1);"></div>
+      <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#000;white-space:nowrap;">UI层整体重构</p>
+    </div>
+    <div class="abs" style="left:40px;top:220px;width:462px;padding:20px;display:flex;align-items:center;gap:32px;background:#fff;border-radius:15px;">
+      <div style="width:60px;height:60px;border-radius:15px;background:#3189fb;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><img src="images/a02_icon.svg" style="width:35px;height:35px;filter:brightness(0) invert(1);"></div>
+      <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#000;white-space:nowrap;">主要业务模块UX设计</p>
+    </div>
+    <div class="abs" style="left:40px;top:360px;width:462px;padding:20px;display:flex;align-items:center;gap:32px;background:#fff;border-radius:15px;">
+      <div style="width:60px;height:60px;border-radius:15px;background:#1bbfa1;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><img src="images/a02_icon.svg" style="width:35px;height:35px;filter:brightness(0) invert(1);"></div>
+      <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#000;white-space:nowrap;">增值业务转化链路优化</p>
+    </div>
+    <div class="abs" style="left:40px;top:500px;width:462px;padding:20px;display:flex;align-items:center;gap:32px;background:#fff;border-radius:15px;">
+      <div style="width:60px;height:60px;border-radius:15px;background:#3b3e3f;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><img src="images/a02_icon.svg" style="width:35px;height:35px;filter:brightness(0) invert(1);"></div>
+      <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#000;white-space:nowrap;">规范设计体系/变量化</p>
+    </div>
+  </div>
+
+  <!-- captions -->
+  <p class="abs" style="left:347.5px;top:1251px;width:456px;transform:translateX(-50%);text-align:center;font-family:var(--cn-font);font-weight:500;font-size:20px;line-height:28px;color:rgba(0,0,0,0.7);">对过去1年应用商店的差评截图，丢给AI进行问题梳理<br>及分析客群和设计现状</p>
+  <p class="abs" style="left:952px;top:1251px;width:456px;transform:translateX(-50%);text-align:center;font-family:var(--cn-font);font-weight:500;font-size:20px;line-height:28px;color:rgba(0,0,0,0.7);">通过优秀竞品分析得出行业趋势和设计机会点，通过主要竞品分析对齐同阶段与竞品的主要差异</p>
+  <p class="abs" style="left:1562px;top:1251px;width:456px;transform:translateX(-50%);text-align:center;font-family:var(--cn-font);font-weight:500;font-size:20px;line-height:28px;color:rgba(0,0,0,0.7);">通过对于前期分析和项目节奏的把控，定义设计目标</p>
+
+  <!-- numbered labels -->
+  <div class="abs" style="left:183px;top:1196px;display:flex;align-items:center;gap:20px;">
+    <span style="background:#26b1c3;color:#fff;border-radius:2222px;height:35px;padding:0 16px;display:flex;align-items:center;font-family:var(--en-font);font-weight:600;font-size:20px;">01</span>
+    <span style="font-family:var(--cn-font);font-weight:600;font-size:28px;color:#000;white-space:nowrap;">差评整理/客群分析</span>
+  </div>
+  <div class="abs" style="left:774px;top:1196px;display:flex;align-items:center;gap:20px;">
+    <span style="background:#26b1c3;color:#fff;border-radius:2222px;height:35px;padding:0 16px;display:flex;align-items:center;font-family:var(--en-font);font-weight:600;font-size:20px;">02</span>
+    <span style="font-family:var(--cn-font);font-weight:600;font-size:28px;color:#000;white-space:nowrap;">优秀竞品/主要竞品分析</span>
+  </div>
+  <div class="abs" style="left:1433px;top:1196px;display:flex;align-items:center;gap:20px;">
+    <span style="background:#26b1c3;color:#fff;border-radius:2222px;height:35px;padding:0 16px;display:flex;align-items:center;font-family:var(--en-font);font-weight:600;font-size:20px;">03</span>
+    <span style="font-family:var(--cn-font);font-weight:600;font-size:28px;color:#000;white-space:nowrap;">确定设计目标</span>
+  </div>
+</section>
+
+<!-- ================= A03 PAGE PREVIEW (flattened export) ================= -->
+<section class="frame" id="A03" style="height:1366px;background:#fff;">
+  <img src="images/a03_full.jpg" style="width:1920px;height:1366px;">
+</section>
+
+<!-- ================= A04 HOME DESIGN ================= -->
+<section class="frame" id="A04" style="height:1467px;background:linear-gradient(142deg,#f1ffff 8%,#ffffff 39%,#f5f6f8 86%);">
+  <div class="nav" style="left:80px;width:1761px;color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+
+  <p class="abs" style="left:80px;top:180px;font-family:var(--cn-font);font-weight:500;font-size:24px;color:#000;white-space:nowrap;">首页·设备卡片状态设计</p>
+  <p class="abs" style="left:80px;top:238px;font-family:var(--en-font);font-weight:700;font-size:54px;line-height:60px;color:#000;white-space:nowrap;">HOME DESIGN</p>
+
+  <div class="abs" style="left:102px;top:356px;width:804px;padding:24px 32px;border-radius:12px;background:rgba(0,0,0,0.04);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#05674d;margin-bottom:20px;">家庭模式设计</p>
+    <div style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:28px;color:rgba(52,52,52,0.6);">
+      <p>· 安防类应用区别与常规家庭智能APP，其使命是承载异常处理和云端看家，常态下需保持视觉肃静</p>
+      <p>· 从竞品的调研结果来看，模式设计是海外产品的显著趋势，其本质是基于多设备的组合控制</p>
+      <p>· 新增定时撤防功能，基于用户临时的个性化需求，塑造便捷操作</p>
+    </div>
+  </div>
+
+  <span class="abs" style="left:208px;top:623px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">设备列表</span>
+  <span class="abs" style="left:981px;top:215px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">强提示-会导致监控功能失效→ 必须行动</span>
+  <span class="abs" style="left:1450px;top:215px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">弱提示-过程性 → 无需行动</span>
+  <span class="abs" style="left:1455px;top:585px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">特殊设备-门铃机</span>
+  <span class="abs" style="left:1455px;top:907px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">接收权限分享</span>
+
+  <img class="abs" src="images/a04_phone1.jpg" style="left:506px;top:593px;width:400px;height:810.1px;">
+  <img class="abs" src="images/a04_card1.jpg" style="left:1013px;top:505px;width:340px;height:239.33px;">
+  <img class="abs" src="images/a04_card3.jpg" style="left:1455px;top:324px;width:320px;height:225.25px;">
+  <img class="abs" src="images/a04_card2.jpg" style="left:1013px;top:767px;width:340px;height:239.33px;">
+  <img class="abs" src="images/a04_card4.png" style="left:1013px;top:1096px;width:340px;height:239.33px;">
+  <img class="abs" src="images/a04_devrow1.png" style="left:1455px;top:657px;width:358px;height:83px;">
+  <img class="abs" src="images/a04_devrow2.png" style="left:1455px;top:765px;width:358px;height:83px;">
+  <img class="abs" src="images/a04_sharecard.png" style="left:1455px;top:973px;width:320px;height:400px;">
+  <img class="abs" src="images/a04_phone2.png" style="left:100px;top:693px;width:330px;height:714.15px;">
+  <div class="abs" style="left:810px;top:1149px;width:167px;background:#fff;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,0.06);padding:8.939px 8.939px 2.235px;">
+    <p style="font-family:'Poppins',var(--en-font);font-weight:600;font-size:8.939px;color:#1e2329;margin-bottom:8.939px;">Turn off message alerts</p>
+    <div style="border-top:0.559px solid #eff0f2;padding:8.939px 0;"><span style="font-family:'Poppins',var(--en-font);font-weight:500;font-size:7.821px;color:#1e2329;">Close for 30 minutes</span></div>
+    <div style="border-top:0.559px solid #eff0f2;padding:8.939px 0;"><span style="font-family:'Poppins',var(--en-font);font-weight:500;font-size:7.821px;color:#1e2329;">Close for 1 hour</span></div>
+    <div style="border-top:0.559px solid #eff0f2;padding:8.939px 0;"><span style="font-family:'Poppins',var(--en-font);font-weight:500;font-size:7.821px;color:#1e2329;">Custom time</span></div>
+    <div style="border-top:0.559px solid #eff0f2;padding:8.939px 0;"><span style="font-family:'Poppins',var(--en-font);font-weight:500;font-size:7.821px;color:#1e2329;">Close immediately</span></div>
+  </div>
+
+  <div class="abs" style="left:977px;top:435px;width:408px;height:938px;border:3px dashed #d3d6d8;border-radius:20px;"></div>
+
+  <p class="abs" style="left:987px;top:284px;width:405px;font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:24px;color:rgba(52,52,52,0.6);"><span style="font-weight:600;color:#343434;">安防类硬件的体验设计天然"重状态"</span>：离线、休眠、流量不足、更新……信息会持续产生。如果区分权重呈现，用户进首页看到的不是"家里的情况"，而是一堆需要自己辨别优先级的噪音</p>
+  <p class="abs" style="left:1456px;top:281px;width:366px;font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:24px;color:rgba(52,52,52,0.6);">不是"要不要处理"，而是"不处理会不会造成损失"</p>
+
+  <div class="abs" style="left:1016px;top:465px;display:flex;align-items:center;gap:8px;">
+    <span style="width:9px;height:9px;border-radius:50%;background:#ff9a2e;flex-shrink:0;"></span>
+    <span style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:24px;color:rgba(52,52,52,0.6);white-space:nowrap;">掉线/休眠 保持画面同时加以提示</span>
+  </div>
+  <div class="abs" style="left:1016px;top:1049px;display:flex;align-items:center;gap:8px;">
+    <span style="width:9px;height:9px;border-radius:50%;background:#8a8f98;flex-shrink:0;"></span>
+    <span style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:24px;color:rgba(52,52,52,0.6);white-space:nowrap;">无流量--画面置灰，提示用户充值流量</span>
+  </div>
+</section>
+
+<!-- ================= A05 LIVE STATUS DESIGN ================= -->
+<section class="frame" id="A05" style="height:1522px;background:radial-gradient(circle at 0% 0%, rgba(217,239,255,0.73), rgba(209,255,241,0) 60%), linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, #f5f6f8 58%, #f5f6f8 100%);">
+  <div class="nav" style="left:80px;width:1761px;color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+
+  <p class="abs" style="left:80px;top:180px;font-family:var(--cn-font);font-weight:500;font-size:24px;color:#000;white-space:nowrap;">直播模块交互展示</p>
+  <p class="abs" style="left:80px;top:238px;font-family:var(--en-font);font-weight:700;font-size:54px;line-height:60px;color:#000;white-space:nowrap;">Live Status Design</p>
+
+  <img class="abs" src="images/a05_merged1.jpg" style="left:104px;top:448px;width:390px;height:790px;">
+  <img class="abs" src="images/a05_merged2.jpg" style="left:544px;top:586.92px;width:390px;height:790px;">
+  <img class="abs" src="images/a05_merged3.jpg" style="left:988px;top:588.92px;width:390px;height:790px;">
+  <img class="abs" src="images/a05_merged4.png" style="left:1430px;top:591.85px;width:390px;height:790px;">
+  <img class="abs" src="images/a05_toast.png" style="left:178px;top:1338px;width:228px;height:131px;">
+
+  <div class="abs" style="left:227px;top:390px;display:flex;align-items:center;gap:4px;padding:2px 12px;border-radius:24px;background:rgba(0,0,0,0.04);">
+    <img src="images/a05_dot.svg" style="width:6px;height:6px;">
+    <span style="font-family:var(--cn-font);font-weight:600;font-size:14px;color:rgba(52,52,52,0.9);white-space:nowrap;">录像模式明确呈现</span>
+  </div>
+
+  <div class="abs" style="left:561px;top:380px;width:557px;padding:24px 32px;border-radius:12px;background:rgba(0,0,0,0.04);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#05674d;margin-bottom:20px;">直播回放·模块化设计</p>
+    <div style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:28px;color:rgba(52,52,52,0.6);">
+      <p>通过底部 Tab 明确区分 Live 与 Replay，并承载各自的场景交互</p>
+      <p>Live："实时场景呈现，直播聚焦实时观察与设备控制</p>
+      <p>Replay：过去发生了什么，我要查什么，回放聚焦历史事件检索与查看</p>
+    </div>
+  </div>
+
+  <div class="abs" style="left:1209px;top:380px;width:601px;padding:24px 32px;border-radius:12px;background:rgba(0,0,0,0.04);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#05674d;margin-bottom:20px;">视觉减负·交互有序</p>
+    <div style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:28px;color:rgba(52,52,52,0.6);">
+      <p>提取高频核心操作，统一交互模式，</p>
+      <p>而检测设置入口虽重要但很低频，首次进入对其强触达，但不常态占据功能位</p>
+    </div>
+  </div>
+
+  <img class="abs" src="images/a05_vec92.svg" style="left:1728.5px;top:264px;width:108px;height:4px;">
+
+  <div class="abs" style="left:1230px;top:1126px;width:544px;padding:24px 32px;border-radius:12px;background:rgba(255,255,255,0.84);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#05674d;margin-bottom:20px;">异常节点轴</p>
+    <div style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:28px;color:rgba(52,52,52,0.6);">
+      <p>每个整点，刻度轴增高，以此凸显时间节点</p>
+      <p>每个异常片段，按风险等级呈现橙色/红色粗节点，方便用户快速定位</p>
+    </div>
+  </div>
+  <img class="abs" src="images/a05_vec99.svg" style="left:372.5px;top:1289.5px;width:1270px;height:150px;">
+
+  <span class="abs" style="left:234px;top:1259px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">录屏状态</span>
+  <span class="abs" style="left:687px;top:1414px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">语音状态</span>
+  <span class="abs" style="left:1133px;top:1414px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">云台状态</span>
+  <span class="abs" style="left:1589px;top:1414px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">回放页</span>
+</section>
+
+<!-- ================= A06 LIVE MODULE DESIGN ================= -->
+<section class="frame" id="A06" style="height:1837px;background-color:#0a0b0e;background-image:url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTkyMCAxODM3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyZWN0IHg9IjAiIHk9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIG9wYWNpdHk9IjEiLz48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMCIgY3k9IjAiIHI9IjEwIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDkxLjQyOSAwIDAgODcuNDc2IDEzNjIuMyA3OC43MjkpIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDQ4LDEzNiwyMjksMC4xMikiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoNDgsMTM2LDIyOSwwKSIgb2Zmc2V0PSIxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PC9zdmc+'), url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTkyMCAxODM3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyZWN0IHg9IjAiIHk9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIG9wYWNpdHk9IjEiLz48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMCIgY3k9IjAiIHI9IjEwIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDQuODM2MmUtMTQgLTE5Ny4xIDI4OS4zNyA4LjYxNTRlLTkgOTYwIDE5NzEpIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMjAyLDE2OSwxKSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSg2LDE3MSwxNDUsMSkiIG9mZnNldD0iMC4wNSIvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMTIsMTQwLDEyMSwxKSIgb2Zmc2V0PSIwLjEiLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDEyLDEwMCw4OSwxKSIgb2Zmc2V0PSIwLjIyNSIvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMTEsNjAsNTcsMSkiIG9mZnNldD0iMC4zNSIvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMTAsNDMsNDMsMSkiIG9mZnNldD0iMC41Ii8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSg4LDI2LDI4LDEpIiBvZmZzZXQ9IjAuNjUiLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDcsOSwxMiwxKSIgb2Zmc2V0PSIxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PC9zdmc+');">
+<div class="nav" style="left:80px;width:1761px;color:rgba(255,255,255,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+  <p class="abs" style="left:80px;top:200px;font-family:var(--cn-font);font-weight:500;font-size:24px;color:#fff;white-space:nowrap;">直播模块UX设计</p>
+  <p class="abs" style="left:80px;top:268px;font-family:var(--en-font);font-weight:700;font-size:54px;line-height:60px;color:#fff;white-space:nowrap;">Live Module Design</p>
+
+  <span class="abs" style="left:1459px;top:230px;padding:24px;border-radius:12px;background:rgba(0,0,0,0.3);font-family:var(--en-font);font-weight:600;font-size:18px;color:#fff;white-space:nowrap;">Light/Dark 双模式</span>
+
+  <img class="abs" src="images/a06_group436.jpg" style="left:63px;top:440px;width:853px;height:423px;border-radius:16px;">
+  <img class="abs" src="images/a06_landscape.jpg" style="left:88px;top:922px;width:790px;height:365px;border-radius:16px;">
+  <img class="abs" src="images/a06_dual.jpg" style="left:89px;top:1353px;width:790px;height:365px;border-radius:16px;">
+  <img class="abs" src="images/a06_phone_hand.jpg" style="left:1240px;top:307px;width:680px;height:1024px;">
+  <img class="abs" src="images/a06_image296.jpg" style="left:1388px;top:1320px;width:360px;height:522px;">
+
+  <div class="abs" style="left:906px;top:504px;width:308px;padding:24px;border-radius:12px;background:rgba(0,0,0,0.3);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#a7f5e0;margin-bottom:20px;">引导分层</p>
+    <div style="font-family:var(--cn-font);font-weight:500;font-size:18px;line-height:28px;color:rgba(255,255,255,0.6);">
+      <p>旧版问题是一次性堆积过多引导，用户很难有耐心仔细看完，靠后的引导有效率很低</p><br>
+      <p>通过对引导场景的拆解，分别在设计在不同的节点去触达，降低单次引导长度，增强用户认知</p>
+    </div>
+  </div>
+
+  <div class="abs" style="left:906px;top:953px;width:308px;padding:24px;border-radius:12px;background:rgba(0,0,0,0.3);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#a7f5e0;margin-bottom:20px;">云台模式</p>
+    <p style="font-family:var(--cn-font);font-weight:500;font-size:18px;line-height:28px;color:rgba(255,255,255,0.6);">云台模式触达二段引导</p>
+  </div>
+
+  <div class="abs" style="left:906px;top:1095px;width:209px;padding:24px;border-radius:12px;background:rgba(0,0,0,0.3);display:flex;flex-direction:column;align-items:center;gap:20px;">
+    <img src="images/a06_icon267_v2.png" style="width:107.15px;height:64px;">
+    <p style="font-family:var(--en-font);font-weight:400;font-size:13.1px;color:#fff;text-align:center;">Swipe screen positioned</p>
+  </div>
+
+  <div class="abs" style="left:906px;top:1431px;width:308px;padding:24px;border-radius:12px;background:rgba(0,0,0,0.3);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#a7f5e0;margin-bottom:20px;">画面适配设计</p>
+    <p style="font-family:var(--cn-font);font-weight:500;font-size:18px;line-height:28px;color:rgba(255,255,255,0.6);">部分手机型号对画面有边缘区域的遮挡问题，为此增加模式适配按钮，默认展示适配后的效果，用户可手动放大至满屏</p>
+  </div>
+</section>
+
+<!-- ================= A07 VIDEO CALL DESIGN ================= -->
+<section class="frame" id="A07" style="height:1453px;background-color:#0a0b0e;background-image:linear-gradient(180deg, rgba(6, 7, 10, 0.5) 0%, rgba(6, 7, 10, 0.86) 58%, rgba(6, 7, 10, 0.97) 100%), url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTkyMCAxNDUzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyZWN0IHg9IjAiIHk9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIG9wYWNpdHk9IjEiLz48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMCIgY3k9IjAiIHI9IjEwIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDIxOC4xOCAwIDAgMTY1LjExIC0yNjEuODIgMCkiPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMjU1LDE5MCwxMjAsMC41KSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgyNTUsMTkwLDEyMCwwKSIgb2Zmc2V0PSIxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PC9zdmc+'), url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTkyMCAxNDUzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyZWN0IHg9IjAiIHk9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIG9wYWNpdHk9IjEiLz48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMCIgY3k9IjAiIHI9IjEwIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDE3MS40MyAwIDAgMTI5LjczIDE5MjAgOTM0LjA3KSI+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgyNTUsMTUwLDkwLDAuMzIpIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDI1NSwxNTAsOTAsMCkiIG9mZnNldD0iMSIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjwvc3ZnPg==');">
+<div class="nav" style="left:80px;width:1761px;color:rgba(255,255,255,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+  <p class="abs" style="left:90px;top:200px;font-family:var(--cn-font);font-weight:500;font-size:24px;color:#fff;white-space:nowrap;">特殊设备适配-支持双向通话</p>
+  <p class="abs" style="left:90px;top:268px;font-family:var(--en-font);font-weight:700;font-size:54px;line-height:60px;color:#fff;white-space:nowrap;">Video Call Design</p>
+
+  <div class="abs" style="left:820px;top:250px;padding:24px 48px;border-radius:19998px;background:rgba(0,0,0,0.24);border:2px solid rgba(206,212,255,0.16);display:flex;align-items:center;gap:32px;">
+    <img src="images/a07_videocall_icon.svg" style="width:44px;height:44px;">
+    <span style="font-family:var(--en-font);font-weight:500;font-size:24px;color:#fff;white-space:nowrap;">Video Call</span>
+  </div>
+
+  <img class="abs" src="images/a07_phone_call.jpg" style="left:1154px;top:612px;width:766px;height:841px;">
+  <img class="abs" src="images/a07_phone1.jpg" style="left:162px;top:713px;width:340px;height:736px;">
+  <img class="abs" src="images/a07_phone2.jpg" style="left:708px;top:712.8px;width:340px;height:736px;">
+
+  <div class="abs" style="left:267px;top:560px;width:107.146px;display:flex;flex-direction:column;gap:8px;">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;line-height:28px;color:#a7f5e0;">默认使用</p>
+    <img src="images/a07_default_icon_v2.png" style="width:107.146px;height:64px;">
+  </div>
+
+  <div class="abs" style="left:1243px;top:439px;width:597px;padding:24px;border-radius:12px;background:rgba(255,255,255,0.06);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#a7f5e0;margin-bottom:20px;">核心交互层级</p>
+    <div style="font-family:var(--cn-font);font-weight:500;font-size:18px;line-height:28px;color:rgba(255,255,255,0.6);">
+      <p>·社交场景的视频画面通常通过双方画面堆叠强调实时连接的属性</p>
+      <p>·但监控场景，视频区域为核心不可遮挡</p>
+    </div>
+  </div>
+
+  <div class="abs" style="left:657px;top:501px;width:452px;padding:24px;border-radius:12px;background:rgba(255,255,255,0.06);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#a7f5e0;margin-bottom:20px;">场景沉浸与干扰平衡</p>
+    <div style="font-family:var(--cn-font);font-weight:500;font-size:18px;line-height:28px;color:rgba(255,255,255,0.6);">
+      <p>用户可默认通过画面拖拽的交互调整监控视角，</p>
+      <p>在需要精细操作时，可再唤起云台，以此减少视频通话时存在过多干扰项</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= A08 CLOUD SERVICE DESIGN ================= -->
+<section class="frame" id="A08" style="height:1625px;background-color:#0a0b0e;background-image:linear-gradient(180deg, rgba(6, 7, 10, 0.5) 0%, rgba(6, 7, 10, 0.86) 58%, rgba(6, 7, 10, 0.97) 100%), url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTkyMCAxNjI1IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyZWN0IHg9IjAiIHk9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIG9wYWNpdHk9IjEiLz48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMCIgY3k9IjAiIHI9IjEwIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDIxOC4xOCAwIDAgMTg0LjY2IC0yNjEuODIgMCkiPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMTIwLDIzMCwyNTUsMC41KSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgxMjIsMTIwLDI1NSwwKSIgb2Zmc2V0PSIxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PC9zdmc+'), url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTkyMCAxNjI1IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyZWN0IHg9IjAiIHk9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIG9wYWNpdHk9IjEiLz48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMCIgY3k9IjAiIHI9IjEwIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDE3MS40MyAwIDAgMTQ1LjA5IDE5MjAgMTA0NC42KSI+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgyNTUsMTUwLDkwLDAuMzIpIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDI1NSwxNTAsOTAsMCkiIG9mZnNldD0iMSIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjwvc3ZnPg==');">
+<div class="nav" style="left:80px;width:1761px;color:rgba(255,255,255,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+  <p class="abs" style="left:80px;top:200px;font-family:var(--cn-font);font-weight:500;font-size:24px;color:#fff;white-space:nowrap;">云服务引导转化链路</p>
+  <p class="abs" style="left:80px;top:268px;font-family:var(--en-font);font-weight:700;font-size:54px;line-height:60px;color:#fff;white-space:nowrap;">Cloud Service Design</p>
+
+  <p class="abs" style="left:80px;top:420px;font-family:var(--cn-font);font-weight:700;font-size:40px;line-height:48px;color:#38ebbb;white-space:nowrap;">从功能介绍到价值触达的转变</p>
+
+  <div class="abs" style="left:80px;top:525px;width:300px;padding:24px 32px;border-radius:12px;background:rgba(0,0,0,0.3);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#a7f5e0;margin-bottom:20px;">原·技术思维介绍</p>
+    <p style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:28px;color:rgba(255,255,255,0.6);">信息超密集·全篇侧重技术介绍·普世价值认知难</p>
+  </div>
+  <div class="abs" style="left:410px;top:525px;width:316px;padding:24px 32px;border-radius:12px;background:rgba(0,0,0,0.3);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#a7f5e0;margin-bottom:20px;">新·痛点场景共情</p>
+    <p style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:28px;color:rgba(255,255,255,0.6);">陈述不同需求和痛点场景，直观呈现业务价值</p>
+  </div>
+
+  <div class="abs" style="left:224px;top:810px;width:356px;display:flex;flex-direction:column;align-items:center;gap:12px;">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#fff;text-align:center;">云服务转化链路</p>
+    <p style="font-family:var(--cn-font);font-weight:500;font-size:18px;color:rgba(255,255,255,0.6);text-align:center;">从了解到认可价值，是产品转化最核心的阶段</p>
+  </div>
+  <img class="abs" src="images/a08_funnel.jpg" style="left:60px;top:938px;width:718px;height:639px;">
+
+  <img class="abs" src="images/a08_phone1.jpg" style="left:886px;top:155px;width:372px;height:753px;border-radius:24px;">
+  <img class="abs" src="images/a08_review_card.png" style="left:1342px;top:502px;width:196px;height:187.5px;">
+  <img class="abs" src="images/a08_alert_card.png" style="left:1611px;top:502px;width:196px;height:187.5px;">
+  <img class="abs" src="images/a08_promo_card.png" style="left:1488px;top:907px;width:312px;height:420px;border-radius:16px;">
+  <img class="abs" src="images/a08_phone2.png" style="left:890px;top:996px;width:395px;height:639px;">
+
+  <div class="abs" style="left:1312px;top:206px;width:528px;padding:24px;border-radius:12px;background:rgba(0,0,0,0.5);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#a7f5e0;margin-bottom:20px;">多入口-场景化切入</p>
+    <div style="font-family:var(--cn-font);font-weight:500;font-size:18px;line-height:28px;color:rgba(255,255,255,0.6);">
+      <p>·完整云服务介绍页技术思维偏重，侧重功能陈述，文字信息过于密集，C端用户难以认知价值同时也很难耐心看完</p><br>
+      <p>·统一形式，增设多场景入口在不同的环节触达，降低单页信息量同时陈述用户痛点(如包裹被人偷走) 以凸显业务价值</p>
+    </div>
+  </div>
+
+  <span class="abs" style="left:1363px;top:714px;padding:4px 16px;border-radius:12px;background:rgba(38,177,195,0.15);font-family:var(--cn-font);font-weight:500;font-size:14px;color:#fff;white-space:nowrap;">宝宝今天学会了走路</span>
+  <span class="abs" style="left:1638px;top:714px;padding:4px 16px;border-radius:12px;background:rgba(38,177,195,0.15);font-family:var(--cn-font);font-weight:500;font-size:14px;color:#fff;white-space:nowrap;">包裹被人偷拿走了</span>
+
+  <p class="abs" style="left:933px;top:948px;font-family:var(--cn-font);font-weight:500;font-size:14px;color:rgba(255,255,255,0.6);white-space:nowrap;">完整云服务长图介绍页，给予用户深度了解的路径</p>
+
+  <div class="abs" style="left:1501px;top:1360px;width:285px;padding:16px 32px;border-radius:12px;background:rgba(255,255,255,0.05);display:flex;flex-direction:column;align-items:center;gap:12px;">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#a7f5e0;white-space:nowrap;">新用户免费</p>
+    <p style="font-family:var(--cn-font);font-weight:500;font-size:18px;color:rgba(255,255,255,0.6);white-space:nowrap;">认知增值业务, 塑造用户习惯</p>
+  </div>
+</section>
+
+<!-- ================= A09 AI INTELLIGENT DETECTION ================= -->
+<section class="frame" id="A09" style="height:2164px;background-color:#0a0b0e;background-image:url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTkyMCAyMTY0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyZWN0IHg9IjAiIHk9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIG9wYWNpdHk9IjEiLz48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMCIgY3k9IjAiIHI9IjEwIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDkxLjQyOSAwIDAgMTAzLjA1IDEzNjIuMyA5Mi43NDMpIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDQ4LDEzNiwyMjksMC4xMikiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoNDgsMTM2LDIyOSwwKSIgb2Zmc2V0PSIxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PC9zdmc+'), url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTkyMCAyMTY0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyZWN0IHg9IjAiIHk9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIG9wYWNpdHk9IjEiLz48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMCIgY3k9IjAiIHI9IjEwIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDQuODM2MmUtMTQgLTIzMi4xOSAyODkuMzcgMS4wMTQ5ZS04IDk2MCAyMzIxLjkpIj48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMjAyLDE2OSwxKSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSg2LDE3MSwxNDUsMSkiIG9mZnNldD0iMC4wNSIvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMTIsMTQwLDEyMSwxKSIgb2Zmc2V0PSIwLjEiLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDEyLDEwMCw4OSwxKSIgb2Zmc2V0PSIwLjIyNSIvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMTEsNjAsNTcsMSkiIG9mZnNldD0iMC4zNSIvPjxzdG9wIHN0b3AtY29sb3I9InJnYmEoMTAsNDMsNDMsMSkiIG9mZnNldD0iMC41Ii8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSg4LDI2LDI4LDEpIiBvZmZzZXQ9IjAuNjUiLz48c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDcsOSwxMiwxKSIgb2Zmc2V0PSIxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PC9zdmc+');">
+<div class="nav" style="left:80px;width:1761px;color:rgba(255,255,255,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+  <p class="abs" style="left:80px;top:200px;font-family:var(--cn-font);font-weight:500;font-size:24px;color:#fff;white-space:nowrap;">AI智能检测模块设计</p>
+  <p class="abs" style="left:80px;top:268px;font-family:var(--en-font);font-weight:700;font-size:54px;line-height:60px;color:#fff;white-space:nowrap;">AI Intelligent Detection</p>
+
+  <div class="abs" style="left:259px;top:444px;padding:24px;border-radius:12px;background:rgba(255,255,255,0.11);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#a7f5e0;white-space:nowrap;">AI智能检测</p>
+  </div>
+  <div class="abs" style="left:192px;top:708px;padding:24px;border-radius:12px;background:rgba(255,255,255,0.11);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#fff;white-space:nowrap;">" 我的车子前有人打架"</p>
+  </div>
+
+  <span class="abs" style="left:732px;top:455px;padding:8px 24px;border-radius:12px;background:#36363e;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#a7f5e0;white-space:nowrap;">命中已有能力</span>
+  <span class="abs" style="left:1134px;top:455px;padding:8px 24px;border-radius:12px;background:#36363e;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#a7f5e0;white-space:nowrap;">识别成功-但可优化</span>
+  <span class="abs" style="left:1570px;top:455px;padding:8px 24px;border-radius:12px;background:rgba(255,255,255,0.11);font-family:var(--cn-font);font-weight:600;font-size:18px;color:#a7f5e0;white-space:nowrap;">意图识别不明</span>
+
+  <p class="abs" style="left:685px;top:523px;width:261px;font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:24px;color:rgba(255,255,255,0.6);text-align:center;">用户自定义内容命中已有模型能力<br>引导使用已有固定模型，检测更精准</p>
+  <p class="abs" style="left:1102px;top:523px;width:261px;font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:24px;color:rgba(255,255,255,0.6);text-align:center;">主意图识别明确，但表达尚有欠缺，由对话AI负责完善好推送用户检查</p>
+  <p class="abs" style="left:1517px;top:523px;width:261px;font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:24px;color:rgba(255,255,255,0.6);text-align:center;">根据用户关键词智能推荐相关检测项，便于用户快速选择</p>
+
+  <img class="abs" src="images/a09_phone2_hello.jpg" style="left:97.35px;top:858px;width:498.5px;height:1015.5px;">
+  <img class="abs" src="images/a09_phone1_create.png" style="left:1470px;top:596px;width:350px;height:757.5px;">
+  <img class="abs" src="images/a09_phone6_confirm.png" style="left:1052px;top:601px;width:350px;height:757.5px;">
+  <img class="abs" src="images/a09_phone3_word.png" style="left:642px;top:607px;width:350px;height:757.5px;">
+  <img class="abs" src="images/a09_phone4_cloud.png" style="left:642px;top:1433px;width:350px;height:731px;">
+  <img class="abs" src="images/a09_phone5_ai.jpg" style="left:1056px;top:1431px;width:350px;height:733px;">
+  <img class="abs" src="images/a09_phone7_created.png" style="left:1466px;top:1427px;width:350px;height:737px;">
+  <img class="abs" src="images/a09_alertcard2.png" style="left:167px;top:1927px;width:356.5px;height:71px;">
+  <img class="abs" src="images/a09_alertcard1.png" style="left:188.37px;top:1976.18px;width:313.5px;height:62.5px;">
+</section>
+
+<!-- ================= A10 MESSAGE DESIGN ================= -->
+<section class="frame" id="A10" style="height:1097px;background:linear-gradient(142deg,#f1ffff 8%,#ffffff 39%,#f5f6f8 86%);">
+  <div class="nav" style="left:80px;width:1761px;color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+  <p class="abs" style="left:80px;top:180px;font-family:var(--cn-font);font-weight:500;font-size:24px;color:#000;white-space:nowrap;">消息预警模块设计</p>
+  <p class="abs" style="left:80px;top:238px;font-family:var(--en-font);font-weight:700;font-size:54px;line-height:60px;color:#000;white-space:nowrap;">Message Design</p>
+
+  <p class="abs" style="left:576px;top:317px;font-family:var(--cn-font);font-weight:500;font-size:16px;color:rgba(52,52,52,0.6);white-space:nowrap;">场景转化入口</p>
+  <img class="abs" src="images/a10_package_pill.png" style="left:553px;top:364px;width:155px;height:48px;z-index:3;">
+
+  <p class="abs" style="left:80px;top:398px;font-family:var(--cn-font);font-weight:600;font-size:24px;color:#05674d;white-space:nowrap;">从信息浏览到异常处理</p>
+  <p class="abs" style="left:80px;top:439px;width:491px;font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:28px;color:rgba(52,52,52,0.6);">不止于划分具体标签，更需要基于事件风险等级建立消息优先级，消息页面承载的从不是信息流，而是异常的快速处理</p>
+
+  <p class="abs" style="left:80px;top:565px;font-family:var(--cn-font);font-weight:600;font-size:24px;color:#05674d;white-space:nowrap;">从异常处理再到商业转化</p>
+  <p class="abs" style="left:80px;top:609px;font-family:var(--cn-font);font-weight:600;font-size:16px;color:#000;white-space:nowrap;">异常发生 → 消息触达 → 定位标签 → 点击 → 云服务转化</p>
+  <p class="abs" style="left:80px;top:647px;width:491px;font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:28px;color:rgba(52,52,52,0.6);">消息筛选纬度，加入订阅套餐中的固定标签检测，用户在点击标签入口时，触达云服务转化页面，根据点击入口展示不同的主体信息</p>
+
+  <span class="abs" style="left:819px;top:164px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">消息预警</span>
+  <span class="abs" style="left:1231px;top:164px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">预警详情</span>
+  <span class="abs" style="left:1617px;top:124px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">筛选消息</span>
+
+  <img class="abs" src="images/a10_phone_msg.png" style="left:686px;top:235px;width:390px;height:790px;">
+  <img class="abs" src="images/a10_phone_detail_cropped.jpg" style="left:1118px;top:258px;width:345px;height:747px;">
+  <img class="abs" src="images/a10_phone_filter.png" style="left:1505px;top:201px;width:345px;height:527.5px;">
+  <img class="abs" src="images/a10_noalert_card.png" style="left:1505px;top:760px;width:345px;height:331px;">
+  <img class="abs" src="images/a10_toast2.png" style="left:110px;top:831px;width:356.5px;height:83.5px;">
+  <img class="abs" src="images/a10_toast1.png" style="left:145.6px;top:892.3px;width:285px;height:67px;">
+</section>
+
+<!-- ================= A11 ADD DEVICE PROCESS ================= -->
+<section class="frame" id="A11" style="height:1644px;background-color:#fff;background-image:linear-gradient(0deg, rgba(56,255,242,0.13) 0%, rgba(56,255,242,0) 26.853%), linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgb(245,246,248) 58%, rgb(245,246,248) 100%);">
+  <div class="nav" style="left:80px;width:1761px;color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+  <p class="abs" style="left:80px;top:180px;font-family:var(--cn-font);font-weight:500;font-size:24px;color:#000;white-space:nowrap;">添加设备流程设计</p>
+  <p class="abs" style="left:80px;top:238px;font-family:var(--en-font);font-weight:700;font-size:54px;line-height:60px;color:#000;white-space:nowrap;">Add Device Process</p>
+
+  <!-- 现状 column card -->
+  <div class="abs" style="left:80px;top:408px;width:850px;height:971px;background:#fff;border-radius:24px;overflow:hidden;"></div>
+  <!-- 策略 column card -->
+  <div class="abs" style="left:990px;top:408px;width:850px;height:971px;background:#fff;border-radius:24px;overflow:hidden;"></div>
+
+  <!-- 现状 column (flowing layout: robust to text-height/font variance) -->
+  <div class="abs" style="left:117px;top:448px;width:776px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:20px;margin-bottom:80px;">
+      <div style="width:56px;height:56px;flex-shrink:0;border-radius:15.3px;background:#2c2e2e;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:var(--en-font);font-weight:600;font-size:24.5px;color:#fff;">01</span>
+      </div>
+      <span style="font-family:var(--cn-font);font-weight:700;font-size:32px;color:#000;">现状</span>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px;">
+      <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#000;">多种配网方式平级呈现，增加用户决策成本</p>
+      <p style="font-family:var(--cn-font);font-weight:500;font-size:20px;line-height:28px;color:rgba(0,0,0,0.6);">设备存在蓝牙、扫码、声波等多方式，但这些技术方案对普通用户而言并没有明确认知。若在入口阶段暴露所有方式，用户需先理解技术差异再选择，增加不必要的决策负担。</p>
+    </div>
+    <img src="images/a11_icons1.png" style="width:648.5px;height:70px;margin-bottom:80px;">
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px;">
+      <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#000;">产品型号无法作为稳定的添加入口</p>
+      <p style="font-family:var(--cn-font);font-weight:500;font-size:20px;line-height:28px;color:rgba(0,0,0,0.6);">由于品牌采用 OEM / 白牌设备模式，同一套 App 可能承载多个硬件产品，业务层无法稳定映射到具体 SKU。无法按照分类添加，同时用户也难以判断自己的设备对应哪一型号</p>
+    </div>
+    <img src="images/a11_icons2.png" style="width:445px;height:70px;margin-bottom:80px;">
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#000;">精准扫码添加 无法覆盖存量设备</p>
+      <p style="font-family:var(--cn-font);font-weight:500;font-size:20px;line-height:28px;color:rgba(0,0,0,0.6);">新设备可通过二维码快速识别，但老设备缺少二维码，无法依赖扫码完成设备识别。若继续将扫码作为统一入口，会导致老设备用户无法顺利进入添加流程</p>
+    </div>
+  </div>
+
+  <!-- 策略 column (flowing layout) -->
+  <div class="abs" style="left:1027px;top:448px;width:776px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:20px;margin-bottom:80px;">
+      <div style="width:56px;height:56px;flex-shrink:0;border-radius:15.1px;background:#26b1c3;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:var(--en-font);font-weight:600;font-size:24.2px;color:#fff;">02</span>
+      </div>
+      <span style="font-family:var(--cn-font);font-weight:700;font-size:32px;color:#000;">策略</span>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px;">
+      <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#000;">设备纬度划分类型添加</p>
+      <p style="font-family:var(--cn-font);font-weight:500;font-size:20px;line-height:28px;color:rgba(0,0,0,0.6);">以「设备底层划分」替代「连接协议」进行分类，不再平铺技术手段，而是从用户可感知的设备底层连接方式出发，将设备归纳为：WiFi Camera / 4G Camera，降低 OEM 产品扩展对前端信息架构的影响</p>
+    </div>
+    <img src="images/a11_icons3.png" style="width:402px;height:70px;margin-bottom:80px;">
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px;">
+      <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#000;">默认推荐高成功率路径，降低首次决策成本</p>
+      <p style="font-family:var(--cn-font);font-weight:500;font-size:20px;line-height:28px;color:rgba(0,0,0,0.6);">收纳原本的可选连接方式，WiFi 设备默认采用 Bluetooth 完成添加，其他连接方式在用户出现卡点时按其设备提供可选连接方式</p>
+    </div>
+    <img src="images/a11_icons4.png" style="width:444px;height:70px;margin-bottom:80px;">
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#000;">卡点环节依次提供解决方式</p>
+      <p style="font-family:var(--cn-font);font-weight:500;font-size:20px;line-height:28px;color:rgba(0,0,0,0.6);">在用户卡点时，及时呈现对应的可能及解决方式，并在添加环节 设计动态插图引导</p>
+    </div>
+  </div>
+
+  <!-- bottom review band (frosted glass, matches Figma backdrop-blur) -->
+  <div class="abs" style="left:0;top:1240px;width:1920px;height:404px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(255,255,255,0.4);z-index:0;"></div>
+  <p class="abs" style="left:831px;top:1317px;font-family:var(--cn-font);font-weight:600;font-size:20px;color:#000;white-space:nowrap;">来自应用商店的主要低分差评</p>
+
+  <!-- review card: Chaers (no rotation) -->
+  <div class="abs" style="left:809px;top:1405px;width:359px;padding:20px;background:#fff;border-radius:12px;display:flex;flex-direction:column;gap:24px;">
+    <div style="display:flex;align-items:center;gap:15px;">
+      <img src="images/a11_avatar_chaers.png" style="width:40px;height:40px;border-radius:50%;">
+      <span style="font-family:var(--cn-font);font-weight:600;font-size:20px;color:#1b1b1b;">Chaers</span>
+    </div>
+    <img src="images/a11_stars.png" style="width:110px;height:31px;">
+    <p style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:24px;color:#3b3b3b;">无法完成设备配置，引导步骤不清晰，说明书帮助有限。</p>
+  </div>
+
+  <!-- review card: Smith (rotated) -->
+  <div class="abs" style="left:379.09px;top:1414.91px;width:380.815px;height:238.267px;display:flex;align-items:center;justify-content:center;">
+    <div style="width:359px;padding:20px;background:#fff;border-radius:12px;display:flex;flex-direction:column;gap:24px;transform:rotate(-7.33deg);">
+      <div style="display:flex;align-items:center;gap:15px;">
+        <img src="images/a11_avatar_smith.png" style="width:40px;height:40px;border-radius:50%;">
+        <span style="font-family:var(--cn-font);font-weight:600;font-size:20px;color:#1b1b1b;">Smith</span>
+      </div>
+      <img src="images/a11_stars.png" style="width:110px;height:31px;">
+      <p style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:24px;color:#3b3b3b;">配网反复失败、连接不稳定，多次尝试仍无法完成设备添加。</p>
+    </div>
+  </div>
+
+  <!-- review card: Rock (rotated) -->
+  <div class="abs" style="left:1226.52px;top:1409.58px;width:381.967px;height:240.834px;display:flex;align-items:center;justify-content:center;">
+    <div style="width:359px;padding:20px;background:#fff;border-radius:12px;display:flex;flex-direction:column;gap:24px;transform:rotate(7.78deg);">
+      <div style="display:flex;align-items:center;gap:15px;">
+        <img src="images/a11_avatar_rock.png" style="width:40px;height:40px;border-radius:50%;">
+        <span style="font-family:var(--cn-font);font-weight:600;font-size:20px;color:#1b1b1b;">Rock</span>
+      </div>
+      <img src="images/a11_stars.png" style="width:110px;height:31px;">
+      <p style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:24px;color:#3b3b3b;">我根本不知道我的设备支持什么模式配网</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= A12 ADD DEVICE PROCESS (flow) ================= -->
+<section class="frame" id="A12" style="height:2257px;background-color:#fff;background-image:url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTkyMCAyMjU3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyZWN0IHg9IjAiIHk9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIG9wYWNpdHk9IjEiLz48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMCIgY3k9IjAiIHI9IjEwIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDE0Ny43NSA3OC4yIC05MS45MjYgMTczLjY4IC0xLjA2NThlLTEzIC01LjAxMTVlLTEzKSI+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgyMTcsMjM5LDI1NSwwLjczKSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0icmdiYSgyMDksMjU1LDI0MSwwKSIgb2Zmc2V0PSIxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PC9zdmc+');">
+<div class="nav" style="left:80px;width:1761px;color:rgba(0,0,0,0.8);">
+    <p>LEVI · DESIGN WORKS</p>
+    <p>#2026</p>
+    <p>Cameras app</p>
+  </div>
+  <p class="abs" style="left:80px;top:180px;font-family:var(--cn-font);font-weight:500;font-size:24px;color:#000;white-space:nowrap;">添加设备流程设计</p>
+  <p class="abs" style="left:80px;top:238px;font-family:var(--en-font);font-weight:700;font-size:54px;line-height:60px;color:#000;white-space:nowrap;">Add Device Process</p>
+
+  <div class="abs" style="left:829px;top:288px;width:540px;padding:24px 32px;border-radius:12px;background:rgba(0,0,0,0.04);">
+    <p style="font-family:var(--cn-font);font-weight:600;font-size:24px;color:#05674d;margin-bottom:20px;">分类塑造·状态拆解</p>
+    <p style="font-family:var(--cn-font);font-weight:500;font-size:16px;line-height:28px;color:rgba(52,52,52,0.6);">合理的塑造添加流程，降低用户决策成本，同时呈现清晰的进度及足量的动态引导，是本次设计的主要策略</p>
+  </div>
+
+  <img class="abs" src="images/a12_vec99.svg" style="left:346.5px;top:521.5px;width:1109.5px;height:280.5px;">
+  <!-- horizontal dashed connector across the 4 bottom pills -->
+  <div class="abs" style="left:369px;top:1411px;width:1058px;height:0;border-top:2px dashed rgba(29,166,122,0.45);z-index:1;"></div>
+  <!-- short vertical dashed ticks: phone → 卡点引导 pill -->
+  <div class="abs" style="left:1082.5px;top:1252px;height:30px;border-left:2px dashed rgba(29,166,122,0.45);z-index:1;"></div>
+  <div class="abs" style="left:354px;top:2148px;height:30px;border-left:2px dashed rgba(29,166,122,0.45);z-index:1;"></div>
+  <div class="abs" style="left:722px;top:2148px;height:30px;border-left:2px dashed rgba(29,166,122,0.45);z-index:1;"></div>
+  <div class="abs" style="left:1092.5px;top:2148px;height:30px;border-left:2px dashed rgba(29,166,122,0.45);z-index:1;"></div>
+
+  <img class="abs" src="images/a12_phone_select.png" style="left:80px;top:490px;width:390px;height:790px;">
+  <img class="abs" src="images/a12_4g01.png" style="left:570px;top:594.64px;width:314.5px;height:663.5px;">
+  <img class="abs" src="images/a12_4g02.png" style="left:925px;top:594.64px;width:314.5px;height:663.5px;">
+  <img class="abs" src="images/a12_4g03.png" style="left:1282px;top:594.64px;width:314.5px;height:663.5px;">
+  <img class="abs" src="images/a12_adding.png" style="left:1633px;top:694px;width:294.5px;height:663.5px;">
+  <img class="abs" src="images/a12_wifi01.png" style="left:209px;top:1484px;width:314.5px;height:663.5px;">
+  <img class="abs" src="images/a12_wifi02.png" style="left:570px;top:1493px;width:314.5px;height:663.5px;">
+  <img class="abs" src="images/a12_wifi03.png" style="left:942px;top:1493px;width:314.5px;height:663.5px;">
+  <img class="abs" src="images/a12_shared04.png" style="left:1291px;top:1493px;width:314.5px;height:663.5px;">
+  <img class="abs" src="images/a12_success.png" style="left:1637px;top:1412px;width:290.5px;height:663.5px;">
+
+  <span class="abs" style="left:206px;top:418px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">选择类型</span>
+  <span class="abs" style="left:639px;top:502px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">4g设备初始化</span>
+  <span class="abs" style="left:998px;top:502px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">设备初始化</span>
+  <span class="abs" style="left:1384px;top:502px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">声波</span>
+  <span class="abs" style="left:1730px;top:605px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">正在添加</span>
+  <span class="abs" style="left:1029px;top:1280px;padding:8px 24px;border-radius:12px;background:#ececec;font-family:var(--cn-font);font-weight:500;font-size:16px;color:#494949;white-space:nowrap;">卡点引导</span>
+  <span class="abs" style="left:286px;top:1390px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">wifi设备初始化</span>
+  <span class="abs" style="left:658px;top:1390px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">蓝牙搜索</span>
+  <span class="abs" style="left:1032px;top:1390px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">选择设备</span>
+  <span class="abs" style="left:1369px;top:1390px;padding:8px 24px;border-radius:12px;background:#deebed;font-family:var(--cn-font);font-weight:600;font-size:18px;color:#05674d;white-space:nowrap;">Wifi配网</span>
+  <span class="abs" style="left:298px;top:2178px;padding:8px 24px;border-radius:12px;background:#ececec;font-family:var(--cn-font);font-weight:500;font-size:16px;color:#494949;white-space:nowrap;">卡点引导</span>
+  <span class="abs" style="left:666px;top:2178px;padding:8px 24px;border-radius:12px;background:#ececec;font-family:var(--cn-font);font-weight:500;font-size:16px;color:#494949;white-space:nowrap;">卡点引导</span>
+  <span class="abs" style="left:1046px;top:2178px;padding:8px 24px;border-radius:12px;background:#ececec;font-family:var(--cn-font);font-weight:500;font-size:16px;color:#494949;white-space:nowrap;">卡点引导</span>
+</section>
+
+</div>
+<script>
+  function fitStage(){
+    var stage = document.getElementById('stage');
+    var scale = window.innerWidth / 1920;
+    stage.style.transform = 'scale(' + scale + ')';
+    document.body.style.height = (stage.scrollHeight * scale) + 'px';
+  }
+  window.addEventListener('resize', fitStage);
+  window.addEventListener('load', fitStage);
+  fitStage();
+
+  function reportHeightToParent(){
+    try {
+      var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ __previewFrameHeight: h }, '*');
+      }
+    } catch (e) {}
+  }
+  window.addEventListener('resize', reportHeightToParent);
+  window.addEventListener('load', reportHeightToParent);
+  if (window.ResizeObserver) {
+    new ResizeObserver(reportHeightToParent).observe(document.body);
+  }
+  reportHeightToParent();
+</script>
+</body>
+</html>
