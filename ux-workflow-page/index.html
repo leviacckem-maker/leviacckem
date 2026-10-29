@@ -261,7 +261,7 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
   if (embedded) document.documentElement.classList.add("embedded");
   else document.body.classList.add("standalone");
 
-  var fit = 1, k = 1, x = 0, y = 0, vw = 0, vh = 0;
+  var fit = 0, k = 1, x = 0, y = 0, vw = 0, vh = 0;
 
   function zoomed() { return k > fit * 1.001; }
   function clamp() {
@@ -287,7 +287,8 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
     apply();
   }
   function layout() {
-    var wasFit = !zoomed();
+    if (!vp.clientWidth) return;            // hidden / not laid out yet: wait for a real size
+    var wasFit = !fit || !zoomed();
     vw = vp.clientWidth;
     fit = Math.min(1, vw / W);
     var narrow = vw < 640;
@@ -365,6 +366,7 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
   vp.addEventListener("pointercancel", up);
 
   window.addEventListener("resize", layout);
+  if (window.ResizeObserver) new ResizeObserver(function () { if (vp.clientWidth !== vw) layout(); }).observe(vp);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
   window.addEventListener("load", layout);
   layout();
