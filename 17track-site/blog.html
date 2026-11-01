@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>17TRACK 博客</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0D14}
+a{color:#F2F4F8}a:hover{color:#FFFFFF}
+@keyframes arcflow{from{stroke-dashoffset:106}to{stroke-dashoffset:0}}
+.arc-run{stroke-dasharray:6 100;animation:arcflow 3.6s linear infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.4);opacity:0}}
+.hub-ring{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+.tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.tiltc,.gcard.tiltc,.gcard.tiltc:hover{transform:perspective(700px) translate3d(0,var(--lift,0px),0) rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));will-change:transform}
+.gcard.tiltc{transition:--sa .35s var(--eo)}
+.gcard.tiltc:hover{--lift:-3px}
+@media (prefers-reduced-motion:reduce){.tiltc{transform:none!important}}
+.floaty{animation:floaty 6s ease-in-out infinite}
+@property --sa{syntax:'<number>';inherits:true;initial-value:0}
+:root{--eo:cubic-bezier(.22,1,.36,1);--es:cubic-bezier(.32,.72,0,1)}
+.gcard{position:relative;overflow:hidden;--mx:50%;--my:-20%;--sa:0;transition:transform .35s var(--eo),--sa .35s var(--eo)}
+.gcard:hover{--sa:1;transform:translate3d(0,-3px,0)}
+.gcard::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(110,140,255,calc(0.10 * var(--sa))),transparent 60%),radial-gradient(110% 70% at 50% 0%,rgba(255,255,255,0.035),transparent 62%)}
+.gcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;padding:1px;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(160,185,255,calc(0.7 * var(--sa))),transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.pmap{translate:calc(var(--px,0) * -30px) calc(var(--py,0) * -16px);transition:translate 1s var(--eo);will-change:translate}
+.hl{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;z-index:0;will-change:transform;transition:transform .38s var(--es),width .38s var(--es),height .38s var(--es),opacity .22s ease}
+.gtile{display:flex;align-items:center;justify-content:center;color:#FFFFFF;background:linear-gradient(160deg,#5A84FF 0%,#2350F0 45%,#0A2BA8 100%);box-shadow:0 0 30px rgba(60,100,255,0.4),inset 0 1px 0 rgba(255,255,255,0.5),inset 0 -8px 14px rgba(0,10,60,0.35)}
+.ptile{overflow:hidden;display:flex;align-items:center;justify-content:center;color:#DCE4FF;background:linear-gradient(160deg,#1E212B,#111318);border:1px solid rgba(200,210,235,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.12),0 8px 20px rgba(0,0,0,0.35)}
+.gtext{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gnum{background:linear-gradient(180deg,#FFFFFF 10%,#A3AABB 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gword{background:linear-gradient(90deg,#8FB0FF 0%,#3D6BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ntile{display:flex;align-items:center;justify-content:center;color:#C9CED9;background:linear-gradient(160deg,#232737,#151823);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1)}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(200,210,235,0.16);transform:translate(-50%,-50%)}
+.gtile{transition:transform .4s var(--eo)}
+.gcard:hover .gtile{transform:scale(1.06)}
+.ptile img{transition:transform .5s var(--eo)}
+.ptile{container-type:size;background:#0F1014!important}
+.ptile img{object-fit:contain!important;background:#0F1014}
+@container (min-aspect-ratio: 9/8){.ptile img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%)}}
+.ptile:hover img,.gcard:hover .lift .ptile img{transform:scale(1.08)}
+.lift{transition:transform .4s var(--eo)}
+.gcard:hover .lift{transform:translate3d(0,-3px,0)}
+.bub{display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:13px;color:#C9CED9;background:radial-gradient(circle at 32% 26%,#2B3043,#12141D 72%);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 10px 24px rgba(0,0,0,0.4);transition:transform .45s var(--eo),border-color .3s ease}
+.gcard:hover .bub{transform:translate3d(0,-6px,0);border-color:rgba(110,145,255,0.35)}
+.btn{transition:transform .22s var(--eo),box-shadow .22s var(--eo),filter .22s ease}
+.btn:active,.btn2:active{transform:scale(.97)!important}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 12px 32px rgba(47,107,255,0.45)!important}
+.btn2{transition:transform .22s var(--eo),background .22s ease,border-color .22s ease}
+.btn2:hover{transform:translateY(-2px);background:rgba(255,255,255,0.08)!important;border-color:rgba(255,255,255,0.32)!important}
+.ar{display:inline-block;transition:transform .25s var(--eo)}
+a:hover .ar{transform:translateX(4px)}
+.chip{transition:transform .3s,border-color .3s}
+.chip:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.2)!important}
+.ring{transition:transform .6s var(--eo)}
+.gcard:hover .ring{transform:translate(-50%,-50%) scale(1.06)}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.reveal{animation:reveal 2.4s cubic-bezier(.65,0,.35,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pv{animation:fadeUp .45s cubic-bezier(.2,.8,.2,1)}
+.pvw.on > div > *{animation:rise .42s var(--eo) both}
+.pvw.on > div > *:nth-child(2){animation-delay:.04s}
+.pvw.on > div > *:nth-child(3){animation-delay:.08s}
+.pvw.on > div > *:nth-child(4){animation-delay:.12s}
+.pvw.on > div > *:nth-child(5){animation-delay:.16s}
+@keyframes rise{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
+@media (max-width:760px){.float-card,.floaty{display:none!important}}
+.hfeed{position:relative;box-sizing:content-box;height:144px;padding:12px 0 0 8px;margin:6px 0 0 -8px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.hev{position:relative;height:40px;margin-bottom:12px;display:flex;gap:10px;transition:opacity .6s ease;will-change:transform}
+.hev::before{content:"";position:absolute;left:4.5px;top:18px;width:1px;height:38px;background:linear-gradient(180deg,rgba(174,185,208,0.35),rgba(174,185,208,0.08))}
+.hfeed.fa .hev{animation:fpushA .7s var(--eo) both}
+.hfeed.fb .hev{animation:fpushB .7s var(--eo) both}
+.hfeed.fa .hev:first-child{animation:fpushA .7s var(--eo) both,finA .55s .12s ease both}
+.hfeed.fb .hev:first-child{animation:fpushB .7s var(--eo) both,finB .55s .12s ease both}
+@keyframes fpushA{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes fpushB{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes finA{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+@keyframes finB{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+.hfeed.ra .hev,.hswap.ra{animation:fresetA .6s var(--eo) both}
+.hfeed.rb .hev,.hswap.rb{animation:fresetB .6s var(--eo) both}
+.hfeed.ra .hev:nth-child(2),.hfeed.rb .hev:nth-child(2){animation-delay:.06s}
+.hfeed.ra .hev:nth-child(3),.hfeed.rb .hev:nth-child(3){animation-delay:.12s}
+@keyframes fresetA{from{opacity:0;transform:translate3d(0,8px,0)}}
+@keyframes fresetB{from{opacity:0;transform:translate3d(0,8px,0)}}
+@media (prefers-reduced-motion:reduce){.hfeed .hev,.hswap{animation:none!important}}
+@media (min-width:761px){.nw{white-space:nowrap}}
+.qbgs{position:absolute;z-index:-1;left:40px;right:0;bottom:-28px;aspect-ratio:16/9;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);mask-composite:intersect}
+.ncov img{transition:transform .6s var(--eo)}
+.gcard:hover .ncov img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.arc-run,.hub-ring,.tw,.floaty,.reveal,.pv,.pvw.on > div > *{animation:none}.gcard,.gtile,.lift,.bub,.btn,.btn2,.hl,.pmap{transition:none;translate:none}}
+@keyframes riseA{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+@keyframes riseB{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+.fx > *{animation-duration:.45s;animation-timing-function:var(--eo);animation-fill-mode:both}
+.fx > *:nth-child(2){animation-delay:.04s}.fx > *:nth-child(3){animation-delay:.08s}.fx > *:nth-child(4){animation-delay:.12s}.fx > *:nth-child(5){animation-delay:.16s}.fx > *:nth-child(6){animation-delay:.2s}.fx > *:nth-child(n+7){animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){.fx > *{animation:none!important}}
+</style>
+</helmet>
+<div onMouseMove="{{ spot }}" style="width: 100%; background: #0B0D14; color: #F2F4F8; font-family: Montserrat, 'PingFang SC', 'Noto Sans SC', 'Source Han Sans SC', system-ui, sans-serif; font-size: 15px; line-height: 1.6">
+
+<!-- 导航 -->
+<header onMouseLeave="{{ closeMenu }}" style="position: relative; z-index: 3; border-bottom: 1px solid rgba(200,210,235,0.1); background: rgba(11,13,20,0.85)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<a href="{{ homeHref }}" style="text-decoration: none; font-size: 21px; font-weight: 700; letter-spacing: -0.02em"><span style="color: {{accent}}">17</span>TRACK</a>
+<nav aria-label="主导航" data-hl-list="nav" onMouseLeave="{{ hlLeave }}" style="position: relative; display: flex; flex-wrap: wrap; gap: 4px">
+<span class="hl" aria-hidden="true" style="background: rgba(200,210,235,0.09); border-radius: 999px"></span>
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+<button type="button" data-active="{{ n.act }}" onClick="{{ n.toggle }}" onMouseEnter="{{ n.enter }}" style="{{ n.style }}">{{ n.label }}<span style="font-size: 9px; opacity: 0.6">{{ n.caret }}</span></button>
+</sc-for>
+</nav>
+<div style="display: flex; gap: 8px; align-items: center">
+<a href="#cta" style="text-decoration: none; font-size: 14px; color: #9097A6; padding: 10px 10px">登录</a>
+<a class="btn2" href="#cta" style="text-decoration: none; font-size: 14px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.24); background: rgba(200,210,235,0.06)">预约演示</a>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{ menu.items }}" as="mi" hint-placeholder-count="3">
+<a href="{{ mi.href }}" class="gcard" style="flex: 1 1 240px; text-decoration: none; padding: 16px 18px; border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(200,210,235,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 2px">
+<span style="font-weight: 600">{{ mi.t }}</span>
+<span style="font-size: 13px; color: #9097A6">{{ mi.d }}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</header>
+
+<section class="hero" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(200,210,235,0.08); background-color: #0B0D14; background-image: radial-gradient(46% 55% at 50% 30%, rgba(52,56,160,0.22), transparent 72%), radial-gradient(28% 34% at 12% 8%, rgba(20,90,110,0.12), transparent 72%)">
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(200,210,235,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(200,210,235,0.045) 1px, transparent 1px); background-size: 120px 120px; background-position: center top; -webkit-mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%); mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%)"></div>
+<div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 96px; padding-bottom: 72px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"></path><path d="M3 13l9 5 9-5"></path></svg> 资源 · 博客</span>
+<h1 style="margin: 0; font-size: 52px; line-height: 1.2; font-weight: 600">售后体验博客<br><span class="gword">趋势、技巧与洞察</span></h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #9097A6; max-width: 640px">来自 17TRACK 的产品动态、品牌案例与跨境电商售后增长方法论。</p>
+
+</div>
+</section>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 24px; padding-bottom: 24px">
+<a href="#" class="gcard" style="text-decoration: none; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 16px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center">
+<div style="flex: 1.2 1 460px; position: relative; height: 320px; border-radius: 16px; overflow: hidden; background: radial-gradient(80% 90% at 20% 0%, rgba(126,216,198,0.28), transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center">
+<div aria-hidden="true" style="position: absolute; inset: 0; background-image: linear-gradient(rgba(200,210,235,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(200,210,235,0.05) 1px, transparent 1px); background-size: 40px 40px; -webkit-mask-image: radial-gradient(70% 80% at 50% 50%, #000, transparent); mask-image: radial-gradient(70% 80% at 50% 50%, #000, transparent)"></div>
+<div style="position: relative; display: flex; gap: 14px; align-items: center"><span class="ptile" style="width: 96px; height: 96px; border-radius: 18px; flex-shrink: 0;"><img src="img/tee.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span><span style="color: #7A8191"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h11l-3-3"></path><path d="M17 17H6l3 3"></path></svg></span><span class="ptile" style="width: 96px; height: 96px; border-radius: 18px; flex-shrink: 0; border-color: rgba(90,130,255,0.55); box-shadow: 0 0 36px rgba(60,100,230,0.3)"><img src="img/sneaker.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span></div>
+</div>
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 16px; padding: 8px 16px 8px 0">
+<div style="display: flex; gap: 10px; align-items: center"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #CFF5EC; background: rgba(126,216,198,0.12); border-color: rgba(126,216,198,0.35)">最新 · 品牌洞察</span><span style="font-size: 13px; color: #7A8191">September 11, 2026</span></div>
+<span style="font-size: 30px; font-weight: 600; line-height: 1.35; color: #F2F4F8">为什么成熟 DTC 品牌正在建立自己的退货门户？</span>
+<span style="font-size: 15px; line-height: 1.7; color: #9097A6">[文章摘要：待补充。建议 60–80 字，概括退货门户对 DTC 品牌留存与挽损的价值。]</span>
+<span style="font-weight: 600; color: #F2F4F8">阅读全文 <span class="ar">→</span></span>
+</div>
+</a>
+</section>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 56px; padding-bottom: 24px">
+<div style="display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+<h2 style="margin: 0; font-size: 32px; font-weight: 600">全部文章</h2>
+<div data-hl-list="blogcats" onMouseLeave="{{ hlLeave }}" style="position: relative; display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.09)"><span class="hl" aria-hidden="true" style="border-radius: 999px; background: rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12)"></span><sc-for list="{{ blogCats }}" as="c" hint-placeholder-count="4"><button type="button" data-active="{{ c.act }}" onClick="{{ c.pick }}" onMouseEnter="{{ c.hover }}" style="{{ c.style }}">{{ c.label }}</button></sc-for></div>
+</div>
+<div class="fx" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px">
+<sc-for list="{{ posts }}" as="p" hint-placeholder-count="9">
+<a href="#" class="gcard" style="{{ p.cardStyle }}">
+<span style="{{ p.cover }}"><sc-if value="{{ p.is_0 }}" hint-placeholder-val="{{ false }}"><span class="gtile" style="width: 52px; height: 52px; border-radius: 15px; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></span></sc-if><sc-if value="{{ p.is_1 }}" hint-placeholder-val="{{ false }}"><span class="gtile" style="width: 52px; height: 52px; border-radius: 15px; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg></span></sc-if><sc-if value="{{ p.is_2 }}" hint-placeholder-val="{{ false }}"><span class="gtile" style="width: 52px; height: 52px; border-radius: 15px; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c3 3.5 3 14.5 0 18"></path><path d="M12 3c-3 3.5-3 14.5 0 18"></path></svg></span></sc-if><sc-if value="{{ p.is_3 }}" hint-placeholder-val="{{ false }}"><span class="gtile" style="width: 52px; height: 52px; border-radius: 15px; flex-shrink: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"></path><path d="M3 13l9 5 9-5"></path></svg></span></sc-if></span>
+<span style="display: flex; flex-direction: column; gap: 10px; padding: 18px 8px 8px">
+<span style="display: flex; gap: 10px; align-items: center; font-size: 12px; color: #7A8191"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #B5BAC6">{{ p.cat }}</span>{{ p.date }}</span>
+<span style="font-size: 17px; font-weight: 600; line-height: 1.5; color: #F2F4F8">{{ p.t }}</span>
+</span>
+</a>
+</sc-for>
+</div>
+<sc-if value="{{ hasMore }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; justify-content: center; margin-top: 8px"><button type="button" class="btn2" onClick="{{ showMore }}" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; color: #F2F4F8; font-family: inherit; font-size: 14px; cursor: pointer">加载更多文章 <span class="ar">↓</span></button></div>
+</sc-if>
+</div>
+</section>
+<section style="position: relative; margin-top: 72px; border-top: 1px solid rgba(200,210,235,0.08); background-image: radial-gradient(40% 70% at 50% 0%, rgba(52,56,160,0.14), transparent 70%)"><div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 96px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 40px"><div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px; align-items: center; text-align: center; margin: 0 auto;"><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">全球包裹查询触手可及</h2></div><div style="display: flex; flex-wrap: wrap"><div style="flex: 1 1 25%; min-width: 200px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 22px 12px;"><span class="gtext" style="background-image: linear-gradient(160deg, #F2F6FF 15%, #8EAEFF 95%); font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">3,500+</span><span style="font-size: 14px; color: #9097A6">运输商整合</span></div><div style="flex: 1 1 25%; min-width: 200px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 22px 12px;"><span class="gtext" style="background-image: linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%); font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">20亿+</span><span style="font-size: 14px; color: #9097A6">年度包裹查询量</span></div><div style="flex: 1 1 25%; min-width: 200px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 22px 12px;"><span class="gtext" style="background-image: linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%); font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">230+</span><span style="font-size: 14px; color: #9097A6">国家客户覆盖</span></div><div style="flex: 1 1 25%; min-width: 200px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 22px 12px;"><span class="gtext" style="background-image: linear-gradient(160deg, #EEFCF8 15%, #7ED8C6 95%); font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">99%</span><span style="font-size: 14px; color: #9097A6">查询准确率</span></div><div style="flex: 1 1 25%; min-width: 200px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 22px 12px;"><span class="gtext" style="background-image: linear-gradient(160deg, #F1F7FF 15%, #79A6F0 95%); font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">24/7</span><span style="font-size: 14px; color: #9097A6">全天候客户支持</span></div><div style="flex: 1 1 25%; min-width: 200px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 22px 12px;"><span class="gtext" style="background-image: linear-gradient(160deg, #F2F6FF 15%, #8EAEFF 95%); font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">1亿+</span><span style="font-size: 14px; color: #9097A6">全球消费者</span></div><div style="flex: 1 1 25%; min-width: 200px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 22px 12px;"><span class="gtext" style="background-image: linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%); font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">5,000+</span><span style="font-size: 14px; color: #9097A6">活跃 Shopify 店铺客户</span></div><div style="flex: 1 1 25%; min-width: 200px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 22px 12px;"><span class="gtext" style="background-image: linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%); font-size: 40px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">10年+</span><span style="font-size: 14px; color: #9097A6">行业领导地位</span></div></div></div></section>
+<section id="cta" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 72px; padding-bottom: 104px"><div style="padding: 64px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px"><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">把洞察变成增长</h2><p style="margin: 0; font-size: 16px; color: #9097A6; max-width: 640px">用 17TRACK 的品牌化追踪、主动通知与退换货，搭建你的售后增长引擎。</p><div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center"><a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">立即试用</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600">预约演示</a></div></div></section>
+
+<footer style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-wrap: wrap; gap: 32px">
+<div style="flex: 1.5 1 220px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 20px; font-weight: 700"><span style="color: {{accent}}">17</span>TRACK</div>
+<span style="font-size: 13px; color: #9097A6">© 17TRACK · 隐私政策 · 服务条款</span>
+</div>
+<sc-for list="{{ footer }}" as="f" hint-placeholder-count="4">
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+<span style="font-weight: 600">{{ f.h }}</span>
+<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="#news" style="text-decoration: none; color: #9097A6">{{ fi }}</a></sc-for>
+</div>
+</sc-for>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF8A1F","options":["#FF8A1F","#FFB547","#FF6A3D","#FFFFFF"]},"$preview":{"width":1440,"height":4200}}'>
+class Component extends DCLogic {
+
+  componentDidMount() {
+    var self = this;
+    this._onResize = function () { self.syncAll(true); };
+    window.addEventListener('resize', this._onResize);
+    setTimeout(function () { self.syncAll(true); }, 60);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { self.syncAll(true); });
+    if (this.didMount) this.didMount();
+  }
+  componentWillUnmount() { clearTimeout(this._hv); cancelAnimationFrame(this._raf); window.removeEventListener('resize', this._onResize); if (this.willUnmount) this.willUnmount(); }
+  tiltEl(el, nx, ny, amp) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var s = el.__t || (el.__t = { rx: 0, ry: 0, vx: 0, vy: 0, tx: 0, ty: 0, raf: 0 });
+    s.tx = -ny * amp; s.ty = nx * amp;
+    if (s.raf) return;
+    var step = function () {
+      s.vx += (s.tx - s.rx) * 0.07; s.vy += (s.ty - s.ry) * 0.07;
+      s.vx *= 0.76; s.vy *= 0.76;
+      s.rx += s.vx; s.ry += s.vy;
+      el.style.setProperty('--rx', s.rx.toFixed(3)); el.style.setProperty('--ry', s.ry.toFixed(3));
+      if (Math.abs(s.tx - s.rx) < 0.005 && Math.abs(s.ty - s.ry) < 0.005 && Math.abs(s.vx) < 0.005 && Math.abs(s.vy) < 0.005) { s.raf = 0; return; }
+      s.raf = requestAnimationFrame(step);
+    };
+    s.raf = requestAnimationFrame(step);
+  }
+  listOf(el) { var l = el; while (l && !(l.getAttribute && l.getAttribute('data-hl-list'))) l = l.parentElement; return l; }
+  moveHl(list, el, instant) {
+    var hl = list && list.querySelector('.hl');
+    if (!hl) return;
+    if (!el) { hl.style.opacity = '0'; return; }
+    if (instant) hl.style.transition = 'none';
+    hl.style.transform = 'translate3d(' + el.offsetLeft + 'px,' + el.offsetTop + 'px,0)';
+    hl.style.width = el.offsetWidth + 'px';
+    hl.style.height = el.offsetHeight + 'px';
+    hl.style.opacity = '1';
+    if (instant) { void hl.offsetWidth; hl.style.transition = ''; }
+  }
+  syncList(list, instant) { if (!list) return; var t = list._hover && list.contains(list._hover) ? list._hover : list.querySelector('[data-active="1"]'); this.moveHl(list, t, instant); }
+  syncAll(instant) { var lists = document.querySelectorAll('[data-hl-list]'); for (var i = 0; i < lists.length; i++) this.syncList(lists[i], instant); }
+  follow(ms) { var self = this, end = Date.now() + ms; cancelAnimationFrame(this._raf); var tick = function () { self.syncAll(false); if (Date.now() < end) self._raf = requestAnimationFrame(tick); }; tick(); }
+  commonVals(pages) {
+    var self = this, st = this.state;
+    self.hlEnter = self.hlEnter || function (e) { var el = e.currentTarget, l = self.listOf(el); if (!l) return; l._hover = el; self.moveHl(l, el, false); };
+    var menus = [
+      { label: '产品', items: [{ t: 'Order Tracking 订单追踪', d: '品牌化追踪页 · 物流通知', href: pages.tracking }, { t: '17RETURNS 退换货', d: 'AI 驱动的自动化退换货', href: pages.returns }, { t: 'Tracking API', d: '3,500+ 承运商统一接口', href: pages.api }] },
+      { label: '资源', items: [{ t: '博客', d: '趋势、技巧与洞察', href: pages.blog }, { t: '客户案例', d: '各行业品牌实践', href: pages.cases }, { t: '合作伙伴 & 集成', d: '电商平台与应用生态', href: pages.integrations }] },
+      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: pages.api }, { t: 'API 文档', d: '接口说明与示例', href: '#' }] },
+      { label: '价格', items: [] }
+    ];
+    var navItems = menus.map(function (m, i) {
+      var open = st.menu === i;
+      return {
+        label: m.label,
+        caret: m.items.length ? (open ? ' ▲' : ' ▼') : '',
+        act: open ? '1' : '0',
+        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } },
+        enter: function (e) { self.hlEnter(e); var nx = m.items.length ? i : -1; if (self.state.menu !== nx) { self.setState({ menu: nx }); self.follow(460); } },
+        style: 'position: relative; z-index: 1; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 14px; padding: 10px 14px; border-radius: 999px; cursor: pointer; display: flex; gap: 6px; align-items: center; min-height: 44px'
+      };
+    });
+    var faqs = (this.faqData || []).map(function (f, i) {
+      var fs = st.faqSet;
+      var on = fs != null ? fs.indexOf(',' + i + ',') >= 0 : st.faq === i;
+      var cur = function () { var s0 = self.state.faqSet; return s0 != null ? s0 : (self.state.faq >= 0 ? ',' + self.state.faq + ',' : ','); };
+      return {
+        q: f[0], a: f[1],
+        hover: function () { clearTimeout(self._fq); self._fq = setTimeout(function () { var s1 = cur(); if (s1.indexOf(',' + i + ',') < 0) s1 += i + ','; if (s1 !== self.state.faqSet || self.state.faq !== i) self.setState({ faq: i, faqSet: s1 }); }, 120); },
+        toggle: function () { clearTimeout(self._fq); var s1 = cur(), k = ',' + i + ','; if (s1.indexOf(k) >= 0) { s1 = s1.replace(k, ','); self.setState({ faqSet: s1, faq: self.state.faq === i ? -1 : self.state.faq }); } else { self.setState({ faqSet: s1 + i + ',', faq: i }); } },
+        iconStyle: 'flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 400; color: #C9CED9; border: 1px solid rgba(255,255,255,0.12); transition: transform .35s var(--eo); transform: rotate(' + (on ? 45 : 0) + 'deg)',
+        wrapStyle: 'display: grid; transition: grid-template-rows .38s var(--eo), opacity .3s var(--eo); ' + (on ? 'grid-template-rows: 1fr; opacity: 1;' : 'grid-template-rows: 0fr; opacity: 0;')
+      };
+    });
+    return {
+      accent: this.props.accent ?? '#FF8A1F',
+      homeHref: pages.home,
+      navItems: navItems,
+      menuOpen: st.menu >= 0,
+      menu: st.menu >= 0 ? menus[st.menu] : menus[0],
+      sceneTilt: function (e) {
+        var sc = e.currentTarget, el = sc.querySelector('.tilt'); if (!el) return;
+        var r = sc.getBoundingClientRect(), c = sc.querySelector('.tcard');
+        if (c) { var cr = c.getBoundingClientRect(); sc.style.setProperty('--gx', ((e.clientX - cr.left) / cr.width * 100).toFixed(1) + '%'); sc.style.setProperty('--gy', ((e.clientY - cr.top) / cr.height * 100).toFixed(1) + '%'); sc.style.setProperty('--go', '1'); }
+        self.tiltEl(el, (e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5, 5.5);
+      },
+      sceneUntilt: function (e) { var sc = e.currentTarget, el = sc.querySelector('.tilt'); sc.style.setProperty('--go', '0'); if (el) self.tiltEl(el, 0, 0, 5.5); },
+      closeMenu: function () { if (self.state.menu !== -1) { self.setState({ menu: -1 }); self.follow(460); } },
+      hlLeave: function (e) { clearTimeout(self._hv); var l = e.currentTarget; l._hover = null; self.syncList(l, false); },
+      spot: function (e) {
+        var t = e.target, c = t && t.closest ? t.closest('.gcard') : null;
+        if (!c) return;
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      },
+      faqs: faqs,
+      faqLeave: function () { clearTimeout(self._fq); var f0 = self.state.faq; var s2 = f0 >= 0 ? ',' + f0 + ',' : ','; if (self.state.faqSet !== s2) self.setState({ faqSet: s2 }); },
+      footer: [
+        { h: '产品', items: ['运单查询', '物流通知', '退货管理'] },
+        { h: '开发者', items: ['API 文档', 'SDK', '状态页'] },
+        { h: '资源', items: ['博客', '客户案例', '合作伙伴 & 集成'] },
+        { h: '公司', items: ['关于我们', '联系我们', '包裹查询'] }
+      ]
+    };
+  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = { menu: -1, faq: -1, cat: 0, more: false, anim: 0 };
+    this.faqData = [];
+  }
+
+  pillList(key, labels) {
+    var self = this, st = this.state;
+    var later = function (fn) { clearTimeout(self._hv); self._hv = setTimeout(fn, 70); };
+    return labels.map(function (l, i) {
+      var on = st[key] === i;
+      var go = function () { clearTimeout(self._hv); if (self.state[key] !== i) { var o = {}; o[key] = i; o.anim = (self.state.anim || 0) + 1; self.setState(o); self.follow(460); } };
+      return { label: l, act: on ? '1' : '0', pick: go, hover: function (e) { self.hlEnter(e); later(go); },
+        style: 'position: relative; z-index: 1; border: 0; background: transparent; font-family: inherit; font-size: 14px; font-weight: 600; padding: 9px 18px; border-radius: 999px; cursor: pointer; min-height: 40px; white-space: nowrap; transition: color .25s ease; color: ' + (on ? '#FFFFFF' : '#9097A6') };
+    });
+  }
+  fxName() { return 'animation-name: ' + ((this.state.anim || 0) % 2 ? 'riseB' : 'riseA'); }
+
+  renderVals() {
+    var self = this, st = this.state;
+    var vals = this.commonVals({ home: 'index.html', tracking: 'tracking.html', returns: 'returns.html', api: 'api.html', blog: 'blog.html', cases: 'cases.html', caseEufy: 'case-eufy.html', integrations: 'integrations.html' });
+    var cats = ["全部", "产品动态", "品牌洞察", "行业活动", "售后指南"];
+    var all = [["Klaviyo 中国内地首秀圆满落幕，200+ DTC 品牌杭州共议私域增长！", "August 26, 2026", "行业活动"], ["从卖爆全球到持续进化，电动滑板品牌 MEEPO 的出海之路", "August 26, 2026", "品牌洞察"], ["流量见顶，增长向内：华东这场品牌大会聊透了服务体验的增长价值", "August 21, 2026", "行业活动"], ["AI EDD 上新！用确定的送达预期，赢得更多订单", "August 13, 2026", "产品动态"], ["17RETURNS「立即换购」上新，开启以换代退新体验！", "August 5, 2026", "产品动态"], ["17TRACK 联合发起未来独角兽联盟！Maker Tool 闭门峰会圆满落幕！", "July 24, 2026", "行业活动"], ["17TRACK 已支持 TikTok Shipping 轨迹查询", "July 8, 2026", "产品动态"], ["Understanding Delivery Exceptions: Causes, Impacts, and Strategies for Ecommerce Success", "September 1, 2025", "售后指南"], ["A Deep Dive into the Post-Purchase Experience and its Impact on Brand Loyalty", "August 28, 2025", "售后指南"], ["Boost Customer Satisfaction with 17RETURNS Returns Management", "August 13, 2025", "售后指南"], ["Optimizing the Post-Purchase Experience in E-Commerce: Insights from 17TRACK", "August 6, 2025", "售后指南"], ["Optimizing E-commerce Order Tracking: Enhancing Customer Experience and Business Efficiency", "July 30, 2025", "售后指南"], ["What is Post-Purchase Evaluation?", "July 23, 2025", "售后指南"], ["E-commerce Returns and Reverse Logistics: Challenges and Opportunities", "July 17, 2025", "售后指南"], ["The Ultimate Guide to Minimizing E-Commerce Returns and Boosting Sales", "July 9, 2025", "售后指南"], ["Optimize Your E-commerce Product Page: 10 Ways to Enhance Content and User Experience", "July 2, 2025", "售后指南"], ["7 Strategies to Elevate E-Commerce Post-Purchase Retention", "June 25, 2025", "售后指南"], ["E-commerce Retention Marketing: Growth Strategies from Small Scale to Million-Dollar Brands", "June 18, 2025", "售后指南"], ["What is WISMO? A Comprehensive Guide to Reducing \"WISMO\" Calls", "June 11, 2025", "售后指南"], ["Consumer Post-Purchase Behavior: How to Boost Retention & Repeat Sales", "June 5, 2025", "售后指南"]];
+    var covers = {"产品动态": "position: relative; height: 180px; border-radius: 16px; overflow: hidden; background: radial-gradient(80% 90% at 80% 0%, rgba(76,125,255,0.35), transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center", "品牌洞察": "position: relative; height: 180px; border-radius: 16px; overflow: hidden; background: radial-gradient(80% 90% at 20% 0%, rgba(126,216,198,0.28), transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center", "行业活动": "position: relative; height: 180px; border-radius: 16px; overflow: hidden; background: radial-gradient(80% 90% at 50% 0%, rgba(170,157,255,0.3), transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center", "售后指南": "position: relative; height: 180px; border-radius: 16px; overflow: hidden; background: radial-gradient(80% 90% at 80% 100%, rgba(127,205,242,0.26), transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center"};
+    var list = all.filter(function (p) { return st.cat === 0 || p[2] === cats[st.cat]; });
+    var shown = st.more ? list : list.slice(0, 9);
+    vals.blogCats = this.pillList('cat', cats);
+    vals.posts = shown.map(function (p) {
+      var o = { t: p[0], date: p[1], cat: p[2], cover: covers[p[2]], cardStyle: 'text-decoration: none; display: flex; flex-direction: column; border-radius: 22px; padding: 10px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); ' + self.fxName() };
+      for (var i = 1; i < cats.length; i++) o['is_' + (i - 1)] = p[2] === cats[i];
+      return o;
+    });
+    vals.hasMore = !st.more && list.length > 9;
+    vals.showMore = function () { self.setState({ more: true }); };
+    return vals;
+  }
+
+}
+</script>
+</body>
+</html>
