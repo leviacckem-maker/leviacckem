@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>17TRACK Order Tracking 产品页</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0D14}
+a{color:#F2F4F8}a:hover{color:#FFFFFF}
+@keyframes arcflow{from{stroke-dashoffset:106}to{stroke-dashoffset:0}}
+.arc-run{stroke-dasharray:6 100;animation:arcflow 3.6s linear infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.4);opacity:0}}
+.hub-ring{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+.tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.tiltc,.gcard.tiltc,.gcard.tiltc:hover{transform:perspective(700px) translate3d(0,var(--lift,0px),0) rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));will-change:transform}
+.gcard.tiltc{transition:--sa .35s var(--eo)}
+.gcard.tiltc:hover{--lift:-3px}
+@media (prefers-reduced-motion:reduce){.tiltc{transform:none!important}}
+.floaty{animation:floaty 6s ease-in-out infinite}
+@property --sa{syntax:'<number>';inherits:true;initial-value:0}
+:root{--eo:cubic-bezier(.22,1,.36,1);--es:cubic-bezier(.32,.72,0,1)}
+.gcard{position:relative;overflow:hidden;--mx:50%;--my:-20%;--sa:0;transition:transform .35s var(--eo),--sa .35s var(--eo)}
+.gcard:hover{--sa:1;transform:translate3d(0,-3px,0)}
+.gcard::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(110,140,255,calc(0.10 * var(--sa))),transparent 60%),radial-gradient(110% 70% at 50% 0%,rgba(255,255,255,0.035),transparent 62%)}
+.gcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;padding:1px;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(160,185,255,calc(0.7 * var(--sa))),transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.pmap{translate:calc(var(--px,0) * -30px) calc(var(--py,0) * -16px);transition:translate 1s var(--eo);will-change:translate}
+.hl{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;z-index:0;will-change:transform;transition:transform .38s var(--es),width .38s var(--es),height .38s var(--es),opacity .22s ease}
+.gtile{display:flex;align-items:center;justify-content:center;color:#FFFFFF;background:linear-gradient(160deg,#5A84FF 0%,#2350F0 45%,#0A2BA8 100%);box-shadow:0 0 30px rgba(60,100,255,0.4),inset 0 1px 0 rgba(255,255,255,0.5),inset 0 -8px 14px rgba(0,10,60,0.35)}
+.ptile{overflow:hidden;display:flex;align-items:center;justify-content:center;color:#DCE4FF;background:linear-gradient(160deg,#1E212B,#111318);border:1px solid rgba(200,210,235,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.12),0 8px 20px rgba(0,0,0,0.35)}
+.gtext{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gnum{background:linear-gradient(180deg,#FFFFFF 10%,#A3AABB 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gword{background:linear-gradient(90deg,#8FB0FF 0%,#3D6BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ntile{display:flex;align-items:center;justify-content:center;color:#C9CED9;background:linear-gradient(160deg,#232737,#151823);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1)}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(200,210,235,0.16);transform:translate(-50%,-50%)}
+.gtile{transition:transform .4s var(--eo)}
+.gcard:hover .gtile{transform:scale(1.06)}
+.ptile img{transition:transform .5s var(--eo)}
+.ptile{container-type:size;background:#0F1014!important}
+.ptile img{object-fit:contain!important;background:#0F1014}
+@container (min-aspect-ratio: 9/8){.ptile img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%)}}
+.ptile:hover img,.gcard:hover .lift .ptile img{transform:scale(1.08)}
+.lift{transition:transform .4s var(--eo)}
+.gcard:hover .lift{transform:translate3d(0,-3px,0)}
+.bub{display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:13px;color:#C9CED9;background:radial-gradient(circle at 32% 26%,#2B3043,#12141D 72%);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 10px 24px rgba(0,0,0,0.4);transition:transform .45s var(--eo),border-color .3s ease}
+.gcard:hover .bub{transform:translate3d(0,-6px,0);border-color:rgba(110,145,255,0.35)}
+.btn{transition:transform .22s var(--eo),box-shadow .22s var(--eo),filter .22s ease}
+.btn:active,.btn2:active{transform:scale(.97)!important}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 12px 32px rgba(47,107,255,0.45)!important}
+.btn2{transition:transform .22s var(--eo),background .22s ease,border-color .22s ease}
+.btn2:hover{transform:translateY(-2px);background:rgba(255,255,255,0.08)!important;border-color:rgba(255,255,255,0.32)!important}
+.ar{display:inline-block;transition:transform .25s var(--eo)}
+a:hover .ar{transform:translateX(4px)}
+.chip{transition:transform .3s,border-color .3s}
+.chip:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.2)!important}
+.ring{transition:transform .6s var(--eo)}
+.gcard:hover .ring{transform:translate(-50%,-50%) scale(1.06)}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.reveal{animation:reveal 2.4s cubic-bezier(.65,0,.35,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pv{animation:fadeUp .45s cubic-bezier(.2,.8,.2,1)}
+.pvw.on > div > *{animation:rise .42s var(--eo) both}
+.pvw.on > div > *:nth-child(2){animation-delay:.04s}
+.pvw.on > div > *:nth-child(3){animation-delay:.08s}
+.pvw.on > div > *:nth-child(4){animation-delay:.12s}
+.pvw.on > div > *:nth-child(5){animation-delay:.16s}
+@keyframes rise{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
+@media (max-width:760px){.float-card,.floaty{display:none!important}}
+.hfeed{position:relative;box-sizing:content-box;height:144px;padding:12px 0 0 8px;margin:6px 0 0 -8px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.hev{position:relative;height:40px;margin-bottom:12px;display:flex;gap:10px;transition:opacity .6s ease;will-change:transform}
+.hev::before{content:"";position:absolute;left:4.5px;top:18px;width:1px;height:38px;background:linear-gradient(180deg,rgba(174,185,208,0.35),rgba(174,185,208,0.08))}
+.hfeed.fa .hev{animation:fpushA .7s var(--eo) both}
+.hfeed.fb .hev{animation:fpushB .7s var(--eo) both}
+.hfeed.fa .hev:first-child{animation:fpushA .7s var(--eo) both,finA .55s .12s ease both}
+.hfeed.fb .hev:first-child{animation:fpushB .7s var(--eo) both,finB .55s .12s ease both}
+@keyframes fpushA{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes fpushB{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes finA{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+@keyframes finB{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+.hfeed.ra .hev,.hswap.ra{animation:fresetA .6s var(--eo) both}
+.hfeed.rb .hev,.hswap.rb{animation:fresetB .6s var(--eo) both}
+.hfeed.ra .hev:nth-child(2),.hfeed.rb .hev:nth-child(2){animation-delay:.06s}
+.hfeed.ra .hev:nth-child(3),.hfeed.rb .hev:nth-child(3){animation-delay:.12s}
+@keyframes fresetA{from{opacity:0;transform:translate3d(0,8px,0)}}
+@keyframes fresetB{from{opacity:0;transform:translate3d(0,8px,0)}}
+@media (prefers-reduced-motion:reduce){.hfeed .hev,.hswap{animation:none!important}}
+@media (min-width:761px){.nw{white-space:nowrap}}
+.qbgs{position:absolute;z-index:-1;left:40px;right:0;bottom:-28px;aspect-ratio:16/9;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);mask-composite:intersect}
+.ncov img{transition:transform .6s var(--eo)}
+.gcard:hover .ncov img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.arc-run,.hub-ring,.tw,.floaty,.reveal,.pv,.pvw.on > div > *{animation:none}.gcard,.gtile,.lift,.bub,.btn,.btn2,.hl,.pmap{transition:none;translate:none}}
+
+.csimgs{position:absolute;z-index:-1;top:0;right:0;width:60%;aspect-ratio:16/9;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 30%,#000 60%),linear-gradient(180deg,#000 55%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 30%,#000 60%),linear-gradient(180deg,#000 55%,transparent 100%);mask-composite:intersect}
+.cstrack{position:relative;display:block;height:2px;border-radius:2px;background:rgba(200,210,235,0.14);overflow:hidden}
+.cstrack i{position:absolute;inset:0;transform-origin:left center;transform:scaleX(0);border-radius:2px;background:linear-gradient(90deg,#4C7DFF,#8EAEFF)}
+.cstrack i.on.a{animation:csA 3s linear forwards}
+.cstrack i.on.b{animation:csB 3s linear forwards}
+@keyframes csA{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes csB{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.csx.paused .cstrack i{animation-play-state:paused}
+.csimgs::after{content:"";position:absolute;inset:0;background:radial-gradient(42% 46% at 42% 46%,rgba(11,12,16,.55),transparent 80%)}
+@media (max-width:760px){.csimgs{width:100%;opacity:.5}.cspad{padding:32px 24px 8px!important}.cstabs{padding:24px 24px 28px!important;gap:12px!important}.csind{display:none}.csm2{padding-left:0!important;border-left:0!important}}
+
+.tscene{perspective:1100px}
+.tilt{position:relative;transform-style:preserve-3d;transform:rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));will-change:transform}
+.tcard{box-shadow:calc(var(--ry,0) * -1.6px) calc(18px + var(--rx,0) * 1.6px) 50px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.08)!important}
+.tglare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.06),transparent 60%);opacity:var(--go,0);transition:opacity .4s ease}
+.tilt > .floaty{transform:translateZ(40px)}
+.tz1{transform:translateZ(36px)}
+.tz2{transform:translateZ(48px)}
+.tilt .floaty{background:linear-gradient(180deg,rgba(32,36,50,.97),rgba(18,20,28,.97))!important;box-shadow:0 18px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.08)!important}
+@media (prefers-reduced-motion:reduce){.tilt{transform:none!important}}
+
+</style>
+</helmet>
+<div onMouseMove="{{ spot }}" style="width: 100%; background: #0B0D14; color: #F2F4F8; font-family: Montserrat, 'PingFang SC', 'Noto Sans SC', 'Source Han Sans SC', system-ui, sans-serif; font-size: 15px; line-height: 1.6">
+
+<!-- 导航 -->
+<header onMouseLeave="{{ closeMenu }}" style="position: relative; z-index: 3; border-bottom: 1px solid rgba(200,210,235,0.1); background: rgba(11,13,20,0.85)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<a href="{{ homeHref }}" style="text-decoration: none; font-size: 21px; font-weight: 700; letter-spacing: -0.02em"><span style="color: {{accent}}">17</span>TRACK</a>
+<nav aria-label="主导航" data-hl-list="nav" onMouseLeave="{{ hlLeave }}" style="position: relative; display: flex; flex-wrap: wrap; gap: 4px">
+<span class="hl" aria-hidden="true" style="background: rgba(200,210,235,0.09); border-radius: 999px"></span>
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+<button type="button" data-active="{{ n.act }}" onClick="{{ n.toggle }}" onMouseEnter="{{ n.enter }}" style="{{ n.style }}">{{ n.label }}<span style="font-size: 9px; opacity: 0.6">{{ n.caret }}</span></button>
+</sc-for>
+</nav>
+<div style="display: flex; gap: 8px; align-items: center">
+<a href="#cta" style="text-decoration: none; font-size: 14px; color: #9097A6; padding: 10px 10px">登录</a>
+<a class="btn2" href="#cta" style="text-decoration: none; font-size: 14px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.24); background: rgba(200,210,235,0.06)">预约演示</a>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{ menu.items }}" as="mi" hint-placeholder-count="3">
+<a href="{{ mi.href }}" class="gcard" style="flex: 1 1 240px; text-decoration: none; padding: 16px 18px; border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(200,210,235,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 2px">
+<span style="font-weight: 600">{{ mi.t }}</span>
+<span style="font-size: 13px; color: #9097A6">{{ mi.d }}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</header>
+
+<section class="hero" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(200,210,235,0.08); background-color: #0B0D14; background-image: radial-gradient(46% 55% at 72% 46%, rgba(52,56,160,0.22), transparent 72%), radial-gradient(28% 34% at 12% 8%, rgba(20,90,110,0.12), transparent 72%)">
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(200,210,235,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(200,210,235,0.045) 1px, transparent 1px); background-size: 120px 120px; background-position: center top; -webkit-mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%); mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%)"></div>
+<div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 96px; padding-bottom: 88px; display: flex; flex-wrap: wrap; gap: 72px; align-items: center">
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"></path><path d="M4 7.5l8 4.5 8-4.5"></path><path d="M12 12v9"></path></svg> Order Tracking 订单追踪</span>
+<h1 style="margin: 0; font-size: 48px; line-height: 1.25; font-weight: 600"><span class="nw">通过全球实时包裹追踪</span><br><span class="gword">提供信心</span></h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #9097A6; max-width: 520px">为客户提供他们期望的清晰体验——全都在一个平台上实现。从结账到配送，减轻支持负担，提供全球规模的无缝购后体验。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">免费开始</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600">预约演示</a></div>
+<div style="display: flex; flex-direction: column; gap: 12px; margin-top: 12px">
+<span style="font-size: 13px; color: #9097A6">支持 3,500+ 全球运输商物流查询</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9">菜鸟</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9">USPS</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9">UPS</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9">DHL</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9">FedEx</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9">GLS</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9">DPD</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9">+3,500</span></div>
+</div>
+</div>
+<div class="tscene" onMouseMove="{{ sceneTilt }}" onMouseLeave="{{ sceneUntilt }}" style="flex: 1.1 1 520px; min-width: 0; position: relative; padding: 24px 0 72px">
+<div class="tilt">
+<div class="gcard tcard" style="border-radius: 20px; background: linear-gradient(180deg, rgba(30,34,48,0.55), rgba(16,18,26,0.55)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 48px rgba(0,0,0,0.4); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06)">
+<span style="display: flex; gap: 6px"><span style="width: 9px; height: 9px; border-radius: 50%; background: rgba(200,210,235,0.22)"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: rgba(200,210,235,0.22)"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: rgba(200,210,235,0.22)"></span></span>
+<span style="flex: 1; font-size: 11px; color: #9097A6; padding: 5px 12px; border-radius: 8px; background: rgba(200,210,235,0.06)">[your-brand].com/apps/track</span>
+</div>
+<div style="padding: 22px 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-weight: 700; letter-spacing: 0.04em">[BRAND]</span><span style="display: flex; gap: 16px; font-size: 12px; color: #9097A6"><span>新品</span><span>男装</span><span>女装</span></span></div>
+<div style="display: flex; gap: 16px; align-items: center; padding: 16px; border-radius: 16px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14)">
+<span class="ptile" style="width: 68px; height: 68px; border-radius: 14px; flex-shrink: 0;"><img src="img/hoodie.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #9097A6"><span>订单 #10482 · 共 1 件</span><span>USPS · 9400 1000 0000</span></div>
+<span style="font-size: 19px; font-weight: 700">运输中 · 预计周五送达</span>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; margin-top: 6px"><span style="height: 4px; border-radius: 2px; background: #4C7DFF"></span><span style="height: 4px; border-radius: 2px; background: #4C7DFF"></span><span style="height: 4px; border-radius: 2px; background: #4C7DFF"></span><span style="height: 4px; border-radius: 2px; background: rgba(200,210,235,0.18)"></span></div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; padding: 4px 4px 0"><div style="display: flex; gap: 12px; opacity: 1"><span style="width: 10px; height: 10px; margin-top: 5px; border-radius: 50%; flex-shrink: 0; background: {{accent}}; box-shadow: 0 0 10px {{accent}}"></span><div style="flex: 1; display: flex; justify-content: space-between; gap: 12px"><div style="display: flex; flex-direction: column; line-height: 1.4"><span style="font-size: 13px; font-weight: 600">已到达洛杉矶分拨中心</span><span style="font-size: 11px; color: #9097A6">Los Angeles, CA</span></div><span style="font-size: 11px; color: #9097A6; white-space: nowrap">今天 09:42</span></div></div><div style="display: flex; gap: 12px; opacity: 0.6"><span style="width: 10px; height: 10px; margin-top: 5px; border-radius: 50%; flex-shrink: 0; background: rgba(174,185,208,0.45)"></span><div style="flex: 1; display: flex; justify-content: space-between; gap: 12px"><div style="display: flex; flex-direction: column; line-height: 1.4"><span style="font-size: 13px; font-weight: 600">已完成出口清关</span><span style="font-size: 11px; color: #9097A6">Shenzhen, CN</span></div><span style="font-size: 11px; color: #9097A6; white-space: nowrap">昨天 18:10</span></div></div><div style="display: flex; gap: 12px; opacity: 0.35"><span style="width: 10px; height: 10px; margin-top: 5px; border-radius: 50%; flex-shrink: 0; background: rgba(174,185,208,0.45)"></span><div style="flex: 1; display: flex; justify-content: space-between; gap: 12px"><div style="display: flex; flex-direction: column; line-height: 1.4"><span style="font-size: 13px; font-weight: 600">包裹已从仓库发出</span><span style="font-size: 11px; color: #9097A6">Shenzhen, CN</span></div><span style="font-size: 11px; color: #9097A6; white-space: nowrap">3 天前</span></div></div></div>
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px">
+<span style="font-size: 12px; color: #9097A6">你可能还喜欢</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px"><span class="ptile" style="width: 100%; height: 100px; border-radius: 12px; flex-shrink: 0;"><img src="img/sneaker.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span><span class="ptile" style="width: 100%; height: 100px; border-radius: 12px; flex-shrink: 0;"><img src="img/bag.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span><span class="ptile" style="width: 100%; height: 100px; border-radius: 12px; flex-shrink: 0;"><img src="img/watch.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span></div>
+</div>
+</div>
+</div>
+<div class="floaty" style="position: absolute; left: -40px; bottom: -10px; width: 270px; padding: 14px 16px; border-radius: 16px; background: linear-gradient(180deg, rgba(30,34,48,0.55), rgba(16,18,26,0.55)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 48px rgba(0,0,0,0.4); display: flex; gap: 12px; align-items: center">
+<span class="gtile" style="width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>
+<div style="display: flex; flex-direction: column; line-height: 1.4"><span style="font-size: 12px; color: #9097A6">邮件通知 · 刚刚</span><span style="font-size: 14px; font-weight: 600">你的包裹今天派送</span></div>
+</div>
+<div class="floaty" style="position: absolute; right: -28px; top: 0; padding: 10px 16px; border-radius: 999px; background: linear-gradient(180deg, rgba(30,34,48,0.55), rgba(16,18,26,0.55)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 48px rgba(0,0,0,0.4); display: flex; align-items: center; gap: 10px; font-size: 13px; animation-delay: 1.5s">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: #7BD88F; box-shadow: 0 0 10px #7BD88F"></span><span>WISMO 查询</span><span class="gtext" style="background-image: linear-gradient(160deg, #F2F6FF 15%, #8EAEFF 95%); font-weight: 700">-95%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div style="padding-top: 48px"><section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 56px; padding-bottom: 56px"><div style="display: flex; flex-wrap: wrap; gap: 64px; align-items: center"><div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">01 · 尾程可视化</span><h3 style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.3">最后一公里，也清清楚楚</h3><div style="display: flex; flex-direction: column; gap: 14px"><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">尾程信息自动展示，消费者可主动联系运输商安排取件，降低妥投失败风险。</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">与主流尾程运输商合作，确保物流透明、查询精准，增强买家信任。</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">自动化邮件支持尾程信息变量定制，优化售后体验，减轻卖家负担。</span></div></div><div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 6px"><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px">立即体验 <span class="ar">→</span></a></div></div><div class="gcard" style="flex: 1.15 1 480px; min-width: 0; min-height: 420px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 14px"><div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: #9097A6"><span>尾程派送 · 洛杉矶</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16)">USPS 已接手</span></div>
+<div class="lmwrap" style="position: relative; aspect-ratio: 52 / 15; margin: 2px -8px"><svg viewBox="0 0 520 150" preserveAspectRatio="xMidYMid meet" style="position: absolute; inset: 0; width: 100%; height: 100%; -webkit-mask-image: radial-gradient(ellipse 58% 62% at 50% 50%, #000 45%, transparent 100%); mask-image: radial-gradient(ellipse 58% 62% at 50% 50%, #000 45%, transparent 100%)" fill="none" aria-hidden="true">
+<g>
+<rect x="-10" y="-6" width="36" height="22" rx="3" fill="rgba(200,210,235,0.043)"></rect><rect x="32" y="-6" width="36" height="22" rx="3" fill="rgba(200,210,235,0.036)"></rect><rect x="74" y="-6" width="36" height="22" rx="3" fill="rgba(200,210,235,0.019)"></rect><rect x="116" y="-6" width="36" height="22" rx="3" fill="rgba(200,210,235,0.025)"></rect><rect x="158" y="-6" width="36" height="22" rx="3" fill="rgba(200,210,235,0.040)"></rect><rect x="200" y="-6" width="78" height="22" rx="3" fill="rgba(200,210,235,0.044)"></rect><rect x="284" y="-6" width="36" height="22" rx="3" fill="rgba(200,210,235,0.022)"></rect><rect x="326" y="-6" width="36" height="22" rx="3" fill="rgba(200,210,235,0.043)"></rect><rect x="368" y="-6" width="36" height="22" rx="3" fill="rgba(200,210,235,0.041)"></rect><rect x="410" y="-6" width="36" height="22" rx="3" fill="rgba(200,210,235,0.020)"></rect><rect x="452" y="-6" width="78" height="22" rx="3" fill="rgba(200,210,235,0.044)"></rect><rect x="494" y="-6" width="36" height="22" rx="3" fill="rgba(200,210,235,0.039)"></rect><rect x="-10" y="22" width="78" height="22" rx="3" fill="rgba(110,190,170,0.05)"></rect><rect x="32" y="22" width="36" height="22" rx="3" fill="rgba(110,190,170,0.05)"></rect><rect x="74" y="22" width="36" height="22" rx="3" fill="rgba(200,210,235,0.043)"></rect><rect x="116" y="22" width="36" height="22" rx="3" fill="rgba(200,210,235,0.041)"></rect><rect x="158" y="22" width="36" height="22" rx="3" fill="rgba(200,210,235,0.043)"></rect><rect x="200" y="22" width="36" height="22" rx="3" fill="rgba(200,210,235,0.025)"></rect><rect x="242" y="22" width="36" height="22" rx="3" fill="rgba(200,210,235,0.034)"></rect><rect x="284" y="22" width="36" height="22" rx="3" fill="rgba(200,210,235,0.021)"></rect><rect x="326" y="22" width="36" height="22" rx="3" fill="rgba(200,210,235,0.026)"></rect><rect x="368" y="22" width="36" height="22" rx="3" fill="rgba(200,210,235,0.033)"></rect><rect x="410" y="22" width="36" height="22" rx="3" fill="rgba(110,190,170,0.05)"></rect><rect x="452" y="22" width="36" height="22" rx="3" fill="rgba(200,210,235,0.030)"></rect><rect x="494" y="22" width="36" height="22" rx="3" fill="rgba(200,210,235,0.037)"></rect><rect x="-10" y="50" width="36" height="22" rx="3" fill="rgba(200,210,235,0.044)"></rect><rect x="32" y="50" width="78" height="22" rx="3" fill="rgba(110,190,170,0.05)"></rect><rect x="74" y="50" width="36" height="22" rx="3" fill="rgba(200,210,235,0.028)"></rect><rect x="116" y="50" width="36" height="22" rx="3" fill="rgba(200,210,235,0.033)"></rect><rect x="158" y="50" width="36" height="22" rx="3" fill="rgba(200,210,235,0.025)"></rect><rect x="200" y="50" width="36" height="22" rx="3" fill="rgba(200,210,235,0.024)"></rect><rect x="242" y="50" width="36" height="22" rx="3" fill="rgba(200,210,235,0.039)"></rect><rect x="284" y="50" width="78" height="22" rx="3" fill="rgba(200,210,235,0.019)"></rect><rect x="326" y="50" width="78" height="22" rx="3" fill="rgba(200,210,235,0.038)"></rect><rect x="368" y="50" width="36" height="22" rx="3" fill="rgba(200,210,235,0.028)"></rect><rect x="410" y="50" width="36" height="22" rx="3" fill="rgba(200,210,235,0.035)"></rect><rect x="452" y="50" width="36" height="22" rx="3" fill="rgba(200,210,235,0.025)"></rect><rect x="494" y="50" width="36" height="22" rx="3" fill="rgba(200,210,235,0.037)"></rect><rect x="-10" y="78" width="36" height="22" rx="3" fill="rgba(200,210,235,0.031)"></rect><rect x="32" y="78" width="36" height="22" rx="3" fill="rgba(200,210,235,0.030)"></rect><rect x="74" y="78" width="78" height="22" rx="3" fill="rgba(200,210,235,0.024)"></rect><rect x="116" y="78" width="36" height="22" rx="3" fill="rgba(200,210,235,0.027)"></rect><rect x="200" y="78" width="36" height="22" rx="3" fill="rgba(200,210,235,0.029)"></rect><rect x="242" y="78" width="36" height="22" rx="3" fill="rgba(200,210,235,0.033)"></rect><rect x="284" y="78" width="78" height="22" rx="3" fill="rgba(200,210,235,0.034)"></rect><rect x="326" y="78" width="36" height="22" rx="3" fill="rgba(200,210,235,0.038)"></rect><rect x="368" y="78" width="36" height="22" rx="3" fill="rgba(200,210,235,0.033)"></rect><rect x="410" y="78" width="36" height="22" rx="3" fill="rgba(200,210,235,0.023)"></rect><rect x="452" y="78" width="36" height="22" rx="3" fill="rgba(200,210,235,0.038)"></rect><rect x="494" y="78" width="36" height="22" rx="3" fill="rgba(200,210,235,0.031)"></rect><rect x="-10" y="106" width="36" height="22" rx="3" fill="rgba(200,210,235,0.018)"></rect><rect x="32" y="106" width="36" height="22" rx="3" fill="rgba(200,210,235,0.039)"></rect><rect x="74" y="106" width="36" height="22" rx="3" fill="rgba(200,210,235,0.023)"></rect><rect x="116" y="106" width="36" height="22" rx="3" fill="rgba(200,210,235,0.036)"></rect><rect x="200" y="106" width="36" height="22" rx="3" fill="rgba(200,210,235,0.034)"></rect><rect x="242" y="106" width="78" height="22" rx="3" fill="rgba(200,210,235,0.042)"></rect><rect x="284" y="106" width="36" height="22" rx="3" fill="rgba(110,190,170,0.05)"></rect><rect x="326" y="106" width="36" height="22" rx="3" fill="rgba(200,210,235,0.024)"></rect><rect x="368" y="106" width="36" height="22" rx="3" fill="rgba(200,210,235,0.039)"></rect><rect x="410" y="106" width="36" height="22" rx="3" fill="rgba(110,190,170,0.05)"></rect><rect x="452" y="106" width="36" height="22" rx="3" fill="rgba(200,210,235,0.032)"></rect><rect x="494" y="106" width="36" height="22" rx="3" fill="rgba(200,210,235,0.032)"></rect><rect x="-10" y="134" width="36" height="22" rx="3" fill="rgba(200,210,235,0.029)"></rect><rect x="74" y="134" width="36" height="22" rx="3" fill="rgba(200,210,235,0.038)"></rect><rect x="116" y="134" width="36" height="22" rx="3" fill="rgba(110,190,170,0.05)"></rect><rect x="158" y="134" width="36" height="22" rx="3" fill="rgba(200,210,235,0.026)"></rect><rect x="200" y="134" width="36" height="22" rx="3" fill="rgba(200,210,235,0.024)"></rect><rect x="242" y="134" width="36" height="22" rx="3" fill="rgba(200,210,235,0.021)"></rect><rect x="284" y="134" width="36" height="22" rx="3" fill="rgba(200,210,235,0.026)"></rect><rect x="326" y="134" width="36" height="22" rx="3" fill="rgba(200,210,235,0.024)"></rect><rect x="368" y="134" width="78" height="22" rx="3" fill="rgba(200,210,235,0.022)"></rect><rect x="410" y="134" width="36" height="22" rx="3" fill="rgba(200,210,235,0.032)"></rect><rect x="452" y="134" width="36" height="22" rx="3" fill="rgba(200,210,235,0.038)"></rect><rect x="494" y="134" width="36" height="22" rx="3" fill="rgba(200,210,235,0.022)"></rect>
+<path d="M-10 150 C 120 128, 190 52, 320 30 S 470 4, 540 -6" stroke="rgba(12,14,22,0.9)" stroke-width="9"></path>
+<path d="M-10 150 C 120 128, 190 52, 320 30 S 470 4, 540 -6" stroke="rgba(200,210,235,0.07)" stroke-width="5"></path>
+<path d="M-10 26 C 90 18, 150 64, 255 62 S 430 116, 540 106" stroke="rgba(12,14,22,0.95)" stroke-width="16" stroke-linecap="round"></path>
+<path d="M-10 26 C 90 18, 150 64, 255 62 S 430 116, 540 106" stroke="rgba(76,125,255,0.08)" stroke-width="12" stroke-linecap="round"></path>
+<path d="M-10 75 H540" stroke="rgba(200,210,235,0.05)" stroke-width="3"></path>
+<path d="M239 -10 V160" stroke="rgba(200,210,235,0.05)" stroke-width="3"></path>
+</g>
+</svg><svg viewBox="0 0 520 150" preserveAspectRatio="xMidYMid meet" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible" fill="none" aria-hidden="true">
+<path d="M71 103 H231 Q239 103 239 95 V83 Q239 75 247 75 H399 Q407 75 407 67 V55 Q407 47 415 47 H449" stroke="#4C7DFF" stroke-opacity="0.18" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path>
+<path class="lmflow" d="M71 103 H231 Q239 103 239 95 V83 Q239 75 247 75 H399 Q407 75 407 67 V55 Q407 47 415 47 H449" stroke="#6E95FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 6"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.2s" repeatCount="indefinite"></animate></path>
+<circle cx="71" cy="103" r="5" fill="#4C7DFF" stroke="#0E1018" stroke-width="2"></circle>
+<circle r="4" fill="#FFFFFF"><animateMotion dur="5.5s" repeatCount="indefinite" path="M71 103 H231 Q239 103 239 95 V83 Q239 75 247 75 H399 Q407 75 407 67 V55 Q407 47 415 47 H449"></animateMotion></circle>
+<circle cx="449" cy="47" r="14" fill="{{accent}}" fill-opacity="0.18"><animate attributeName="r" values="8;18;8" dur="2.4s" repeatCount="indefinite"></animate><animate attributeName="fill-opacity" values="0.3;0;0.3" dur="2.4s" repeatCount="indefinite"></animate></circle>
+<circle cx="449" cy="47" r="6" fill="{{accent}}" stroke="#0E1018" stroke-width="2"></circle>
+</svg><span style="position: absolute; transform: translateX(-50%); white-space: nowrap; font-size: 11px; line-height: 1; padding: 4px 8px; border-radius: 999px; background: rgba(14,16,24,0.72); border: 1px solid rgba(200,210,235,0.12); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); left: 13.65%; top: calc(68.7% + 12px); color: #9097A6">派送站</span><span style="position: absolute; transform: translateX(-50%); white-space: nowrap; font-size: 11px; line-height: 1; padding: 4px 8px; border-radius: 999px; background: rgba(14,16,24,0.72); border: 1px solid rgba(200,210,235,0.12); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); left: 86.35%; top: calc(31.3% + 14px); color: #E6E9F0">收件地址</span></div>
+<div class="lift" style="display: flex; gap: 14px; align-items: center; padding: 16px; border-radius: 16px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14)">
+<span class="gtile" style="width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></span>
+<div style="flex: 1; display: flex; flex-direction: column; line-height: 1.45"><span style="font-size: 12px; color: #9097A6">尾程运输商 · USPS</span><span style="font-size: 16px; font-weight: 600">联系运输商安排取件</span></div>
+<span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #F2F4F8">预约派送</span>
+</div>
+<div style="padding: 14px 16px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); font-size: 13px; color: #B5BAC6; line-height: 1.7">邮件模板：您好 <span style="color: #9DB4FF">{customer_name}</span>，您的包裹已由 <span style="color: #9DB4FF">{last_mile_carrier}</span> 派送，单号 <span style="color: #9DB4FF">{last_mile_number}</span>。</div>
+</div></div></div></section><section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 56px; padding-bottom: 56px"><div style="display: flex; flex-wrap: wrap; gap: 64px; align-items: center"><div class="gcard" style="flex: 1.15 1 480px; min-width: 0; min-height: 420px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 14px"><div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 600">订单 #10522 · 共 3 件</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16)">已拆分为 2 个包裹</span></div>
+<div class="lift" style="display: flex; gap: 14px; align-items: center; padding: 14px; border-radius: 16px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14)">
+<span class="ptile" style="width: 60px; height: 60px; border-radius: 12px; flex-shrink: 0;"><img src="img/tee.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; justify-content: space-between; font-size: 12px; color: #9097A6"><span>包裹 1 / 2 · UPS</span><span style="color: #7BD88F">已签收</span></div><div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px"><span style="height: 4px; border-radius: 2px; background: #7BD88F"></span><span style="height: 4px; border-radius: 2px; background: #7BD88F"></span><span style="height: 4px; border-radius: 2px; background: #7BD88F"></span><span style="height: 4px; border-radius: 2px; background: #7BD88F"></span></div></div>
+</div>
+<div style="display: flex; gap: 14px; align-items: center; padding: 14px; border-radius: 16px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1)">
+<span class="ptile" style="width: 60px; height: 60px; border-radius: 12px; flex-shrink: 0;"><img src="img/sneaker.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; justify-content: space-between; font-size: 12px; color: #9097A6"><span>包裹 2 / 2 · FedEx</span><span style="color: #9DB4FF">运输中</span></div><div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px"><span style="height: 4px; border-radius: 2px; background: #4C7DFF"></span><span style="height: 4px; border-radius: 2px; background: #4C7DFF"></span><span style="height: 4px; border-radius: 2px; background: rgba(200,210,235,0.18)"></span><span style="height: 4px; border-radius: 2px; background: rgba(200,210,235,0.18)"></span></div></div>
+</div>
+<div style="display: flex; gap: 14px; align-items: center; padding: 14px; border-radius: 16px; border: 1px dashed rgba(200,210,235,0.18); opacity: 0.6">
+<span class="ptile" style="width: 60px; height: 60px; border-radius: 12px; flex-shrink: 0;"><img src="img/watch.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<div style="flex: 1; display: flex; justify-content: space-between; font-size: 12px; color: #9097A6"><span>待发货商品 · 1 件</span><span>预计 2 天内发出</span></div>
+</div>
+</div></div><div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">02 · 拆分订单管理</span><h3 style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.3">一单多包裹，买家不再困惑</h3><div style="display: flex; flex-direction: column; gap: 14px"><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">系统自动识别拆单并通过邮件通知买家，确保订单拆分清晰。</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">邮件与品牌查询页同步展示多包裹物流详情，减少消费者疑问。</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">买家可实时追踪已发货和待发货商品，避免拆单混淆，提升体验。</span></div></div><div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 6px"><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px">立即体验 <span class="ar">→</span></a></div></div></div></section><section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 56px; padding-bottom: 56px"><div style="display: flex; flex-wrap: wrap; gap: 64px; align-items: center"><div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">03 · 品牌化查询体验</span><h3 style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.3">把查询页变成第二个店铺入口</h3><div style="display: flex; flex-direction: column; gap: 14px"><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">自定义品牌查询页提升品牌形象，提供自助查询功能，减轻客服压力。</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">品牌查询页引导消费者回访商家店铺，增加店铺回访率。</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">内嵌商品推荐组件在查询物流信息时提供商品二次曝光，促进复购。</span></div></div><div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 6px"><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px">立即体验 <span class="ar">→</span></a></div></div><div class="gcard" style="flex: 1.15 1 480px; min-width: 0; min-height: 420px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 14px"><div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-weight: 700; letter-spacing: 0.04em">[BRAND] 物流查询</span><span style="display: flex; gap: 8px"><span style="width: 18px; height: 18px; border-radius: 50%; background: #4C7DFF"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: #E9ECF3"></span><span style="width: 18px; height: 18px; border-radius: 50%; background: {{accent}}"></span></span></div>
+<div style="display: flex; gap: 10px; padding: 6px; border-radius: 999px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1)"><span style="flex: 1; padding: 8px 14px; font-size: 13px; color: #9097A6">输入订单号或邮箱</span><span style="padding: 8px 18px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); font-size: 13px; font-weight: 600">查询</span></div>
+<div class="lift" style="padding: 16px; border-radius: 16px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; color: #9097A6">查询物流时 · 为你推荐</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="ptile" style="width: 100%; height: 108px; border-radius: 12px; flex-shrink: 0;"><img src="img/sneaker.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span><span style="font-size: 12px">经典白鞋 · $89</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="ptile" style="width: 100%; height: 108px; border-radius: 12px; flex-shrink: 0;"><img src="img/headphones.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span><span style="font-size: 12px">降噪耳机 · $199</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="ptile" style="width: 100%; height: 108px; border-radius: 12px; flex-shrink: 0;"><img src="img/bag.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span><span style="font-size: 12px">通勤手袋 · $129</span></div>
+</div>
+</div>
+<a class="btn2" href="#" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; align-self: flex-start; padding: 10px 20px; font-size: 13px">回到店铺继续逛 <span class="ar">→</span></a>
+</div></div></div></section></div>
+<section style="position: relative; margin-top: 64px; border-top: 1px solid rgba(200,210,235,0.08); background-image: radial-gradient(40% 70% at 50% 0%, rgba(52,56,160,0.14), transparent 70%)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 104px; padding-bottom: 96px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px; align-items: center; text-align: center; margin: 0 auto;"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">售后即利润</span><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">简化服务流程，放大利润空间</h2><p style="margin: 0; font-size: 16px; color: #9097A6">17TRACK 交付后解决方案，降低运营成本，提升客户体验，最大化客户终身价值。</p></div>
+<div style="display: flex; flex-wrap: wrap; gap: 32px 0"><div style="flex: 1 1 220px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 0 16px;"><span class="gtext" style="background-image: linear-gradient(160deg, #F2F6FF 15%, #8EAEFF 95%); font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">+0.8%</span><span style="font-size: 16px; font-weight: 600">订单转化率</span><span style="font-size: 13px; color: #9097A6">减少投诉</span></div><div style="flex: 1 1 220px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 0 16px; border-left: 1px solid rgba(200,210,235,0.1);"><span class="gtext" style="background-image: linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%); font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">-95%</span><span style="font-size: 16px; font-weight: 600">手动查询</span><span style="font-size: 13px; color: #9097A6">提升留存</span></div><div style="flex: 1 1 220px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 0 16px; border-left: 1px solid rgba(200,210,235,0.1);"><span class="gtext" style="background-image: linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%); font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">70%+</span><span style="font-size: 16px; font-weight: 600">邮件打开率</span><span style="font-size: 13px; color: #9097A6">促进复购</span></div><div style="flex: 1 1 220px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 0 16px; border-left: 1px solid rgba(200,210,235,0.1);"><span class="gtext" style="background-image: linear-gradient(160deg, #EEFCF8 15%, #7ED8C6 95%); font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">-70%</span><span style="font-size: 16px; font-weight: 600">人力成本</span><span style="font-size: 13px; color: #9097A6">优化体验</span></div></div>
+</div>
+</section>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 56px; padding-bottom: 40px">
+<div class="{{ csCls }}" onMouseEnter="{{ csPause }}" onMouseLeave="{{ csResume }}" style="position: relative; isolation: isolate; overflow: hidden; border-radius: 28px; background: linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0.008)); border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04)">
+<div class="csimgs" aria-hidden="true"><sc-for list="{{ cases }}" as="ci" hint-placeholder-count="3"><img src="{{ ci.img }}" alt="" style="{{ ci.imgStyle }}"></sc-for></div>
+<div class="cspad" style="position: relative; display: grid; padding: 56px 56px 8px">
+<sc-for list="{{ cases }}" as="c" hint-placeholder-count="3">
+<div role="tabpanel" style="{{ c.pane }}">
+<div style="flex: 1.2 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">客户案例 · {{ c.name }}</span>
+<h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25; font-size: 36px">{{ c.t }}</h2>
+<p style="margin: 0; font-size: 16px; color: #9097A6; line-height: 1.75; max-width: 560px">{{ c.d }}</p>
+<a class="btn2" href="{{ c.href }}" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; align-self: flex-start; padding: 11px 22px; font-size: 14px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px)">阅读完整案例 <span class="ar">→</span></a>
+</div>
+<div style="flex: 1 1 340px; display: flex; flex-wrap: wrap; gap: 20px 0">
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; padding-right: 24px"><span class="gtext" style="background-image: linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%); font-size: 64px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">{{ c.m1 }}</span><span style="font-size: 15px; color: #C9CED9">{{ c.l1 }}</span></div>
+<div class="csm2" style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; padding-left: 32px; border-left: 1px solid rgba(200,210,235,0.14)"><span class="gtext" style="background-image: linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%); font-size: 64px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">{{ c.m2 }}</span><span style="font-size: 15px; color: #C9CED9">{{ c.l2 }}</span></div>
+</div>
+</div>
+</sc-for>
+</div>
+<div class="cstabs" role="tablist" aria-label="切换客户案例" style="position: relative; display: flex; gap: 20px; padding: 28px 56px 36px">
+<sc-for list="{{ cases }}" as="t" hint-placeholder-count="3">
+<button type="button" role="tab" aria-selected="{{ t.sel }}" onMouseEnter="{{ t.hover }}" onClick="{{ t.pick }}" style="{{ t.tabStyle }}"><span class="cstrack"><i class="{{ t.barCls }}"></i></span><span style="display: flex; gap: 6px; align-items: baseline; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-size: 14px; font-weight: 600">{{ t.name }}</span><span class="csind" style="font-size: 12px; color: #7A8191">{{ t.ind }}</span></span></button>
+</sc-for>
+</div>
+</div>
+</section>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 104px; padding-bottom: 40px"><div style="display: flex; flex-wrap: wrap; gap: 48px"><div style="flex: 1 1 300px"><div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px; "><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">FAQ</span><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">常见问题</h2><p style="margin: 0; font-size: 16px; color: #9097A6">没找到答案？联系我们的专属支持团队。</p></div></div><div onMouseLeave="{{ faqLeave }}" style="flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column"><sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4"><div onMouseEnter="{{ q.hover }}" style="border-bottom: 1px solid rgba(255,255,255,0.07)"><button type="button" onClick="{{ q.toggle }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 17px; font-weight: 600; text-align: left; cursor: pointer; min-height: 44px">{{ q.q }}<span aria-hidden="true" style="{{ q.iconStyle }}">+</span></button><div style="{{ q.wrapStyle }}"><div style="overflow: hidden; min-height: 0"><p style="margin: 0 0 22px; font-size: 15px; line-height: 1.75; color: #9097A6; white-space: pre-line">{{ q.a }}</p></div></div></div></sc-for></div></div></section>
+<section id="cta" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 72px; padding-bottom: 104px"><div style="padding: 64px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px"><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">让每一次查询，都成为一次品牌接触</h2><p style="margin: 0; font-size: 16px; color: #9097A6; max-width: 640px">安装 17TRACK，几分钟内上线品牌化追踪页、主动通知与商品推荐。</p><div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center"><a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">免费开始</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600">预约演示</a></div></div></section>
+
+<footer style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-wrap: wrap; gap: 32px">
+<div style="flex: 1.5 1 220px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 20px; font-weight: 700"><span style="color: {{accent}}">17</span>TRACK</div>
+<span style="font-size: 13px; color: #9097A6">© 17TRACK · 隐私政策 · 服务条款</span>
+</div>
+<sc-for list="{{ footer }}" as="f" hint-placeholder-count="4">
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+<span style="font-weight: 600">{{ f.h }}</span>
+<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="#news" style="text-decoration: none; color: #9097A6">{{ fi }}</a></sc-for>
+</div>
+</sc-for>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF8A1F","options":["#FF8A1F","#FFB547","#FF6A3D","#FFFFFF"]},"$preview":{"width":1440,"height":5600}}'>
+class Component extends DCLogic {
+
+  componentDidMount() {
+    var self = this;
+    this._onResize = function () { self.syncAll(true); };
+    window.addEventListener('resize', this._onResize);
+    setTimeout(function () { self.syncAll(true); }, 60);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { self.syncAll(true); });
+    if (this.didMount) this.didMount();
+  }
+  componentWillUnmount() { clearTimeout(this._hv); cancelAnimationFrame(this._raf); window.removeEventListener('resize', this._onResize); if (this.willUnmount) this.willUnmount(); }
+  tiltEl(el, nx, ny, amp) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var s = el.__t || (el.__t = { rx: 0, ry: 0, vx: 0, vy: 0, tx: 0, ty: 0, raf: 0 });
+    s.tx = -ny * amp; s.ty = nx * amp;
+    if (s.raf) return;
+    var step = function () {
+      s.vx += (s.tx - s.rx) * 0.07; s.vy += (s.ty - s.ry) * 0.07;
+      s.vx *= 0.76; s.vy *= 0.76;
+      s.rx += s.vx; s.ry += s.vy;
+      el.style.setProperty('--rx', s.rx.toFixed(3)); el.style.setProperty('--ry', s.ry.toFixed(3));
+      if (Math.abs(s.tx - s.rx) < 0.005 && Math.abs(s.ty - s.ry) < 0.005 && Math.abs(s.vx) < 0.005 && Math.abs(s.vy) < 0.005) { s.raf = 0; return; }
+      s.raf = requestAnimationFrame(step);
+    };
+    s.raf = requestAnimationFrame(step);
+  }
+  listOf(el) { var l = el; while (l && !(l.getAttribute && l.getAttribute('data-hl-list'))) l = l.parentElement; return l; }
+  moveHl(list, el, instant) {
+    var hl = list && list.querySelector('.hl');
+    if (!hl) return;
+    if (!el) { hl.style.opacity = '0'; return; }
+    if (instant) hl.style.transition = 'none';
+    hl.style.transform = 'translate3d(' + el.offsetLeft + 'px,' + el.offsetTop + 'px,0)';
+    hl.style.width = el.offsetWidth + 'px';
+    hl.style.height = el.offsetHeight + 'px';
+    hl.style.opacity = '1';
+    if (instant) { void hl.offsetWidth; hl.style.transition = ''; }
+  }
+  syncList(list, instant) { if (!list) return; var t = list._hover && list.contains(list._hover) ? list._hover : list.querySelector('[data-active="1"]'); this.moveHl(list, t, instant); }
+  syncAll(instant) { var lists = document.querySelectorAll('[data-hl-list]'); for (var i = 0; i < lists.length; i++) this.syncList(lists[i], instant); }
+  follow(ms) { var self = this, end = Date.now() + ms; cancelAnimationFrame(this._raf); var tick = function () { self.syncAll(false); if (Date.now() < end) self._raf = requestAnimationFrame(tick); }; tick(); }
+  commonVals(pages) {
+    var self = this, st = this.state;
+    self.hlEnter = self.hlEnter || function (e) { var el = e.currentTarget, l = self.listOf(el); if (!l) return; l._hover = el; self.moveHl(l, el, false); };
+    var menus = [
+      { label: '产品', items: [{ t: 'Order Tracking 订单追踪', d: '品牌化追踪页 · 物流通知', href: pages.tracking }, { t: '17RETURNS 退换货', d: 'AI 驱动的自动化退换货', href: pages.returns }, { t: 'Tracking API', d: '3,500+ 承运商统一接口', href: pages.api }] },
+      { label: '资源', items: [{ t: '博客', d: '趋势、技巧与洞察', href: pages.blog }, { t: '客户案例', d: '各行业品牌实践', href: pages.cases }, { t: '合作伙伴 & 集成', d: '电商平台与应用生态', href: pages.integrations }] },
+      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: pages.api }, { t: 'API 文档', d: '接口说明与示例', href: '#' }] },
+      { label: '价格', items: [] }
+    ];
+    var navItems = menus.map(function (m, i) {
+      var open = st.menu === i;
+      return {
+        label: m.label,
+        caret: m.items.length ? (open ? ' ▲' : ' ▼') : '',
+        act: open ? '1' : '0',
+        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } },
+        enter: function (e) { self.hlEnter(e); var nx = m.items.length ? i : -1; if (self.state.menu !== nx) { self.setState({ menu: nx }); self.follow(460); } },
+        style: 'position: relative; z-index: 1; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 14px; padding: 10px 14px; border-radius: 999px; cursor: pointer; display: flex; gap: 6px; align-items: center; min-height: 44px'
+      };
+    });
+    var faqs = (this.faqData || []).map(function (f, i) {
+      var fs = st.faqSet;
+      var on = fs != null ? fs.indexOf(',' + i + ',') >= 0 : st.faq === i;
+      var cur = function () { var s0 = self.state.faqSet; return s0 != null ? s0 : (self.state.faq >= 0 ? ',' + self.state.faq + ',' : ','); };
+      return {
+        q: f[0], a: f[1],
+        hover: function () { clearTimeout(self._fq); self._fq = setTimeout(function () { var s1 = cur(); if (s1.indexOf(',' + i + ',') < 0) s1 += i + ','; if (s1 !== self.state.faqSet || self.state.faq !== i) self.setState({ faq: i, faqSet: s1 }); }, 120); },
+        toggle: function () { clearTimeout(self._fq); var s1 = cur(), k = ',' + i + ','; if (s1.indexOf(k) >= 0) { s1 = s1.replace(k, ','); self.setState({ faqSet: s1, faq: self.state.faq === i ? -1 : self.state.faq }); } else { self.setState({ faqSet: s1 + i + ',', faq: i }); } },
+        iconStyle: 'flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 400; color: #C9CED9; border: 1px solid rgba(255,255,255,0.12); transition: transform .35s var(--eo); transform: rotate(' + (on ? 45 : 0) + 'deg)',
+        wrapStyle: 'display: grid; transition: grid-template-rows .38s var(--eo), opacity .3s var(--eo); ' + (on ? 'grid-template-rows: 1fr; opacity: 1;' : 'grid-template-rows: 0fr; opacity: 0;')
+      };
+    });
+    return {
+      accent: this.props.accent ?? '#FF8A1F',
+      homeHref: pages.home,
+      navItems: navItems,
+      menuOpen: st.menu >= 0,
+      menu: st.menu >= 0 ? menus[st.menu] : menus[0],
+      sceneTilt: function (e) {
+        var sc = e.currentTarget, el = sc.querySelector('.tilt'); if (!el) return;
+        var r = sc.getBoundingClientRect(), c = sc.querySelector('.tcard');
+        if (c) { var cr = c.getBoundingClientRect(); sc.style.setProperty('--gx', ((e.clientX - cr.left) / cr.width * 100).toFixed(1) + '%'); sc.style.setProperty('--gy', ((e.clientY - cr.top) / cr.height * 100).toFixed(1) + '%'); sc.style.setProperty('--go', '1'); }
+        self.tiltEl(el, (e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5, 5.5);
+      },
+      sceneUntilt: function (e) { var sc = e.currentTarget, el = sc.querySelector('.tilt'); sc.style.setProperty('--go', '0'); if (el) self.tiltEl(el, 0, 0, 5.5); },
+      closeMenu: function () { if (self.state.menu !== -1) { self.setState({ menu: -1 }); self.follow(460); } },
+      hlLeave: function (e) { clearTimeout(self._hv); var l = e.currentTarget; l._hover = null; self.syncList(l, false); },
+      spot: function (e) {
+        var t = e.target, c = t && t.closest ? t.closest('.gcard') : null;
+        if (!c) return;
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      },
+      faqs: faqs,
+      faqLeave: function () { clearTimeout(self._fq); var f0 = self.state.faq; var s2 = f0 >= 0 ? ',' + f0 + ',' : ','; if (self.state.faqSet !== s2) self.setState({ faqSet: s2 }); },
+      footer: [
+        { h: '产品', items: ['运单查询', '物流通知', '退货管理'] },
+        { h: '开发者', items: ['API 文档', 'SDK', '状态页'] },
+        { h: '资源', items: ['博客', '客户案例', '合作伙伴 & 集成'] },
+        { h: '公司', items: ['关于我们', '联系我们', '包裹查询'] }
+      ]
+    };
+  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = { menu: -1, faq: 0, cs: 0, csAnim: 0, csPaused: false };
+    this.faqData = [['如何安装追踪页面？三步完成！', '要安装追踪页面，首先复制其 URL。然后，进入 Shopify 管理面板 → 内容 → 菜单，选择首选菜单（如主菜单或页脚菜单）。建议将其添加到主菜单以便客户轻松访问。最后，点击「添加主菜单」并粘贴 URL。'], ['如何修改追踪页面 URL？', '确保您的商店不在建设中。首先，通过 Shopify 的设置 > 应用程序和销售渠道 > 17TRACK 应用程序 > 应用程序代理 > 自定义 URL 修改链接。接着，在 17TRACK 的追踪页面 > 设计追踪页面 > 修改中进行更改，两处修改内容必须保持一致。最后，在 Shopify 菜单（主菜单或页脚）中更新新的追踪页面链接。'], ['如何通过可点击的追踪号将客户导向追踪页面？', '「重定向」功能会在客户点击订单状态中的追踪号时，自动将其导向品牌化的追踪页面。此功能也适用于 Shopify 管理面板中的追踪号。安装 17TRACK 应用程序后，对于新订单默认启用此功能，重新启用时也适用于近期订单。'], ['如果追踪页面显示订单「未找到」，如何快速解决？', '可能是由于追踪号错误或承运商映射问题，也可能是新发货或配额耗尽。对于多个「未找到」订单，点击「再次追踪」。如果问题持续，请联系支持。']];
+    this.caseData = [{"name": "eufy", "ind": "智能家居", "t": "eufy 与 17TRACK 合作，优化全球智能家居物流体验", "d": "拆单物流追踪、33+ 语言通知、Apple Wallet 与运输保障，帮助安克旗下 eufy 在全球扩展中把物流变成信任。", "m1": "60%", "l1": "减少相关客户询问", "m2": "90%", "l2": "索赔成功率", "href": "case-eufy.html", "img": "img/c1_home.jpg"}, {"name": "VAPORESSO", "ind": "电子雾化", "t": "VAPORESSO：自动化解决方案赋能品牌出海", "d": "自动化物流追踪与理赔流程，帮助品牌在出海过程中减少 WISMO 咨询、提升理赔效率。", "m1": "84%", "l1": "理赔成功率", "m2": "90%", "l2": "减少 WISMO 咨询量", "href": "cases.html", "img": "img/c2_air.jpg"}, {"name": "Baleaf", "ind": "运动服饰 DTC", "t": "Baleaf：用 17TRACK 一站式解决方案，解决正逆向售后问题", "d": "从订单追踪到退换货一站式覆盖，减少 WISMO 咨询与物流客诉，让售后更省心。", "m1": "75%", "l1": "减少 WISMO 咨询量", "m2": "60%", "l2": "减少物流客诉", "href": "cases.html", "img": "img/c3_bike.jpg"}];
+  }
+  didMount() { this.csStart(3000); }
+  willUnmount() { clearTimeout(this._cs); clearTimeout(this._csh); }
+  csStart(ms) {
+    var self = this;
+    clearTimeout(this._cs);
+    this._csAt = Date.now(); this._csLeft = ms;
+    this._cs = setTimeout(function () {
+      self.setState({ cs: (self.state.cs + 1) % self.caseData.length, csAnim: self.state.csAnim + 1 });
+      self.csStart(3000);
+    }, ms);
+  }
+  renderVals() {
+    var self = this, st = this.state, n = this.caseData.length;
+    var go = function (i) { clearTimeout(self._csh); if (self.state.cs !== i) { self._csLeft = 3000; self.setState({ cs: i, csAnim: self.state.csAnim + 1 }); if (!self.state.csPaused) self.csStart(3000); } };
+    var cases = this.caseData.map(function (c, i) {
+      var on = st.cs === i;
+      return Object.assign({}, c, {
+        sel: on ? 'true' : 'false',
+        hover: function () { clearTimeout(self._csh); self._csh = setTimeout(function () { go(i); }, 80); },
+        pick: function () { go(i); },
+        barCls: on ? ('on ' + (st.csAnim % 2 ? 'a' : 'b')) : '',
+        tabStyle: 'flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 0; background: none; border: 0; color: #F2F4F8; font-family: inherit; text-align: left; cursor: pointer; min-height: 44px; transition: opacity .3s ease; opacity: ' + (on ? 1 : 0.5),
+        pane: 'grid-area: 1 / 1; display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: center; ' + (on ? 'opacity: 1; transform: none; visibility: visible; transition: opacity .5s var(--eo) .08s, transform .6s var(--eo) .08s, visibility 0s;' : 'opacity: 0; transform: translate3d(0,10px,0); visibility: hidden; pointer-events: none; transition: opacity .25s ease, transform .3s ease, visibility 0s .3s;'),
+        imgStyle: 'position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.62) saturate(.9); transition: opacity .8s var(--eo), transform 3.6s linear; ' + (on ? 'opacity: 1; transform: scale(1.06);' : 'opacity: 0; transform: scale(1);')
+      });
+    });
+    return Object.assign(this.commonVals({ home: 'index.html', tracking: 'tracking.html', returns: 'returns.html', api: 'api.html', blog: 'blog.html', cases: 'cases.html', caseEufy: 'case-eufy.html', integrations: 'integrations.html' }), {
+      cases: cases,
+      csCls: 'csx' + (st.csPaused ? ' paused' : ''),
+      csPause: function () { if (self.state.csPaused) return; clearTimeout(self._cs); self._csLeft = Math.max(0, self._csLeft - (Date.now() - self._csAt)); self.setState({ csPaused: true }); },
+      csResume: function () { clearTimeout(self._csh); if (!self.state.csPaused) return; self.setState({ csPaused: false }); self.csStart(self._csLeft); }
+    });
+  }
+
+}
+</script>
+</body>
+</html>

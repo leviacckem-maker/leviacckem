@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>17TRACK 客户案例</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0D14}
+a{color:#F2F4F8}a:hover{color:#FFFFFF}
+@keyframes arcflow{from{stroke-dashoffset:106}to{stroke-dashoffset:0}}
+.arc-run{stroke-dasharray:6 100;animation:arcflow 3.6s linear infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.4);opacity:0}}
+.hub-ring{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+.tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.tiltc,.gcard.tiltc,.gcard.tiltc:hover{transform:perspective(700px) translate3d(0,var(--lift,0px),0) rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));will-change:transform}
+.gcard.tiltc{transition:--sa .35s var(--eo)}
+.gcard.tiltc:hover{--lift:-3px}
+@media (prefers-reduced-motion:reduce){.tiltc{transform:none!important}}
+.floaty{animation:floaty 6s ease-in-out infinite}
+@property --sa{syntax:'<number>';inherits:true;initial-value:0}
+:root{--eo:cubic-bezier(.22,1,.36,1);--es:cubic-bezier(.32,.72,0,1)}
+.gcard{position:relative;overflow:hidden;--mx:50%;--my:-20%;--sa:0;transition:transform .35s var(--eo),--sa .35s var(--eo)}
+.gcard:hover{--sa:1;transform:translate3d(0,-3px,0)}
+.gcard::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(110,140,255,calc(0.10 * var(--sa))),transparent 60%),radial-gradient(110% 70% at 50% 0%,rgba(255,255,255,0.035),transparent 62%)}
+.gcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;padding:1px;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(160,185,255,calc(0.7 * var(--sa))),transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.pmap{translate:calc(var(--px,0) * -30px) calc(var(--py,0) * -16px);transition:translate 1s var(--eo);will-change:translate}
+.hl{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;z-index:0;will-change:transform;transition:transform .38s var(--es),width .38s var(--es),height .38s var(--es),opacity .22s ease}
+.gtile{display:flex;align-items:center;justify-content:center;color:#FFFFFF;background:linear-gradient(160deg,#5A84FF 0%,#2350F0 45%,#0A2BA8 100%);box-shadow:0 0 30px rgba(60,100,255,0.4),inset 0 1px 0 rgba(255,255,255,0.5),inset 0 -8px 14px rgba(0,10,60,0.35)}
+.ptile{overflow:hidden;display:flex;align-items:center;justify-content:center;color:#DCE4FF;background:linear-gradient(160deg,#1E212B,#111318);border:1px solid rgba(200,210,235,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.12),0 8px 20px rgba(0,0,0,0.35)}
+.gtext{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gnum{background:linear-gradient(180deg,#FFFFFF 10%,#A3AABB 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gword{background:linear-gradient(90deg,#8FB0FF 0%,#3D6BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ntile{display:flex;align-items:center;justify-content:center;color:#C9CED9;background:linear-gradient(160deg,#232737,#151823);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1)}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(200,210,235,0.16);transform:translate(-50%,-50%)}
+.gtile{transition:transform .4s var(--eo)}
+.gcard:hover .gtile{transform:scale(1.06)}
+.ptile img{transition:transform .5s var(--eo)}
+.ptile{container-type:size;background:#0F1014!important}
+.ptile img{object-fit:contain!important;background:#0F1014}
+@container (min-aspect-ratio: 9/8){.ptile img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%)}}
+.ptile:hover img,.gcard:hover .lift .ptile img{transform:scale(1.08)}
+.lift{transition:transform .4s var(--eo)}
+.gcard:hover .lift{transform:translate3d(0,-3px,0)}
+.bub{display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:13px;color:#C9CED9;background:radial-gradient(circle at 32% 26%,#2B3043,#12141D 72%);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 10px 24px rgba(0,0,0,0.4);transition:transform .45s var(--eo),border-color .3s ease}
+.gcard:hover .bub{transform:translate3d(0,-6px,0);border-color:rgba(110,145,255,0.35)}
+.btn{transition:transform .22s var(--eo),box-shadow .22s var(--eo),filter .22s ease}
+.btn:active,.btn2:active{transform:scale(.97)!important}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 12px 32px rgba(47,107,255,0.45)!important}
+.btn2{transition:transform .22s var(--eo),background .22s ease,border-color .22s ease}
+.btn2:hover{transform:translateY(-2px);background:rgba(255,255,255,0.08)!important;border-color:rgba(255,255,255,0.32)!important}
+.ar{display:inline-block;transition:transform .25s var(--eo)}
+a:hover .ar{transform:translateX(4px)}
+.chip{transition:transform .3s,border-color .3s}
+.chip:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.2)!important}
+.ring{transition:transform .6s var(--eo)}
+.gcard:hover .ring{transform:translate(-50%,-50%) scale(1.06)}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.reveal{animation:reveal 2.4s cubic-bezier(.65,0,.35,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pv{animation:fadeUp .45s cubic-bezier(.2,.8,.2,1)}
+.pvw.on > div > *{animation:rise .42s var(--eo) both}
+.pvw.on > div > *:nth-child(2){animation-delay:.04s}
+.pvw.on > div > *:nth-child(3){animation-delay:.08s}
+.pvw.on > div > *:nth-child(4){animation-delay:.12s}
+.pvw.on > div > *:nth-child(5){animation-delay:.16s}
+@keyframes rise{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
+@media (max-width:760px){.float-card,.floaty{display:none!important}}
+.hfeed{position:relative;box-sizing:content-box;height:144px;padding:12px 0 0 8px;margin:6px 0 0 -8px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.hev{position:relative;height:40px;margin-bottom:12px;display:flex;gap:10px;transition:opacity .6s ease;will-change:transform}
+.hev::before{content:"";position:absolute;left:4.5px;top:18px;width:1px;height:38px;background:linear-gradient(180deg,rgba(174,185,208,0.35),rgba(174,185,208,0.08))}
+.hfeed.fa .hev{animation:fpushA .7s var(--eo) both}
+.hfeed.fb .hev{animation:fpushB .7s var(--eo) both}
+.hfeed.fa .hev:first-child{animation:fpushA .7s var(--eo) both,finA .55s .12s ease both}
+.hfeed.fb .hev:first-child{animation:fpushB .7s var(--eo) both,finB .55s .12s ease both}
+@keyframes fpushA{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes fpushB{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes finA{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+@keyframes finB{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+.hfeed.ra .hev,.hswap.ra{animation:fresetA .6s var(--eo) both}
+.hfeed.rb .hev,.hswap.rb{animation:fresetB .6s var(--eo) both}
+.hfeed.ra .hev:nth-child(2),.hfeed.rb .hev:nth-child(2){animation-delay:.06s}
+.hfeed.ra .hev:nth-child(3),.hfeed.rb .hev:nth-child(3){animation-delay:.12s}
+@keyframes fresetA{from{opacity:0;transform:translate3d(0,8px,0)}}
+@keyframes fresetB{from{opacity:0;transform:translate3d(0,8px,0)}}
+@media (prefers-reduced-motion:reduce){.hfeed .hev,.hswap{animation:none!important}}
+@media (min-width:761px){.nw{white-space:nowrap}}
+.qbgs{position:absolute;z-index:-1;left:40px;right:0;bottom:-28px;aspect-ratio:16/9;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);mask-composite:intersect}
+.ncov img{transition:transform .6s var(--eo)}
+.gcard:hover .ncov img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.arc-run,.hub-ring,.tw,.floaty,.reveal,.pv,.pvw.on > div > *{animation:none}.gcard,.gtile,.lift,.bub,.btn,.btn2,.hl,.pmap{transition:none;translate:none}}
+@keyframes riseA{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+@keyframes riseB{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+.fx > *{animation-duration:.45s;animation-timing-function:var(--eo);animation-fill-mode:both}
+.fx > *:nth-child(2){animation-delay:.04s}.fx > *:nth-child(3){animation-delay:.08s}.fx > *:nth-child(4){animation-delay:.12s}.fx > *:nth-child(5){animation-delay:.16s}.fx > *:nth-child(6){animation-delay:.2s}.fx > *:nth-child(n+7){animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){.fx > *{animation:none!important}}
+</style>
+</helmet>
+<div onMouseMove="{{ spot }}" style="width: 100%; background: #0B0D14; color: #F2F4F8; font-family: Montserrat, 'PingFang SC', 'Noto Sans SC', 'Source Han Sans SC', system-ui, sans-serif; font-size: 15px; line-height: 1.6">
+
+<!-- 导航 -->
+<header onMouseLeave="{{ closeMenu }}" style="position: relative; z-index: 3; border-bottom: 1px solid rgba(200,210,235,0.1); background: rgba(11,13,20,0.85)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<a href="{{ homeHref }}" style="text-decoration: none; font-size: 21px; font-weight: 700; letter-spacing: -0.02em"><span style="color: {{accent}}">17</span>TRACK</a>
+<nav aria-label="主导航" data-hl-list="nav" onMouseLeave="{{ hlLeave }}" style="position: relative; display: flex; flex-wrap: wrap; gap: 4px">
+<span class="hl" aria-hidden="true" style="background: rgba(200,210,235,0.09); border-radius: 999px"></span>
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+<button type="button" data-active="{{ n.act }}" onClick="{{ n.toggle }}" onMouseEnter="{{ n.enter }}" style="{{ n.style }}">{{ n.label }}<span style="font-size: 9px; opacity: 0.6">{{ n.caret }}</span></button>
+</sc-for>
+</nav>
+<div style="display: flex; gap: 8px; align-items: center">
+<a href="#cta" style="text-decoration: none; font-size: 14px; color: #9097A6; padding: 10px 10px">登录</a>
+<a class="btn2" href="#cta" style="text-decoration: none; font-size: 14px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.24); background: rgba(200,210,235,0.06)">预约演示</a>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{ menu.items }}" as="mi" hint-placeholder-count="3">
+<a href="{{ mi.href }}" class="gcard" style="flex: 1 1 240px; text-decoration: none; padding: 16px 18px; border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(200,210,235,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 2px">
+<span style="font-weight: 600">{{ mi.t }}</span>
+<span style="font-size: 13px; color: #9097A6">{{ mi.d }}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</header>
+
+<section class="hero" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(200,210,235,0.08); background-color: #0B0D14; background-image: radial-gradient(46% 55% at 50% 30%, rgba(52,56,160,0.22), transparent 72%), radial-gradient(28% 34% at 12% 8%, rgba(20,90,110,0.12), transparent 72%)">
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(200,210,235,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(200,210,235,0.045) 1px, transparent 1px); background-size: 120px 120px; background-position: center top; -webkit-mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%); mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%)"></div>
+<div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 96px; padding-bottom: 72px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg> 资源 · 客户案例</span>
+<h1 style="margin: 0; font-size: 52px; line-height: 1.2; font-weight: 600">解锁<span class="gword">成功品牌</span></h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #9097A6; max-width: 640px">深入研究我们的客户案例，了解顶级品牌如何借助承接全球 3,500+ 运输商的 17TRACK，将售后难题转化为卓越体验。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center"><a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">立即试用</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600">预约演示</a></div>
+</div>
+</section>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 24px; padding-bottom: 24px">
+<a href="case-eufy.html" class="gcard" style="text-decoration: none; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 40px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="flex: 1.3 1 460px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; gap: 10px; align-items: center"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #CFF5EC; background: rgba(126,216,198,0.12); border-color: rgba(126,216,198,0.35)">精选案例</span><span style="font-size: 13px; color: #7A8191">智能家居</span></div>
+<span style="font-size: 42px; font-weight: 700; letter-spacing: -0.02em; color: #F2F4F8">eufy</span>
+<span style="font-size: 26px; font-weight: 600; line-height: 1.4; color: #F2F4F8">eufy 与 17TRACK 合作优化全球智能家居物流体验</span>
+<span style="font-size: 15px; line-height: 1.7; color: #9097A6">拆单物流追踪、33+ 语言通知、Apple Wallet 与运输保障，帮助安克旗下 eufy 在全球扩展中把物流变成信任。</span>
+<span style="font-weight: 600; color: #F2F4F8">阅读完整案例 <span class="ar">→</span></span>
+</div>
+<div style="flex: 1 1 340px; display: flex; flex-wrap: wrap; gap: 20px 0">
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; padding-right: 24px"><span class="gtext" style="background-image: linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%); font-size: 64px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">60%</span><span style="font-size: 15px; color: #B5BAC6">减少相关客户询问</span></div>
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; padding-left: 32px; border-left: 1px solid rgba(200,210,235,0.1)"><span class="gtext" style="background-image: linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%); font-size: 64px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">90%</span><span style="font-size: 15px; color: #B5BAC6">索赔成功率</span></div>
+</div>
+</a>
+</section>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 56px; padding-bottom: 24px">
+<div style="display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+<h2 style="margin: 0; font-size: 32px; font-weight: 600">案例研究</h2>
+<div data-hl-list="casefilters" onMouseLeave="{{ hlLeave }}" style="position: relative; display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.09)"><span class="hl" aria-hidden="true" style="border-radius: 999px; background: rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12)"></span><sc-for list="{{ caseFilters }}" as="c" hint-placeholder-count="4"><button type="button" data-active="{{ c.act }}" onClick="{{ c.pick }}" onMouseEnter="{{ c.hover }}" style="{{ c.style }}">{{ c.label }}</button></sc-for></div>
+</div>
+<div class="fx" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px">
+<sc-for list="{{ cases }}" as="c" hint-placeholder-count="5">
+<a href="{{ c.href }}" class="gcard" style="{{ c.cardStyle }}">
+<span style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 22px; font-weight: 700; letter-spacing: -0.01em; color: #F2F4F8">{{ c.b }}</span><span style="font-size: 12px; color: #7A8191">{{ c.ind }}</span></span>
+<span style="font-size: 17px; font-weight: 600; line-height: 1.55; color: #E6E9F0">{{ c.t }}</span>
+<sc-if value="{{ c.hasM }}" hint-placeholder-val="{{ true }}"><span style="display: flex; gap: 0; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06)"><sc-for list="{{ c.m }}" as="m" hint-placeholder-count="2"><span style="{{ m.st }}"><span class="gtext" style="background-image: {{ m.g }}; font-size: 34px; font-weight: 700; line-height: 1.1">{{ m.v }}</span><span style="font-size: 13px; color: #9097A6">{{ m.k }}</span></span></sc-for></span></sc-if>
+<span style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto"><sc-for list="{{ c.tags }}" as="tg" hint-placeholder-count="2"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #B5BAC6">{{ tg }}</span></sc-for></span>
+<span style="font-weight: 600; font-size: 14px; color: #F2F4F8">阅读案例 <span class="ar">→</span></span>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+<section id="cta" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 72px; padding-bottom: 104px"><div style="padding: 64px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px"><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">下一个成功案例，可以是你</h2><p style="margin: 0; font-size: 16px; color: #9097A6; max-width: 640px">通过自动更新和品牌化跟踪提升客户忠诚度，保持客户参与度。</p><div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center"><a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">免费开始使用</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600">预约演示</a></div></div></section>
+
+<footer style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-wrap: wrap; gap: 32px">
+<div style="flex: 1.5 1 220px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 20px; font-weight: 700"><span style="color: {{accent}}">17</span>TRACK</div>
+<span style="font-size: 13px; color: #9097A6">© 17TRACK · 隐私政策 · 服务条款</span>
+</div>
+<sc-for list="{{ footer }}" as="f" hint-placeholder-count="4">
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+<span style="font-weight: 600">{{ f.h }}</span>
+<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="#news" style="text-decoration: none; color: #9097A6">{{ fi }}</a></sc-for>
+</div>
+</sc-for>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF8A1F","options":["#FF8A1F","#FFB547","#FF6A3D","#FFFFFF"]},"$preview":{"width":1440,"height":3600}}'>
+class Component extends DCLogic {
+
+  componentDidMount() {
+    var self = this;
+    this._onResize = function () { self.syncAll(true); };
+    window.addEventListener('resize', this._onResize);
+    setTimeout(function () { self.syncAll(true); }, 60);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { self.syncAll(true); });
+    if (this.didMount) this.didMount();
+  }
+  componentWillUnmount() { clearTimeout(this._hv); cancelAnimationFrame(this._raf); window.removeEventListener('resize', this._onResize); if (this.willUnmount) this.willUnmount(); }
+  tiltEl(el, nx, ny, amp) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var s = el.__t || (el.__t = { rx: 0, ry: 0, vx: 0, vy: 0, tx: 0, ty: 0, raf: 0 });
+    s.tx = -ny * amp; s.ty = nx * amp;
+    if (s.raf) return;
+    var step = function () {
+      s.vx += (s.tx - s.rx) * 0.07; s.vy += (s.ty - s.ry) * 0.07;
+      s.vx *= 0.76; s.vy *= 0.76;
+      s.rx += s.vx; s.ry += s.vy;
+      el.style.setProperty('--rx', s.rx.toFixed(3)); el.style.setProperty('--ry', s.ry.toFixed(3));
+      if (Math.abs(s.tx - s.rx) < 0.005 && Math.abs(s.ty - s.ry) < 0.005 && Math.abs(s.vx) < 0.005 && Math.abs(s.vy) < 0.005) { s.raf = 0; return; }
+      s.raf = requestAnimationFrame(step);
+    };
+    s.raf = requestAnimationFrame(step);
+  }
+  listOf(el) { var l = el; while (l && !(l.getAttribute && l.getAttribute('data-hl-list'))) l = l.parentElement; return l; }
+  moveHl(list, el, instant) {
+    var hl = list && list.querySelector('.hl');
+    if (!hl) return;
+    if (!el) { hl.style.opacity = '0'; return; }
+    if (instant) hl.style.transition = 'none';
+    hl.style.transform = 'translate3d(' + el.offsetLeft + 'px,' + el.offsetTop + 'px,0)';
+    hl.style.width = el.offsetWidth + 'px';
+    hl.style.height = el.offsetHeight + 'px';
+    hl.style.opacity = '1';
+    if (instant) { void hl.offsetWidth; hl.style.transition = ''; }
+  }
+  syncList(list, instant) { if (!list) return; var t = list._hover && list.contains(list._hover) ? list._hover : list.querySelector('[data-active="1"]'); this.moveHl(list, t, instant); }
+  syncAll(instant) { var lists = document.querySelectorAll('[data-hl-list]'); for (var i = 0; i < lists.length; i++) this.syncList(lists[i], instant); }
+  follow(ms) { var self = this, end = Date.now() + ms; cancelAnimationFrame(this._raf); var tick = function () { self.syncAll(false); if (Date.now() < end) self._raf = requestAnimationFrame(tick); }; tick(); }
+  commonVals(pages) {
+    var self = this, st = this.state;
+    self.hlEnter = self.hlEnter || function (e) { var el = e.currentTarget, l = self.listOf(el); if (!l) return; l._hover = el; self.moveHl(l, el, false); };
+    var menus = [
+      { label: '产品', items: [{ t: 'Order Tracking 订单追踪', d: '品牌化追踪页 · 物流通知', href: pages.tracking }, { t: '17RETURNS 退换货', d: 'AI 驱动的自动化退换货', href: pages.returns }, { t: 'Tracking API', d: '3,500+ 承运商统一接口', href: pages.api }] },
+      { label: '资源', items: [{ t: '博客', d: '趋势、技巧与洞察', href: pages.blog }, { t: '客户案例', d: '各行业品牌实践', href: pages.cases }, { t: '合作伙伴 & 集成', d: '电商平台与应用生态', href: pages.integrations }] },
+      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: pages.api }, { t: 'API 文档', d: '接口说明与示例', href: '#' }] },
+      { label: '价格', items: [] }
+    ];
+    var navItems = menus.map(function (m, i) {
+      var open = st.menu === i;
+      return {
+        label: m.label,
+        caret: m.items.length ? (open ? ' ▲' : ' ▼') : '',
+        act: open ? '1' : '0',
+        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } },
+        enter: function (e) { self.hlEnter(e); var nx = m.items.length ? i : -1; if (self.state.menu !== nx) { self.setState({ menu: nx }); self.follow(460); } },
+        style: 'position: relative; z-index: 1; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 14px; padding: 10px 14px; border-radius: 999px; cursor: pointer; display: flex; gap: 6px; align-items: center; min-height: 44px'
+      };
+    });
+    var faqs = (this.faqData || []).map(function (f, i) {
+      var fs = st.faqSet;
+      var on = fs != null ? fs.indexOf(',' + i + ',') >= 0 : st.faq === i;
+      var cur = function () { var s0 = self.state.faqSet; return s0 != null ? s0 : (self.state.faq >= 0 ? ',' + self.state.faq + ',' : ','); };
+      return {
+        q: f[0], a: f[1],
+        hover: function () { clearTimeout(self._fq); self._fq = setTimeout(function () { var s1 = cur(); if (s1.indexOf(',' + i + ',') < 0) s1 += i + ','; if (s1 !== self.state.faqSet || self.state.faq !== i) self.setState({ faq: i, faqSet: s1 }); }, 120); },
+        toggle: function () { clearTimeout(self._fq); var s1 = cur(), k = ',' + i + ','; if (s1.indexOf(k) >= 0) { s1 = s1.replace(k, ','); self.setState({ faqSet: s1, faq: self.state.faq === i ? -1 : self.state.faq }); } else { self.setState({ faqSet: s1 + i + ',', faq: i }); } },
+        iconStyle: 'flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 400; color: #C9CED9; border: 1px solid rgba(255,255,255,0.12); transition: transform .35s var(--eo); transform: rotate(' + (on ? 45 : 0) + 'deg)',
+        wrapStyle: 'display: grid; transition: grid-template-rows .38s var(--eo), opacity .3s var(--eo); ' + (on ? 'grid-template-rows: 1fr; opacity: 1;' : 'grid-template-rows: 0fr; opacity: 0;')
+      };
+    });
+    return {
+      accent: this.props.accent ?? '#FF8A1F',
+      homeHref: pages.home,
+      navItems: navItems,
+      menuOpen: st.menu >= 0,
+      menu: st.menu >= 0 ? menus[st.menu] : menus[0],
+      sceneTilt: function (e) {
+        var sc = e.currentTarget, el = sc.querySelector('.tilt'); if (!el) return;
+        var r = sc.getBoundingClientRect(), c = sc.querySelector('.tcard');
+        if (c) { var cr = c.getBoundingClientRect(); sc.style.setProperty('--gx', ((e.clientX - cr.left) / cr.width * 100).toFixed(1) + '%'); sc.style.setProperty('--gy', ((e.clientY - cr.top) / cr.height * 100).toFixed(1) + '%'); sc.style.setProperty('--go', '1'); }
+        self.tiltEl(el, (e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5, 5.5);
+      },
+      sceneUntilt: function (e) { var sc = e.currentTarget, el = sc.querySelector('.tilt'); sc.style.setProperty('--go', '0'); if (el) self.tiltEl(el, 0, 0, 5.5); },
+      closeMenu: function () { if (self.state.menu !== -1) { self.setState({ menu: -1 }); self.follow(460); } },
+      hlLeave: function (e) { clearTimeout(self._hv); var l = e.currentTarget; l._hover = null; self.syncList(l, false); },
+      spot: function (e) {
+        var t = e.target, c = t && t.closest ? t.closest('.gcard') : null;
+        if (!c) return;
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      },
+      faqs: faqs,
+      faqLeave: function () { clearTimeout(self._fq); var f0 = self.state.faq; var s2 = f0 >= 0 ? ',' + f0 + ',' : ','; if (self.state.faqSet !== s2) self.setState({ faqSet: s2 }); },
+      footer: [
+        { h: '产品', items: ['运单查询', '物流通知', '退货管理'] },
+        { h: '开发者', items: ['API 文档', 'SDK', '状态页'] },
+        { h: '资源', items: ['博客', '客户案例', '合作伙伴 & 集成'] },
+        { h: '公司', items: ['关于我们', '联系我们', '包裹查询'] }
+      ]
+    };
+  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = { menu: -1, faq: -1, cf: 0, anim: 0 };
+    this.faqData = [];
+  }
+
+  pillList(key, labels) {
+    var self = this, st = this.state;
+    var later = function (fn) { clearTimeout(self._hv); self._hv = setTimeout(fn, 70); };
+    return labels.map(function (l, i) {
+      var on = st[key] === i;
+      var go = function () { clearTimeout(self._hv); if (self.state[key] !== i) { var o = {}; o[key] = i; o.anim = (self.state.anim || 0) + 1; self.setState(o); self.follow(460); } };
+      return { label: l, act: on ? '1' : '0', pick: go, hover: function (e) { self.hlEnter(e); later(go); },
+        style: 'position: relative; z-index: 1; border: 0; background: transparent; font-family: inherit; font-size: 14px; font-weight: 600; padding: 9px 18px; border-radius: 999px; cursor: pointer; min-height: 40px; white-space: nowrap; transition: color .25s ease; color: ' + (on ? '#FFFFFF' : '#9097A6') };
+    });
+  }
+  fxName() { return 'animation-name: ' + ((this.state.anim || 0) % 2 ? 'riseB' : 'riseA'); }
+
+  renderVals() {
+    var self = this, st = this.state;
+    var vals = this.commonVals({ home: 'index.html', tracking: 'tracking.html', returns: 'returns.html', api: 'api.html', blog: 'blog.html', cases: 'cases.html', caseEufy: 'case-eufy.html', integrations: 'integrations.html' });
+    var grads = ["linear-gradient(160deg, #F2F6FF 15%, #8EAEFF 95%)", "linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%)", "linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%)", "linear-gradient(160deg, #EEFCF8 15%, #7ED8C6 95%)", "linear-gradient(160deg, #F1F7FF 15%, #79A6F0 95%)"];
+    var data = [{"b": "AliExpress", "name": "速卖通", "ind": "跨境电商平台", "t": "速卖通携手 17TRACK：提升全球物流体验，赋能跨境电商新高度", "m": [], "tags": ["Tracking API"], "f": [3], "href": "#"}, {"b": "Coofandy", "name": "Coofandy", "ind": "男装 DTC", "t": "Coofandy 携手 17TRACK 优化用户体验，实现营收与口碑双增长", "m": [], "tags": ["Order Tracking", "17RETURNS"], "f": [1, 2], "href": "#"}, {"b": "eufy", "name": "eufy", "ind": "智能家居", "t": "eufy 与 17TRACK 合作优化全球智能家居物流体验", "m": [["60%", "减少相关客户询问"], ["90%", "索赔成功率"]], "tags": ["Order Tracking", "Tracking API", "17RETURNS"], "f": [1, 2, 3], "href": "case-eufy.html"}, {"b": "VAPORESSO", "name": "VAPORESSO", "ind": "电子雾化", "t": "自动化解决方案赋能品牌出海", "m": [["84%", "理赔成功率"], ["90%", "减少 WISMO 咨询量"]], "tags": ["Order Tracking"], "f": [1], "href": "#"}, {"b": "Baleaf", "name": "Baleaf", "ind": "运动服饰 DTC", "t": "Baleaf：用 17TRACK 一站式解决方案，解决正逆向售后问题", "m": [["75%", "减少 WISMO 咨询量"], ["60%", "减少物流客诉"]], "tags": ["Order Tracking", "17RETURNS"], "f": [1, 2], "href": "#"}];
+    vals.caseFilters = this.pillList('cf', ["全部案例", "Order Tracking", "17RETURNS", "Tracking API"]);
+    vals.cases = data.filter(function (c) { return st.cf === 0 || c.f.indexOf(st.cf) >= 0; }).map(function (c, i) {
+      return { b: c.b, ind: c.ind, t: c.t, href: c.href, tags: c.tags, hasM: c.m.length > 0,
+        m: c.m.map(function (m, j) { return { v: m[0], k: m[1], g: grads[(i + j + 1) % grads.length], st: 'flex: 1; display: flex; flex-direction: column; gap: 4px; ' + (j ? 'padding-left: 20px; border-left: 1px solid rgba(200,210,235,0.1);' : 'padding-right: 20px;') }; }),
+        cardStyle: 'text-decoration: none; display: flex; flex-direction: column; gap: 18px; min-height: 300px; box-sizing: border-box; border-radius: 22px; padding: 28px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); ' + self.fxName() };
+    });
+    return vals;
+  }
+
+}
+</script>
+</body>
+</html>

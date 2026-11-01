@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>17TRACK 首页高保真</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0D14}
+a{color:#F2F4F8}a:hover{color:#FFFFFF}
+@keyframes arcflow{from{stroke-dashoffset:106}to{stroke-dashoffset:0}}
+.arc-run{stroke-dasharray:6 100;animation:arcflow 3.6s linear infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.4);opacity:0}}
+.hub-ring{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+.tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.tiltc,.gcard.tiltc,.gcard.tiltc:hover{transform:perspective(700px) translate3d(0,var(--lift,0px),0) rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));will-change:transform}
+.gcard.tiltc{transition:--sa .35s var(--eo)}
+.gcard.tiltc:hover{--lift:-3px}
+@media (prefers-reduced-motion:reduce){.tiltc{transform:none!important}}
+.floaty{animation:floaty 6s ease-in-out infinite}
+@property --sa{syntax:'<number>';inherits:true;initial-value:0}
+:root{--eo:cubic-bezier(.22,1,.36,1);--es:cubic-bezier(.32,.72,0,1)}
+.gcard{position:relative;overflow:hidden;--mx:50%;--my:-20%;--sa:0;transition:transform .35s var(--eo),--sa .35s var(--eo)}
+.gcard:hover{--sa:1;transform:translate3d(0,-3px,0)}
+.gcard::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(110,140,255,calc(0.10 * var(--sa))),transparent 60%),radial-gradient(110% 70% at 50% 0%,rgba(255,255,255,0.035),transparent 62%)}
+.gcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;padding:1px;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(160,185,255,calc(0.7 * var(--sa))),transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.pmap{translate:calc(var(--px,0) * -30px) calc(var(--py,0) * -16px);transition:translate 1s var(--eo);will-change:translate}
+.hl{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;z-index:0;will-change:transform;transition:transform .38s var(--es),width .38s var(--es),height .38s var(--es),opacity .22s ease}
+.gtile{display:flex;align-items:center;justify-content:center;color:#FFFFFF;background:linear-gradient(160deg,#5A84FF 0%,#2350F0 45%,#0A2BA8 100%);box-shadow:0 0 30px rgba(60,100,255,0.4),inset 0 1px 0 rgba(255,255,255,0.5),inset 0 -8px 14px rgba(0,10,60,0.35)}
+.ptile{overflow:hidden;display:flex;align-items:center;justify-content:center;color:#DCE4FF;background:linear-gradient(160deg,#1E212B,#111318);border:1px solid rgba(200,210,235,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.12),0 8px 20px rgba(0,0,0,0.35)}
+.gtext{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gnum{background:linear-gradient(180deg,#FFFFFF 10%,#A3AABB 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gword{background:linear-gradient(90deg,#8FB0FF 0%,#3D6BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ntile{display:flex;align-items:center;justify-content:center;color:#C9CED9;background:linear-gradient(160deg,#232737,#151823);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1)}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(200,210,235,0.16);transform:translate(-50%,-50%)}
+.gtile{transition:transform .4s var(--eo)}
+.gcard:hover .gtile{transform:scale(1.06)}
+.ptile img{transition:transform .5s var(--eo)}
+.ptile{container-type:size;background:#0F1014!important}
+.ptile img{object-fit:contain!important;background:#0F1014}
+@container (min-aspect-ratio: 9/8){.ptile img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%)}}
+.ptile:hover img,.gcard:hover .lift .ptile img{transform:scale(1.08)}
+.lift{transition:transform .4s var(--eo)}
+.gcard:hover .lift{transform:translate3d(0,-3px,0)}
+.bub{display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:13px;color:#C9CED9;background:radial-gradient(circle at 32% 26%,#2B3043,#12141D 72%);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 10px 24px rgba(0,0,0,0.4);transition:transform .45s var(--eo),border-color .3s ease}
+.gcard:hover .bub{transform:translate3d(0,-6px,0);border-color:rgba(110,145,255,0.35)}
+.btn{transition:transform .22s var(--eo),box-shadow .22s var(--eo),filter .22s ease}
+.btn:active,.btn2:active{transform:scale(.97)!important}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 12px 32px rgba(47,107,255,0.45)!important}
+.btn2{transition:transform .22s var(--eo),background .22s ease,border-color .22s ease}
+.btn2:hover{transform:translateY(-2px);background:rgba(255,255,255,0.08)!important;border-color:rgba(255,255,255,0.32)!important}
+.ar{display:inline-block;transition:transform .25s var(--eo)}
+a:hover .ar{transform:translateX(4px)}
+.chip{transition:transform .3s,border-color .3s}
+.chip:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.2)!important}
+.ring{transition:transform .6s var(--eo)}
+.gcard:hover .ring{transform:translate(-50%,-50%) scale(1.06)}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.reveal{animation:reveal 2.4s cubic-bezier(.65,0,.35,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pv{animation:fadeUp .45s cubic-bezier(.2,.8,.2,1)}
+.pvw.on > div > *{animation:rise .42s var(--eo) both}
+.pvw.on > div > *:nth-child(2){animation-delay:.04s}
+.pvw.on > div > *:nth-child(3){animation-delay:.08s}
+.pvw.on > div > *:nth-child(4){animation-delay:.12s}
+.pvw.on > div > *:nth-child(5){animation-delay:.16s}
+@keyframes rise{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
+@media (max-width:760px){.float-card,.floaty{display:none!important}}
+.hfeed{position:relative;box-sizing:content-box;height:144px;padding:12px 0 0 8px;margin:6px 0 0 -8px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.hev{position:relative;height:40px;margin-bottom:12px;display:flex;gap:10px;transition:opacity .6s ease;will-change:transform}
+.hev::before{content:"";position:absolute;left:4.5px;top:18px;width:1px;height:38px;background:linear-gradient(180deg,rgba(174,185,208,0.35),rgba(174,185,208,0.08))}
+.hfeed.fa .hev{animation:fpushA .7s var(--eo) both}
+.hfeed.fb .hev{animation:fpushB .7s var(--eo) both}
+.hfeed.fa .hev:first-child{animation:fpushA .7s var(--eo) both,finA .55s .12s ease both}
+.hfeed.fb .hev:first-child{animation:fpushB .7s var(--eo) both,finB .55s .12s ease both}
+@keyframes fpushA{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes fpushB{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes finA{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+@keyframes finB{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+.hfeed.ra .hev,.hswap.ra{animation:fresetA .6s var(--eo) both}
+.hfeed.rb .hev,.hswap.rb{animation:fresetB .6s var(--eo) both}
+.hfeed.ra .hev:nth-child(2),.hfeed.rb .hev:nth-child(2){animation-delay:.06s}
+.hfeed.ra .hev:nth-child(3),.hfeed.rb .hev:nth-child(3){animation-delay:.12s}
+@keyframes fresetA{from{opacity:0;transform:translate3d(0,8px,0)}}
+@keyframes fresetB{from{opacity:0;transform:translate3d(0,8px,0)}}
+@media (prefers-reduced-motion:reduce){.hfeed .hev,.hswap{animation:none!important}}
+@media (min-width:761px){.nw{white-space:nowrap}}
+.qbgs{position:absolute;z-index:-1;left:40px;right:0;bottom:-28px;aspect-ratio:16/9;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);mask-composite:intersect}
+.ncov img{transition:transform .6s var(--eo)}
+.gcard:hover .ncov img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.arc-run,.hub-ring,.tw,.floaty,.reveal,.pv,.pvw.on > div > *{animation:none}.gcard,.gtile,.lift,.bub,.btn,.btn2,.hl,.pmap{transition:none;translate:none}}
+</style>
+</helmet>
+<div onMouseMove="{{ spot }}" style="width: 100%; background: #0B0D14; color: #F2F4F8; font-family: Montserrat, 'PingFang SC', 'Noto Sans SC', 'Source Han Sans SC', system-ui, sans-serif; font-size: 15px; line-height: 1.6">
+
+<!-- 导航 -->
+<header onMouseLeave="{{ closeMenu }}" style="position: relative; z-index: 3; border-bottom: 1px solid rgba(200,210,235,0.1); background: rgba(11,13,20,0.85)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<div style="font-size: 21px; font-weight: 700; letter-spacing: -0.02em"><span style="color: {{accent}}">17</span>TRACK</div>
+<nav aria-label="主导航" data-hl-list="nav" onMouseLeave="{{ hlLeave }}" style="position: relative; display: flex; flex-wrap: wrap; gap: 4px">
+<span class="hl" aria-hidden="true" style="background: rgba(200,210,235,0.09); border-radius: 999px"></span>
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+<button type="button" data-active="{{ n.act }}" onClick="{{ n.toggle }}" onMouseEnter="{{ n.enter }}" style="{{ n.style }}">{{ n.label }}<span style="font-size: 9px; opacity: 0.6">{{ n.caret }}</span></button>
+</sc-for>
+</nav>
+<div style="display: flex; gap: 8px; align-items: center">
+<a href="#cta" style="text-decoration: none; font-size: 14px; color: #9097A6; padding: 10px 10px">登录</a>
+<a class="btn2" href="#cta" style="text-decoration: none; font-size: 14px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.24); background: rgba(200,210,235,0.06)">预约演示</a>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{ menu.items }}" as="mi" hint-placeholder-count="3">
+<a href="{{ mi.href }}" class="gcard" style="flex: 1 1 240px; text-decoration: none; padding: 16px 18px; border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(200,210,235,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 2px">
+<span style="font-weight: 600">{{ mi.t }}</span>
+<span style="font-size: 13px; color: #9097A6">{{ mi.d }}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</header>
+
+<!-- 1 首屏 -->
+<section class="hero" onMouseMove="{{ heroMove }}" onMouseLeave="{{ heroLeave }}" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(200,210,235,0.1); background-color: #0B0D14; background-image: radial-gradient(50% 55% at 50% 40%, rgba(52,56,160,0.20), transparent 72%), radial-gradient(28% 34% at 84% 6%, rgba(20,90,110,0.12), transparent 72%)">
+<div class="hgrid" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(200,210,235,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(200,210,235,0.045) 1px, transparent 1px); background-size: 120px 120px; background-position: center top; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 26%, rgba(0,0,0,0.6) 36%, rgba(0,0,0,0.22) 44%, transparent 50%); mask-image: linear-gradient(to bottom, #000 0%, #000 26%, rgba(0,0,0,0.6) 36%, rgba(0,0,0,0.22) 44%, transparent 50%)"></div>
+<div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 96px 24px 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px">
+<h1 style="margin: 0; font-size: 60px; line-height: 1.2; font-weight: 600; letter-spacing: 0.01em">让每次售后创造<span class="gword">{{ word }}</span></h1>
+<p style="margin: 0; font-size: 18px; color: #9097A6; max-width: 720px">精准的品牌物流追踪与 AI 驱动的退换货，把每个售后时刻变成复购机会。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 6px">
+<a class="btn" href="#cta" style="text-decoration: none; padding: 13px 28px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">立即试用</a>
+<a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 28px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.06); font-weight: 600">预约演示</a>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #9097A6">
+<span style="color: {{accent}}; letter-spacing: 2px">★★★★★</span><span><strong style="color: #F2F4F8">4.9</strong> / 5</span><span aria-hidden="true" style="width: 1px; height: 14px; background: rgba(200,210,235,0.2); margin: 0 4px"></span><span style="display: inline-flex; align-items: center; gap: 6px"><img src="img/shopify-bag.png" alt="" style="height: 18px; width: auto; display: block; margin-top: -3px"><span style="color: #C9CED9">Shopify App Store</span></span>
+</div>
+</div>
+
+<!-- 动态地图 -->
+<div style="position: relative; max-width: 1180px; margin: -24px auto 0; padding: 0 24px">
+<div class="mapwin" aria-hidden="true" style="position: relative; width: 112%; margin-left: -6%; aspect-ratio: {{ map.aspect }}; -webkit-mask-image: {{ map.mask }}; mask-image: {{ map.mask }}">
+<div class="pmap" style="position: absolute; inset: 0">
+<svg viewBox="{{ map.vb }}" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible" fill="none">
+<circle cx="{{ map.sphere.cx }}" cy="{{ map.sphere.cy }}" r="{{ map.sphere.r }}" fill="#AEB9D0" fill-opacity="0.025" stroke="#AEB9D0" stroke-opacity="0.16" stroke-width="1"></circle>
+<path d="{{ map.grat }}" stroke="#AEB9D0" stroke-opacity="0.07" stroke-width="0.8"></path>
+</svg>
+<sc-for list="{{ map.dots }}" as="d" hint-placeholder-count="200">
+<span class="{{ d.cls }}" style="{{ d.style }}"></span>
+</sc-for>
+<svg viewBox="{{ map.vb }}" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible" fill="none">
+<path d="{{ map.base }}" stroke="#AEB9D0" stroke-opacity="0.22" stroke-width="1"></path>
+<g stroke="{{accent}}" stroke-width="2" stroke-linecap="round">
+<path class="arc-run" pathLength="100" d="{{ map.a0.d }}" style="{{ map.a0.st }}"></path>
+<path class="arc-run" pathLength="100" d="{{ map.a1.d }}" style="{{ map.a1.st }}"></path>
+<path class="arc-run" pathLength="100" d="{{ map.a2.d }}" style="{{ map.a2.st }}"></path>
+<path class="arc-run" pathLength="100" d="{{ map.a3.d }}" style="{{ map.a3.st }}"></path>
+<path class="arc-run" pathLength="100" d="{{ map.a4.d }}" style="{{ map.a4.st }}"></path>
+<path class="arc-run" pathLength="100" d="{{ map.a5.d }}" style="{{ map.a5.st }}"></path>
+</g>
+<g fill="{{accent}}">
+<circle class="hub-ring" cx="{{ map.h0.cx }}" cy="{{ map.h0.cy }}" r="{{ map.h0.r }}" fill-opacity="0.6"></circle>
+<circle class="hub-ring" cx="{{ map.h1.cx }}" cy="{{ map.h1.cy }}" r="{{ map.h1.r }}" fill-opacity="0.5" style="animation-delay: 0.6s"></circle>
+<circle class="hub-ring" cx="{{ map.h2.cx }}" cy="{{ map.h2.cy }}" r="{{ map.h2.r }}" fill-opacity="0.5" style="animation-delay: 1.2s"></circle>
+<circle class="hub-ring" cx="{{ map.h3.cx }}" cy="{{ map.h3.cy }}" r="{{ map.h3.r }}" fill-opacity="0.5" style="animation-delay: 1.8s"></circle>
+</g>
+<g fill="#FFFFFF">
+<circle cx="{{ map.h0.cx }}" cy="{{ map.h0.cy }}" r="{{ map.h0.r }}"></circle>
+<circle cx="{{ map.h1.cx }}" cy="{{ map.h1.cy }}" r="{{ map.h1.r }}"></circle>
+<circle cx="{{ map.h2.cx }}" cy="{{ map.h2.cy }}" r="{{ map.h2.r }}"></circle>
+<circle cx="{{ map.h3.cx }}" cy="{{ map.h3.cy }}" r="{{ map.h3.r }}"></circle>
+<circle cx="{{ map.h4.cx }}" cy="{{ map.h4.cy }}" r="{{ map.h4.r }}"></circle>
+<circle cx="{{ map.h5.cx }}" cy="{{ map.h5.cy }}" r="{{ map.h5.r }}"></circle>
+<circle cx="{{ map.h6.cx }}" cy="{{ map.h6.cy }}" r="{{ map.h6.r }}"></circle>
+</g>
+</svg>
+</div>
+</div>
+
+<!-- 悬浮微光卡片 -->
+<div class="float-card floaty gcard tiltc" onMouseMove="{{ cardTilt }}" onMouseLeave="{{ cardUntilt }}" style="position: absolute; left: 40px; top: 30%; width: 270px; padding: 16px; border-radius: 16px; background: linear-gradient(180deg, rgba(30,34,48,0.55), rgba(16,18,26,0.55)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(200,210,235,0.2); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 24px 48px rgba(0,0,0,0.5); display: flex; flex-direction: column; gap: 12px; text-align: left">
+<div style="display: flex; align-items: center; gap: 10px">
+<span class="ntile" style="width: 30px; height: 30px; border-radius: 9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"></path><path d="M4 7.5l8 4.5 8-4.5"></path></svg></span>
+<div class="hswap {{ feedCls }}" style="flex: 1; display: flex; flex-direction: column; line-height: 1.3"><span style="font-size: 12px; font-weight: 600">{{ feedNo }}</span><span style="font-size: 11px; color: #9097A6">{{ feedRoute }}</span></div>
+<span style="{{ feedChip.style }}">{{ feedChip.t }}</span>
+</div>
+<div class="hfeed {{ feedCls }}" aria-live="polite">
+<sc-for list="{{ heroEvents }}" as="ev" hint-placeholder-count="3">
+<div class="hev" style="{{ ev.row }}">
+<span style="{{ ev.dot }}"></span>
+<div style="display: flex; flex-direction: column; line-height: 1.35; min-width: 0"><span style="{{ ev.tcol }}">{{ ev.t }}</span><span style="font-size: 11px; color: #9097A6; white-space: nowrap">{{ ev.sub }}</span></div>
+</div>
+</sc-for>
+</div>
+<div style="height: 3px; border-radius: 2px; background: rgba(200,210,235,0.08); overflow: hidden"><div style="{{ feedBar }}"></div></div>
+</div>
+
+<div class="float-card floaty gcard tiltc" onMouseMove="{{ cardTilt }}" onMouseLeave="{{ cardUntilt }}" style="position: absolute; right: 40px; top: 42%; width: 220px; padding: 16px 18px; border-radius: 16px; background: linear-gradient(180deg, rgba(30,34,48,0.55), rgba(16,18,26,0.55)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(200,210,235,0.2); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 24px 48px rgba(0,0,0,0.5); display: flex; flex-direction: column; gap: 6px; text-align: left; animation-delay: 1.5s">
+<span style="font-size: 12px; color: #9097A6">WISMO 查询</span>
+<span class="gnum" style="font-size: 32px; font-weight: 700; line-height: 1.1">-95%</span>
+<div style="display: flex; align-items: flex-end; gap: 5px; height: 40px; margin-top: 4px" aria-hidden="true">
+<sc-for list="{{ bars }}" as="b" hint-placeholder-count="10"><span style="{{ b }}"></span></sc-for>
+</div>
+</div>
+
+<div class="float-card floaty" style="position: absolute; left: 0; right: 0; margin: 0 auto; width: fit-content; bottom: 6%; display: flex; align-items: center; gap: 10px; padding: 9px 16px; border-radius: 999px; background: rgba(22,25,36,0.55); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(200,210,235,0.2); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); font-size: 13px; white-space: nowrap; animation-delay: 3s">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}}; box-shadow: 0 0 10px {{accent}}"></span>
+<span>派送通知已发送</span><span style="color: #9097A6">打开率 &gt;70%</span>
+</div>
+</div>
+<div style="height: 40px"></div>
+</section>
+
+<!-- 2 产品 -->
+<section id="product" style="background: radial-gradient(45% 40% at 72% 58%, rgba(52,56,160,0.13), transparent 70%); max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px">
+<span style="font-size: 13px; color: #A3AABB; font-weight: 600">全球各行业 100,000+ 品牌的选择</span>
+<h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">重塑购买后体验，推动业务增长</h2>
+<div role="tablist" aria-label="产品" onMouseLeave="{{ cancelHover }}" style="position: relative; margin-top: 12px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; border-radius: 999px; background: rgba(200,210,235,0.06); border: 1px solid rgba(255,255,255,0.04)">
+<span aria-hidden="true" style="{{ tabInd }}"></span>
+<sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="3">
+<button type="button" role="tab" onClick="{{ tb.pick }}" onMouseEnter="{{ tb.hover }}" style="{{ tb.style }}">{{ tb.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+<div data-hl-list="feat" onMouseLeave="{{ hlLeave }}" style="position: relative; display: flex; flex-direction: column; gap: 10px">
+<span class="hl" aria-hidden="true" style="border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.014)); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.04)"></span>
+<sc-for list="{{ feats }}" as="f" hint-placeholder-count="2">
+<button type="button" data-active="{{ f.act }}" onClick="{{ f.pick }}" onMouseEnter="{{ f.hover }}" style="{{ f.style }}">
+<span style="display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%">
+<span style="display: flex; align-items: center; gap: 12px"><span style="{{ f.numStyle }}">{{ f.no }}</span><span style="font-size: 17px; font-weight: 600">{{ f.name }}</span></span>
+<span style="font-weight: 700; color: {{ f.metricColor }}">{{ f.metric }} <span style="font-weight: 400; font-size: 12px; color: #9097A6">{{ f.mlabel }}</span></span>
+</span>
+<span style="{{ f.descStyle }}"><span style="overflow: hidden; min-height: 0">{{ f.desc }}</span></span>
+</button>
+</sc-for>
+</div>
+<div style="display: flex; gap: 10px; margin-top: 14px">
+<a class="btn2" href="{{ tabHref }}" style="text-decoration: none; padding: 11px 22px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); font-weight: 600; font-size: 14px">查看详情 <span class="ar">→</span></a>
+</div>
+</div>
+
+<div class="gcard" style="flex: 1.35 1 480px; min-width: 0; min-height: 460px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<span style="font-size: 13px; color: #9097A6">{{ curTab.label }} · {{ curFeat.name }}</span>
+<span style="font-size: 12px; padding: 4px 10px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.2)"><span style="color: #FFFFFF; font-weight: 700">{{ curFeat.metric }}</span> {{ curFeat.mlabel }}</span>
+</div>
+
+<div style="flex: 1; display: grid; min-height: 0">
+<div class="{{ vw.brand.cls }}" style="{{ vw.brand.st }}">
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px">
+<div style="width: 76%; padding: 12px 16px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); opacity: 0.4; display: flex; justify-content: space-between; font-size: 13px"><span>已发货 · 深圳</span><span style="color: #9097A6">3 天前</span></div>
+<div class="lift" style="width: 92%; padding: 16px; border-radius: 18px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); display: flex; gap: 16px; align-items: center; box-sizing: border-box">
+<span class="ptile" style="width: 76px; height: 76px; border-radius: 16px; flex-shrink: 0"><img src="img/hoodie.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0">
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #9097A6"><span>[品牌名] · 订单 #10482</span><span>今天 09:42</span></div>
+<span style="font-size: 19px; font-weight: 700">运输中 · 预计 3 天送达</span>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; margin-top: 6px"><span style="height: 4px; border-radius: 2px; background: #4C7DFF"></span><span style="height: 4px; border-radius: 2px; background: #4C7DFF"></span><span style="height: 4px; border-radius: 2px; background: rgba(200,210,235,0.18)"></span><span style="height: 4px; border-radius: 2px; background: rgba(200,210,235,0.18)"></span></div>
+</div>
+</div>
+<div style="width: 84%; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; color: #9097A6">追踪页推荐 · 你可能还喜欢</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<span class="ptile" style="height: 104px; border-radius: 14px"><img src="img/sneaker.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<span class="ptile" style="height: 104px; border-radius: 14px"><img src="img/bag.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<span class="ptile" style="height: 104px; border-radius: 14px"><img src="img/watch.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="{{ vw.notify.cls }}" style="{{ vw.notify.st }}">
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; gap: 10px">
+<div style="width: 74%; padding: 12px 16px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); opacity: 0.4; display: flex; gap: 10px; align-items: center; font-size: 13px"><span class="ntile" style="width: 26px; height: 26px; border-radius: 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span><span>发货通知 · 你的包裹已从深圳发出</span></div>
+<div class="lift" style="width: 92%; padding: 16px 18px; border-radius: 18px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); display: flex; gap: 14px; align-items: center; box-sizing: border-box">
+<span class="gtile" style="width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #9097A6"><span>[品牌名] · 邮件</span><span>刚刚</span></div>
+<span style="font-size: 17px; font-weight: 700">今天派送：你的包裹正在路上</span>
+<span style="font-size: 13px; color: #B5BAC6">点击查看实时轨迹与预计送达时间</span>
+</div>
+<span class="ptile" style="width: 56px; height: 56px; border-radius: 12px; flex-shrink: 0"><img src="img/sneaker.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+</div>
+<div style="width: 74%; padding: 12px 16px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); opacity: 0.4; display: flex; gap: 10px; align-items: center; font-size: 13px"><span class="ntile" style="width: 26px; height: 26px; border-radius: 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span>签收通知 · 邀请你为本次购物评分</span></div>
+<div style="display: flex; gap: 8px; margin-top: 6px"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.18)">邮件</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.18)">短信</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.1); color: #7A8191">Webhook</span></div>
+</div>
+</div>
+<div class="{{ vw.revisit.cls }}" style="{{ vw.revisit.st }}">
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; gap: 22px">
+<div style="width: 92%; position: relative; display: flex">
+<span style="position: absolute; left: 12%; right: 12%; top: 20px; height: 1px; background: linear-gradient(90deg, rgba(200,210,235,0.1), #4C7DFF)"></span>
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.45"><span class="ntile" style="width: 40px; height: 40px; border-radius: 50%"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><span style="font-size: 13px; font-weight: 600">第 1 次</span><span style="font-size: 11px; color: #9097A6">查看物流</span></div><div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.6"><span class="ntile" style="width: 40px; height: 40px; border-radius: 50%"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><span style="font-size: 13px; font-weight: 600">第 2 次</span><span style="font-size: 11px; color: #9097A6">查看物流</span></div><div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.8"><span class="ntile" style="width: 40px; height: 40px; border-radius: 50%"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><span style="font-size: 13px; font-weight: 600">第 3 次</span><span style="font-size: 11px; color: #9097A6">浏览推荐</span></div><div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 1"><span class="gtile" style="width: 40px; height: 40px; border-radius: 50%"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 13px; font-weight: 600">第 4 次</span><span style="font-size: 11px; color: #9097A6">加购运动鞋</span></div>
+</div>
+<div class="lift" style="width: 80%; padding: 14px 16px; border-radius: 18px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); display: flex; gap: 14px; align-items: center; box-sizing: border-box">
+<span class="ptile" style="width: 64px; height: 64px; border-radius: 14px; flex-shrink: 0"><img src="img/sneaker.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #9097A6">追踪页推荐位</span><span style="font-size: 16px; font-weight: 700">回访中加购 1 件</span></div>
+<span style="font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; background: {{accent}}; color: #111111">+4 次 / 单</span>
+</div>
+</div>
+</div>
+<div class="{{ vw.autoret.cls }}" style="{{ vw.autoret.st }}">
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; gap: 18px">
+<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center">
+<span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.18)">1 选择商品</span><span style="color: #7A8191">→</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.18)">2 选择原因</span><span style="color: #7A8191">→</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.18); background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; border-color: transparent">3 生成退货标签</span>
+</div>
+<div class="lift" style="width: 88%; padding: 18px; border-radius: 18px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); display: flex; gap: 18px; align-items: center; box-sizing: border-box">
+<span class="ptile" style="width: 88px; height: 88px; border-radius: 16px; flex-shrink: 0"><img src="img/tee.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0">
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #9097A6"><span>退货单 RMA-2041</span><span>自动审核通过</span></div>
+<span style="font-size: 17px; font-weight: 700">退货标签已生成</span>
+<div aria-hidden="true" style="height: 28px; border-radius: 4px; background: repeating-linear-gradient(90deg, #E9ECF3 0 2px, transparent 2px 4px, #E9ECF3 4px 5px, transparent 5px 8px, #E9ECF3 8px 11px, transparent 11px 13px); opacity: 0.85"></div>
+</div>
+</div>
+<div style="display: flex; gap: 8px"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.18)">规则自动审核</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.18)">一键打印标签</span></div>
+</div>
+</div>
+<div class="{{ vw.exchange.cls }}" style="{{ vw.exchange.st }}">
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; gap: 18px">
+<div style="display: flex; align-items: center; gap: 18px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.5">
+<span class="ptile" style="width: 104px; height: 104px; border-radius: 20px"><img src="img/tee.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<span style="font-size: 12px; color: #9097A6">尺码 M · 申请退款</span>
+</div>
+<span class="gtile" style="width: 52px; height: 52px; border-radius: 50%"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h11l-3-3"></path><path d="M17 17H6l3 3"></path></svg></span>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+<span class="ptile" style="width: 104px; height: 104px; border-radius: 20px; border-color: rgba(90,130,255,0.55); box-shadow: 0 0 36px rgba(60,100,230,0.3), inset 0 1px 0 rgba(255,255,255,0.14)"><img src="img/tee.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<span style="font-size: 12px; font-weight: 600">尺码 L · 换货</span>
+</div>
+</div>
+<div class="lift" style="width: 86%; padding: 16px 20px; border-radius: 16px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); text-align: center; box-sizing: border-box">
+<span style="font-size: 20px; font-weight: 700">已转为换货 · 留住 <span style="color: {{accent}}">$49.00</span></span>
+</div>
+<div style="display: flex; gap: 8px"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.18)">换货</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.18)">店铺积分</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.1); color: #7A8191">退款</span></div>
+</div>
+</div>
+<div class="{{ vw.api.cls }}" style="{{ vw.api.st }}">
+<div style="flex: 1; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span class="gtile" style="width: 52px; height: 52px; border-radius: 14px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4"></path><path d="M16 8l4 4-4 4"></path></svg></span>
+<div style="display: flex; flex-direction: column"><span style="font-weight: 600">一次接入，覆盖 3,500+ 运输商</span><span style="font-size: 12px; color: #9097A6">自动识别承运商 · 统一状态码</span></div>
+</div>
+<div class="lift" style="flex: 1; border-radius: 14px; background: rgba(0,0,0,0.35); border: 1px solid rgba(200,210,235,0.12); overflow: hidden; display: flex; flex-direction: column">
+<div style="display: flex; border-bottom: 1px solid rgba(200,210,235,0.1); font-size: 13px"><span style="padding: 10px 16px; border-bottom: 2px solid #4C7DFF">请求</span><span style="padding: 10px 16px; color: #7A8191">响应</span></div>
+<div style="padding: 18px; font-family: 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 13px; line-height: 1.9; color: #B5BAC6">
+<div><span style="color: #5A606E">1 </span><span style="color: #7FA2FF">POST</span> /track/register</div>
+<div><span style="color: #5A606E">2 </span>{</div>
+<div><span style="color: #5A606E">3 </span>  "number": <span style="color: #C9CED9">"RR123456789CN"</span>,</div>
+<div><span style="color: #5A606E">4 </span>  "carrier": <span style="color: #C9CED9">"auto"</span></div>
+<div><span style="color: #5A606E">5 </span>}</div>
+<div style="color: #7BD88F; margin-top: 6px">→ 200 · status: "InTransit"</div>
+</div>
+</div>
+</div>
+</div>
+<div class="{{ vw.webhook.cls }}" style="{{ vw.webhook.st }}">
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; gap: 10px">
+<div style="font-family: 'SFMono-Regular', Menlo, monospace; font-size: 12px; color: #9097A6; padding: 6px 12px; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid rgba(200,210,235,0.1)"><span style="color: #7FA2FF">POST</span> https://[your-shop]/webhooks/tracking</div>
+<div class="lift" style="width: 92%; padding: 14px 16px; border-radius: 14px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); opacity: 1; display: flex; align-items: center; gap: 12px; box-sizing: border-box"><span class="gtile" style="width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg></span><div style="flex: 1; display: flex; flex-direction: column"><span style="font-family: 'SFMono-Regular', Menlo, monospace; font-size: 13px; font-weight: 600">Delivered</span><span style="font-size: 11px; color: #9097A6">已签收 · 洛杉矶</span></div><span style="font-size: 11px; color: #9097A6">刚刚</span><span style="font-size: 11px; font-weight: 700; color: #7BD88F">200</span></div><div class="" style="width: 80%; padding: 10px 14px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); opacity: 0.55; display: flex; align-items: center; gap: 12px; box-sizing: border-box"><span class="ntile" style="width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg></span><div style="flex: 1; display: flex; flex-direction: column"><span style="font-family: 'SFMono-Regular', Menlo, monospace; font-size: 13px; font-weight: 600">OutForDelivery</span><span style="font-size: 11px; color: #9097A6">派送中</span></div><span style="font-size: 11px; color: #9097A6">2 小时前</span><span style="font-size: 11px; font-weight: 700; color: #7BD88F">200</span></div><div class="" style="width: 80%; padding: 10px 14px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); opacity: 0.3; display: flex; align-items: center; gap: 12px; box-sizing: border-box"><span class="ntile" style="width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg></span><div style="flex: 1; display: flex; flex-direction: column"><span style="font-family: 'SFMono-Regular', Menlo, monospace; font-size: 13px; font-weight: 600">InTransit</span><span style="font-size: 11px; color: #9097A6">运输中</span></div><span style="font-size: 11px; color: #9097A6">昨天</span><span style="font-size: 11px; font-weight: 700; color: #7BD88F">200</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 3 收益 -->
+<section style="background: radial-gradient(50% 45% at 50% 55%, rgba(52,56,160,0.12), transparent 70%); max-width: 1200px; margin: 0 auto; padding: 0 24px 104px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
+<h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">将售后体验转化为可衡量的收益</h2>
+<p style="margin: 0; color: #9097A6">打破售后即成本的认知，以更低成本创造更高客户价值。</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+
+<!-- 3.1 WISMO -->
+<div class="gcard" style="flex: 1 1 460px; min-width: 0; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); display: flex; flex-direction: column">
+<div style="height: 240px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent)" aria-hidden="true">
+<div style="width: 62%; padding: 10px 16px; border-radius: 14px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.1); opacity: 0.35; font-size: 14px; text-align: center">我的订单到哪了？</div>
+<div style="width: 80%; padding: 14px 16px; border-radius: 16px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); display: flex; align-items: center; gap: 12px; box-sizing: border-box">
+<span class="gtile" style="width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path><path d="M9 10.5l2 2 4-4"></path></svg></span>
+<div style="display: flex; flex-direction: column; text-align: left"><span style="font-size: 14px; font-weight: 600">已自动回复：运输中，预计周五送达</span><span style="font-size: 12px; color: #9097A6">无需客服介入</span></div>
+</div>
+<div style="width: 62%; padding: 10px 16px; border-radius: 14px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.1); opacity: 0.35; font-size: 14px; text-align: center">包裹什么时候到？</div>
+</div>
+<div style="padding: 0 28px 28px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
+<span class="gnum" style="font-size: 52px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">95%</span>
+<span style="font-size: 16px; color: #B5BAC6">降低 WISMO 查询</span>
+</div>
+</div>
+
+<!-- 3.2 复购 -->
+<div class="gcard" style="flex: 1 1 460px; min-width: 0; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); display: flex; flex-direction: column">
+<div style="height: 240px; position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent)" aria-hidden="true">
+<span class="ring" style="width: 360px; height: 360px"></span>
+<span class="ring" style="width: 240px; height: 240px"></span>
+<span class="ring" style="width: 150px; height: 150px; border-color: rgba(200,210,235,0.28)"></span>
+<span class="gtile" style="position: absolute; left: 50%; top: 50%; width: 88px; height: 88px; margin: -44px 0 0 -44px; border-radius: 50%"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 11h11l2-8H6"></path><circle cx="9" cy="19" r="1.4"></circle><circle cx="17" cy="19" r="1.4"></circle></svg></span>
+<span style="position: absolute; left: calc(50% + 22px); top: calc(50% - 46px); width: 24px; height: 24px; border-radius: 50%; background: {{accent}}; color: #111111; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 16px rgba(255,138,31,0.6)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>
+<span class="ptile" style="position: absolute; left: 14%; top: 22%; width: 56px; height: 56px; border-radius: 14px; transform: rotate(-12deg)"><img src="img/tee.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<span class="ptile" style="position: absolute; right: 14%; top: 16%; width: 56px; height: 56px; border-radius: 14px; transform: rotate(10deg)"><img src="img/sneaker.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<span class="ptile" style="position: absolute; right: 20%; bottom: 14%; width: 48px; height: 48px; border-radius: 12px; transform: rotate(-6deg); opacity: 0.7"><img src="img/bag.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<span class="ptile" style="position: absolute; left: 22%; bottom: 10%; width: 44px; height: 44px; border-radius: 12px; transform: rotate(8deg); opacity: 0.5"><img src="img/headphones.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+</div>
+<div style="padding: 0 28px 28px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
+<span class="gnum" style="font-size: 52px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">16%</span>
+<span style="font-size: 16px; color: #B5BAC6">提升复购率</span>
+</div>
+</div>
+
+<!-- 3.3 挽留收入 -->
+<div class="gcard" style="flex: 1 1 460px; min-width: 0; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); display: flex; flex-direction: column">
+<div style="height: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent)" aria-hidden="true">
+<div style="width: 56%; padding: 10px 16px; border-radius: 14px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.1); opacity: 0.35; text-align: center; font-size: 15px">留住 <strong>$17.42</strong></div>
+<div style="width: 72%; padding: 16px; border-radius: 16px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); text-align: center; display: flex; flex-direction: column; gap: 2px; box-sizing: border-box">
+<span style="font-size: 20px; font-weight: 700">留住 <span style="color: {{accent}}">$49.00</span></span>
+<span style="font-size: 12px; color: #9097A6">≈ 退款转换货 1 件</span>
+</div>
+<div style="width: 56%; padding: 10px 16px; border-radius: 14px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.1); opacity: 0.35; text-align: center; font-size: 15px">留住 <strong>$25.12</strong></div>
+</div>
+<div style="padding: 0 28px 28px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
+<span class="gnum" style="font-size: 52px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">20%+</span>
+<span style="font-size: 16px; color: #B5BAC6">挽留收入</span>
+</div>
+</div>
+
+<!-- 3.4 忠诚度 -->
+<div class="gcard" style="flex: 1 1 460px; min-width: 0; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); display: flex; flex-direction: column">
+<div style="height: 240px; position: relative; padding: 24px 28px 0; box-sizing: border-box; -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent); mask-image: linear-gradient(to bottom, #000 75%, transparent)" aria-hidden="true">
+<svg viewBox="0 0 400 200" preserveAspectRatio="none" style="width: 100%; height: 100%" fill="none">
+<g stroke="#AEB9D0" stroke-opacity="0.12" stroke-dasharray="3 5"><path d="M60 10V190"></path><path d="M140 10V190"></path><path d="M220 10V190"></path><path d="M300 10V190"></path><path d="M380 10V190"></path></g>
+<path d="M0 180 C60 175 90 160 130 150 S200 150 230 120 S290 40 330 38" stroke="#2F5BFF" stroke-width="3" stroke-linecap="round"></path>
+<path d="M0 180 C60 175 90 160 130 150 S200 150 230 120 S290 40 330 38" stroke="#7FA0FF" stroke-width="10" stroke-opacity="0.15" stroke-linecap="round"></path>
+<circle cx="330" cy="38" r="18" fill="{{accent}}" fill-opacity="0.18"></circle>
+<circle cx="330" cy="38" r="6" fill="{{accent}}"></circle>
+</svg>
+<span style="position: absolute; right: 28px; top: 18px; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; background: {{accent}}; color: #111111; box-shadow: 0 0 20px rgba(255,138,31,0.45)">回购 3.5x</span>
+</div>
+<div style="padding: 0 28px 28px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
+<span class="gnum" style="font-size: 52px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">3.5x</span>
+<span style="font-size: 16px; color: #B5BAC6">忠诚度提升</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- 4 客户证言 -->
+<section>
+<div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 36px">
+<h2 style="margin: 0; font-size: 40px; font-weight: 600">品牌客户的声音</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div role="tablist" aria-label="客户" data-hl-list="quote" onMouseLeave="{{ hlLeave }}" style="position: relative; flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<span class="hl" aria-hidden="true" style="border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.014)); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.04)"></span>
+<sc-for list="{{ quotes }}" as="q" hint-placeholder-count="5">
+<button type="button" role="tab" data-active="{{ q.act }}" onClick="{{ q.pick }}" onMouseEnter="{{ q.hover }}" style="{{ q.style }}"><span style="font-weight: 600">{{ q.who }}</span><span style="font-size: 12px; color: #9097A6">{{ q.seg }}</span></button>
+</sc-for>
+</div>
+<div style="position: relative; isolation: isolate; flex: 2 1 520px; min-width: 0; padding: 8px 0 8px 40px; display: flex; flex-direction: column; gap: 28px; justify-content: space-between">
+<div class="qbgs" aria-hidden="true"><sc-for list="{{ quotes }}" as="qb" hint-placeholder-count="5"><img src="{{ qb.bg }}" alt="" style="{{ qb.bgStyle }}"></sc-for></div>
+<span class="ntile" style="width: 48px; height: 48px; border-radius: 14px" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h4v4c0 3-1.5 5-4 6l-.8-1.4C7.6 14.8 8.3 13.6 8.4 12H7V7zm7 0h4v4c0 3-1.5 5-4 6l-.8-1.4c1.4-.8 2.1-2 2.2-3.6H14V7z"></path></svg></span>
+<div style="display: grid; flex: 1">
+<sc-for list="{{ quotes }}" as="qq" hint-placeholder-count="5">
+<div style="{{ qq.paneStyle }}">
+<p style="margin: 0; font-size: 24px; line-height: 1.6; font-weight: 500">{{ qq.text }}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; border-top: 1px solid rgba(200,210,235,0.12); padding-top: 20px">
+<div style="display: flex; align-items: center; gap: 12px"><span class="ptile" style="width: 44px; height: 44px; border-radius: 12px; font-size: 14px; font-weight: 700">{{ qq.initial }}</span><div style="display: flex; flex-direction: column"><span style="font-weight: 600">{{ qq.who }}</span><span style="font-size: 13px; color: #9097A6">{{ qq.seg }}</span></div></div>
+<div style="display: flex; align-items: baseline; gap: 8px"><span class="gnum" style="font-size: 34px; font-weight: 700">{{ qq.num }}</span><span style="font-size: 13px; color: #9097A6">{{ qq.numLabel }}</span></div>
+<a href="cases.html" style="text-decoration: none; font-weight: 600">阅读案例 <span class="ar">→</span></a>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 5 集成 -->
+<section style="background: radial-gradient(45% 40% at 30% 55%, rgba(52,56,160,0.12), transparent 70%); max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
+<h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">多功能集成助力您的业务发展</h2>
+<p style="margin: 0; color: #9097A6">对接全球运输商、电商平台与你自己的系统，数据实时流转。</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+
+<div class="gcard" style="flex: 1.3 1 520px; min-width: 0; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); display: flex; flex-direction: column; overflow: hidden">
+<div style="height: 280px; position: relative; -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent)" aria-hidden="true">
+<span class="ring" style="width: 300px; height: 300px"></span>
+<span class="ring" style="width: 190px; height: 190px"></span>
+<span class="bub" style="position: absolute; left: 38%; top: 30%; width: 84px; height: 84px; margin: -42px 0 0 -42px; transition-delay: 0ms">菜鸟</span><span class="bub" style="position: absolute; left: 64%; top: 26%; width: 72px; height: 72px; margin: -36px 0 0 -36px; transition-delay: 40ms">DHL</span><span class="bub" style="position: absolute; left: 22%; top: 58%; width: 64px; height: 64px; margin: -32px 0 0 -32px; transition-delay: 80ms">UPS</span><span class="bub" style="position: absolute; left: 76%; top: 60%; width: 70px; height: 70px; margin: -35px 0 0 -35px; transition-delay: 120ms">FedEx</span><span class="bub" style="position: absolute; left: 50%; top: 80%; width: 58px; height: 58px; margin: -29px 0 0 -29px; transition-delay: 160ms">GLS</span><span class="bub" style="position: absolute; left: 12%; top: 26%; width: 50px; height: 50px; margin: -25px 0 0 -25px; transition-delay: 200ms">USPS</span><span class="bub" style="position: absolute; left: 88%; top: 30%; width: 54px; height: 54px; margin: -27px 0 0 -27px; transition-delay: 240ms">DPD</span>
+<span class="gtile" style="position: absolute; left: 50%; top: 50%; width: 92px; height: 92px; margin: -46px 0 0 -46px; border-radius: 50%"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"></path><path d="M4 7.5l8 4.5 8-4.5"></path><path d="M12 12v9"></path></svg></span>
+<span style="position: absolute; right: 24px; top: 20px; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.18)"><span class="gnum">3,500+</span> 运输商</span>
+</div>
+<div style="padding: 0 28px 28px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 20px; font-weight: 600">广泛的承运商集成</span>
+<span style="font-size: 14px; color: #9097A6">已接入菜鸟、DHL、UPS、USPS、FedEx、GLS、DPD 等 3,500+ 运输商，轨迹实时同步。</span>
+<a href="#cta" style="text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 4px">查看运输商列表 <span class="ar">→</span></a>
+</div>
+</div>
+
+<div class="gcard" style="flex: 1 1 380px; min-width: 0; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); display: flex; flex-direction: column; overflow: hidden">
+<div style="height: 280px; padding: 24px 24px 0; box-sizing: border-box; -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent)" aria-hidden="true">
+<div class="lift" style="border-radius: 14px; border: 1px solid rgba(200,210,235,0.12); background: rgba(0,0,0,0.25); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid rgba(200,210,235,0.08)">
+<span style="display: flex; gap: 5px"><span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(200,210,235,0.25)"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(200,210,235,0.25)"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: rgba(200,210,235,0.25)"></span></span>
+<span style="flex: 1; font-size: 11px; color: #9097A6; padding: 4px 10px; border-radius: 6px; background: rgba(200,210,235,0.06)">[your-store].myshopify.com/apps/17track</span>
+</div>
+<div style="padding: 14px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px"><span class="gtile" style="width: 30px; height: 30px; border-radius: 9px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 14px; font-weight: 600">17TRACK 已安装</span></div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 12px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.1)"><span title="Trustpilot logo" style="width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #FFFFFF0F; border: 1px dashed rgba(200,210,235,0.3); font-size: 11px; font-weight: 700; color: #9097A6">T</span><div style="flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.35"><span style="font-size: 13px; font-weight: 600">Trustpilot</span><span style="font-size: 11px; color: #9097A6">签收后自动邀请评价</span></div><span style="width: 34px; height: 20px; border-radius: 999px; position: relative; flex-shrink: 0; background: linear-gradient(160deg, #4C7DFF, #1F4FE0)"><span style="position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; border-radius: 50%; background: #FFFFFF"></span></span></div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 12px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.1)"><span title="PayPal logo" style="width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #FFFFFF0F; border: 1px dashed rgba(200,210,235,0.3); font-size: 11px; font-weight: 700; color: #9097A6">P</span><div style="flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.35"><span style="font-size: 13px; font-weight: 600">PayPal</span><span style="font-size: 11px; color: #9097A6">同步支付与物流单号</span></div><span style="width: 34px; height: 20px; border-radius: 999px; position: relative; flex-shrink: 0; background: linear-gradient(160deg, #4C7DFF, #1F4FE0)"><span style="position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; border-radius: 50%; background: #FFFFFF"></span></span></div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 12px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.1)"><span title="Judge.me logo" style="width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #FFFFFF0F; border: 1px dashed rgba(200,210,235,0.3); font-size: 11px; font-weight: 700; color: #9097A6">J</span><div style="flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.35"><span style="font-size: 13px; font-weight: 600">Judge.me</span><span style="font-size: 11px; color: #9097A6">晒单评价 + 追踪页展示</span></div><span style="width: 34px; height: 20px; border-radius: 999px; position: relative; flex-shrink: 0; background: linear-gradient(160deg, #4C7DFF, #1F4FE0)"><span style="position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; border-radius: 50%; background: #FFFFFF"></span></span></div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(200,210,235,0.06); opacity: 0.55"><span title="Klaviyo logo" style="width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #FFFFFF0F; border: 1px dashed rgba(200,210,235,0.3); font-size: 11px; font-weight: 700; color: #9097A6">K</span><div style="flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.35"><span style="font-size: 13px; font-weight: 600">Klaviyo</span><span style="font-size: 11px; color: #9097A6">物流节点触发营销邮件</span></div><span style="width: 34px; height: 20px; border-radius: 999px; position: relative; flex-shrink: 0; background: rgba(200,210,235,0.2)"><span style="position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #FFFFFF"></span></span></div>
+</div>
+</div>
+</div>
+<div style="padding: 0 28px 28px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 20px; font-weight: 600">Shopify 生态集成</span>
+<span style="font-size: 14px; color: #9097A6">与 Trustpilot、PayPal、Judge.me 等 Shopify 生态应用打通，一键启用。</span>
+<a href="#cta" style="text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 4px">前往 App Store <span class="ar">→</span></a>
+</div>
+</div>
+
+<div class="gcard" style="flex: 1 1 100%; min-width: 0; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); display: flex; flex-direction: column; overflow: hidden; flex-direction: row; flex-wrap: wrap; align-items: stretch">
+<div style="flex: 1 1 300px; padding: 32px 28px; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px">
+<span class="gtile" style="width: 48px; height: 48px; border-radius: 14px; margin-bottom: 10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4"></path><path d="M16 8l4 4-4 4"></path></svg></span>
+<span style="font-size: 20px; font-weight: 600">可扩展的开发者 API</span>
+<span style="font-size: 14px; color: #9097A6">标准 REST API 与 Webhook，适合平台与自建系统接入。</span>
+<a href="#cta" style="text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 4px">阅读 API 文档 <span class="ar">→</span></a>
+</div>
+<div style="flex: 2 1 560px; min-width: 0; padding: 28px 28px 0 0; box-sizing: border-box; -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent)" aria-hidden="true">
+<div class="lift" style="height: 100%; min-height: 230px; border-radius: 14px 14px 0 0; border: 1px solid rgba(200,210,235,0.12); border-bottom: 0; background: rgba(0,0,0,0.28); display: flex; flex-wrap: wrap; overflow: hidden">
+<div style="flex: 1 1 280px; border-right: 1px solid rgba(200,210,235,0.08)">
+<div style="padding: 10px 16px; font-size: 12px; color: #B5BAC6; border-bottom: 1px solid rgba(200,210,235,0.08)">track.js</div>
+<div style="padding: 14px 16px; font-family: 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 12.5px; line-height: 1.9; color: #B5BAC6">
+<div><span style="color: #5A606E">1 </span><span style="color: #7FA2FF">const</span> res = <span style="color: #7FA2FF">await</span> track.get(</div>
+<div><span style="color: #5A606E">2 </span>  <span style="color: #C9CED9">"RR123456789CN"</span></div>
+<div><span style="color: #5A606E">3 </span>);</div>
+<div><span style="color: #5A606E">4 </span>webhook.on(<span style="color: #C9CED9">"Delivered"</span>, notify);</div>
+</div>
+</div>
+<div style="flex: 1 1 220px; background: rgba(200,210,235,0.03)">
+<div style="padding: 10px 16px; font-size: 12px; color: #B5BAC6; border-bottom: 1px solid rgba(200,210,235,0.08)">响应</div>
+<div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #7BD88F; box-shadow: 0 0 8px #7BD88F"></span><span style="font-size: 14px; font-weight: 600">Delivered</span><span style="font-size: 11px; color: #9097A6">200 OK</span></div>
+<div style="font-size: 12px; color: #9097A6">承运商：自动识别</div>
+<div style="font-size: 12px; color: #9097A6">最新节点：洛杉矶 · 已签收</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- 6 数据概览 + 7 资质 -->
+<section style="position: relative; overflow: hidden; border-top: 1px solid rgba(200,210,235,0.08); background-image: radial-gradient(40% 60% at 20% 0%, rgba(30,58,138,0.16), transparent 70%), radial-gradient(36% 60% at 85% 0%, rgba(13,92,99,0.12), transparent 70%)">
+<svg class="reveal" aria-hidden="true" viewBox="0 0 1440 400" preserveAspectRatio="none" style="position: absolute; left: 0; right: 0; top: 150px; bottom: 40px; width: 100%; height: calc(100% - 190px); pointer-events: none">
+<defs>
+<linearGradient id="gcStroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3D6BFF" stop-opacity="0.15"></stop><stop offset="0.25" stop-color="#3D6BFF"></stop><stop offset="0.65" stop-color="#7A6BFF"></stop><stop offset="1" stop-color="#FF8A1F"></stop></linearGradient>
+<linearGradient id="gcFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D6BFF" stop-opacity="0.10"></stop><stop offset="1" stop-color="#3D6BFF" stop-opacity="0"></stop></linearGradient>
+</defs>
+<path d="M0 372 C 300 364, 520 342, 720 302 S 1000 232, 1150 176 S 1330 60, 1440 22 L1440 400 L0 400 Z" fill="url(#gcFill)"></path>
+<path d="M0 372 C 300 364, 520 342, 720 302 S 1000 232, 1150 176 S 1330 60, 1440 22" stroke="url(#gcStroke)" stroke-width="4" stroke-linecap="round" fill="none" vector-effect="non-scaling-stroke"></path>
+</svg>
+<div style="position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 104px 24px 160px; display: flex; flex-direction: column; gap: 72px">
+<div style="display: flex; flex-direction: column; gap: 48px">
+<h2 style="margin: 0; font-size: 40px; font-weight: 600; text-align: center">17TRACK 数据概览</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 32px 0">
+<sc-for list="{{ stats }}" as="st" hint-placeholder-count="5">
+<div style="{{ st.style }}">
+<span class="gtext" style="background-image: {{ st.g }}; font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05">{{ st.v }}</span>
+<span style="font-size: 15px; color: #9097A6">{{ st.k }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+<h3 style="margin: 0; font-size: 18px; font-weight: 600">我们的资质，您的信赖</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center">
+<sc-for list="{{ certs }}" as="ce" hint-placeholder-count="4">
+<div class="chip" style="display: flex; gap: 10px; align-items: center; padding: 10px 18px 10px 10px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.04); background: rgba(255,255,255,0.03); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06)">
+<span class="ntile" style="width: 30px; height: 30px; border-radius: 9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></span>
+<span style="font-weight: 600; font-size: 14px">{{ ce.t }}</span><span style="font-size: 13px; color: #9097A6">{{ ce.d }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 8 新闻资源 -->
+<section id="news" style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
+<h2 style="margin: 0; font-size: 40px; font-weight: 600">最新新闻与资源</h2>
+<a href="blog.html" style="text-decoration: none; font-weight: 600">查看全部 <span class="ar">→</span></a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<sc-for list="{{ posts }}" as="po" hint-placeholder-count="3">
+<a href="#news" class="gcard" style="flex: 1 1 300px; min-width: 0; text-decoration: none; border-radius: 22px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); display: flex; flex-direction: column">
+<span class="ncov" style="margin: 10px 10px 0; height: 180px; border-radius: 14px; overflow: hidden; display: block; background: #0F1014"><img src="{{ po.img }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span>
+<span style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; color: #9097A6">{{ po.cat }} · [日期]</span>
+<span style="font-size: 17px; font-weight: 600; line-height: 1.45">{{ po.t }}</span>
+</span>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- 结尾 CTA -->
+<section id="cta" style="max-width: 1200px; margin: 0 auto; padding: 0 24px 104px">
+<div style="padding: 64px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px">
+<h2 style="margin: 0; font-size: 38px; font-weight: 600; line-height: 1.3">全面升级您的物流追踪与退换货售后！</h2>
+<span style="max-width: 640px; font-size: 17px; line-height: 1.7; color: #9097A6">采用 17TRACK 的 SaaS 解决方案，重塑品牌售后旅程，持续创造增长机会。</span>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center">
+<a class="btn" href="#cta" style="text-decoration: none; padding: 13px 28px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">立即试用</a>
+<a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 28px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); font-weight: 600">预约演示</a>
+</div>
+</div>
+</section>
+
+<footer style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-wrap: wrap; gap: 32px">
+<div style="flex: 1.5 1 220px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 20px; font-weight: 700"><span style="color: {{accent}}">17</span>TRACK</div>
+<span style="font-size: 13px; color: #9097A6">© 17TRACK · 隐私政策 · 服务条款</span>
+</div>
+<sc-for list="{{ footer }}" as="f" hint-placeholder-count="4">
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+<span style="font-weight: 600">{{ f.h }}</span>
+<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="#news" style="text-decoration: none; color: #9097A6">{{ fi }}</a></sc-for>
+</div>
+</sc-for>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mapShape":{"editor":"enum","options":["世界地图","半球"],"default":"世界地图"},"accent":{"editor":"color","default":"#FF8A1F","options":["#FF8A1F","#FFB547","#FF6A3D","#FFFFFF"]},"$preview":{"width":1440,"height":5800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { word: 0, tab: 0, feat: 0, q: 1, menu: -1, fStep: 2, fRound: 0, fAnim: 0, fMode: '' };
+  }
+  componentDidMount() {
+    var self = this;
+    this.timer = setInterval(function () { self.setState({ word: (self.state.word + 1) % 3 }); }, 2600);
+    var feedTick = function () {
+      var s = self.state;
+      if (s.fStep < 7) self.setState({ fStep: s.fStep + 1, fAnim: s.fAnim + 1, fMode: 'f' });
+      else self.setState({ fStep: 2, fRound: s.fRound + 1, fAnim: s.fAnim + 1, fMode: 'r' });
+      self.feedTimer = setTimeout(feedTick, self.state.fStep === 7 ? 3800 : 2100);
+    };
+    this.feedTimer = setTimeout(feedTick, 2400);
+    this._onResize = function () { self.syncAll(true); };
+    window.addEventListener('resize', this._onResize);
+    setTimeout(function () { self.syncAll(true); }, 60);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { self.syncAll(true); });
+  }
+  tiltEl(el, nx, ny, amp) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var s = el.__t || (el.__t = { rx: 0, ry: 0, vx: 0, vy: 0, tx: 0, ty: 0, raf: 0 });
+    s.tx = -ny * amp; s.ty = nx * amp;
+    if (s.raf) return;
+    var step = function () {
+      s.vx += (s.tx - s.rx) * 0.07; s.vy += (s.ty - s.ry) * 0.07;
+      s.vx *= 0.76; s.vy *= 0.76;
+      s.rx += s.vx; s.ry += s.vy;
+      el.style.setProperty('--rx', s.rx.toFixed(3)); el.style.setProperty('--ry', s.ry.toFixed(3));
+      if (Math.abs(s.tx - s.rx) < 0.005 && Math.abs(s.ty - s.ry) < 0.005 && Math.abs(s.vx) < 0.005 && Math.abs(s.vy) < 0.005) { s.raf = 0; return; }
+      s.raf = requestAnimationFrame(step);
+    };
+    s.raf = requestAnimationFrame(step);
+  }
+  componentWillUnmount() { clearInterval(this.timer); clearTimeout(this.feedTimer); clearTimeout(this._hv); cancelAnimationFrame(this._raf); window.removeEventListener('resize', this._onResize); }
+  componentDidUpdate(pp, ps) {
+    var st = this.state;
+    if (ps.feat !== st.feat || ps.tab !== st.tab || ps.q !== st.q || ps.menu !== st.menu) this.follow(460);
+  }
+  listOf(el) {
+    var l = el;
+    while (l && !(l.getAttribute && l.getAttribute('data-hl-list'))) l = l.parentElement;
+    return l;
+  }
+  moveHl(list, el, instant) {
+    var hl = list && list.querySelector('.hl');
+    if (!hl) return;
+    if (!el) { hl.style.opacity = '0'; return; }
+    if (instant) hl.style.transition = 'none';
+    hl.style.transform = 'translate3d(' + el.offsetLeft + 'px,' + el.offsetTop + 'px,0)';
+    hl.style.width = el.offsetWidth + 'px';
+    hl.style.height = el.offsetHeight + 'px';
+    hl.style.opacity = '1';
+    if (instant) { void hl.offsetWidth; hl.style.transition = ''; }
+  }
+  syncList(list, instant) {
+    if (!list) return;
+    var t = list._hover && list.contains(list._hover) ? list._hover : list.querySelector('[data-active="1"]');
+    this.moveHl(list, t, instant);
+  }
+  syncAll(instant) {
+    var self = this;
+    var lists = document.querySelectorAll('[data-hl-list]');
+    for (var i = 0; i < lists.length; i++) self.syncList(lists[i], instant);
+  }
+  follow(ms) {
+    var self = this, end = Date.now() + ms;
+    cancelAnimationFrame(this._raf);
+    var tick = function () { self.syncAll(false); if (Date.now() < end) self._raf = requestAnimationFrame(tick); };
+    tick();
+  }
+  landData() {
+    return [
+      [[18,23],[26,31]],
+      [[16,23],[24,32],[39,40],[46,47],[55,56]],
+      [[11,13],[15,19],[21,22],[24,32],[47,48],[54,58],[63,64]],
+      [[3,7],[8,12],[14,20],[22,23],[25,31],[39,41],[42,43],[45,50],[52,60],[62,68],[69,71]],
+      [[3,24],[26,28],[32,32],[38,71]],
+      [[4,16],[19,23],[28,28],[37,68]],
+      [[10,16],[19,24],[35,35],[38,64],[68,68]],
+      [[11,25],[35,44],[45,64]],
+      [[11,23],[36,44],[45,63],[64,64]],
+      [[11,21],[34,36],[38,45],[46,60],[61,61],[63,64]],
+      [[12,20],[35,38],[43,60],[62,63]],
+      [[13,19],[34,42],[43,48],[50,60]],
+      [[14,16],[33,43],[44,47],[49,54],[56,60]],
+      [[15,19],[33,43],[44,46],[50,53],[55,57]],
+      [[17,19],[33,44],[51,51],[55,57],[60,60]],
+      [[19,24],[33,46],[51,51],[55,56],[61,61]],
+      [[20,26],[34,45],[56,56],[58,59]],
+      [[20,26],[38,44],[56,60]],
+      [[20,29],[38,44],[57,60],[63,66]],
+      [[20,29],[38,44],[57,58],[62,65]],
+      [[21,28],[38,44],[45,46],[61,65]],
+      [[22,28],[38,43],[45,45],[59,66]],
+      [[22,27],[39,42],[58,66]],
+      [[21,26],[39,42],[59,66]],
+      [[21,24],[59,60],[63,65],[70,70]],
+      [[21,23],[65,65],[71,71]],
+      [[21,23],[69,70]],
+      [[21,22]]
+    ];
+  }
+  buildMap(shape) {
+    this._maps = this._maps || {};
+    if (this._maps[shape]) return this._maps[shape];
+    var land = this.landData();
+    var D = Math.PI / 180;
+    var DOT = '#8F97AA';
+    var cities = { sz: [114.1, 22.5], lon: [-0.1, 51.5], dxb: [55.3, 25.2], sin: [103.8, 1.35], fra: [8.7, 50.1], la: [-118.2, 34], ny: [-74, 40.7] };
+    var hubOrder = ['sz', 'lon', 'dxb', 'sin', 'fra', 'la', 'ny'];
+    var pairs = [['sz', 'lon'], ['sz', 'dxb'], ['sz', 'sin'], ['dxb', 'fra'], ['sz', 'la'], ['lon', 'ny']];
+    var timing = [[3.4, 0], [2.6, 0.8], [2.4, 1.4], [2.8, 2], [4.2, 0.3], [3.6, 1.1]];
+    function dotStyle(xPct, yPct, s, op, tw, h) {
+      return 'position:absolute;left:' + xPct.toFixed(3) + '%;top:' + yPct.toFixed(3) + '%;width:' + s + 'px;height:' + s + 'px;margin:-' + (s / 2) + 'px 0 0 -' + (s / 2) + 'px;border-radius:50%;background:' + DOT + ';opacity:' + op + (tw ? ';animation-delay:' + (h % 30) / 10 + 's' : '');
+    }
+    function hash(a, b) { return (((a * 2654435761) ^ (b * 40503)) >>> 0) % 100; }
+    var dots = [], arcs = {}, hubs = {}, base = '', grat = 'M-100 -100', sphere = { cx: 0, cy: 0, r: 0 }, vb, aspect, mask;
+
+    if (shape === '世界地图') {
+      vb = '0 0 720 280'; aspect = '72 / 28'; mask = 'radial-gradient(ellipse 52% 60% at 50% 54%, #000 0%, #000 16%, rgba(0,0,0,0.93) 24%, rgba(0,0,0,0.82) 32%, rgba(0,0,0,0.68) 40%, rgba(0,0,0,0.53) 48%, rgba(0,0,0,0.39) 56%, rgba(0,0,0,0.27) 64%, rgba(0,0,0,0.17) 72%, rgba(0,0,0,0.09) 80%, rgba(0,0,0,0.04) 88%, rgba(0,0,0,0.01) 95%, transparent 100%)';
+      for (var r = 0; r < land.length; r++) {
+        for (var k = 0; k < land[r].length; k++) {
+          for (var c = land[r][k][0]; c <= land[r][k][1]; c++) {
+            var h = hash(c, r);
+            var tw = h % 6 === 0;
+            dots.push({ cls: tw ? 'tw' : '', style: dotStyle((c + 0.5) / 72 * 100, (r + 0.5) / land.length * 100, h < 10 ? 4 : 3, (0.3 + (h % 45) / 100).toFixed(2), tw, h) });
+          }
+        }
+      }
+      var eq = function (k) { var p = cities[k]; return [(p[0] + 180) * 2, (85 - p[1]) * 2]; };
+      pairs.forEach(function (pr, i) {
+        var a = eq(pr[0]), b = eq(pr[1]);
+        var mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+        var dist = Math.sqrt((a[0] - b[0]) * (a[0] - b[0]) + (a[1] - b[1]) * (a[1] - b[1]));
+        var d = 'M' + a[0].toFixed(1) + ' ' + a[1].toFixed(1) + ' Q' + mx.toFixed(1) + ' ' + (my - dist * 0.32).toFixed(1) + ' ' + b[0].toFixed(1) + ' ' + b[1].toFixed(1);
+        arcs['a' + i] = { d: d, st: 'animation-duration: ' + timing[i][0] + 's; animation-delay: ' + timing[i][1] + 's' };
+        base += ' ' + d;
+      });
+      hubOrder.forEach(function (k, i) { var p = eq(k); hubs['h' + i] = { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: i === 0 ? 3.6 : 2.6 }; });
+    } else {
+      vb = '0 0 720 380'; aspect = '720 / 380'; mask = 'linear-gradient(to bottom, transparent 0%, #000 25%, #000 80%, transparent 100%)';
+      var CX = 360, CY = 370, R0 = 350, L0 = 60 * D, P0 = -10 * D;
+      var proj = function (lon, lat, lift) {
+        var la = lat * D, lo = lon * D;
+        var cosc = Math.sin(P0) * Math.sin(la) + Math.cos(P0) * Math.cos(la) * Math.cos(lo - L0);
+        var R = R0 * (1 + (lift || 0));
+        var x = R * Math.cos(la) * Math.sin(lo - L0);
+        var y = R * (Math.cos(P0) * Math.sin(la) - Math.sin(P0) * Math.cos(la) * Math.cos(lo - L0));
+        return { x: CX + x, y: CY - y, vis: cosc > 0 && y >= 0, c: cosc };
+      };
+      var toPath = function (pts) {
+        var d = '', pen = false;
+        pts.forEach(function (p) {
+          if (p.vis) { d += (pen ? ' L' : ' M') + p.x.toFixed(1) + ' ' + p.y.toFixed(1); pen = true; } else { pen = false; }
+        });
+        return d;
+      };
+      for (var r2 = 0; r2 < land.length; r2++) {
+        for (var k2 = 0; k2 < land[r2].length; k2++) {
+          for (var c2 = land[r2][k2][0]; c2 <= land[r2][k2][1]; c2++) {
+            for (var i2 = 0; i2 < 2; i2++) {
+              for (var j2 = 0; j2 < 2; j2++) {
+                var lon = -180 + 5 * c2 + 1.25 + 2.5 * i2;
+                var lat = 85 - 5 * r2 - 1.25 - 2.5 * j2;
+                var p = proj(lon, lat, 0);
+                if (!p.vis) continue;
+                var hh = hash(c2 * 2 + i2, r2 * 2 + j2);
+                var tw2 = hh % 7 === 0;
+                var s2 = (1.4 + 2 * p.c).toFixed(1);
+                var op2 = ((0.12 + 0.68 * p.c) * (0.7 + (hh % 30) / 100)).toFixed(2);
+                dots.push({ cls: tw2 ? 'tw' : '', style: dotStyle(p.x / 720 * 100, p.y / 380 * 100, s2, op2, tw2, hh) });
+              }
+            }
+          }
+        }
+      }
+      var g = '';
+      [-90, -60, -30, 0, 30, 60, 90].forEach(function (off) {
+        var pts = [];
+        for (var la2 = -90; la2 <= 90; la2 += 3) pts.push(proj(60 + off, la2, 0));
+        g += toPath(pts);
+      });
+      [0, 30, 60].forEach(function (la3) {
+        var pts = [];
+        for (var lo3 = -180; lo3 <= 180; lo3 += 3) pts.push(proj(lo3, la3, 0));
+        g += toPath(pts);
+      });
+      grat = g || 'M-100 -100';
+      sphere = { cx: CX, cy: CY, r: R0 };
+      var vec = function (lon, lat) { var a = lon * D, b = lat * D; return [Math.cos(b) * Math.cos(a), Math.cos(b) * Math.sin(a), Math.sin(b)]; };
+      pairs.forEach(function (pr, i) {
+        var va = vec(cities[pr[0]][0], cities[pr[0]][1]), vb2 = vec(cities[pr[1]][0], cities[pr[1]][1]);
+        var w = Math.acos(Math.min(1, Math.max(-1, va[0] * vb2[0] + va[1] * vb2[1] + va[2] * vb2[2])));
+        var lift = 0.05 + 0.14 * (w / Math.PI);
+        var pts = [];
+        for (var n = 0; n <= 48; n++) {
+          var t = n / 48, s1 = Math.sin((1 - t) * w) / Math.sin(w), sB = Math.sin(t * w) / Math.sin(w);
+          var v = [s1 * va[0] + sB * vb2[0], s1 * va[1] + sB * vb2[1], s1 * va[2] + sB * vb2[2]];
+          pts.push(proj(Math.atan2(v[1], v[0]) / D, Math.asin(v[2]) / D, lift * Math.sin(Math.PI * t)));
+        }
+        var d = toPath(pts) || 'M-100 -100';
+        arcs['a' + i] = { d: d, st: 'animation-duration: ' + timing[i][0] + 's; animation-delay: ' + timing[i][1] + 's' };
+        base += ' ' + d;
+      });
+      hubOrder.forEach(function (k, i) {
+        var p = proj(cities[k][0], cities[k][1], 0);
+        hubs['h' + i] = { cx: p.x.toFixed(1), cy: p.y.toFixed(1), r: p.vis ? (i === 0 ? 3.6 : 2.6) : 0 };
+      });
+    }
+    var m = { vb: vb, aspect: aspect, mask: mask, dots: dots, grat: grat, base: base, sphere: sphere };
+    Object.keys(arcs).forEach(function (k) { m[k] = arcs[k]; });
+    Object.keys(hubs).forEach(function (k) { m[k] = hubs[k]; });
+    this._maps[shape] = m;
+    return m;
+  }
+  renderVals() {
+    var self = this;
+    var st = this.state;
+    var accent = this.props.accent ?? '#FF8A1F';
+    var words = ['盈利点', '忠诚度', '复购'];
+
+    var menus = [
+      { label: '产品', items: [{ t: 'Order Tracking 订单追踪', d: '品牌化追踪页 · 物流通知', href: 'tracking.html' }, { t: '17RETURNS 退换货', d: 'AI 驱动的自动化退换货', href: 'returns.html' }, { t: 'Tracking API', d: '3,500+ 承运商统一接口', href: 'api.html' }] },
+      { label: '资源', items: [{ t: '博客', d: '趋势、技巧与洞察', href: 'blog.html' }, { t: '客户案例', d: '各行业品牌实践', href: 'cases.html' }, { t: '合作伙伴 & 集成', d: '电商平台与应用生态', href: 'integrations.html' }] },
+      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: 'api.html' }, { t: 'API 文档', d: '接口说明与示例', href: '#' }] },
+      { label: '价格', items: [] }
+    ];
+    var navItems = menus.map(function (m, i) {
+      var open = st.menu === i;
+      return {
+        label: m.label,
+        caret: m.items.length ? (open ? ' ▲' : ' ▼') : '',
+        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } },
+        act: open ? '1' : '0',
+        enter: function (e) { self.hlEnter(e); var nx = m.items.length ? i : -1; if (self.state.menu !== nx) self.setState({ menu: nx }); self.follow(460); },
+        style: 'position: relative; z-index: 1; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 14px; padding: 10px 14px; border-radius: 999px; cursor: pointer; display: flex; gap: 6px; align-items: center; min-height: 44px'
+      };
+    });
+
+    var tabsData = [
+      { label: 'Order Tracking', feats: [
+        { key: 'brand', name: '品牌化跟踪', metric: '-95%', mlabel: 'WISMO 查询', desc: '在品牌自有的追踪页实时更新物流，把「我的订单在哪」变成一次互动。' },
+        { key: 'notify', name: '主动通知', metric: '>70%', mlabel: '邮件打开率', desc: '发货、派送、签收等关键节点自动发送邮件和短信，减少客服咨询。' },
+        { key: 'revisit', name: '每单回访', metric: '+4', mlabel: '次 / 单', desc: '买家多次回到追踪页查看进度，每次都是一次品牌曝光与推荐机会。' }
+      ] },
+      { label: '17RETURNS', feats: [
+        { key: 'autoret', name: '自动化退货', metric: '-70%', mlabel: '售后成本', desc: '买家自助发起退换，规则自动审核，退货标签一键生成。' },
+        { key: 'exchange', name: '换货优先', metric: '20%+', mlabel: '挽留收入', desc: '优先推荐换货与店铺积分，把退款变成留存。' }
+      ] },
+      { label: 'API', feats: [
+        { key: 'api', name: '统一追踪接口', metric: '3,500+', mlabel: '运输商', desc: '一个接口查询全球运输商轨迹，自动识别承运商。' },
+        { key: 'webhook', name: 'Webhook 推送', metric: '[指标]', mlabel: '推送时效', desc: '物流状态变化实时推送到你的系统。' }
+      ] }
+    ];
+    self.hlEnter = self.hlEnter || function (e) { var el = e.currentTarget, l = self.listOf(el); if (!l) return; l._hover = el; self.moveHl(l, el, false); };
+    var later = function (fn) { clearTimeout(self._hv); self._hv = setTimeout(fn, 70); };
+    var tabs = tabsData.map(function (t, i) {
+      var on = st.tab === i;
+      var go = function () { clearTimeout(self._hv); if (self.state.tab !== i) self.setState({ tab: i, feat: 0 }); self.follow(460); };
+      return {
+        label: t.label,
+        pick: go,
+        hover: function () { later(go); },
+        style: 'position: relative; z-index: 1; transition: color .25s ease; border: 0; background: transparent; font-family: inherit; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 999px; cursor: pointer; min-height: 40px; white-space: nowrap; color: ' + (on ? '#FFFFFF' : '#9097A6')
+      };
+    });
+    var curTab = tabsData[st.tab];
+    var feats = curTab.feats.map(function (f, i) {
+      var on = st.feat === i;
+      return Object.assign({}, f, {
+        on: on,
+        no: '0' + (i + 1),
+        numStyle: 'transition: background .3s ease, color .3s ease, border-color .3s ease; box-sizing: border-box; width: 32px; height: 32px; border-radius: 10px; border: 1px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; ' + (on ? 'background: rgba(255,255,255,0.12); color: #FFFFFF; border-color: rgba(255,255,255,0.16);' : 'background: rgba(200,210,235,0.08); color: #9097A6; border-color: rgba(200,210,235,0.14);'),
+        metricColor: on ? '#FFFFFF' : '#B5BAC6',
+        pick: function () { clearTimeout(self._hv); if (self.state.feat !== i) self.setState({ feat: i }); self.follow(460); },
+        act: on ? '1' : '0',
+        hover: function (e) { self.hlEnter(e); later(function () { if (self.state.feat !== i) self.setState({ feat: i }); self.follow(460); }); },
+        barStyle: 'position: absolute; left: -1px; top: 16px; bottom: 16px; width: 2px; border-radius: 2px; background: linear-gradient(180deg, #6E92FF, #2F5BFF); box-shadow: 0 0 12px rgba(80,120,255,0.8); transform-origin: top; transition: transform .38s var(--eo), opacity .3s ease; transform: scaleY(' + (on ? 1 : 0) + '); opacity: ' + (on ? 1 : 0),
+        descStyle: 'display: block; font-size: 14px; line-height: 1.6; color: #9097A6; text-align: left; padding-left: 44px;',
+        style: 'position: relative; z-index: 1; text-align: left; display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; border-radius: 18px; cursor: pointer; font-family: inherit; color: #F2F4F8; background: transparent; border: 1px solid transparent; transition: opacity .25s ease; opacity: ' + (on ? 1 : 0.7)
+      });
+    });
+
+    var quoteData = [
+      { who: '速卖通运营团队', initial: '速', seg: '平台 · API 接入', text: '接入 17TRACK API 后，我们的全球物流追踪更准确、更及时，消费者体验明显提升。', num: '+95%', numLabel: '追踪准确率', bg: 'img/q1_port.jpg' },
+      { who: 'Baleaf 运营团队', initial: 'B', seg: '品牌 · 追踪 + 通知', text: '合作后运单查询工作量减少 75%，客诉问题减少约 60%。', num: '-75%', numLabel: '运单查询量', bg: 'img/q2_run.jpg' },
+      { who: '独立站运营负责人', initial: '独', seg: '独立站 · 品牌追踪页', text: '人工查询减少 90% 以上，品牌查询页还成了网站访问量最高的页面。', num: '-90%', numLabel: '人工查询', bg: 'img/q3_unbox.jpg' },
+      { who: 'DTC 中台负责人', initial: 'D', seg: 'DTC · 追踪 + 退货', text: '实时追踪加上简化的退货流程，让跨境物流更透明，也更值得信任。', num: '+65%', numLabel: '客户满意度', bg: 'img/q4_wh.jpg' },
+      { who: '独立站运营负责人', initial: '独', seg: '独立站 · 全链路', text: '从物流追踪到退换货都更高效透明，满意度和品牌口碑都有明显改善。', num: '+30%', numLabel: '运营效率', bg: 'img/q5_door.jpg' }
+    ];
+    var quotes = quoteData.map(function (q, i) {
+      var on = st.q === i;
+      return Object.assign({}, q, {
+        pick: function () { clearTimeout(self._hv); if (self.state.q !== i) self.setState({ q: i }); self.follow(460); },
+        act: on ? '1' : '0',
+        hover: function (e) { self.hlEnter(e); later(function () { if (self.state.q !== i) self.setState({ q: i }); self.follow(460); }); },
+        bgStyle: 'position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.82) saturate(.92); transition: opacity .7s var(--eo), transform 1.4s var(--eo); ' + (on ? 'opacity: 1; transform: scale(1);' : 'opacity: 0; transform: scale(1.04);'),
+        barStyle: 'position: absolute; left: 0; top: 12px; bottom: 12px; width: 2px; border-radius: 2px; background: #4C7DFF; box-shadow: 0 0 10px rgba(80,120,255,0.7); transform-origin: top; transition: transform .38s var(--eo), opacity .3s ease; transform: scaleY(' + (on ? 1 : 0) + '); opacity: ' + (on ? 1 : 0),
+        paneStyle: 'grid-area: 1 / 1; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; ' + (on ? 'opacity: 1; transform: none; visibility: visible; transition: opacity .32s var(--eo) .06s, transform .42s var(--eo) .06s, visibility 0s;' : 'opacity: 0; transform: translate3d(0,-6px,0); visibility: hidden; pointer-events: none; transition: opacity .18s ease, transform .25s ease, visibility 0s .25s;'),
+        style: 'position: relative; z-index: 1; transition: opacity .25s ease; text-align: left; display: flex; flex-direction: column; gap: 2px; padding: 14px 18px; border-radius: 14px; cursor: pointer; font-family: inherit; color: #F2F4F8; min-height: 44px; background: transparent; border: 1px solid transparent; opacity: ' + (on ? 1 : 0.7)
+      });
+    });
+
+    var heroBars = [100, 82, 70, 54, 40, 28, 18, 12, 8, 6].map(function (v, i) {
+      return 'flex: 1; height: ' + v + '%; border-radius: 3px; background: ' + (i > 6 ? '#4C7DFF' : 'rgba(174,185,208,0.25)');
+    });
+    var dotBase = 'width: 10px; height: 10px; margin-top: 4px; border-radius: 50%; flex-shrink: 0; ';
+    var iconBase = 'width: 26px; height: 26px; border-radius: 8px; flex-shrink: 0; ';
+    var feed = (function () {
+      var routes = [{ no: '#10482', a: '深圳', b: '洛杉矶' }, { no: '#10483', a: '义乌', b: '伦敦' }, { no: '#10484', a: '广州', b: '柏林' }];
+      var r = routes[st.fRound % routes.length];
+      var steps = [
+        ['包裹已揽收', r.a + ' · 10/27 14:20'],
+        ['已到达转运中心', r.a + ' · 10/27 21:05'],
+        ['出口清关完成', r.a + ' · 10/28 18:10'],
+        ['航班已起飞', r.a + ' → ' + r.b + ' · 10/29 02:40'],
+        ['进口清关完成', r.b + ' · 10/30 07:15'],
+        ['已到达分拨中心', r.b + ' · 10/31 09:42'],
+        ['派送中', '预计今天 18:00 前送达'],
+        ['已送达', '本人签收 · 今天 14:12']
+      ];
+      var done = st.fStep === 7, green = '#7BD88F';
+      var ops = [1, 0.6, 0.32, 0];
+      var rows = [];
+      for (var k = 0; k < 4; k++) {
+        var i = st.fStep - k; if (i < 0) break;
+        var top = k === 0, c = top ? (done ? green : '#4C7DFF') : 'rgba(174,185,208,0.55)';
+        rows.push({
+          t: steps[i][0], sub: steps[i][1],
+          row: 'opacity: ' + ops[k],
+          tcol: 'font-size: 13px; font-weight: 600; transition: color .5s ease; color: ' + (top && done ? green : '#F2F4F8'),
+          dot: 'position: relative; z-index: 1; width: 10px; height: 10px; margin-top: 4px; border-radius: 50%; flex-shrink: 0; transition: background .5s ease, box-shadow .5s ease; background: ' + c + '; box-shadow: ' + (top ? '0 0 0 4px ' + (done ? 'rgba(123,216,143,0.16)' : 'rgba(76,125,255,0.18)') + ', 0 0 12px ' + c : '0 0 0 0 transparent')
+        });
+      }
+      var chip = st.fStep <= 1 ? ['已揽收', '#AEB9D0', 'rgba(174,185,208,0.1)'] : st.fStep <= 5 ? ['运输中', '#8EAEFF', 'rgba(76,125,255,0.14)'] : st.fStep === 6 ? ['派送中', '#FFB067', 'rgba(255,138,31,0.14)'] : ['已送达', green, 'rgba(123,216,143,0.14)'];
+      return {
+        rows: rows, no: r.no, route: r.a + ' → ' + r.b,
+        cls: st.fAnim ? (st.fMode + (st.fAnim % 2 ? 'a' : 'b')) : '',
+        chip: { t: chip[0], style: 'font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; transition: color .4s ease, background .4s ease; color: ' + chip[1] + '; background: ' + chip[2] },
+        bar: 'height: 100%; border-radius: 2px; transition: width .7s var(--eo), background .5s ease; width: ' + Math.round((st.fStep + 1) / 8 * 100) + '%; background: ' + (done ? 'linear-gradient(90deg,#3D6BFF,' + green + ')' : 'linear-gradient(90deg,#3D6BFF,#8EAEFF)')
+      };
+    })();
+
+    return {
+      accent: accent,
+      map: this.buildMap(this.props.mapShape ?? '世界地图'),
+      word: words[st.word],
+      navItems: navItems,
+      menuOpen: st.menu >= 0,
+      menu: st.menu >= 0 ? menus[st.menu] : menus[0],
+      heroEvents: feed.rows,
+      feedCls: feed.cls,
+      feedNo: feed.no,
+      feedRoute: feed.route,
+      feedChip: feed.chip,
+      feedBar: feed.bar,
+      bars: heroBars,
+      tabs: tabs,
+      feats: feats,
+      curTab: curTab,
+      curFeat: curTab.feats[st.feat],
+      tabHref: ['tracking.html', 'returns.html', 'api.html'][st.tab],
+      cancelHover: function () { clearTimeout(self._hv); },
+      cardTilt: function (e) { var el = e.currentTarget, r = el.getBoundingClientRect(); self.tiltEl(el, (e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5, 8); },
+      cardUntilt: function (e) { self.tiltEl(e.currentTarget, 0, 0, 8); },
+      heroMove: function (e) {
+        var el = e.currentTarget, x = e.clientX, y = e.clientY;
+        if (self._hr) return;
+        self._hr = requestAnimationFrame(function () {
+          self._hr = 0;
+          var r = el.getBoundingClientRect();
+          el.style.setProperty('--px', (((x - r.left) / r.width) * 2 - 1).toFixed(3));
+          el.style.setProperty('--py', (((y - r.top) / r.height) * 2 - 1).toFixed(3));
+        });
+      },
+      heroLeave: function (e) { cancelAnimationFrame(self._hr); self._hr = 0; e.currentTarget.style.setProperty('--px', '0'); e.currentTarget.style.setProperty('--py', '0'); },
+      hlLeave: function (e) { clearTimeout(self._hv); var l = e.currentTarget; l._hover = null; self.syncList(l, false); },
+      spot: function (e) {
+        var t = e.target, c = t && t.closest ? t.closest('.gcard') : null;
+        if (!c) return;
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      },
+      tabInd: 'position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 3); border-radius: 999px; background: rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 6px 18px rgba(0,0,0,0.3); transition: transform .38s var(--es); transform: translateX(' + (st.tab * 100) + '%)',
+      vw: (function (k) { var o = {}; ['brand','notify','revisit','autoret','exchange','api','webhook'].forEach(function (x) { var on = x === k; o[x] = { cls: on ? 'pvw on' : 'pvw', st: 'grid-area: 1 / 1; display: flex; flex-direction: column; min-width: 0; ' + (on ? 'opacity: 1; transform: none; visibility: visible; transition: opacity .3s var(--eo) .05s, transform .4s var(--eo) .05s, visibility 0s;' : 'opacity: 0; transform: translate3d(0,-6px,0); visibility: hidden; pointer-events: none; transition: opacity .18s ease, transform .25s ease, visibility 0s .25s;') }; }); return o; })(curTab.feats[st.feat].key),
+      closeMenu: function () { if (self.state.menu !== -1) self.setState({ menu: -1 }); self.follow(460); },
+      view: (function (k) { var o = {}; ['brand','notify','revisit','autoret','exchange','api','webhook'].forEach(function (x) { o[x] = x === k; }); return o; })(curTab.feats[st.feat].key),
+      isTrack: st.tab === 0,
+      isReturns: st.tab === 1,
+      isApi: st.tab === 2,
+      quotes: quotes,
+      curQ: quoteData[st.q],
+      syncRows: [
+        { t: '订单 #10482 已同步', d: '刚刚 · Shopify', icon: iconBase, style: 'display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 12px; background: linear-gradient(180deg, #1C1F29, #13151C); border: 1px solid rgba(200,210,235,0.24); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08)' },
+        { t: '运单号已回传', d: '1 分钟前 · 自动识别承运商', icon: iconBase + 'opacity: 0.7;', style: 'display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 12px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.12); opacity: 0.65' },
+        { t: '追踪页已生成', d: '2 分钟前 · 品牌模板', icon: iconBase + 'opacity: 0.5;', style: 'display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 12px; background: rgba(200,210,235,0.03); border: 1px solid rgba(200,210,235,0.08); opacity: 0.35' }
+      ],
+      stats: [
+        { v: '20亿+', k: '年度包裹查询量', g: 'linear-gradient(160deg, #F2F6FF 15%, #8EAEFF 95%)' },
+        { v: '230+', k: '国家与地区', g: 'linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%)' },
+        { v: '99%', k: '查询准确率', g: 'linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%)' },
+        { v: '15,000+', k: 'Shopify 商家客户', g: 'linear-gradient(160deg, #EEFCF8 15%, #7ED8C6 95%)' },
+        { v: '10年+', k: '行业深耕', g: 'linear-gradient(160deg, #F1F7FF 15%, #79A6F0 95%)' }
+      ].map(function (s, i) {
+        return Object.assign({}, s, { style: 'flex: 1 1 200px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding: 0 16px;' + (i > 0 ? ' border-left: 1px solid rgba(200,210,235,0.1);' : '') });
+      }),
+      certs: [
+        { t: 'SOC 2', d: '数据管理' },
+        { t: 'ISO/IEC 27001', d: '信息安全' },
+        { t: 'ISO/IEC 27701', d: '隐私管理' },
+        { t: 'GDPR', d: '欧盟数据保护' }
+      ],
+      posts: [
+        { cat: '洞察', t: '消费者购买后行为：如何提升留存与复购', img: 'img/n1_sofa.jpg' },
+        { cat: '指南', t: '什么是 WISMO？降低「我的订单在哪」咨询的完整指南', img: 'img/n2_map.jpg' },
+        { cat: '增长', t: '电商留存营销：从小规模到百万级品牌的增长策略', img: 'img/n3_boxes.jpg' }
+      ],
+      footer: [
+        { h: '产品', items: ['运单查询', '物流通知', '退货管理'] },
+        { h: '开发者', items: ['API 文档', 'SDK', '状态页'] },
+        { h: '资源', items: ['博客', '客户案例', '合作伙伴 & 集成'] },
+        { h: '公司', items: ['关于我们', '联系我们', '包裹查询'] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eufy 客户案例 · 17TRACK</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0D14}
+a{color:#F2F4F8}a:hover{color:#FFFFFF}
+@keyframes arcflow{from{stroke-dashoffset:106}to{stroke-dashoffset:0}}
+.arc-run{stroke-dasharray:6 100;animation:arcflow 3.6s linear infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.4);opacity:0}}
+.hub-ring{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+.tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.tiltc,.gcard.tiltc,.gcard.tiltc:hover{transform:perspective(700px) translate3d(0,var(--lift,0px),0) rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));will-change:transform}
+.gcard.tiltc{transition:--sa .35s var(--eo)}
+.gcard.tiltc:hover{--lift:-3px}
+@media (prefers-reduced-motion:reduce){.tiltc{transform:none!important}}
+.floaty{animation:floaty 6s ease-in-out infinite}
+@property --sa{syntax:'<number>';inherits:true;initial-value:0}
+:root{--eo:cubic-bezier(.22,1,.36,1);--es:cubic-bezier(.32,.72,0,1)}
+.gcard{position:relative;overflow:hidden;--mx:50%;--my:-20%;--sa:0;transition:transform .35s var(--eo),--sa .35s var(--eo)}
+.gcard:hover{--sa:1;transform:translate3d(0,-3px,0)}
+.gcard::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(110,140,255,calc(0.10 * var(--sa))),transparent 60%),radial-gradient(110% 70% at 50% 0%,rgba(255,255,255,0.035),transparent 62%)}
+.gcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;padding:1px;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(160,185,255,calc(0.7 * var(--sa))),transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.pmap{translate:calc(var(--px,0) * -30px) calc(var(--py,0) * -16px);transition:translate 1s var(--eo);will-change:translate}
+.hl{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;z-index:0;will-change:transform;transition:transform .38s var(--es),width .38s var(--es),height .38s var(--es),opacity .22s ease}
+.gtile{display:flex;align-items:center;justify-content:center;color:#FFFFFF;background:linear-gradient(160deg,#5A84FF 0%,#2350F0 45%,#0A2BA8 100%);box-shadow:0 0 30px rgba(60,100,255,0.4),inset 0 1px 0 rgba(255,255,255,0.5),inset 0 -8px 14px rgba(0,10,60,0.35)}
+.ptile{overflow:hidden;display:flex;align-items:center;justify-content:center;color:#DCE4FF;background:linear-gradient(160deg,#1E212B,#111318);border:1px solid rgba(200,210,235,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.12),0 8px 20px rgba(0,0,0,0.35)}
+.gtext{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gnum{background:linear-gradient(180deg,#FFFFFF 10%,#A3AABB 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gword{background:linear-gradient(90deg,#8FB0FF 0%,#3D6BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ntile{display:flex;align-items:center;justify-content:center;color:#C9CED9;background:linear-gradient(160deg,#232737,#151823);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1)}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(200,210,235,0.16);transform:translate(-50%,-50%)}
+.gtile{transition:transform .4s var(--eo)}
+.gcard:hover .gtile{transform:scale(1.06)}
+.ptile img{transition:transform .5s var(--eo)}
+.ptile{container-type:size;background:#0F1014!important}
+.ptile img{object-fit:contain!important;background:#0F1014}
+@container (min-aspect-ratio: 9/8){.ptile img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%)}}
+.ptile:hover img,.gcard:hover .lift .ptile img{transform:scale(1.08)}
+.lift{transition:transform .4s var(--eo)}
+.gcard:hover .lift{transform:translate3d(0,-3px,0)}
+.bub{display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:13px;color:#C9CED9;background:radial-gradient(circle at 32% 26%,#2B3043,#12141D 72%);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 10px 24px rgba(0,0,0,0.4);transition:transform .45s var(--eo),border-color .3s ease}
+.gcard:hover .bub{transform:translate3d(0,-6px,0);border-color:rgba(110,145,255,0.35)}
+.btn{transition:transform .22s var(--eo),box-shadow .22s var(--eo),filter .22s ease}
+.btn:active,.btn2:active{transform:scale(.97)!important}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 12px 32px rgba(47,107,255,0.45)!important}
+.btn2{transition:transform .22s var(--eo),background .22s ease,border-color .22s ease}
+.btn2:hover{transform:translateY(-2px);background:rgba(255,255,255,0.08)!important;border-color:rgba(255,255,255,0.32)!important}
+.ar{display:inline-block;transition:transform .25s var(--eo)}
+a:hover .ar{transform:translateX(4px)}
+.chip{transition:transform .3s,border-color .3s}
+.chip:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.2)!important}
+.ring{transition:transform .6s var(--eo)}
+.gcard:hover .ring{transform:translate(-50%,-50%) scale(1.06)}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.reveal{animation:reveal 2.4s cubic-bezier(.65,0,.35,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pv{animation:fadeUp .45s cubic-bezier(.2,.8,.2,1)}
+.pvw.on > div > *{animation:rise .42s var(--eo) both}
+.pvw.on > div > *:nth-child(2){animation-delay:.04s}
+.pvw.on > div > *:nth-child(3){animation-delay:.08s}
+.pvw.on > div > *:nth-child(4){animation-delay:.12s}
+.pvw.on > div > *:nth-child(5){animation-delay:.16s}
+@keyframes rise{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
+@media (max-width:760px){.float-card,.floaty{display:none!important}}
+.hfeed{position:relative;box-sizing:content-box;height:144px;padding:12px 0 0 8px;margin:6px 0 0 -8px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.hev{position:relative;height:40px;margin-bottom:12px;display:flex;gap:10px;transition:opacity .6s ease;will-change:transform}
+.hev::before{content:"";position:absolute;left:4.5px;top:18px;width:1px;height:38px;background:linear-gradient(180deg,rgba(174,185,208,0.35),rgba(174,185,208,0.08))}
+.hfeed.fa .hev{animation:fpushA .7s var(--eo) both}
+.hfeed.fb .hev{animation:fpushB .7s var(--eo) both}
+.hfeed.fa .hev:first-child{animation:fpushA .7s var(--eo) both,finA .55s .12s ease both}
+.hfeed.fb .hev:first-child{animation:fpushB .7s var(--eo) both,finB .55s .12s ease both}
+@keyframes fpushA{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes fpushB{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes finA{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+@keyframes finB{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+.hfeed.ra .hev,.hswap.ra{animation:fresetA .6s var(--eo) both}
+.hfeed.rb .hev,.hswap.rb{animation:fresetB .6s var(--eo) both}
+.hfeed.ra .hev:nth-child(2),.hfeed.rb .hev:nth-child(2){animation-delay:.06s}
+.hfeed.ra .hev:nth-child(3),.hfeed.rb .hev:nth-child(3){animation-delay:.12s}
+@keyframes fresetA{from{opacity:0;transform:translate3d(0,8px,0)}}
+@keyframes fresetB{from{opacity:0;transform:translate3d(0,8px,0)}}
+@media (prefers-reduced-motion:reduce){.hfeed .hev,.hswap{animation:none!important}}
+@media (min-width:761px){.nw{white-space:nowrap}}
+.qbgs{position:absolute;z-index:-1;left:40px;right:0;bottom:-28px;aspect-ratio:16/9;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);mask-composite:intersect}
+.ncov img{transition:transform .6s var(--eo)}
+.gcard:hover .ncov img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.arc-run,.hub-ring,.tw,.floaty,.reveal,.pv,.pvw.on > div > *{animation:none}.gcard,.gtile,.lift,.bub,.btn,.btn2,.hl,.pmap{transition:none;translate:none}}
+</style>
+</helmet>
+<div onMouseMove="{{ spot }}" style="width: 100%; background: #0B0D14; color: #F2F4F8; font-family: Montserrat, 'PingFang SC', 'Noto Sans SC', 'Source Han Sans SC', system-ui, sans-serif; font-size: 15px; line-height: 1.6">
+
+<!-- 导航 -->
+<header onMouseLeave="{{ closeMenu }}" style="position: relative; z-index: 3; border-bottom: 1px solid rgba(200,210,235,0.1); background: rgba(11,13,20,0.85)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<a href="{{ homeHref }}" style="text-decoration: none; font-size: 21px; font-weight: 700; letter-spacing: -0.02em"><span style="color: {{accent}}">17</span>TRACK</a>
+<nav aria-label="主导航" data-hl-list="nav" onMouseLeave="{{ hlLeave }}" style="position: relative; display: flex; flex-wrap: wrap; gap: 4px">
+<span class="hl" aria-hidden="true" style="background: rgba(200,210,235,0.09); border-radius: 999px"></span>
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+<button type="button" data-active="{{ n.act }}" onClick="{{ n.toggle }}" onMouseEnter="{{ n.enter }}" style="{{ n.style }}">{{ n.label }}<span style="font-size: 9px; opacity: 0.6">{{ n.caret }}</span></button>
+</sc-for>
+</nav>
+<div style="display: flex; gap: 8px; align-items: center">
+<a href="#cta" style="text-decoration: none; font-size: 14px; color: #9097A6; padding: 10px 10px">登录</a>
+<a class="btn2" href="#cta" style="text-decoration: none; font-size: 14px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.24); background: rgba(200,210,235,0.06)">预约演示</a>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{ menu.items }}" as="mi" hint-placeholder-count="3">
+<a href="{{ mi.href }}" class="gcard" style="flex: 1 1 240px; text-decoration: none; padding: 16px 18px; border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(200,210,235,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 2px">
+<span style="font-weight: 600">{{ mi.t }}</span>
+<span style="font-size: 13px; color: #9097A6">{{ mi.d }}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</header>
+
+<section class="hero" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(200,210,235,0.08); background-color: #0B0D14; background-image: radial-gradient(46% 55% at 72% 46%, rgba(52,56,160,0.22), transparent 72%), radial-gradient(28% 34% at 12% 8%, rgba(20,90,110,0.12), transparent 72%)">
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(200,210,235,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(200,210,235,0.045) 1px, transparent 1px); background-size: 120px 120px; background-position: center top; -webkit-mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%); mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%)"></div>
+<div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 72px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; gap: 8px; align-items: center; font-size: 13px; color: #7A8191"><a href="cases.html" style="text-decoration: none; color: #9097A6">客户案例</a><span>/</span><span style="color: #C9CED9">eufy</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-end">
+<div style="flex: 1.4 1 520px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 48px; font-weight: 700; letter-spacing: -0.02em">eufy</span>
+<h1 style="margin: 0; font-size: 40px; line-height: 1.3; font-weight: 600">与 17TRACK 合作，优化<span class="gword">全球智能家居物流体验</span></h1>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #B5BAC6">Order Tracking</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #B5BAC6">Tracking API</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #B5BAC6">17RETURNS</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #B5BAC6">运输保障</span></div>
+</div>
+<div style="flex: 1 1 320px; display: flex; flex-wrap: wrap; gap: 20px 0">
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; padding-right: 24px"><span class="gtext" style="background-image: linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%); font-size: 60px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">60%</span><span style="font-size: 14px; color: #B5BAC6">减少相关客户询问</span></div>
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; padding-left: 28px; border-left: 1px solid rgba(200,210,235,0.1)"><span class="gtext" style="background-image: linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%); font-size: 60px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">90%</span><span style="font-size: 14px; color: #B5BAC6">索赔成功率</span></div>
+</div>
+</div>
+</div>
+</section>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 64px; padding-bottom: 40px">
+<div style="display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
+<aside style="flex: 0 1 260px; min-width: 220px; position: sticky; top: 24px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">目录</span><nav aria-label="目录" data-hl-list="toc" onMouseLeave="{{ hlLeave }}" style="position: relative; display: flex; flex-direction: column; gap: 2px">
+<span class="hl" aria-hidden="true" style="border-radius: 10px; background: rgba(255,255,255,0.06)"></span>
+<sc-for list="{{ toc }}" as="t" hint-placeholder-count="5"><a href="{{ t.href }}" data-active="{{ t.act }}" onMouseEnter="{{ t.hover }}" onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</a></sc-for>
+</nav></div>
+<div style="display: flex; flex-direction: column"><div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span style="font-size: 12px; color: #7A8191">行业</span><span style="font-size: 14px; color: #E6E9F0">智能家居</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span style="font-size: 12px; color: #7A8191">母公司</span><span style="font-size: 14px; color: #E6E9F0">安克创新</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span style="font-size: 12px; color: #7A8191">成立时间</span><span style="font-size: 14px; color: #E6E9F0">2011 年</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span style="font-size: 12px; color: #7A8191">2024 年营收</span><span style="font-size: 14px; color: #E6E9F0">45 亿元人民币</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span style="font-size: 12px; color: #7A8191">使用产品</span><span style="font-size: 14px; color: #E6E9F0">Order Tracking · Tracking API · 17RETURNS · 运输保障</span></div></div>
+<a class="btn2" href="#" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 10px 18px; font-size: 14px; text-align: center">访问 eufy 官网 <span class="ar">↗</span></a>
+</aside>
+<article style="flex: 1 1 560px; min-width: 0; max-width: 760px; display: flex; flex-direction: column; gap: 22px">
+<h2 id="bg" style="margin: 0; padding-top: 24px; font-size: 28px; font-weight: 600; scroll-margin-top: 24px">客户背景</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.85; color: #B5BAC6">eufy 是安克创新旗下专注于智能家居领域的品牌，成立于 2011 年，致力于将「物联网」和「语音控制」等前沿科技融入消费者生活。以「智简生活」为品牌理念，eufy 提供扫地机器人、摄像头、智能锁等多样化产品，覆盖清洁、智控、健康及照明四大品类。2024 年，eufy 实现营收 45 亿元人民币，凭借创新科技产品服务全球。</p>
+<h2 id="chance" style="margin: 0; padding-top: 24px; font-size: 28px; font-weight: 600; scroll-margin-top: 24px">全球扩展中的机遇</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.85; color: #B5BAC6">随着 eufy 将智能家居解决方案推广至全球，品牌敏锐地捕捉到优化物流体验的契机，将其视为深化「以用户为核心」理念的关键一环。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px"><div style="flex: 1 1 260px; box-sizing: border-box; padding: 22px; border-radius: 18px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); display: flex; flex-direction: column; gap: 10px"><span class="ntile" style="width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"></path><path d="M4 7.5l8 4.5 8-4.5"></path><path d="M12 12v9"></path></svg></span><span style="font-size: 16px; font-weight: 600">物流信息的透明与贴心</span><span style="font-size: 14px; line-height: 1.7; color: #9097A6">一台机器人吸尘器与一个摄像头分批发货时，用户希望清楚掌握每件商品的配送进度。</span></div><div style="flex: 1 1 260px; box-sizing: border-box; padding: 22px; border-radius: 18px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); display: flex; flex-direction: column; gap: 10px"><span class="ntile" style="width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h9"></path><path d="M8.5 3v2"></path><path d="M6 5c.5 3 2.5 5.5 5 7"></path><path d="M11 5c-.5 3-2.5 6-6 8"></path><path d="M13 21l4-9 4 9"></path><path d="M14.5 18h5"></path></svg></span><span style="font-size: 16px; font-weight: 600">跨越语言的温暖连接</span><span style="font-size: 14px; line-height: 1.7; color: #9097A6">用户遍布欧洲到亚洲，期待以母语接收物流更新，获得熟悉而亲切的体验。</span></div><div style="flex: 1 1 260px; box-sizing: border-box; padding: 22px; border-radius: 18px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); display: flex; flex-direction: column; gap: 10px"><span class="ntile" style="width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h11l-3-3"></path><path d="M17 17H6l3 3"></path></svg></span><span style="font-size: 16px; font-weight: 600">退换货中的无忧保障</span><span style="font-size: 14px; line-height: 1.7; color: #9097A6">即使是优质产品，也可能因个人需求需要退换，例如更换一台智能锁。</span></div><div style="flex: 1 1 260px; box-sizing: border-box; padding: 22px; border-radius: 18px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); display: flex; flex-direction: column; gap: 10px"><span class="ntile" style="width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></span><span style="font-size: 16px; font-weight: 600">化解跨境物流的不确定性</span><span style="font-size: 14px; line-height: 1.7; color: #9097A6">延误或路线调整在所难免，希望通过透明沟通把挑战转化为信任。</span></div></div>
+<h2 id="solution" style="margin: 0; padding-top: 24px; font-size: 28px; font-weight: 600; scroll-margin-top: 24px">解决方案</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.85; color: #B5BAC6">通过与 17TRACK 合作，eufy 将这些用户需求转化为切实行动，打造了智能且以用户为中心的服务体系：</p>
+<div style="display: flex; flex-direction: column"><div style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span class="gtile" style="width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></span><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 600">实时跟踪，清晰无忧</span><span style="font-size: 15px; line-height: 1.75; color: #9097A6">借助 17TRACK 的 API 整合，eufy 为常规订单及分批发货提供实时跟踪支持，用户随时收到发货和送达更新。</span></div></div><div style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span class="gtile" style="width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h9"></path><path d="M8.5 3v2"></path><path d="M6 5c.5 3 2.5 5.5 5 7"></path><path d="M11 5c-.5 3-2.5 6-6 8"></path><path d="M13 21l4-9 4 9"></path><path d="M14.5 18h5"></path></svg></span><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 600">多语言沟通，贴近每位用户</span><span style="font-size: 15px; line-height: 1.75; color: #9097A6">17TRACK 支持 33+ 种语言，eufy 在荷兰、意大利、西班牙等市场提供定制化跟踪页面和邮件通知。</span></div></div><div style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span class="gtile" style="width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></span><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 600">无缝移动体验</span><span style="font-size: 15px; line-height: 1.75; color: #9097A6">对于 iOS 用户，17TRACK 将跟踪信息集成至 Apple Wallet，用户可一键查看状态并直达 eufy 商店。</span></div></div><div style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span class="gtile" style="width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h11l-3-3"></path><path d="M17 17H6l3 3"></path></svg></span><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 600">退换货更简单</span><span style="font-size: 15px; line-height: 1.75; color: #9097A6">退货工具提供标签打印功能，优化逆向物流流程，帮助 eufy 降低售后成本。</span></div></div><div style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span class="gtile" style="width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></span><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 600">运输保障，信心加倍</span><span style="font-size: 15px; line-height: 1.75; color: #9097A6">实时订单追踪、简化的退货流程，并与全球电商生态无缝对接，提升跨境物流效率和客户信任度。</span></div></div></div>
+<h2 id="result" style="margin: 0; padding-top: 24px; font-size: 28px; font-weight: 600; scroll-margin-top: 24px">成果与价值</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 14px"><div style="flex: 1 1 240px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 18px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1)"><span class="gtext" style="background-image: linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%); font-size: 44px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">60%+</span><span style="font-size: 16px; font-weight: 600">拆单物流客诉下降</span><span style="font-size: 14px; line-height: 1.7; color: #9097A6">安克共 9 个店铺使用拆单发货通知；部分多 Bundle 品类站点使用拆单物流追踪后，物流客诉量下降 60%+。</span></div><div style="flex: 1 1 240px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 18px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1)"><span class="gtext" style="background-image: linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%); font-size: 44px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">5 种</span><span style="font-size: 16px; font-weight: 600">欧洲小语种精准通知</span><span style="font-size: 14px; line-height: 1.7; color: #9097A6">法语、意大利语、西班牙语、德语、荷兰语全面覆盖欧洲小语种店铺。</span></div><div style="flex: 1 1 240px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 18px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1)"><span class="gtext" style="background-image: linear-gradient(160deg, #EEFCF8 15%, #7ED8C6 95%); font-size: 44px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">90%</span><span style="font-size: 16px; font-weight: 600">物流问题理赔成功率</span><span style="font-size: 14px; line-height: 1.7; color: #9097A6">以 eufy 美国站为例，门廊包裹丢失等场景下，使用 17TRACK 保险功能后理赔成功率达 90%。</span></div></div>
+<div id="quote" style="scroll-margin-top: 24px; margin-top: 24px; padding: 36px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 20px">
+<span class="ntile" style="width: 44px; height: 44px; border-radius: 12px" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h4v4c0 3-1.5 5-4 6l-.8-1.4C7.6 14.8 8.3 13.6 8.4 12H7V7zm7 0h4v4c0 3-1.5 5-4 6l-.8-1.4c1.4-.8 2.1-2 2.2-3.6H14V7z"></path></svg></span>
+<p style="margin: 0; font-size: 24px; line-height: 1.6; font-weight: 500; color: #F2F4F8">17TRACK 提供实时订单追踪、简化的退货流程，并与全球电商生态无缝对接。其显著提升了跨境物流效率和客户信任度，对于正在拓展国际市场的品牌而言至关重要。</p>
+<span style="font-size: 14px; color: #9097A6">— eufy 团队</span>
+</div>
+</article>
+</div>
+</section>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 72px; padding-bottom: 24px"><div style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap"><h2 style="margin: 0; font-size: 32px; font-weight: 600">更多客户案例</h2><a href="cases.html" style="text-decoration: none; font-weight: 600">查看全部 <span class="ar">→</span></a></div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px"><a href="cases.html" class="gcard" style="flex: 1 1 300px; box-sizing: border-box; text-decoration: none; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 26px; display: flex; flex-direction: column; gap: 14px"><span style="font-size: 20px; font-weight: 700; color: #F2F4F8">Baleaf</span><span style="font-size: 15px; line-height: 1.6; color: #E6E9F0">Baleaf：用 17TRACK 一站式解决方案，解决正逆向售后问题</span><span style="font-size: 13px; color: #9097A6">75% 减少 WISMO 咨询量 · 60% 减少物流客诉</span><span style="font-weight: 600; font-size: 14px; color: #F2F4F8; margin-top: auto">阅读案例 <span class="ar">→</span></span></a><a href="cases.html" class="gcard" style="flex: 1 1 300px; box-sizing: border-box; text-decoration: none; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 26px; display: flex; flex-direction: column; gap: 14px"><span style="font-size: 20px; font-weight: 700; color: #F2F4F8">VAPORESSO</span><span style="font-size: 15px; line-height: 1.6; color: #E6E9F0">自动化解决方案赋能品牌出海</span><span style="font-size: 13px; color: #9097A6">84% 理赔成功率 · 90% 减少 WISMO 咨询量</span><span style="font-weight: 600; font-size: 14px; color: #F2F4F8; margin-top: auto">阅读案例 <span class="ar">→</span></span></a><a href="cases.html" class="gcard" style="flex: 1 1 300px; box-sizing: border-box; text-decoration: none; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 26px; display: flex; flex-direction: column; gap: 14px"><span style="font-size: 20px; font-weight: 700; color: #F2F4F8">Coofandy</span><span style="font-size: 15px; line-height: 1.6; color: #E6E9F0">Coofandy 携手 17TRACK 优化用户体验，实现营收与口碑双增长</span><span style="font-size: 13px; color: #9097A6">Order Tracking · 17RETURNS</span><span style="font-weight: 600; font-size: 14px; color: #F2F4F8; margin-top: auto">阅读案例 <span class="ar">→</span></span></a></div>
+</div></section>
+<section id="cta" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 72px; padding-bottom: 104px"><div style="padding: 64px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px"><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">通过自动更新和品牌化跟踪，提升客户忠诚度</h2><p style="margin: 0; font-size: 16px; color: #9097A6; max-width: 640px">保持客户参与度，把每一次物流触点变成品牌信任。</p><div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center"><a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">免费开始使用</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600">预约演示</a></div></div></section>
+
+<footer style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-wrap: wrap; gap: 32px">
+<div style="flex: 1.5 1 220px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 20px; font-weight: 700"><span style="color: {{accent}}">17</span>TRACK</div>
+<span style="font-size: 13px; color: #9097A6">© 17TRACK · 隐私政策 · 服务条款</span>
+</div>
+<sc-for list="{{ footer }}" as="f" hint-placeholder-count="4">
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+<span style="font-weight: 600">{{ f.h }}</span>
+<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="#news" style="text-decoration: none; color: #9097A6">{{ fi }}</a></sc-for>
+</div>
+</sc-for>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF8A1F","options":["#FF8A1F","#FFB547","#FF6A3D","#FFFFFF"]},"$preview":{"width":1440,"height":4600}}'>
+class Component extends DCLogic {
+
+  componentDidMount() {
+    var self = this;
+    this._onResize = function () { self.syncAll(true); };
+    window.addEventListener('resize', this._onResize);
+    setTimeout(function () { self.syncAll(true); }, 60);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { self.syncAll(true); });
+    if (this.didMount) this.didMount();
+  }
+  componentWillUnmount() { clearTimeout(this._hv); cancelAnimationFrame(this._raf); window.removeEventListener('resize', this._onResize); if (this.willUnmount) this.willUnmount(); }
+  tiltEl(el, nx, ny, amp) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var s = el.__t || (el.__t = { rx: 0, ry: 0, vx: 0, vy: 0, tx: 0, ty: 0, raf: 0 });
+    s.tx = -ny * amp; s.ty = nx * amp;
+    if (s.raf) return;
+    var step = function () {
+      s.vx += (s.tx - s.rx) * 0.07; s.vy += (s.ty - s.ry) * 0.07;
+      s.vx *= 0.76; s.vy *= 0.76;
+      s.rx += s.vx; s.ry += s.vy;
+      el.style.setProperty('--rx', s.rx.toFixed(3)); el.style.setProperty('--ry', s.ry.toFixed(3));
+      if (Math.abs(s.tx - s.rx) < 0.005 && Math.abs(s.ty - s.ry) < 0.005 && Math.abs(s.vx) < 0.005 && Math.abs(s.vy) < 0.005) { s.raf = 0; return; }
+      s.raf = requestAnimationFrame(step);
+    };
+    s.raf = requestAnimationFrame(step);
+  }
+  listOf(el) { var l = el; while (l && !(l.getAttribute && l.getAttribute('data-hl-list'))) l = l.parentElement; return l; }
+  moveHl(list, el, instant) {
+    var hl = list && list.querySelector('.hl');
+    if (!hl) return;
+    if (!el) { hl.style.opacity = '0'; return; }
+    if (instant) hl.style.transition = 'none';
+    hl.style.transform = 'translate3d(' + el.offsetLeft + 'px,' + el.offsetTop + 'px,0)';
+    hl.style.width = el.offsetWidth + 'px';
+    hl.style.height = el.offsetHeight + 'px';
+    hl.style.opacity = '1';
+    if (instant) { void hl.offsetWidth; hl.style.transition = ''; }
+  }
+  syncList(list, instant) { if (!list) return; var t = list._hover && list.contains(list._hover) ? list._hover : list.querySelector('[data-active="1"]'); this.moveHl(list, t, instant); }
+  syncAll(instant) { var lists = document.querySelectorAll('[data-hl-list]'); for (var i = 0; i < lists.length; i++) this.syncList(lists[i], instant); }
+  follow(ms) { var self = this, end = Date.now() + ms; cancelAnimationFrame(this._raf); var tick = function () { self.syncAll(false); if (Date.now() < end) self._raf = requestAnimationFrame(tick); }; tick(); }
+  commonVals(pages) {
+    var self = this, st = this.state;
+    self.hlEnter = self.hlEnter || function (e) { var el = e.currentTarget, l = self.listOf(el); if (!l) return; l._hover = el; self.moveHl(l, el, false); };
+    var menus = [
+      { label: '产品', items: [{ t: 'Order Tracking 订单追踪', d: '品牌化追踪页 · 物流通知', href: pages.tracking }, { t: '17RETURNS 退换货', d: 'AI 驱动的自动化退换货', href: pages.returns }, { t: 'Tracking API', d: '3,500+ 承运商统一接口', href: pages.api }] },
+      { label: '资源', items: [{ t: '博客', d: '趋势、技巧与洞察', href: pages.blog }, { t: '客户案例', d: '各行业品牌实践', href: pages.cases }, { t: '合作伙伴 & 集成', d: '电商平台与应用生态', href: pages.integrations }] },
+      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: pages.api }, { t: 'API 文档', d: '接口说明与示例', href: '#' }] },
+      { label: '价格', items: [] }
+    ];
+    var navItems = menus.map(function (m, i) {
+      var open = st.menu === i;
+      return {
+        label: m.label,
+        caret: m.items.length ? (open ? ' ▲' : ' ▼') : '',
+        act: open ? '1' : '0',
+        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } },
+        enter: function (e) { self.hlEnter(e); var nx = m.items.length ? i : -1; if (self.state.menu !== nx) { self.setState({ menu: nx }); self.follow(460); } },
+        style: 'position: relative; z-index: 1; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 14px; padding: 10px 14px; border-radius: 999px; cursor: pointer; display: flex; gap: 6px; align-items: center; min-height: 44px'
+      };
+    });
+    var faqs = (this.faqData || []).map(function (f, i) {
+      var fs = st.faqSet;
+      var on = fs != null ? fs.indexOf(',' + i + ',') >= 0 : st.faq === i;
+      var cur = function () { var s0 = self.state.faqSet; return s0 != null ? s0 : (self.state.faq >= 0 ? ',' + self.state.faq + ',' : ','); };
+      return {
+        q: f[0], a: f[1],
+        hover: function () { clearTimeout(self._fq); self._fq = setTimeout(function () { var s1 = cur(); if (s1.indexOf(',' + i + ',') < 0) s1 += i + ','; if (s1 !== self.state.faqSet || self.state.faq !== i) self.setState({ faq: i, faqSet: s1 }); }, 120); },
+        toggle: function () { clearTimeout(self._fq); var s1 = cur(), k = ',' + i + ','; if (s1.indexOf(k) >= 0) { s1 = s1.replace(k, ','); self.setState({ faqSet: s1, faq: self.state.faq === i ? -1 : self.state.faq }); } else { self.setState({ faqSet: s1 + i + ',', faq: i }); } },
+        iconStyle: 'flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 400; color: #C9CED9; border: 1px solid rgba(255,255,255,0.12); transition: transform .35s var(--eo); transform: rotate(' + (on ? 45 : 0) + 'deg)',
+        wrapStyle: 'display: grid; transition: grid-template-rows .38s var(--eo), opacity .3s var(--eo); ' + (on ? 'grid-template-rows: 1fr; opacity: 1;' : 'grid-template-rows: 0fr; opacity: 0;')
+      };
+    });
+    return {
+      accent: this.props.accent ?? '#FF8A1F',
+      homeHref: pages.home,
+      navItems: navItems,
+      menuOpen: st.menu >= 0,
+      menu: st.menu >= 0 ? menus[st.menu] : menus[0],
+      sceneTilt: function (e) {
+        var sc = e.currentTarget, el = sc.querySelector('.tilt'); if (!el) return;
+        var r = sc.getBoundingClientRect(), c = sc.querySelector('.tcard');
+        if (c) { var cr = c.getBoundingClientRect(); sc.style.setProperty('--gx', ((e.clientX - cr.left) / cr.width * 100).toFixed(1) + '%'); sc.style.setProperty('--gy', ((e.clientY - cr.top) / cr.height * 100).toFixed(1) + '%'); sc.style.setProperty('--go', '1'); }
+        self.tiltEl(el, (e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5, 5.5);
+      },
+      sceneUntilt: function (e) { var sc = e.currentTarget, el = sc.querySelector('.tilt'); sc.style.setProperty('--go', '0'); if (el) self.tiltEl(el, 0, 0, 5.5); },
+      closeMenu: function () { if (self.state.menu !== -1) { self.setState({ menu: -1 }); self.follow(460); } },
+      hlLeave: function (e) { clearTimeout(self._hv); var l = e.currentTarget; l._hover = null; self.syncList(l, false); },
+      spot: function (e) {
+        var t = e.target, c = t && t.closest ? t.closest('.gcard') : null;
+        if (!c) return;
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      },
+      faqs: faqs,
+      faqLeave: function () { clearTimeout(self._fq); var f0 = self.state.faq; var s2 = f0 >= 0 ? ',' + f0 + ',' : ','; if (self.state.faqSet !== s2) self.setState({ faqSet: s2 }); },
+      footer: [
+        { h: '产品', items: ['运单查询', '物流通知', '退货管理'] },
+        { h: '开发者', items: ['API 文档', 'SDK', '状态页'] },
+        { h: '资源', items: ['博客', '客户案例', '合作伙伴 & 集成'] },
+        { h: '公司', items: ['关于我们', '联系我们', '包裹查询'] }
+      ]
+    };
+  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = { menu: -1, faq: -1, toc: 0 };
+    this.faqData = [];
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var vals = this.commonVals({ home: 'index.html', tracking: 'tracking.html', returns: 'returns.html', api: 'api.html', blog: 'blog.html', cases: 'cases.html', caseEufy: 'case-eufy.html', integrations: 'integrations.html' });
+    vals.toc = [["bg", "客户背景"], ["chance", "全球扩展中的机遇"], ["solution", "解决方案"], ["result", "成果与价值"], ["quote", "客户证言"]].map(function (t, i) {
+      var on = st.toc === i;
+      var go = function () { if (self.state.toc !== i) { self.setState({ toc: i }); self.follow(400); } };
+      return { label: t[1], href: '#' + t[0], act: on ? '1' : '0', pick: go, hover: function (e) { self.hlEnter(e); },
+        style: 'position: relative; z-index: 1; display: block; padding: 8px 12px; border-radius: 10px; text-decoration: none; font-size: 14px; transition: color .25s ease; color: ' + (on ? '#FFFFFF' : '#9097A6') };
+    });
+    return vals;
+  }
+
+}
+</script>
+</body>
+</html>

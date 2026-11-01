@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>17TRACK 17RETURNS 产品页</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0D14}
+a{color:#F2F4F8}a:hover{color:#FFFFFF}
+@keyframes arcflow{from{stroke-dashoffset:106}to{stroke-dashoffset:0}}
+.arc-run{stroke-dasharray:6 100;animation:arcflow 3.6s linear infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.4);opacity:0}}
+.hub-ring{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+.tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.tiltc,.gcard.tiltc,.gcard.tiltc:hover{transform:perspective(700px) translate3d(0,var(--lift,0px),0) rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));will-change:transform}
+.gcard.tiltc{transition:--sa .35s var(--eo)}
+.gcard.tiltc:hover{--lift:-3px}
+@media (prefers-reduced-motion:reduce){.tiltc{transform:none!important}}
+.floaty{animation:floaty 6s ease-in-out infinite}
+@property --sa{syntax:'<number>';inherits:true;initial-value:0}
+:root{--eo:cubic-bezier(.22,1,.36,1);--es:cubic-bezier(.32,.72,0,1)}
+.gcard{position:relative;overflow:hidden;--mx:50%;--my:-20%;--sa:0;transition:transform .35s var(--eo),--sa .35s var(--eo)}
+.gcard:hover{--sa:1;transform:translate3d(0,-3px,0)}
+.gcard::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(110,140,255,calc(0.10 * var(--sa))),transparent 60%),radial-gradient(110% 70% at 50% 0%,rgba(255,255,255,0.035),transparent 62%)}
+.gcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;padding:1px;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(160,185,255,calc(0.7 * var(--sa))),transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.pmap{translate:calc(var(--px,0) * -30px) calc(var(--py,0) * -16px);transition:translate 1s var(--eo);will-change:translate}
+.hl{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;z-index:0;will-change:transform;transition:transform .38s var(--es),width .38s var(--es),height .38s var(--es),opacity .22s ease}
+.gtile{display:flex;align-items:center;justify-content:center;color:#FFFFFF;background:linear-gradient(160deg,#5A84FF 0%,#2350F0 45%,#0A2BA8 100%);box-shadow:0 0 30px rgba(60,100,255,0.4),inset 0 1px 0 rgba(255,255,255,0.5),inset 0 -8px 14px rgba(0,10,60,0.35)}
+.ptile{overflow:hidden;display:flex;align-items:center;justify-content:center;color:#DCE4FF;background:linear-gradient(160deg,#1E212B,#111318);border:1px solid rgba(200,210,235,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.12),0 8px 20px rgba(0,0,0,0.35)}
+.gtext{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gnum{background:linear-gradient(180deg,#FFFFFF 10%,#A3AABB 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gword{background:linear-gradient(90deg,#8FB0FF 0%,#3D6BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ntile{display:flex;align-items:center;justify-content:center;color:#C9CED9;background:linear-gradient(160deg,#232737,#151823);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1)}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(200,210,235,0.16);transform:translate(-50%,-50%)}
+.gtile{transition:transform .4s var(--eo)}
+.gcard:hover .gtile{transform:scale(1.06)}
+.ptile img{transition:transform .5s var(--eo)}
+.ptile{container-type:size;background:#0F1014!important}
+.ptile img{object-fit:contain!important;background:#0F1014}
+@container (min-aspect-ratio: 9/8){.ptile img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%)}}
+.ptile:hover img,.gcard:hover .lift .ptile img{transform:scale(1.08)}
+.lift{transition:transform .4s var(--eo)}
+.gcard:hover .lift{transform:translate3d(0,-3px,0)}
+.bub{display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:13px;color:#C9CED9;background:radial-gradient(circle at 32% 26%,#2B3043,#12141D 72%);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 10px 24px rgba(0,0,0,0.4);transition:transform .45s var(--eo),border-color .3s ease}
+.gcard:hover .bub{transform:translate3d(0,-6px,0);border-color:rgba(110,145,255,0.35)}
+.btn{transition:transform .22s var(--eo),box-shadow .22s var(--eo),filter .22s ease}
+.btn:active,.btn2:active{transform:scale(.97)!important}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 12px 32px rgba(47,107,255,0.45)!important}
+.btn2{transition:transform .22s var(--eo),background .22s ease,border-color .22s ease}
+.btn2:hover{transform:translateY(-2px);background:rgba(255,255,255,0.08)!important;border-color:rgba(255,255,255,0.32)!important}
+.ar{display:inline-block;transition:transform .25s var(--eo)}
+a:hover .ar{transform:translateX(4px)}
+.chip{transition:transform .3s,border-color .3s}
+.chip:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.2)!important}
+.ring{transition:transform .6s var(--eo)}
+.gcard:hover .ring{transform:translate(-50%,-50%) scale(1.06)}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.reveal{animation:reveal 2.4s cubic-bezier(.65,0,.35,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pv{animation:fadeUp .45s cubic-bezier(.2,.8,.2,1)}
+.pvw.on > div > *{animation:rise .42s var(--eo) both}
+.pvw.on > div > *:nth-child(2){animation-delay:.04s}
+.pvw.on > div > *:nth-child(3){animation-delay:.08s}
+.pvw.on > div > *:nth-child(4){animation-delay:.12s}
+.pvw.on > div > *:nth-child(5){animation-delay:.16s}
+@keyframes rise{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
+@media (max-width:760px){.float-card,.floaty{display:none!important}}
+.hfeed{position:relative;box-sizing:content-box;height:144px;padding:12px 0 0 8px;margin:6px 0 0 -8px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.hev{position:relative;height:40px;margin-bottom:12px;display:flex;gap:10px;transition:opacity .6s ease;will-change:transform}
+.hev::before{content:"";position:absolute;left:4.5px;top:18px;width:1px;height:38px;background:linear-gradient(180deg,rgba(174,185,208,0.35),rgba(174,185,208,0.08))}
+.hfeed.fa .hev{animation:fpushA .7s var(--eo) both}
+.hfeed.fb .hev{animation:fpushB .7s var(--eo) both}
+.hfeed.fa .hev:first-child{animation:fpushA .7s var(--eo) both,finA .55s .12s ease both}
+.hfeed.fb .hev:first-child{animation:fpushB .7s var(--eo) both,finB .55s .12s ease both}
+@keyframes fpushA{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes fpushB{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes finA{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+@keyframes finB{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+.hfeed.ra .hev,.hswap.ra{animation:fresetA .6s var(--eo) both}
+.hfeed.rb .hev,.hswap.rb{animation:fresetB .6s var(--eo) both}
+.hfeed.ra .hev:nth-child(2),.hfeed.rb .hev:nth-child(2){animation-delay:.06s}
+.hfeed.ra .hev:nth-child(3),.hfeed.rb .hev:nth-child(3){animation-delay:.12s}
+@keyframes fresetA{from{opacity:0;transform:translate3d(0,8px,0)}}
+@keyframes fresetB{from{opacity:0;transform:translate3d(0,8px,0)}}
+@media (prefers-reduced-motion:reduce){.hfeed .hev,.hswap{animation:none!important}}
+@media (min-width:761px){.nw{white-space:nowrap}}
+.qbgs{position:absolute;z-index:-1;left:40px;right:0;bottom:-28px;aspect-ratio:16/9;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);mask-composite:intersect}
+.ncov img{transition:transform .6s var(--eo)}
+.gcard:hover .ncov img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.arc-run,.hub-ring,.tw,.floaty,.reveal,.pv,.pvw.on > div > *{animation:none}.gcard,.gtile,.lift,.bub,.btn,.btn2,.hl,.pmap{transition:none;translate:none}}
+
+.tscene{perspective:1100px}
+.tilt{position:relative;transform-style:preserve-3d;transform:rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));will-change:transform}
+.tcard{box-shadow:calc(var(--ry,0) * -1.6px) calc(18px + var(--rx,0) * 1.6px) 50px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.08)!important}
+.tglare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.06),transparent 60%);opacity:var(--go,0);transition:opacity .4s ease}
+.tilt > .floaty{transform:translateZ(40px)}
+.tz1{transform:translateZ(36px)}
+.tz2{transform:translateZ(48px)}
+.tilt .floaty{background:linear-gradient(180deg,rgba(32,36,50,.97),rgba(18,20,28,.97))!important;box-shadow:0 18px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.08)!important}
+@media (prefers-reduced-motion:reduce){.tilt{transform:none!important}}
+.rbtn{transition:transform .2s var(--eo),box-shadow .3s ease,background .3s ease}
+.rbtn:hover{transform:translateY(-1px)}
+.rbtn:active{transform:translateY(0) scale(.98)}
+@media (prefers-reduced-motion:reduce){.tilt{transform:none!important}}
+.rng{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:rgba(200,210,235,0.12);outline:none;cursor:pointer}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#FFFFFF;border:5px solid #4C7DFF;box-shadow:0 0 0 6px rgba(76,125,255,0.18),0 4px 12px rgba(0,0,0,0.4);transition:transform .2s var(--eo)}
+.rng::-webkit-slider-thumb:hover{transform:scale(1.12)}
+.rng::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#FFFFFF;border:5px solid #4C7DFF;box-shadow:0 0 0 6px rgba(76,125,255,0.18)}
+.rng:focus-visible{box-shadow:0 0 0 3px rgba(76,125,255,0.5)}
+</style>
+</helmet>
+<div onMouseMove="{{ spot }}" style="width: 100%; background: #0B0D14; color: #F2F4F8; font-family: Montserrat, 'PingFang SC', 'Noto Sans SC', 'Source Han Sans SC', system-ui, sans-serif; font-size: 15px; line-height: 1.6">
+
+<!-- 导航 -->
+<header onMouseLeave="{{ closeMenu }}" style="position: relative; z-index: 3; border-bottom: 1px solid rgba(200,210,235,0.1); background: rgba(11,13,20,0.85)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<a href="{{ homeHref }}" style="text-decoration: none; font-size: 21px; font-weight: 700; letter-spacing: -0.02em"><span style="color: {{accent}}">17</span>TRACK</a>
+<nav aria-label="主导航" data-hl-list="nav" onMouseLeave="{{ hlLeave }}" style="position: relative; display: flex; flex-wrap: wrap; gap: 4px">
+<span class="hl" aria-hidden="true" style="background: rgba(200,210,235,0.09); border-radius: 999px"></span>
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+<button type="button" data-active="{{ n.act }}" onClick="{{ n.toggle }}" onMouseEnter="{{ n.enter }}" style="{{ n.style }}">{{ n.label }}<span style="font-size: 9px; opacity: 0.6">{{ n.caret }}</span></button>
+</sc-for>
+</nav>
+<div style="display: flex; gap: 8px; align-items: center">
+<a href="#cta" style="text-decoration: none; font-size: 14px; color: #9097A6; padding: 10px 10px">登录</a>
+<a class="btn2" href="#cta" style="text-decoration: none; font-size: 14px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.24); background: rgba(200,210,235,0.06)">预约演示</a>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{ menu.items }}" as="mi" hint-placeholder-count="3">
+<a href="{{ mi.href }}" class="gcard" style="flex: 1 1 240px; text-decoration: none; padding: 16px 18px; border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(200,210,235,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 2px">
+<span style="font-weight: 600">{{ mi.t }}</span>
+<span style="font-size: 13px; color: #9097A6">{{ mi.d }}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</header>
+
+<section class="hero" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(200,210,235,0.08); background-color: #0B0D14; background-image: radial-gradient(46% 55% at 72% 46%, rgba(52,56,160,0.22), transparent 72%), radial-gradient(28% 34% at 12% 8%, rgba(20,90,110,0.12), transparent 72%)">
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(200,210,235,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(200,210,235,0.045) 1px, transparent 1px); background-size: 120px 120px; background-position: center top; -webkit-mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%); mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%)"></div>
+<div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 96px; padding-bottom: 80px; display: flex; flex-wrap: wrap; gap: 72px; align-items: center">
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h11l-3-3"></path><path d="M17 17H6l3 3"></path></svg> 17RETURNS 退换货</span>
+<h1 style="margin: 0; font-size: 48px; line-height: 1.25; font-weight: 600">让每一次退货，<br>都成为<span class="gword">增长机会</span></h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #9097A6; max-width: 520px">AI 驱动的 7×24h 自动化退换货，退款前挽回订单，多种手段为品牌保留收入，驱动品牌持续增长。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">免费试用</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600">预约演示</a></div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px 0; margin-top: 16px"><div style="display: flex; flex-direction: column; gap: 4px; padding-right: 20px;"><span class="gtext" style="background-image: linear-gradient(160deg, #F2F6FF 15%, #8EAEFF 95%); font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">20%+</span><span style="font-size: 13px; color: #9097A6">挽回收入</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding-right: 20px; padding-left: 20px; border-left: 1px solid rgba(200,210,235,0.1);"><span class="gtext" style="background-image: linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%); font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">18%+</span><span style="font-size: 13px; color: #9097A6">节省逆向物流费</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding-right: 20px; padding-left: 20px; border-left: 1px solid rgba(200,210,235,0.1);"><span class="gtext" style="background-image: linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%); font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">7×24h</span><span style="font-size: 13px; color: #9097A6">自动处理</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding-right: 20px; padding-left: 20px; border-left: 1px solid rgba(200,210,235,0.1);"><span class="gtext" style="background-image: linear-gradient(160deg, #EEFCF8 15%, #7ED8C6 95%); font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">-80%</span><span style="font-size: 13px; color: #9097A6">客服工作量</span></div></div>
+</div>
+<div class="tscene" onMouseMove="{{ sceneTilt }}" onMouseLeave="{{ sceneUntilt }}" style="flex: 1.05 1 500px; min-width: 0; position: relative; padding: 24px 0 72px">
+<div class="tilt">
+<div class="tcard" style="position: relative; border-radius: 20px; background: linear-gradient(180deg, rgba(30,34,48,0.55), rgba(16,18,26,0.55)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 48px rgba(0,0,0,0.4); padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<span class="tglare" aria-hidden="true"></span>
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-weight: 700; letter-spacing: 0.04em">[BRAND] 退换货中心</span><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h9"></path><path d="M8.5 3v2"></path><path d="M6 5c.5 3 2.5 5.5 5 7"></path><path d="M11 5c-.5 3-2.5 6-6 8"></path><path d="M13 21l4-9 4 9"></path><path d="M14.5 18h5"></path></svg> 中文</span></div>
+<div style="display: flex; gap: 16px; align-items: center; padding: 14px; border-radius: 16px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1)">
+<span class="ptile" style="width: 72px; height: 72px; border-radius: 14px; flex-shrink: 0;"><img src="img/tee.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; color: #9097A6">订单 #10482 · 申请退货</span><span style="font-size: 16px; font-weight: 600">经典圆领 T 恤 · 灰色 M</span><span style="display: flex; gap: 6px; margin-top: 4px"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16)">尺码不合适</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); opacity: 0.6">$49.00</span></span></div>
+</div>
+<div role="radiogroup" aria-label="选择处理方式" style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; color: #9097A6">选择处理方式</span>
+<sc-for list="{{ rOpts }}" as="o" hint-placeholder-count="3">
+<div role="radio" aria-checked="{{ o.sel }}" tabindex="0" onMouseEnter="{{ o.hover }}" onClick="{{ o.pick }}" style="{{ o.style }}">
+<span style="{{ o.radio }}"></span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.4"><span style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600">{{ o.t }}<sc-if value="{{ o.isEx }}" hint-placeholder-val="{{ false }}"><span style="font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; background: rgba(76,125,255,0.18); color: #9DB4FF">AI 推荐</span></sc-if></span><span style="font-size: 12px; color: #9097A6">{{ o.d }}</span></div>
+<sc-if value="{{ o.isEx }}" hint-placeholder-val="{{ false }}"><span style="display: flex; gap: 4px; flex-shrink: 0"><sc-for list="{{ sizes }}" as="z" hint-placeholder-count="4"><button type="button" onClick="{{ z.pick }}" onMouseEnter="{{ z.pick }}" aria-label="{{ z.aria }}" style="{{ z.style }}">{{ z.k }}</button></sc-for></span></sc-if>
+</div>
+</sc-for>
+</div>
+<button type="button" class="rbtn" onClick="{{ rSubmit }}" style="{{ rBtnStyle }}">{{ rBtnTxt }}</button>
+</div>
+<div class="tz1" style="position: absolute; right: -32px; top: -34px"><div class="floaty" style="padding: 12px 16px; border-radius: 16px; background: linear-gradient(180deg, rgba(30,34,48,0.55), rgba(16,18,26,0.55)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 48px rgba(0,0,0,0.4); display: flex; gap: 12px; align-items: center">
+<span class="gtile" style="width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></span>
+<div style="display: flex; flex-direction: column; line-height: 1.4"><span style="font-size: 12px; color: #9097A6">AI 工作流</span><span style="font-size: 13px; font-weight: 600">{{ rAi }}</span></div>
+</div></div>
+<div class="tz2" style="position: absolute; left: -40px; bottom: -26px"><div class="floaty" style="padding: 14px 18px; border-radius: 16px; background: linear-gradient(180deg, rgba(30,34,48,0.55), rgba(16,18,26,0.55)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 48px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 2px; min-width: 150px; animation-delay: 1.5s">
+<span style="font-size: 12px; color: #9097A6">{{ rLab }}</span>
+<span class="gtext" style="{{ rValStyle }}">{{ rVal }}</span>
+</div></div>
+</div>
+</div>
+</div>
+</section>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 104px; padding-bottom: 56px">
+<div style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px; align-items: center; text-align: center; margin: 0 auto;"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">ROI 计算器</span><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">17RETURNS 能帮您挽回多少收入？</h2><p style="margin: 0; font-size: 16px; color: #9097A6">拖动滑块，输入你的业务数据，实时估算每月可挽回的收益。</p></div>
+<div class="gcard" style="border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 40px; display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 30px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><label for="roi-orders" style="font-size: 14px; color: #C9CED9">月订单量</label><span style="font-size: 18px; font-weight: 700">{{ roi.ordersTxt }}</span></div>
+<input id="roi-orders" class="rng" type="range" min="1000" max="100000" step="1000" value="{{ roi.orders }}" onChange="{{ roi.set_orders }}" onInput="{{ roi.set_orders }}" style="{{ roi.ordersFill }}">
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><label for="roi-aov" style="font-size: 14px; color: #C9CED9">平均客单价</label><span style="font-size: 18px; font-weight: 700">${{ roi.aovTxt }}</span></div>
+<input id="roi-aov" class="rng" type="range" min="10" max="300" step="1" value="{{ roi.aov }}" onChange="{{ roi.set_aov }}" onInput="{{ roi.set_aov }}" style="{{ roi.aovFill }}">
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><label for="roi-rate" style="font-size: 14px; color: #C9CED9">退货率</label><span style="font-size: 18px; font-weight: 700">{{ roi.rateTxt }}%</span></div>
+<input id="roi-rate" class="rng" type="range" min="1" max="40" step="1" value="{{ roi.rate }}" onChange="{{ roi.set_rate }}" onInput="{{ roi.set_rate }}" style="{{ roi.rateFill }}">
+</div>
+</div>
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; justify-content: center; gap: 24px; padding-left: 48px; border-left: 1px solid rgba(255,255,255,0.06)">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; color: #9097A6">月均退货总损失</span><span style="font-size: 36px; font-weight: 700; color: #C9CED9">${{ roi.lossTxt }}</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; color: #9097A6">每月可挽回收益（预计）</span><span class="gtext" style="background-image: linear-gradient(160deg, #EEFCF8 15%, #7ED8C6 95%); font-size: 60px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05">${{ roi.saveTxt }}</span></div>
+<a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3); align-self: flex-start">预约演示，获取完整测算</a>
+</div>
+</div>
+<p style="margin: 0; font-size: 12px; line-height: 1.7; color: #7A8191; text-align: center">*官网口径：退货总损失 = (订单量 × 退货率) × (退款额 + 运费 + 人工成本 + Chargeback 风险 + 流量折损)。此处为简化演示，按订单量 × 退货率 × 客单价估算；挽回比例基于平台平均挽损率 20.15%，实际数据因品类而异。</p>
+</div>
+</section>
+<div style="padding-top: 40px"><section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 56px; padding-bottom: 56px"><div style="display: flex; flex-wrap: wrap; gap: 64px; align-items: center"><div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">01 · 品牌化自助退货门户</span><h3 style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.3">退换货，也是品牌体验</h3><p style="margin: 0; font-size: 16px; color: #9097A6">让退换货流程成为品牌体验的一部分。消费者可自主发起退换货、实时追踪进度，减少客服沟通成本，提升售后满意度。</p><div style="display: flex; flex-direction: column; gap: 14px"><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">自由配置专属视觉与文案，打造品牌级售后体验</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">支持多语言自动翻译，覆盖全球消费者</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">退款与物流状态实时可查，9 个关键节点自动通知</span></div></div><div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 6px"><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px">免费试用 <span class="ar">→</span></a><div style="display: flex; align-items: baseline; gap: 10px"><span class="gtext" style="background-image: linear-gradient(160deg, #F2F6FF 15%, #8EAEFF 95%); font-size: 34px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">3.5x</span><span style="font-size: 14px; color: #9097A6">消费者 LTV</span></div></div></div><div class="gcard" style="flex: 1.15 1 480px; min-width: 0; min-height: 420px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 14px"><div style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-weight: 700; letter-spacing: 0.04em">[BRAND] Returns</span><span style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); background: rgba(76,125,255,0.18); border-color: rgba(110,145,255,0.4); color: #F2F4F8">English</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #9097A6">中文</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #9097A6">Deutsch</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #9097A6">Français</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #9097A6">日本語</span></span></div>
+<div class="lift" style="padding: 18px; border-radius: 16px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; gap: 14px; align-items: center"><span class="ptile" style="width: 56px; height: 56px; border-radius: 12px; flex-shrink: 0;"><img src="img/sneaker.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block"></span><div style="flex: 1; display: flex; flex-direction: column; line-height: 1.45"><span style="font-size: 12px; color: #9097A6">退货单 RMA-2041</span><span style="font-size: 15px; font-weight: 600">仓库已签收，正在质检</span></div></div>
+<div style="position: relative; display: flex; gap: 2px"><span style="position: absolute; left: 5%; right: 5%; top: 6px; height: 1px; background: linear-gradient(90deg, #4C7DFF 50%, rgba(200,210,235,0.15) 50%)"></span><div style="display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0"><span style="width: 10px; height: 10px; border-radius: 50%; background: #4C7DFF"></span><span style="font-size: 10px; color: #9097A6; white-space: nowrap">申请提交</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0"><span style="width: 10px; height: 10px; border-radius: 50%; background: #4C7DFF"></span><span style="font-size: 10px; color: #9097A6; white-space: nowrap">审核通过</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0"><span style="width: 10px; height: 10px; border-radius: 50%; background: #4C7DFF"></span><span style="font-size: 10px; color: #9097A6; white-space: nowrap">面单生成</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0"><span style="width: 10px; height: 10px; border-radius: 50%; background: #4C7DFF"></span><span style="font-size: 10px; color: #9097A6; white-space: nowrap">已寄出</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0"><span style="width: 14px; height: 14px; border-radius: 50%; background: {{accent}}; box-shadow: 0 0 12px {{accent}}"></span><span style="font-size: 10px; color: #F2F4F8; white-space: nowrap">仓库签收</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0"><span style="width: 10px; height: 10px; border-radius: 50%; background: rgba(200,210,235,0.2)"></span><span style="font-size: 10px; color: #5A606E; white-space: nowrap">质检完成</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0"><span style="width: 10px; height: 10px; border-radius: 50%; background: rgba(200,210,235,0.2)"></span><span style="font-size: 10px; color: #5A606E; white-space: nowrap">退款处理</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0"><span style="width: 10px; height: 10px; border-radius: 50%; background: rgba(200,210,235,0.2)"></span><span style="font-size: 10px; color: #5A606E; white-space: nowrap">退款到账</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0"><span style="width: 10px; height: 10px; border-radius: 50%; background: rgba(200,210,235,0.2)"></span><span style="font-size: 10px; color: #5A606E; white-space: nowrap">完成</span></div></div>
+</div>
+<span style="font-size: 12px; color: #9097A6; text-align: center">9 个关键节点自动邮件通知 · 退款与物流状态实时可查</span>
+</div></div></div></section><section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 56px; padding-bottom: 56px"><div style="display: flex; flex-wrap: wrap; gap: 64px; align-items: center"><div class="gcard" style="flex: 1.15 1 480px; min-width: 0; min-height: 420px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 14px"><div style="display: flex; flex-direction: column; gap: 14px">
+<div style="padding: 16px; border-radius: 16px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); display: flex; gap: 12px; align-items: flex-start"><span class="ntile" style="width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></span><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; color: #9097A6">用自然语言描述退货规则</span><span style="font-size: 15px">「超过 30 天的订单不允许退货，内衣类商品仅支持换货」</span></div></div>
+<div style="display: flex; justify-content: center; color: #9097A6"><svg style="transform: rotate(90deg)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></div>
+<div class="lift" style="padding: 18px; border-radius: 16px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; color: #9DB4FF; font-weight: 600">AI 已生成 2 条规则 · 无冲突</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16)">IF</span><span>订单天数 &gt; 30</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16)">THEN</span><span>拒绝退货申请</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16)">IF</span><span>商品类目 = 内衣</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16)">THEN</span><span>仅提供换货</span></div>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center"><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #9097A6">9 种触发条件</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #9097A6">8 种执行动作</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #9097A6">政策知识库自动答疑</span></div>
+</div></div><div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">02 · AI 工作流</span><h3 style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.3">7×24h 自动处理退换货</h3><p style="margin: 0; font-size: 16px; color: #9097A6">用自然语言描述退货规则，AI 自动生成配置。从审批到打单，全链路自动化，非技术人员也能快速上手。</p><div style="display: flex; flex-direction: column; gap: 14px"><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">9 种触发条件 × 8 种执行动作，覆盖复杂退货场景</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">基于商家政策知识库，AI 自动解答退换货问题</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">可按状态、原因、渠道等维度快速筛选待处理订单</span></div></div><div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 6px"><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px">免费试用 <span class="ar">→</span></a><div style="display: flex; align-items: baseline; gap: 10px"><span class="gtext" style="background-image: linear-gradient(160deg, #EFFBFF 15%, #7FCDF2 95%); font-size: 34px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">-80%</span><span style="font-size: 14px; color: #9097A6">客服工作量</span></div></div></div></div></section><section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 56px; padding-bottom: 56px"><div style="display: flex; flex-wrap: wrap; gap: 64px; align-items: center"><div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">03 · 多种方式挽留收入</span><h3 style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.3">退货不等于客户流失</h3><p style="margin: 0; font-size: 16px; color: #9097A6">在退款前后关键节点主动介入，通过补偿、换货、积分退款等方式，将退款转化为留存机会。</p><div style="display: flex; flex-direction: column; gap: 14px"><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">退款前智能拦截，支持小额补偿、积分补偿、换货引导</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">退款后引导转化，支持积分退款和挽留</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">挽损 ROI 看板，实时查看退货运营数据</span></div></div><div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 6px"><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px">免费试用 <span class="ar">→</span></a><div style="display: flex; align-items: baseline; gap: 10px"><span class="gtext" style="background-image: linear-gradient(160deg, #F4F2FF 15%, #AA9DFF 95%); font-size: 34px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">20%+</span><span style="font-size: 14px; color: #9097A6">挽损率</span></div></div></div><div class="gcard" style="flex: 1.15 1 480px; min-width: 0; min-height: 420px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 14px"><div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<div class="lift" style="padding: 14px; border-radius: 14px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 6px"><span class="gtile" style="width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.4 0-2.5.8-2.5 2s1.1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-2-.5-2.5-1.5"></path><path d="M12 6.5v1.5"></path><path d="M12 16v1.5"></path></svg></span><span style="font-size: 13px; font-weight: 600">小额补偿</span><span style="font-size: 12px; color: #9097A6">补 $5，保留订单</span></div>
+<div style="padding: 14px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); display: flex; flex-direction: column; gap: 6px"><span class="ntile" style="width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18"></path></svg></span><span style="font-size: 13px; font-weight: 600">积分退款</span><span style="font-size: 12px; color: #9097A6">额外 +10% 积分</span></div>
+<div style="padding: 14px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); display: flex; flex-direction: column; gap: 6px"><span class="ntile" style="width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h11l-3-3"></path><path d="M17 17H6l3 3"></path></svg></span><span style="font-size: 13px; font-weight: 600">换货引导</span><span style="font-size: 12px; color: #9097A6">推荐同款其他尺码</span></div>
+</div>
+<div style="padding: 18px; border-radius: 16px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 13px; color: #9097A6">挽损 ROI 看板 · 近 12 周</span><span class="gtext" style="background-image: linear-gradient(160deg, #EEFCF8 15%, #7ED8C6 95%); font-size: 22px; font-weight: 700">$128,400</span></div>
+<div style="display: flex; align-items: flex-end; gap: 6px; height: 90px"><span style="flex: 1; height: 34%; border-radius: 4px; background: rgba(174,185,208,0.18)"></span><span style="flex: 1; height: 42%; border-radius: 4px; background: rgba(174,185,208,0.18)"></span><span style="flex: 1; height: 38%; border-radius: 4px; background: rgba(174,185,208,0.18)"></span><span style="flex: 1; height: 52%; border-radius: 4px; background: rgba(174,185,208,0.18)"></span><span style="flex: 1; height: 48%; border-radius: 4px; background: rgba(174,185,208,0.18)"></span><span style="flex: 1; height: 61%; border-radius: 4px; background: rgba(174,185,208,0.18)"></span><span style="flex: 1; height: 58%; border-radius: 4px; background: rgba(174,185,208,0.18)"></span><span style="flex: 1; height: 70%; border-radius: 4px; background: rgba(174,185,208,0.18)"></span><span style="flex: 1; height: 66%; border-radius: 4px; background: rgba(174,185,208,0.18)"></span><span style="flex: 1; height: 78%; border-radius: 4px; background: linear-gradient(180deg, #7ED8C6, rgba(126,216,198,0.25))"></span><span style="flex: 1; height: 74%; border-radius: 4px; background: linear-gradient(180deg, #7ED8C6, rgba(126,216,198,0.25))"></span><span style="flex: 1; height: 88%; border-radius: 4px; background: linear-gradient(180deg, #7ED8C6, rgba(126,216,198,0.25))"></span></div>
+</div>
+</div></div></div></section><section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 56px; padding-bottom: 56px"><div style="display: flex; flex-wrap: wrap; gap: 64px; align-items: center"><div class="gcard" style="flex: 1.15 1 480px; min-width: 0; min-height: 420px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 14px"><div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px"><span style="font-size: 13px; color: #9097A6">退货面单 · 洛杉矶 → 新泽西仓</span><span style="font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16)">实时比价</span></div>
+<div class="lift" style="display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 14px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14)"><span class="gtile" style="width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v8H3z"></path><path d="M14 10h4l3 3v2h-7"></path><circle cx="7" cy="17" r="1.6"></circle><circle cx="17" cy="17" r="1.6"></circle></svg></span><div style="flex: 1; display: flex; flex-direction: column; line-height: 1.4"><span style="font-size: 14px; font-weight: 600">USPS Ground Advantage</span><span style="font-size: 12px; color: #9097A6">预计 3–5 天</span></div><span style="font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px; background: rgba(255,138,31,0.16); color: {{accent}}">最优</span><span style="font-size: 16px; font-weight: 700">$6.20</span></div><div class="" style="display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); opacity: 0.7"><span class="ntile" style="width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v8H3z"></path><path d="M14 10h4l3 3v2h-7"></path><circle cx="7" cy="17" r="1.6"></circle><circle cx="17" cy="17" r="1.6"></circle></svg></span><div style="flex: 1; display: flex; flex-direction: column; line-height: 1.4"><span style="font-size: 14px; font-weight: 600">UPS Ground</span><span style="font-size: 12px; color: #9097A6">预计 2–4 天</span></div><span style="font-size: 16px; font-weight: 700">$8.40</span></div><div class="" style="display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); opacity: 0.55"><span class="ntile" style="width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v8H3z"></path><path d="M14 10h4l3 3v2h-7"></path><circle cx="7" cy="17" r="1.6"></circle><circle cx="17" cy="17" r="1.6"></circle></svg></span><div style="flex: 1; display: flex; flex-direction: column; line-height: 1.4"><span style="font-size: 14px; font-weight: 600">FedEx Home</span><span style="font-size: 12px; color: #9097A6">预计 2–4 天</span></div><span style="font-size: 16px; font-weight: 700">$9.10</span></div><div class="" style="display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 14px; background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); opacity: 0.4"><span class="ntile" style="width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v8H3z"></path><path d="M14 10h4l3 3v2h-7"></path><circle cx="7" cy="17" r="1.6"></circle><circle cx="17" cy="17" r="1.6"></circle></svg></span><div style="flex: 1; display: flex; flex-direction: column; line-height: 1.4"><span style="font-size: 14px; font-weight: 600">DHL eCommerce</span><span style="font-size: 12px; color: #9097A6">预计 4–6 天</span></div><span style="font-size: 16px; font-weight: 700">$11.30</span></div>
+</div></div><div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">04 · 多渠道运输商比价</span><h3 style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.3">持续降低逆向物流支出</h3><p style="margin: 0; font-size: 16px; color: #9097A6">自动匹配更优退货物流方案，帮助商家在保障配送体验的同时，持续降低逆向物流支出。</p><div style="display: flex; flex-direction: column; gap: 14px"><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">多承运商实时比价，自动推荐高性价比物流方案</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">支持 USPS / DHL / UPS / FedEx 等主流承运商</span></div><div style="display: flex; gap: 12px; align-items: flex-start"><span style="width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #9DB4FF; background: rgba(76,125,255,0.14); border: 1px solid rgba(110,145,255,0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size: 15px; color: #C9CED9; line-height: 1.65">支持多退货地址配置，按规则自动匹配打单</span></div></div><div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 6px"><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px">免费试用 <span class="ar">→</span></a><div style="display: flex; align-items: baseline; gap: 10px"><span class="gtext" style="background-image: linear-gradient(160deg, #EEFCF8 15%, #7ED8C6 95%); font-size: 34px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap">18%+</span><span style="font-size: 14px; color: #9097A6">节省逆向物流费</span></div></div></div></div></section></div>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 104px; padding-bottom: 24px">
+<div style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px; align-items: center; text-align: center; margin: 0 auto;"><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">套餐</span><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">不同阶段 DTC 品牌的退换货优选</h2></div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+<div class="gcard" style="flex: 1 1 420px; min-width: 0; border-radius: 24px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); padding: 36px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="font-size: 28px; font-weight: 700">Pro</span></div><p style="margin: 0; font-size: 15px; color: #9097A6">降低退货运营成本，打造品牌化退货体验</p>
+<div style="display: flex; flex-direction: column; gap: 12px"><span style="font-size: 12px; font-weight: 600; color: #7A8191; letter-spacing: 0.06em">为您解决什么问题</span><ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px"><li style="display: flex; gap: 10px; font-size: 14px; color: #B5BAC6"><span style="color: #7A8191">—</span>退货处理效率低</li><li style="display: flex; gap: 10px; font-size: 14px; color: #B5BAC6"><span style="color: #7A8191">—</span>逆向物流成本不透明</li><li style="display: flex; gap: 10px; font-size: 14px; color: #B5BAC6"><span style="color: #7A8191">—</span>消费者退货体验不连贯</li></ul></div>
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06)"><span style="font-size: 12px; font-weight: 600; color: #7A8191; letter-spacing: 0.06em">核心能力</span><ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px"><li style="display: flex; gap: 10px; font-size: 14px; color: #E6E9F0"><span style="color: #9DB4FF; flex-shrink: 0; margin-top: 2px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>AI 工作流自动化，自然语言生成规则</li><li style="display: flex; gap: 10px; font-size: 14px; color: #E6E9F0"><span style="color: #9DB4FF; flex-shrink: 0; margin-top: 2px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>品牌化退货门户</li><li style="display: flex; gap: 10px; font-size: 14px; color: #E6E9F0"><span style="color: #9DB4FF; flex-shrink: 0; margin-top: 2px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>积分退款 / 退货手续费自动扣除</li><li style="display: flex; gap: 10px; font-size: 14px; color: #E6E9F0"><span style="color: #9DB4FF; flex-shrink: 0; margin-top: 2px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>实时运费比价，自动选最优物流</li></ul></div>
+<div style="display: flex; gap: 10px; margin-top: auto; padding-top: 8px"><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px">免费试用</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px">预约演示</a></div>
+</div>
+<div class="gcard" style="flex: 1 1 420px; min-width: 0; border-radius: 24px; background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.4); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); padding: 36px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="font-size: 28px; font-weight: 700">Max</span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; padding: 4px 10px; border-radius: 999px; background: rgba(255,138,31,0.16); color: {{accent}}">★ RECOMMENDED</span></div><p style="margin: 0; font-size: 15px; color: #9097A6">让退货成为新的收入来源，驱动品牌持续增长</p>
+<div style="display: flex; flex-direction: column; gap: 12px"><span style="font-size: 12px; font-weight: 600; color: #7A8191; letter-spacing: 0.06em">为您解决什么问题</span><ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px"><li style="display: flex; gap: 10px; font-size: 14px; color: #B5BAC6"><span style="color: #7A8191">—</span>退货收入流失，缺少挽回机制</li><li style="display: flex; gap: 10px; font-size: 14px; color: #B5BAC6"><span style="color: #7A8191">—</span>挽损动作无法量化</li><li style="display: flex; gap: 10px; font-size: 14px; color: #B5BAC6"><span style="color: #7A8191">—</span>复杂退货场景难配置</li></ul></div>
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06)"><span style="font-size: 12px; font-weight: 600; color: #7A8191; letter-spacing: 0.06em">核心能力</span><ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px"><li style="display: flex; gap: 10px; font-size: 14px; color: #E6E9F0"><span style="color: #9DB4FF; flex-shrink: 0; margin-top: 2px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Pro 全部能力</li><li style="display: flex; gap: 10px; font-size: 14px; color: #E6E9F0"><span style="color: #9DB4FF; flex-shrink: 0; margin-top: 2px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>小额补偿 / 积分挽留 / 换货引导</li><li style="display: flex; gap: 10px; font-size: 14px; color: #E6E9F0"><span style="color: #9DB4FF; flex-shrink: 0; margin-top: 2px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>挽损 ROI 看板</li><li style="display: flex; gap: 10px; font-size: 14px; color: #E6E9F0"><span style="color: #9DB4FF; flex-shrink: 0; margin-top: 2px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>高级工作流 + Open API</li></ul></div>
+<div style="display: flex; gap: 10px; margin-top: auto; padding-top: 8px"><a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3); padding: 11px 22px; font-size: 14px">免费试用</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px">预约演示</a></div>
+</div>
+</div>
+</div>
+</section>
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 104px; padding-bottom: 40px"><div style="display: flex; flex-wrap: wrap; gap: 48px"><div style="flex: 1 1 300px"><div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px; "><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">FAQ</span><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">常见问题</h2><p style="margin: 0; font-size: 16px; color: #9097A6">没找到答案？联系我们的专属支持团队。</p></div></div><div onMouseLeave="{{ faqLeave }}" style="flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column"><sc-for list="{{ faqs }}" as="q" hint-placeholder-count="3"><div onMouseEnter="{{ q.hover }}" style="border-bottom: 1px solid rgba(255,255,255,0.07)"><button type="button" onClick="{{ q.toggle }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 17px; font-weight: 600; text-align: left; cursor: pointer; min-height: 44px">{{ q.q }}<span aria-hidden="true" style="{{ q.iconStyle }}">+</span></button><div style="{{ q.wrapStyle }}"><div style="overflow: hidden; min-height: 0"><p style="margin: 0 0 22px; font-size: 15px; line-height: 1.75; color: #9097A6; white-space: pre-line">{{ q.a }}</p></div></div></div></sc-for></div></div></section>
+<section id="cta" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 72px; padding-bottom: 104px"><div style="padding: 64px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px"><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">让下一次退货，留住下一笔收入</h2><p style="margin: 0; font-size: 16px; color: #9097A6; max-width: 640px">免费试用 17RETURNS，几分钟搭建品牌化退货门户，开始挽回每一笔退款。</p><div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center"><a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">免费试用</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600">预约演示</a></div></div></section>
+
+<footer style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-wrap: wrap; gap: 32px">
+<div style="flex: 1.5 1 220px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 20px; font-weight: 700"><span style="color: {{accent}}">17</span>TRACK</div>
+<span style="font-size: 13px; color: #9097A6">© 17TRACK · 隐私政策 · 服务条款</span>
+</div>
+<sc-for list="{{ footer }}" as="f" hint-placeholder-count="4">
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+<span style="font-weight: 600">{{ f.h }}</span>
+<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="#news" style="text-decoration: none; color: #9097A6">{{ fi }}</a></sc-for>
+</div>
+</sc-for>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF8A1F","options":["#FF8A1F","#FFB547","#FF6A3D","#FFFFFF"]},"$preview":{"width":1440,"height":7000}}'>
+class Component extends DCLogic {
+
+  componentDidMount() {
+    var self = this;
+    this._onResize = function () { self.syncAll(true); };
+    window.addEventListener('resize', this._onResize);
+    setTimeout(function () { self.syncAll(true); }, 60);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { self.syncAll(true); });
+    if (this.didMount) this.didMount();
+  }
+  componentWillUnmount() { clearTimeout(this._hv); cancelAnimationFrame(this._raf); window.removeEventListener('resize', this._onResize); if (this.willUnmount) this.willUnmount(); }
+  tiltEl(el, nx, ny, amp) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var s = el.__t || (el.__t = { rx: 0, ry: 0, vx: 0, vy: 0, tx: 0, ty: 0, raf: 0 });
+    s.tx = -ny * amp; s.ty = nx * amp;
+    if (s.raf) return;
+    var step = function () {
+      s.vx += (s.tx - s.rx) * 0.07; s.vy += (s.ty - s.ry) * 0.07;
+      s.vx *= 0.76; s.vy *= 0.76;
+      s.rx += s.vx; s.ry += s.vy;
+      el.style.setProperty('--rx', s.rx.toFixed(3)); el.style.setProperty('--ry', s.ry.toFixed(3));
+      if (Math.abs(s.tx - s.rx) < 0.005 && Math.abs(s.ty - s.ry) < 0.005 && Math.abs(s.vx) < 0.005 && Math.abs(s.vy) < 0.005) { s.raf = 0; return; }
+      s.raf = requestAnimationFrame(step);
+    };
+    s.raf = requestAnimationFrame(step);
+  }
+  listOf(el) { var l = el; while (l && !(l.getAttribute && l.getAttribute('data-hl-list'))) l = l.parentElement; return l; }
+  moveHl(list, el, instant) {
+    var hl = list && list.querySelector('.hl');
+    if (!hl) return;
+    if (!el) { hl.style.opacity = '0'; return; }
+    if (instant) hl.style.transition = 'none';
+    hl.style.transform = 'translate3d(' + el.offsetLeft + 'px,' + el.offsetTop + 'px,0)';
+    hl.style.width = el.offsetWidth + 'px';
+    hl.style.height = el.offsetHeight + 'px';
+    hl.style.opacity = '1';
+    if (instant) { void hl.offsetWidth; hl.style.transition = ''; }
+  }
+  syncList(list, instant) { if (!list) return; var t = list._hover && list.contains(list._hover) ? list._hover : list.querySelector('[data-active="1"]'); this.moveHl(list, t, instant); }
+  syncAll(instant) { var lists = document.querySelectorAll('[data-hl-list]'); for (var i = 0; i < lists.length; i++) this.syncList(lists[i], instant); }
+  follow(ms) { var self = this, end = Date.now() + ms; cancelAnimationFrame(this._raf); var tick = function () { self.syncAll(false); if (Date.now() < end) self._raf = requestAnimationFrame(tick); }; tick(); }
+  commonVals(pages) {
+    var self = this, st = this.state;
+    self.hlEnter = self.hlEnter || function (e) { var el = e.currentTarget, l = self.listOf(el); if (!l) return; l._hover = el; self.moveHl(l, el, false); };
+    var menus = [
+      { label: '产品', items: [{ t: 'Order Tracking 订单追踪', d: '品牌化追踪页 · 物流通知', href: pages.tracking }, { t: '17RETURNS 退换货', d: 'AI 驱动的自动化退换货', href: pages.returns }, { t: 'Tracking API', d: '3,500+ 承运商统一接口', href: pages.api }] },
+      { label: '资源', items: [{ t: '博客', d: '趋势、技巧与洞察', href: pages.blog }, { t: '客户案例', d: '各行业品牌实践', href: pages.cases }, { t: '合作伙伴 & 集成', d: '电商平台与应用生态', href: pages.integrations }] },
+      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: pages.api }, { t: 'API 文档', d: '接口说明与示例', href: '#' }] },
+      { label: '价格', items: [] }
+    ];
+    var navItems = menus.map(function (m, i) {
+      var open = st.menu === i;
+      return {
+        label: m.label,
+        caret: m.items.length ? (open ? ' ▲' : ' ▼') : '',
+        act: open ? '1' : '0',
+        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } },
+        enter: function (e) { self.hlEnter(e); var nx = m.items.length ? i : -1; if (self.state.menu !== nx) { self.setState({ menu: nx }); self.follow(460); } },
+        style: 'position: relative; z-index: 1; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 14px; padding: 10px 14px; border-radius: 999px; cursor: pointer; display: flex; gap: 6px; align-items: center; min-height: 44px'
+      };
+    });
+    var faqs = (this.faqData || []).map(function (f, i) {
+      var fs = st.faqSet;
+      var on = fs != null ? fs.indexOf(',' + i + ',') >= 0 : st.faq === i;
+      var cur = function () { var s0 = self.state.faqSet; return s0 != null ? s0 : (self.state.faq >= 0 ? ',' + self.state.faq + ',' : ','); };
+      return {
+        q: f[0], a: f[1],
+        hover: function () { clearTimeout(self._fq); self._fq = setTimeout(function () { var s1 = cur(); if (s1.indexOf(',' + i + ',') < 0) s1 += i + ','; if (s1 !== self.state.faqSet || self.state.faq !== i) self.setState({ faq: i, faqSet: s1 }); }, 120); },
+        toggle: function () { clearTimeout(self._fq); var s1 = cur(), k = ',' + i + ','; if (s1.indexOf(k) >= 0) { s1 = s1.replace(k, ','); self.setState({ faqSet: s1, faq: self.state.faq === i ? -1 : self.state.faq }); } else { self.setState({ faqSet: s1 + i + ',', faq: i }); } },
+        iconStyle: 'flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 400; color: #C9CED9; border: 1px solid rgba(255,255,255,0.12); transition: transform .35s var(--eo); transform: rotate(' + (on ? 45 : 0) + 'deg)',
+        wrapStyle: 'display: grid; transition: grid-template-rows .38s var(--eo), opacity .3s var(--eo); ' + (on ? 'grid-template-rows: 1fr; opacity: 1;' : 'grid-template-rows: 0fr; opacity: 0;')
+      };
+    });
+    return {
+      accent: this.props.accent ?? '#FF8A1F',
+      homeHref: pages.home,
+      navItems: navItems,
+      menuOpen: st.menu >= 0,
+      menu: st.menu >= 0 ? menus[st.menu] : menus[0],
+      sceneTilt: function (e) {
+        var sc = e.currentTarget, el = sc.querySelector('.tilt'); if (!el) return;
+        var r = sc.getBoundingClientRect(), c = sc.querySelector('.tcard');
+        if (c) { var cr = c.getBoundingClientRect(); sc.style.setProperty('--gx', ((e.clientX - cr.left) / cr.width * 100).toFixed(1) + '%'); sc.style.setProperty('--gy', ((e.clientY - cr.top) / cr.height * 100).toFixed(1) + '%'); sc.style.setProperty('--go', '1'); }
+        self.tiltEl(el, (e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5, 5.5);
+      },
+      sceneUntilt: function (e) { var sc = e.currentTarget, el = sc.querySelector('.tilt'); sc.style.setProperty('--go', '0'); if (el) self.tiltEl(el, 0, 0, 5.5); },
+      closeMenu: function () { if (self.state.menu !== -1) { self.setState({ menu: -1 }); self.follow(460); } },
+      hlLeave: function (e) { clearTimeout(self._hv); var l = e.currentTarget; l._hover = null; self.syncList(l, false); },
+      spot: function (e) {
+        var t = e.target, c = t && t.closest ? t.closest('.gcard') : null;
+        if (!c) return;
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      },
+      faqs: faqs,
+      faqLeave: function () { clearTimeout(self._fq); var f0 = self.state.faq; var s2 = f0 >= 0 ? ',' + f0 + ',' : ','; if (self.state.faqSet !== s2) self.setState({ faqSet: s2 }); },
+      footer: [
+        { h: '产品', items: ['运单查询', '物流通知', '退货管理'] },
+        { h: '开发者', items: ['API 文档', 'SDK', '状态页'] },
+        { h: '资源', items: ['博客', '客户案例', '合作伙伴 & 集成'] },
+        { h: '公司', items: ['关于我们', '联系我们', '包裹查询'] }
+      ]
+    };
+  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = { menu: -1, faq: 0, orders: 20000, aov: 46, rate: 20, rt: 0, sz: 'L', done: false };
+    this.faqData = [['AI 规则生成器怎么用？需要技术背景吗？', '不需要技术背景。您只需用自然语言描述退货政策，例如「超过 30 天的订单不允许退货」，AI 即可自动生成对应的规则配置。系统支持 9 类触发条件 × 8 类执行动作，并内置冲突检测，非技术人员也能快速上手。'], ['支持哪些退货处理方式？', '目前支持 4 种常见售后路径，覆盖大多数退换货场景：\n· 退货退款：生成面单、寄回商品、确认收货后退款\n· 绿色退货：无需寄回商品，直接退款，节省逆向物流成本\n· 同品同价换货：支持消费者自助更换同款商品\n· 同品异价换货：系统自动计算差价，并完成补款或退款结算'], ['我的退货单量不大，也适合使用 17RETURNS 吗？', '非常适合。即使退货单量不高，跨时区沟通、邮件确认和人工审批仍会占用大量客服精力。17RETURNS 可帮助中小 DTC 品牌快速搭建品牌专属退货门户，实现退换货流程自动化。\n您可以先用较低成本释放客服压力，随着业务增长，再灵活启用退款挽损、复杂工作流等高级能力。']];
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var vals = this.commonVals({ home: 'index.html', tracking: 'tracking.html', returns: 'returns.html', api: 'api.html', blog: 'blog.html', cases: 'cases.html', caseEufy: 'case-eufy.html', integrations: 'integrations.html' });
+    var fmt = function (n) { return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
+    var fill = function (v, a, b) { var p = (v - a) / (b - a) * 100; return 'background: linear-gradient(90deg, #4C7DFF 0%, #7FA2FF ' + p + '%, rgba(200,210,235,0.12) ' + p + '%)'; };
+    var setter = function (k) { return function (e) { var v = Number(e.target.value); if (self.state[k] !== v) { var o = {}; o[k] = v; self.setState(o); } }; };
+    var loss = st.orders * (st.rate / 100) * st.aov;
+    vals.roi = {
+      orders: st.orders, aov: st.aov, rate: st.rate,
+      ordersTxt: fmt(st.orders), aovTxt: fmt(st.aov), rateTxt: String(st.rate),
+      ordersFill: fill(st.orders, 1000, 100000), aovFill: fill(st.aov, 10, 300), rateFill: fill(st.rate, 1, 40),
+      set_orders: setter('orders'), set_aov: setter('aov'), set_rate: setter('rate'),
+      lossTxt: fmt(loss), saveTxt: fmt(loss * 0.2015)
+    };
+    var sz = st.sz;
+    var od = [
+      { t: '换货 · 尺码 ' + sz, d: '免费寄回，48h 内发出新品', btn: '确认换货 · 尺码 ' + sz, lab: '本单挽回收入', val: '$49.00', grad: 'linear-gradient(160deg, #EEFCF8 15%, #7ED8C6 95%)', ai: '已自动审核通过' },
+      { t: '积分退款 +10%', d: '退回 $53.90 店铺积分，下次可用', btn: '确认领取 $53.90 积分', lab: '收入留存为积分', val: '$49.00', grad: 'linear-gradient(160deg, #F2F6FF 15%, #8EAEFF 95%)', ai: '已自动审核通过' },
+      { t: '原路退款', d: '退回 $49.00 至原支付方式', btn: '提交退款申请', lab: '本单收入流失', val: '-$49.00', grad: 'linear-gradient(160deg, #FFF1E4 15%, #FF9A5A 95%)', ai: '待仓库收货后退款' }
+    ];
+    var pickRt = function (i) { if (self.state.rt !== i || self.state.done) self.setState({ rt: i, done: false }); };
+    vals.rOpts = od.map(function (o, i) {
+      var on = st.rt === i;
+      return {
+        t: o.t, d: o.d, isEx: i === 0, sel: on ? 'true' : 'false',
+        hover: function () { clearTimeout(self._rh); self._rh = setTimeout(function () { pickRt(i); }, 70); },
+        pick: function () { clearTimeout(self._rh); pickRt(i); },
+        style: 'display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; cursor: pointer; box-sizing: border-box; transition: background .35s var(--eo), border-color .35s var(--eo), box-shadow .35s var(--eo), opacity .3s ease; ' + (on ? 'background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.55); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14); opacity: 1;' : 'background: rgba(200,210,235,0.04); border: 1px solid rgba(200,210,235,0.1); box-shadow: none; opacity: 0.62;'),
+        radio: 'width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; box-sizing: border-box; transition: border .3s var(--eo); ' + (on ? 'border: 5px solid #4C7DFF;' : 'border: 1px solid rgba(200,210,235,0.35);')
+      };
+    });
+    vals.sizes = ['S', 'M', 'L', 'XL'].map(function (k) {
+      var cur = k === 'M', on = k === sz && st.rt === 0;
+      return {
+        k: k, aria: cur ? '当前尺码 ' + k : '换成尺码 ' + k,
+        pick: function (e) { if (e && e.stopPropagation) e.stopPropagation(); if (cur) return; if (self.state.sz !== k || self.state.rt !== 0) self.setState({ sz: k, rt: 0, done: false }); },
+        style: 'min-width: 30px; height: 26px; padding: 0 6px; border-radius: 8px; font-family: inherit; font-size: 11px; font-weight: 700; color: #F2F4F8; transition: background .25s ease, border-color .25s ease, opacity .25s ease; ' + (cur ? 'background: transparent; border: 1px dashed rgba(200,210,235,0.2); opacity: 0.35; cursor: not-allowed; text-decoration: line-through;' : on ? 'background: #4C7DFF; border: 1px solid #4C7DFF; cursor: pointer;' : 'background: rgba(200,210,235,0.06); border: 1px solid rgba(200,210,235,0.16); cursor: pointer;')
+      };
+    });
+    var cur = od[st.rt];
+    vals.rBtnTxt = st.done ? '✓ 已提交 · 退货面单已生成' : cur.btn;
+    vals.rBtnStyle = 'width: 100%; min-height: 46px; padding: 13px 18px; border-radius: 14px; border: 0; font-family: inherit; font-size: 14px; font-weight: 600; color: #FFFFFF; cursor: pointer; ' + (st.done ? 'background: linear-gradient(160deg, #2E9C78, #1F7A5E); box-shadow: 0 0 28px rgba(60,190,150,0.3), inset 0 1px 0 rgba(255,255,255,0.25);' : 'background: linear-gradient(160deg, #4C7DFF, #1F4FE0); box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3);');
+    vals.rSubmit = function () { if (self.state.done) return; self.setState({ done: true }); clearTimeout(self._rd); self._rd = setTimeout(function () { self.setState({ done: false }); }, 2400); };
+    vals.rLab = cur.lab; vals.rVal = cur.val; vals.rAi = st.done ? '面单已发送至邮箱' : cur.ai;
+    vals.rValStyle = 'background-image: ' + cur.grad + '; font-size: 26px; font-weight: 700; transition: opacity .3s ease';
+    return vals;
+  }
+  willUnmount() { clearTimeout(this._rh); clearTimeout(this._rd); }
+
+}
+</script>
+</body>
+</html>
