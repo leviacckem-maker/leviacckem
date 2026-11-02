@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>价格方案 · 17TRACK</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0D14}
+a{color:#F2F4F8}a:hover{color:#FFFFFF}
+@keyframes arcflow{from{stroke-dashoffset:106}to{stroke-dashoffset:0}}
+.arc-run{stroke-dasharray:6 100;animation:arcflow 3.6s linear infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.4);opacity:0}}
+.hub-ring{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+.tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.tiltc,.gcard.tiltc,.gcard.tiltc:hover{transform:perspective(700px) translate3d(0,var(--lift,0px),0) rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));will-change:transform}
+.gcard.tiltc{transition:--sa .35s var(--eo)}
+.gcard.tiltc:hover{--lift:-3px}
+@media (prefers-reduced-motion:reduce){.tiltc{transform:none!important}}
+.floaty{animation:floaty 6s ease-in-out infinite}
+@property --sa{syntax:'<number>';inherits:true;initial-value:0}
+:root{--eo:cubic-bezier(.22,1,.36,1);--es:cubic-bezier(.32,.72,0,1)}
+.gcard{position:relative;overflow:hidden;--mx:50%;--my:-20%;--sa:0;transition:transform .35s var(--eo),--sa .35s var(--eo)}
+.gcard:hover{--sa:1;transform:translate3d(0,-3px,0)}
+.gcard::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(110,140,255,calc(0.10 * var(--sa))),transparent 60%),radial-gradient(110% 70% at 50% 0%,rgba(255,255,255,0.035),transparent 62%)}
+.gcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;padding:1px;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(160,185,255,calc(0.7 * var(--sa))),transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.pmap{translate:calc(var(--px,0) * -30px) calc(var(--py,0) * -16px);transition:translate 1s var(--eo);will-change:translate}
+.hl{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;z-index:0;will-change:transform;transition:transform .38s var(--es),width .38s var(--es),height .38s var(--es),opacity .22s ease}
+.gtile{display:flex;align-items:center;justify-content:center;color:#FFFFFF;background:linear-gradient(160deg,#5A84FF 0%,#2350F0 45%,#0A2BA8 100%);box-shadow:0 0 30px rgba(60,100,255,0.4),inset 0 1px 0 rgba(255,255,255,0.5),inset 0 -8px 14px rgba(0,10,60,0.35)}
+.ptile{overflow:hidden;display:flex;align-items:center;justify-content:center;color:#DCE4FF;background:linear-gradient(160deg,#1E212B,#111318);border:1px solid rgba(200,210,235,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.12),0 8px 20px rgba(0,0,0,0.35)}
+.gtext{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gnum{background:linear-gradient(180deg,#FFFFFF 10%,#A3AABB 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.gword{background:linear-gradient(90deg,#8FB0FF 0%,#3D6BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ntile{display:flex;align-items:center;justify-content:center;color:#C9CED9;background:linear-gradient(160deg,#232737,#151823);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1)}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(200,210,235,0.16);transform:translate(-50%,-50%)}
+.gtile{transition:transform .4s var(--eo)}
+.gcard:hover .gtile{transform:scale(1.06)}
+.ptile img{transition:transform .5s var(--eo)}
+.ptile{container-type:size;background:#0F1014!important}
+.ptile img{object-fit:contain!important;background:#0F1014}
+@container (min-aspect-ratio: 9/8){.ptile img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%)}}
+.ptile:hover img,.gcard:hover .lift .ptile img{transform:scale(1.08)}
+.lift{transition:transform .4s var(--eo)}
+.gcard:hover .lift{transform:translate3d(0,-3px,0)}
+.bub{display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:13px;color:#C9CED9;background:radial-gradient(circle at 32% 26%,#2B3043,#12141D 72%);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 10px 24px rgba(0,0,0,0.4);transition:transform .45s var(--eo),border-color .3s ease}
+.gcard:hover .bub{transform:translate3d(0,-6px,0);border-color:rgba(110,145,255,0.35)}
+.btn{transition:transform .22s var(--eo),box-shadow .22s var(--eo),filter .22s ease}
+.btn:active,.btn2:active{transform:scale(.97)!important}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 12px 32px rgba(47,107,255,0.45)!important}
+.btn2{transition:transform .22s var(--eo),background .22s ease,border-color .22s ease}
+.btn2:hover{transform:translateY(-2px);background:rgba(255,255,255,0.08)!important;border-color:rgba(255,255,255,0.32)!important}
+.ar{display:inline-block;transition:transform .25s var(--eo)}
+a:hover .ar{transform:translateX(4px)}
+.chip{transition:transform .3s,border-color .3s}
+.chip:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.2)!important}
+.ring{transition:transform .6s var(--eo)}
+.gcard:hover .ring{transform:translate(-50%,-50%) scale(1.06)}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.reveal{animation:reveal 2.4s cubic-bezier(.65,0,.35,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pv{animation:fadeUp .45s cubic-bezier(.2,.8,.2,1)}
+.pvw.on > div > *{animation:rise .42s var(--eo) both}
+.pvw.on > div > *:nth-child(2){animation-delay:.04s}
+.pvw.on > div > *:nth-child(3){animation-delay:.08s}
+.pvw.on > div > *:nth-child(4){animation-delay:.12s}
+.pvw.on > div > *:nth-child(5){animation-delay:.16s}
+@keyframes rise{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
+@media (max-width:760px){.float-card,.floaty{display:none!important}}
+.hfeed{position:relative;box-sizing:content-box;height:144px;padding:12px 0 0 8px;margin:6px 0 0 -8px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.hev{position:relative;height:40px;margin-bottom:12px;display:flex;gap:10px;transition:opacity .6s ease;will-change:transform}
+.hev::before{content:"";position:absolute;left:4.5px;top:18px;width:1px;height:38px;background:linear-gradient(180deg,rgba(174,185,208,0.35),rgba(174,185,208,0.08))}
+.hfeed.fa .hev{animation:fpushA .7s var(--eo) both}
+.hfeed.fb .hev{animation:fpushB .7s var(--eo) both}
+.hfeed.fa .hev:first-child{animation:fpushA .7s var(--eo) both,finA .55s .12s ease both}
+.hfeed.fb .hev:first-child{animation:fpushB .7s var(--eo) both,finB .55s .12s ease both}
+@keyframes fpushA{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes fpushB{from{transform:translate3d(0,-52px,0)}to{transform:none}}
+@keyframes finA{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+@keyframes finB{from{opacity:0;transform:translate3d(0,-52px,0) scale(.97)}to{opacity:1}}
+.hfeed.ra .hev,.hswap.ra{animation:fresetA .6s var(--eo) both}
+.hfeed.rb .hev,.hswap.rb{animation:fresetB .6s var(--eo) both}
+.hfeed.ra .hev:nth-child(2),.hfeed.rb .hev:nth-child(2){animation-delay:.06s}
+.hfeed.ra .hev:nth-child(3),.hfeed.rb .hev:nth-child(3){animation-delay:.12s}
+@keyframes fresetA{from{opacity:0;transform:translate3d(0,8px,0)}}
+@keyframes fresetB{from{opacity:0;transform:translate3d(0,8px,0)}}
+@media (prefers-reduced-motion:reduce){.hfeed .hev,.hswap{animation:none!important}}
+@media (min-width:761px){.nw{white-space:nowrap}}
+.qbgs{position:absolute;z-index:-1;left:40px;right:0;bottom:-28px;aspect-ratio:16/9;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 62%,#000 86%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 18%,#000 76%,transparent 100%);mask-composite:intersect}
+.ncov img{transition:transform .6s var(--eo)}
+.gcard:hover .ncov img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.arc-run,.hub-ring,.tw,.floaty,.reveal,.pv,.pvw.on > div > *{animation:none}.gcard,.gtile,.lift,.bub,.btn,.btn2,.hl,.pmap{transition:none;translate:none}}
+@keyframes riseA{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+@keyframes riseB{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+.fx > *{animation-duration:.45s;animation-timing-function:var(--eo);animation-fill-mode:both}
+.fx > *:nth-child(2){animation-delay:.04s}.fx > *:nth-child(3){animation-delay:.08s}.fx > *:nth-child(4){animation-delay:.12s}.fx > *:nth-child(5){animation-delay:.16s}.fx > *:nth-child(6){animation-delay:.2s}.fx > *:nth-child(n+7){animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){.fx > *{animation:none!important}}
+.rng{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:rgba(200,210,235,0.12);outline:none;cursor:pointer}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#FFFFFF;border:5px solid #4C7DFF;box-shadow:0 0 0 6px rgba(76,125,255,0.18),0 4px 12px rgba(0,0,0,0.4);transition:transform .2s var(--eo)}
+.rng::-webkit-slider-thumb:hover{transform:scale(1.12)}
+.rng::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:#FFFFFF;border:5px solid #4C7DFF;box-shadow:0 0 0 6px rgba(76,125,255,0.18)}
+.rng:focus-visible{box-shadow:0 0 0 3px rgba(76,125,255,0.5)}
+@keyframes tickA{from{opacity:.35;transform:translate3d(0,6px,0)}to{opacity:1;transform:none}}
+@keyframes tickB{from{opacity:.35;transform:translate3d(0,6px,0)}to{opacity:1;transform:none}}
+.tka{display:inline-block;animation:tickA .35s var(--eo)}
+.tkb{display:inline-block;animation:tickB .35s var(--eo)}
+.cmpt{display:flex;flex-direction:column;border-radius:20px;border:1px solid rgba(255,255,255,0.05);background:linear-gradient(180deg,rgba(255,255,255,0.016),rgba(255,255,255,0.005))}
+.cmph,.cmpr{display:grid;grid-template-columns:minmax(200px,1.7fr) repeat(5,minmax(72px,1fr));align-items:center}
+.cmph{position:sticky;top:72px;z-index:5;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.07);background:rgba(13,15,22,0.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:20px 20px 0 0}
+.cmpr{padding:0 20px;min-height:48px;border-bottom:1px solid rgba(255,255,255,0.035);transition:background .2s ease}
+.cmpr:hover{background:rgba(200,210,235,0.035)}
+.cmpg{width:100%;display:flex;align-items:center;gap:12px;padding:18px 20px;background:rgba(200,210,235,0.025);border:0;border-bottom:1px solid rgba(255,255,255,0.05);color:#F2F4F8;font-family:inherit;font-size:15px;text-align:left;cursor:pointer}
+.cmpg:hover{background:rgba(200,210,235,0.05)}
+.cmpg > span:last-child{margin-left:auto}
+@media (max-width:760px){.ph1{font-size:34px!important}.cmpt{overflow-x:auto}.cmph,.cmpr{min-width:640px}.cmph{position:static}}
+
+</style>
+</helmet>
+<div onMouseMove="{{ spot }}" style="width: 100%; background: #0B0D14; color: #F2F4F8; font-family: Montserrat, 'PingFang SC', 'Noto Sans SC', 'Source Han Sans SC', system-ui, sans-serif; font-size: 15px; line-height: 1.6">
+
+<!-- 导航 -->
+<header onMouseLeave="{{ closeMenu }}" style="position: relative; z-index: 3; border-bottom: 1px solid rgba(200,210,235,0.1); background: rgba(11,13,20,0.85)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<a href="{{ homeHref }}" style="text-decoration: none; font-size: 21px; font-weight: 700; letter-spacing: -0.02em"><span style="color: {{accent}}">17</span>TRACK</a>
+<nav aria-label="主导航" data-hl-list="nav" onMouseLeave="{{ hlLeave }}" style="position: relative; display: flex; flex-wrap: wrap; gap: 4px">
+<span class="hl" aria-hidden="true" style="background: rgba(200,210,235,0.09); border-radius: 999px"></span>
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+<sc-if value="{{ n.isMenu }}" hint-placeholder-val="{{ true }}"><button type="button" data-active="{{ n.act }}" onClick="{{ n.toggle }}" onMouseEnter="{{ n.enter }}" style="{{ n.style }}">{{ n.label }}<span style="font-size: 9px; opacity: 0.6">{{ n.caret }}</span></button></sc-if><sc-if value="{{ n.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ n.href }}" data-active="{{ n.act }}" onMouseEnter="{{ n.enter }}" style="{{ n.style }}; text-decoration: none">{{ n.label }}</a></sc-if>
+</sc-for>
+</nav>
+<div style="display: flex; gap: 8px; align-items: center">
+<a href="#cta" style="text-decoration: none; font-size: 14px; color: #9097A6; padding: 10px 10px">登录</a>
+<a class="btn2" href="#cta" style="text-decoration: none; font-size: 14px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.24); background: rgba(200,210,235,0.06)">预约演示</a>
+</div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{ menu.items }}" as="mi" hint-placeholder-count="3">
+<a href="{{ mi.href }}" class="gcard" style="flex: 1 1 240px; text-decoration: none; padding: 16px 18px; border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(200,210,235,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 2px">
+<span style="font-weight: 600">{{ mi.t }}</span>
+<span style="font-size: 13px; color: #9097A6">{{ mi.d }}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</header>
+
+<section class="hero" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(200,210,235,0.08); background-color: #0B0D14; background-image: radial-gradient(46% 55% at 50% 22%, rgba(52,56,160,0.22), transparent 72%), radial-gradient(28% 34% at 12% 8%, rgba(20,90,110,0.12), transparent 72%)">
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(200,210,235,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(200,210,235,0.045) 1px, transparent 1px); background-size: 120px 120px; background-position: center top; -webkit-mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%); mask-image: radial-gradient(70% 80% at 30% 20%, #000 20%, transparent 75%)"></div>
+<div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 88px; padding-bottom: 56px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #C9CED9"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.4 0-2.5.8-2.5 2s1.1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-2-.5-2.5-1.5"></path><path d="M12 6.5v1.5"></path><path d="M12 16v1.5"></path></svg> 价格方案</span>
+<h1 class="ph1" style="margin: 0; font-size: 52px; line-height: 1.2; font-weight: 600">简单透明的价格，<span class="gword">随业务一起增长</span></h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #9097A6; max-width: 620px">从免费版起步，按单量选择合适的方案，三条产品线独立计费。</p>
+<div style="margin-top: 8px"><div data-hl-list="prod" onMouseLeave="{{ hlLeave }}" style="position: relative; display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(200,210,235,0.05); border: 1px solid rgba(200,210,235,0.09)"><span class="hl" aria-hidden="true" style="border-radius: 999px; background: rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12)"></span><sc-for list="{{ prods }}" as="c" hint-placeholder-count="4"><button type="button" data-active="{{ c.act }}" onClick="{{ c.pick }}" onMouseEnter="{{ c.hover }}" style="{{ c.style }}">{{ c.label }}</button></sc-for></div></div>
+<p class="{{ fxCls }}" style="margin: 0; font-size: 13px; color: #7A8191"><span style="{{ fxName }}; display: inline-block">{{ note }}</span></p>
+</div>
+</section><section style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 40px">
+<div class="fx" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; align-items: stretch">
+<sc-for list="{{ plans }}" as="p" hint-placeholder-count="4">
+<div class="gcard" style="{{ p.style }}">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px"><span style="display: flex; align-items: baseline; gap: 8px"><span style="font-size: 20px; font-weight: 700">{{ p.name }}</span><span style="font-size: 13px; color: #9097A6">{{ p.cn }}</span></span><sc-if value="{{ p.rec }}" hint-placeholder-val="{{ false }}"><span style="font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(255,138,31,0.16); color: {{accent}}; white-space: nowrap">最受欢迎</span></sc-if></div>
+<p style="margin: 0; min-height: 44px; font-size: 13.5px; line-height: 1.6; color: #9097A6">{{ p.desc }}</p>
+<div style="display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap"><span class="{{ p.priceCls }}" style="background-image: linear-gradient(160deg, #F7F9FF 20%, #9DB4FF 100%); font-size: 38px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1">{{ p.price }}</span><span style="font-size: 13px; color: #7A8191">{{ p.per }}</span></div>
+<sc-if value="{{ p.hasSel }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 14px; background: rgba(200,210,235,0.035); border: 1px solid rgba(200,210,235,0.08)">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13px"><span style="color: #9097A6">每月单量</span><span style="font-weight: 700; font-size: 15px">{{ p.qTxt }} <span style="font-weight: 500; font-size: 12px; color: #7A8191">{{ p.unitLabel }}</span></span></div>
+<input class="rng" type="range" min="0" max="{{ p.maxIdx }}" step="1" value="{{ p.qi }}" onInput="{{ p.setQ }}" aria-label="{{ p.aria }}" style="{{ p.fill }}">
+<div style="display: flex; justify-content: space-between; font-size: 11px; color: #7A8191"><span>{{ p.minTxt }}</span><span>{{ p.over }}</span><span>{{ p.maxTxt }}</span></div>
+</div>
+</sc-if>
+<sc-if value="{{ p.noSel }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 14px; border-radius: 14px; background: rgba(200,210,235,0.035); border: 1px solid rgba(200,210,235,0.08); font-size: 13px; color: #C9CED9">{{ p.quotaTxt }}</div>
+</sc-if>
+<sc-if value="{{ p.isApi }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 14px; background: rgba(200,210,235,0.035); border: 1px solid rgba(200,210,235,0.08)">
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13px"><span style="color: #9097A6">单价</span><span style="font-weight: 700; font-size: 15px">{{ p.unitPrice }} <span style="font-weight: 500; font-size: 12px; color: #7A8191">/ 单</span></span></div>
+<span style="display: block; height: 6px; border-radius: 999px; background: rgba(200,210,235,0.1); overflow: hidden"><span style="{{ p.unitBar }}"></span></span>
+<span style="font-size: 11px; color: #7A8191">{{ p.saveTxt }}</span>
+</div>
+</sc-if>
+<a class="{{ p.btnCls }}" href="#cta" style="{{ p.btnStyle }}">{{ p.cta }}</a>
+<sc-if value="{{ p.hasFeats }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06)"><span style="font-size: 12px; font-weight: 600; color: #7A8191; letter-spacing: 0.04em">{{ p.fh }}</span>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px"><sc-for list="{{ p.feats }}" as="f" hint-placeholder-count="5"><li style="display: flex; gap: 9px; font-size: 13.5px; line-height: 1.5; color: #D5D9E2"><span style="color: #9DB4FF; flex-shrink: 0; margin-top: 2px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>{{ f }}</li></sc-for></ul>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{ isApi }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; padding: 20px 28px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); border-radius: 20px"><span style="font-size: 13px; font-weight: 600; color: #A3AABB">所有方案均包含</span>
+<sc-for list="{{ apiFeats }}" as="af" hint-placeholder-count="6"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: #D5D9E2"><span style="color: #9DB4FF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>{{ af }}</span></sc-for>
+</div>
+</sc-if>
+<div class="gcard" style="margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 40px; padding: 28px 32px; border-radius: 22px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04)">
+<div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 6px"><span style="display: flex; align-items: center; gap: 10px"><span class="ntile" style="width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></span><span style="font-size: 20px; font-weight: 700">{{ ent.name }}</span></span><span style="font-size: 14px; color: #9097A6">{{ ent.desc }}</span></div>
+<div style="flex: 2 1 420px; display: flex; flex-wrap: wrap; gap: 8px"><sc-for list="{{ ent.feats }}" as="ef" hint-placeholder-count="4"><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 5px 12px; border-radius: 999px; background: rgba(200,210,235,0.08); border: 1px solid rgba(200,210,235,0.16); color: #D5D9E2"><span style="color: #9DB4FF"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>{{ ef }}</span></sc-for></div>
+<a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 11px 22px; font-size: 14px; white-space: nowrap">{{ ent.cta }} <span class="ar">→</span></a>
+</div>
+</section><sc-if value="{{ hasCmp }}" hint-placeholder-val="{{ false }}">
+<section id="compare" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 104px">
+<div style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px"><div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px; "><span style="font-size: 13px; font-weight: 600; color: #A3AABB; letter-spacing: 0.04em">详细功能对比</span><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">{{ cmpTitle }}</h2><p style="margin: 0; font-size: 16px; color: #9097A6">按功能模块拆分，快速查看各方案的权益差异。</p></div>
+<button type="button" onClick="{{ toggleAll }}" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600; padding: 10px 20px; font-size: 13px; color: #F2F4F8; font-family: inherit; cursor: pointer">{{ toggleTxt }}</button></div>
+<div class="cmpt" role="table" aria-label="功能对比">
+<div class="cmph" role="row">
+<span role="columnheader" style="font-size: 13px; color: #7A8191">功能</span>
+<sc-for list="{{ cols }}" as="c" hint-placeholder-count="5"><span role="columnheader" style="{{ c.style }}">{{ c.t }}</span></sc-for>
+</div>
+<sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
+<div role="rowgroup">
+<button type="button" class="cmpg" onClick="{{ g.toggle }}" aria-expanded="{{ g.exp }}"><span style="font-weight: 600">{{ g.h }}</span><span style="font-size: 12px; color: #7A8191">{{ g.n }} 项</span><span aria-hidden="true" style="{{ g.icon }}">+</span></button>
+<div style="{{ g.wrap }}"><div style="overflow: hidden; min-height: 0">
+<sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="5">
+<div class="cmpr" role="row"><span role="cell" style="font-size: 14px; color: #D5D9E2">{{ r.t }}</span>
+<sc-for list="{{ r.cells }}" as="x" hint-placeholder-count="5"><span role="cell" style="{{ x.style }}"><sc-if value="{{ x.y }}" hint-placeholder-val="{{ true }}"><span aria-label="包含" style="display: inline-flex; color: #9DB4FF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span></sc-if><sc-if value="{{ x.n }}" hint-placeholder-val="{{ false }}"><span aria-label="不包含" style="display: inline-block; width: 12px; height: 2px; border-radius: 1px; background: rgba(200,210,235,0.22)"></span></sc-if></span></sc-for>
+</div>
+</sc-for>
+</div></div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+</sc-if><section id="cta" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 72px; padding-bottom: 104px"><div style="padding: 64px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px"><h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.25">还不确定选哪个方案？</h2><p style="margin: 0; font-size: 16px; color: #9097A6; max-width: 640px">告诉我们你的单量和业务场景，我们帮你挑出最合适的方案。</p><div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center"><a class="btn" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)">免费试用</a><a class="btn2" href="#cta" style="text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600">预约演示</a></div></div></section>
+
+<footer style="border-top: 1px solid rgba(200,210,235,0.1)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-wrap: wrap; gap: 32px">
+<div style="flex: 1.5 1 220px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 20px; font-weight: 700"><span style="color: {{accent}}">17</span>TRACK</div>
+<span style="font-size: 13px; color: #9097A6">© 17TRACK · 隐私政策 · 服务条款</span>
+</div>
+<sc-for list="{{ footer }}" as="f" hint-placeholder-count="4">
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+<span style="font-weight: 600">{{ f.h }}</span>
+<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="{{ fi.href }}" style="text-decoration: none; color: #9097A6">{{ fi.t }}</a></sc-for>
+</div>
+</sc-for>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF8A1F","options":["#FF8A1F","#FFB547","#FF6A3D","#FFFFFF"]},"$preview":{"width":1440,"height":5200}}'>
+class Component extends DCLogic {
+
+  componentDidMount() {
+    var self = this;
+    this._onResize = function () { self.syncAll(true); };
+    window.addEventListener('resize', this._onResize);
+    setTimeout(function () { self.syncAll(true); }, 60);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { self.syncAll(true); });
+    if (this.didMount) this.didMount();
+  }
+  componentWillUnmount() { clearTimeout(this._hv); cancelAnimationFrame(this._raf); window.removeEventListener('resize', this._onResize); if (this.willUnmount) this.willUnmount(); }
+  tiltEl(el, nx, ny, amp) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var s = el.__t || (el.__t = { rx: 0, ry: 0, vx: 0, vy: 0, tx: 0, ty: 0, raf: 0 });
+    s.tx = -ny * amp; s.ty = nx * amp;
+    if (s.raf) return;
+    var step = function () {
+      s.vx += (s.tx - s.rx) * 0.07; s.vy += (s.ty - s.ry) * 0.07;
+      s.vx *= 0.76; s.vy *= 0.76;
+      s.rx += s.vx; s.ry += s.vy;
+      el.style.setProperty('--rx', s.rx.toFixed(3)); el.style.setProperty('--ry', s.ry.toFixed(3));
+      if (Math.abs(s.tx - s.rx) < 0.005 && Math.abs(s.ty - s.ry) < 0.005 && Math.abs(s.vx) < 0.005 && Math.abs(s.vy) < 0.005) { s.raf = 0; return; }
+      s.raf = requestAnimationFrame(step);
+    };
+    s.raf = requestAnimationFrame(step);
+  }
+  listOf(el) { var l = el; while (l && !(l.getAttribute && l.getAttribute('data-hl-list'))) l = l.parentElement; return l; }
+  moveHl(list, el, instant) {
+    var hl = list && list.querySelector('.hl');
+    if (!hl) return;
+    if (!el) { hl.style.opacity = '0'; return; }
+    if (instant) hl.style.transition = 'none';
+    hl.style.transform = 'translate3d(' + el.offsetLeft + 'px,' + el.offsetTop + 'px,0)';
+    hl.style.width = el.offsetWidth + 'px';
+    hl.style.height = el.offsetHeight + 'px';
+    hl.style.opacity = '1';
+    if (instant) { void hl.offsetWidth; hl.style.transition = ''; }
+  }
+  syncList(list, instant) { if (!list) return; var t = list._hover && list.contains(list._hover) ? list._hover : list.querySelector('[data-active="1"]'); this.moveHl(list, t, instant); }
+  syncAll(instant) { var lists = document.querySelectorAll('[data-hl-list]'); for (var i = 0; i < lists.length; i++) this.syncList(lists[i], instant); }
+  follow(ms) { var self = this, end = Date.now() + ms; cancelAnimationFrame(this._raf); var tick = function () { self.syncAll(false); if (Date.now() < end) self._raf = requestAnimationFrame(tick); }; tick(); }
+  commonVals(pages) {
+    var self = this, st = this.state;
+    self.hlEnter = self.hlEnter || function (e) { var el = e.currentTarget, l = self.listOf(el); if (!l) return; l._hover = el; self.moveHl(l, el, false); };
+    var menus = [
+      { label: '产品', items: [{ t: 'Order Tracking 订单追踪', d: '品牌化追踪页 · 物流通知', href: pages.tracking }, { t: '17RETURNS 退换货', d: 'AI 驱动的自动化退换货', href: pages.returns }, { t: 'Tracking API', d: '3,500+ 承运商统一接口', href: pages.api }] },
+      { label: '资源', items: [{ t: '博客', d: '趋势、技巧与洞察', href: pages.blog }, { t: '客户案例', d: '各行业品牌实践', href: pages.cases }, { t: '合作伙伴 & 集成', d: '电商平台与应用生态', href: pages.integrations }] },
+      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: pages.api }, { t: 'API 文档', d: '接口说明与示例', href: pages.docs }] },
+      { label: '价格', items: [], href: pages.pricing }
+    ];
+    var navItems = menus.map(function (m, i) {
+      var open = st.menu === i;
+      return {
+        label: m.label,
+        isMenu: m.items.length > 0,
+        isLink: !m.items.length,
+        href: m.href || '#',
+        caret: m.items.length ? (open ? ' ▲' : ' ▼') : '',
+        act: open ? '1' : '0',
+        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } else if (m.href) { window.location.href = m.href; } },
+        enter: function (e) { self.hlEnter(e); var nx = m.items.length ? i : -1; if (self.state.menu !== nx) { self.setState({ menu: nx }); self.follow(460); } },
+        style: 'position: relative; z-index: 1; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 14px; padding: 10px 14px; border-radius: 999px; cursor: pointer; display: flex; gap: 6px; align-items: center; min-height: 44px'
+      };
+    });
+    var faqs = (this.faqData || []).map(function (f, i) {
+      var fs = st.faqSet;
+      var on = fs != null ? fs.indexOf(',' + i + ',') >= 0 : st.faq === i;
+      var cur = function () { var s0 = self.state.faqSet; return s0 != null ? s0 : (self.state.faq >= 0 ? ',' + self.state.faq + ',' : ','); };
+      return {
+        q: f[0], a: f[1],
+        hover: function () { clearTimeout(self._fq); self._fq = setTimeout(function () { var s1 = cur(); if (s1.indexOf(',' + i + ',') < 0) s1 += i + ','; if (s1 !== self.state.faqSet || self.state.faq !== i) self.setState({ faq: i, faqSet: s1 }); }, 120); },
+        toggle: function () { clearTimeout(self._fq); var s1 = cur(), k = ',' + i + ','; if (s1.indexOf(k) >= 0) { s1 = s1.replace(k, ','); self.setState({ faqSet: s1, faq: self.state.faq === i ? -1 : self.state.faq }); } else { self.setState({ faqSet: s1 + i + ',', faq: i }); } },
+        iconStyle: 'flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 400; color: #C9CED9; border: 1px solid rgba(255,255,255,0.12); transition: transform .35s var(--eo); transform: rotate(' + (on ? 45 : 0) + 'deg)',
+        wrapStyle: 'display: grid; transition: grid-template-rows .38s var(--eo), opacity .3s var(--eo); ' + (on ? 'grid-template-rows: 1fr; opacity: 1;' : 'grid-template-rows: 0fr; opacity: 0;')
+      };
+    });
+    return {
+      accent: this.props.accent ?? '#FF8A1F',
+      homeHref: pages.home,
+      navItems: navItems,
+      menuOpen: st.menu >= 0,
+      menu: st.menu >= 0 ? menus[st.menu] : menus[0],
+      sceneTilt: function (e) {
+        var sc = e.currentTarget, el = sc.querySelector('.tilt'); if (!el) return;
+        var r = sc.getBoundingClientRect(), c = sc.querySelector('.tcard');
+        if (c) { var cr = c.getBoundingClientRect(); sc.style.setProperty('--gx', ((e.clientX - cr.left) / cr.width * 100).toFixed(1) + '%'); sc.style.setProperty('--gy', ((e.clientY - cr.top) / cr.height * 100).toFixed(1) + '%'); sc.style.setProperty('--go', '1'); }
+        self.tiltEl(el, (e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5, 5.5);
+      },
+      sceneUntilt: function (e) { var sc = e.currentTarget, el = sc.querySelector('.tilt'); sc.style.setProperty('--go', '0'); if (el) self.tiltEl(el, 0, 0, 5.5); },
+      closeMenu: function () { if (self.state.menu !== -1) { self.setState({ menu: -1 }); self.follow(460); } },
+      hlLeave: function (e) { clearTimeout(self._hv); var l = e.currentTarget; l._hover = null; self.syncList(l, false); },
+      spot: function (e) {
+        var t = e.target, c = t && t.closest ? t.closest('.gcard') : null;
+        if (!c) return;
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      },
+      faqs: faqs,
+      faqLeave: function () { clearTimeout(self._fq); var f0 = self.state.faq; var s2 = f0 >= 0 ? ',' + f0 + ',' : ','; if (self.state.faqSet !== s2) self.setState({ faqSet: s2 }); },
+      footer: [
+        { h: '产品', items: [{ t: 'Order Tracking', href: pages.tracking }, { t: '17RETURNS', href: pages.returns }, { t: 'Tracking API', href: pages.api }, { t: '价格方案', href: pages.pricing }] },
+        { h: '开发者', items: [{ t: 'API 文档', href: pages.docs }, { t: 'WebHook', href: pages.docs + '#webhook' }, { t: '错误代码', href: pages.docs + '#errors' }] },
+        { h: '资源', items: [{ t: '博客', href: pages.blog }, { t: '客户案例', href: pages.cases }, { t: '合作伙伴 & 集成', href: pages.integrations }] },
+        { h: '公司', items: [{ t: '关于我们', href: '#' }, { t: '联系我们', href: '#cta' }, { t: '包裹查询', href: '#' }] }
+      ]
+    };
+  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = { menu: -1, faq: -1, prod: 0, anim: 0, q: {}, tk: {}, open: { ot: ',0,1,', rt: ',0,1,' } };
+    this.faqData = [];
+    this.P = [{"key": "ot", "label": "Order Tracking", "note": "年付计划可享受月费 20% 的折扣，试用期结束后自动转换为免费版。", "unitLabel": "运单 / 月", "plans": [{"name": "Free", "cn": "免费版", "desc": "适用于刚起步的企业", "fixed": "US $0", "per": "/月", "quotaTxt": "每月 50 个运单", "fh": "免费版包含", "feats": ["3,500+ 运输商支持查询", "自定义品牌查询页", "订单页面单号重定向", "PayPal 集成"], "cta": "立即开始"}, {"name": "Basic", "cn": "基础版", "desc": "订单追踪的核心功能", "tiers": [{"q": 200, "p": 9}, {"q": 300, "p": 14}, {"q": 500, "p": 21}, {"q": 1000, "p": 39}, {"q": 2000, "p": 69}, {"q": 3000, "p": 99}, {"q": 5000, "p": 159}, {"q": 7000, "p": 209}, {"q": 10000, "p": 259}, {"q": 15000, "p": 279}, {"q": 20000, "p": 329}, {"q": 25000, "p": 389}, {"q": 30000, "p": 439}, {"q": 35000, "p": 489}, {"q": 40000, "p": 549}, {"q": 45000, "p": 599}, {"q": 50000, "p": 659}], "per": "/月 · 年付", "fh": "基础版包含", "feats": ["3,500+ 运输商支持查询", "运输状态邮件通知", "基础数据分析", "自定义品牌查询页", "订单页面单号重定向", "PayPal 集成"], "cta": "立即开始"}, {"name": "Pro", "cn": "专家版", "desc": "增强的售后和追踪体验", "tiers": [{"q": 500, "p": 29}, {"q": 1000, "p": 49}, {"q": 2000, "p": 79}, {"q": 3000, "p": 118}, {"q": 5000, "p": 189}, {"q": 7000, "p": 259}, {"q": 10000, "p": 359}, {"q": 15000, "p": 519}, {"q": 20000, "p": 659}, {"q": 25000, "p": 789}, {"q": 30000, "p": 946}], "per": "/月 · 年付", "rec": true, "fh": "包含基础版全部功能，另增加", "feats": ["卖家通知", "导出运单", "产品推荐组件", "删除 17TRACK 品牌标识", "多语言品牌查询页", "预计到达时间（EDD）", "多语言通知", "Apple Wallet 订单跟踪", "Trustpilot 集成"], "cta": "立即开始"}, {"name": "Premium", "cn": "高阶版", "desc": "先进的数据分析和精细化运营", "tiers": [{"q": 1000, "p": 89}, {"q": 2000, "p": 159}, {"q": 3000, "p": 239}, {"q": 5000, "p": 389}, {"q": 7000, "p": 529}, {"q": 10000, "p": 749}, {"q": 15000, "p": 1099}, {"q": 20000, "p": 1439}, {"q": 25000, "p": 1759}, {"q": 30000, "p": 2069}, {"q": 35000, "p": 2359}, {"q": 40000, "p": 2639}, {"q": 45000, "p": 2899}, {"q": 50000, "p": 3199}, {"q": 60000, "p": 3749}, {"q": 70000, "p": 4279}, {"q": 80000, "p": 4789}, {"q": 90000, "p": 5259}, {"q": 100000, "p": 5719}], "per": "/月 · 年付", "fh": "包含专家版全部功能，另增加", "feats": ["自定义通知规则", "运输时间数据分析", "准时到达数据分析", "异常运单数据分析", "预计到达时间预测和分析", "拆单订单通知（需 API 集成）"], "cta": "立即开始"}], "ent": {"name": "定制版", "desc": "量身定制的追踪解决方案，包含高阶版全部功能", "feats": ["定制化集成", "定制查询频次", "专用运输商支持", "24/7 专属客服"], "cta": "联系我们"}, "cols": ["免费版", "基础版", "专家版", "高阶版", "定制版"], "recCol": 2, "cmp": [{"h": "运单管理", "rows": [{"t": "3,500+运输商支持查询", "v": [true, true, true, true, true]}, {"t": "标准化物流状态（9个主状态+24个子状态）", "v": [true, true, true, true, true]}, {"t": "自定义异常运单提醒", "v": [true, true, true, true, true]}, {"t": "运输状态回推至 Shopify", "v": [true, true, true, true, true]}, {"t": "配置常用运输商", "v": [true, true, true, true, true]}, {"t": "导出运单", "v": [false, true, true, true, true]}, {"t": "定制查询频次", "v": [false, false, false, false, true]}]}, {"h": "品牌查询页", "rows": [{"t": "自定义品牌查询页", "v": [true, true, true, true, true]}, {"t": "查询页模板——Classic", "v": [true, true, true, true, true]}, {"t": "查询页模板——Matrix", "v": [false, true, true, true, true]}, {"t": "订单页面单号重定向", "v": [true, true, true, true, true]}, {"t": "自定义域名", "v": [true, true, true, true, true]}, {"t": "多语言品牌查询页", "v": [true, true, true, true, true]}, {"t": "预计到达时间（EDD）", "v": [false, false, true, true, true]}, {"t": "产品推荐组件", "v": [false, false, true, true, true]}, {"t": "删除17TRACK品牌标识", "v": [false, false, true, true, true]}, {"t": "视频组件", "v": [false, false, true, true, true]}, {"t": "查询页添加多语言语料", "v": [false, false, true, true, true]}, {"t": "查询页 iframe 模式", "v": [false, false, true, true, true]}]}, {"h": "通知管理", "rows": [{"t": "运输状态邮件通知", "v": [false, true, true, true, true]}, {"t": "邮件模板自定义", "v": [false, true, true, true, true]}, {"t": "卖家通知", "v": [false, false, true, true, true]}, {"t": "自定义通知规则", "v": [false, false, false, true, true]}, {"t": "多语言通知", "v": [false, false, true, true, true]}, {"t": "拆单订单通知（需要 API 集成）", "v": [false, false, false, true, true]}]}, {"h": "数据分析", "rows": [{"t": "基础数据分析", "v": [false, true, true, true, true]}, {"t": "可视化数据图表", "v": [false, true, true, true, true]}, {"t": "预计到达时间预测和分析", "v": [false, false, false, true, true]}, {"t": "运输时间数据分析", "v": [false, false, false, true, true]}, {"t": "准时到达数据分析", "v": [false, false, false, true, true]}, {"t": "异常运单数据分析", "v": [false, false, false, true, true]}]}, {"h": "集成", "rows": [{"t": "PayPal集成", "v": [true, true, true, true, true]}, {"t": "APP 集成（Klaviyo 等）", "v": [false, false, true, true, true]}, {"t": "定制化集成", "v": [false, false, false, false, true]}, {"t": "Apple Wallet 订单跟踪", "v": [false, false, true, true, true]}, {"t": "Trustpilot集成", "v": [false, false, true, true, true]}]}, {"h": "服务支持", "rows": [{"t": "在线和邮件客服", "v": [true, true, true, true, true]}, {"t": "24/7 专属客服", "v": [false, false, false, false, true]}, {"t": "专用运输商支持", "v": [false, false, false, false, true]}]}]}, {"key": "rt", "label": "17RETURNS", "note": "按月退货单量付费，随时升降级，年付享约 18% 折扣。", "unitLabel": "退货单 / 月", "plans": [{"name": "Free", "cn": "免费版", "desc": "适合免寄回退款与基础售后自动化，减少商品寄回成本", "fixed": "US $0", "per": "/月", "quotaTxt": "每月 10 额度", "fh": "Free 权益", "feats": ["绿色退货", "未发货订单取消", "基础工作流", "规则配置与流程自动化", "AI 规则生成器", "AI 多语言本地化"], "cta": "立即试用"}, {"name": "Basic", "cn": "基础版", "desc": "适合免寄回退款与基础售后自动化，减少商品寄回成本", "tiers": [{"q": 20, "p": 5}, {"q": 60, "p": 12}, {"q": 100, "p": 18}, {"q": 200, "p": 32}, {"q": 400, "p": 59}], "per": "/月 · 年付", "over": "超出部分 $0.20 / 单", "fh": "Basic 权益", "feats": ["绿色退货", "未发货订单取消", "基础工作流", "规则配置与流程自动化", "AI 规则生成器", "AI 多语言本地化"], "cta": "立即试用"}, {"name": "Pro", "cn": "专业版", "desc": "自动化退换货流程，打磨品牌化的自助退货体验", "tiers": [{"q": 20, "p": 11}, {"q": 60, "p": 29}, {"q": 100, "p": 44}, {"q": 200, "p": 79}, {"q": 400, "p": 139}], "per": "/月 · 年付", "over": "超出部分 $0.50 / 单", "fh": "24 项核心功能", "feats": ["品牌门户 · 自助退货 · 进度追踪 · 嵌入中心", "退款 · 换货 · 绿色退货 · 订单取消", "AI 规则 · 工作流 · 智能队列 · AI 问答", "积分退款 · 手续费 · 差价结算", "运费比价 · 聚合/自有承运 · 面单 · 二维码", "品牌邮件 · Shopify · 多店铺 · 多语言"], "cta": "立即试用"}, {"name": "Max", "cn": "旗舰版", "desc": "让退货成为新的收入来源，驱动品牌可持续增长", "tiers": [{"q": 20, "p": 29}, {"q": 60, "p": 79}, {"q": 100, "p": 119}, {"q": 200, "p": 209}, {"q": 400, "p": 369}], "per": "/月 · 年付", "over": "超出部分 $1.20 / 单", "rec": true, "fh": "包含 Pro 全部功能，以及", "feats": ["高级工作流（+金额 / 国家 / 签收时间）", "小额补偿挽留", "积分挽留", "换货挽留引导", "挽损数据看板", "Open API 开放接口"], "cta": "立即试用"}], "ent": {"name": "企业定制版", "desc": "为大型商家量身定制，专属售后数量与深度集成支持，包含 Max 全部功能", "feats": ["自定义售后数量", "专属客户成功经理", "SLA 保障与优先支持", "自定义集成开发", "数据迁移服务", "多品牌 / 多区域部署"], "cta": "获取方案"}, "cols": ["Free", "Basic", "Pro", "Max", "企业定制版"], "recCol": 3, "cmp": [{"h": "退货门户", "rows": [{"t": "自助退货申请", "v": [false, false, true, true, true]}, {"t": "退货进度追踪页", "v": [false, false, true, true, true]}, {"t": "嵌入式退货中心", "v": [true, true, true, true, true]}, {"t": "退款申请", "v": [true, true, true, true, true]}, {"t": "变体换货", "v": [false, false, true, true, true]}, {"t": "绿色退货", "v": [true, true, true, true, true]}, {"t": "未发货订单取消", "v": [true, true, true, true, true]}]}, {"h": "规则与自动化", "rows": [{"t": "AI 规则生成器", "v": [true, true, true, true, true]}, {"t": "基础工作流(6 类条件 x8 类动作)", "v": [true, true, true, true, true]}, {"t": "高级工作流(+金额/国家/签收时间)", "v": [false, false, false, true, true]}, {"t": "智能退货队列", "v": [true, true, true, true, true]}, {"t": "AI 政策问答", "v": [true, true, true, true, true]}]}, {"h": "收入挽损", "rows": [{"t": "积分退款", "v": [false, false, true, true, true]}, {"t": "退货手续费", "v": [false, false, true, true, true]}, {"t": "差价自动结算", "v": [false, false, true, true, true]}, {"t": "小额补偿挽留", "v": [false, false, false, true, true]}, {"t": "积分挽留", "v": [false, false, false, true, true]}, {"t": "换货挽留引导", "v": [false, false, false, true, true]}, {"t": "挽损数据看板", "v": [false, false, false, true, true]}]}, {"h": "物流与面单", "rows": [{"t": "实时运费比价", "v": [false, false, true, true, true]}, {"t": "平台聚合承运商", "v": [false, false, true, true, true]}, {"t": "自有承运商账户", "v": [false, false, true, true, true]}, {"t": "自动面单生成", "v": [false, false, true, true, true]}, {"t": "二维码面单", "v": [false, false, true, true, true]}]}, {"h": "通知", "rows": [{"t": "品牌化邮件通知", "v": [true, true, true, true, true]}]}, {"h": "平台与集成", "rows": [{"t": "Shopify 原生集成", "v": [true, true, true, true, true]}, {"t": "多店铺统一管理", "v": [true, true, true, true, true]}, {"t": "AI 多语言本地化", "v": [true, true, true, true, true]}, {"t": "Open API 开放接口", "v": [false, false, false, true, true]}]}, {"h": "企业专属权益", "rows": [{"t": "自定义售后数量", "v": [false, false, false, false, true]}, {"t": "专属客户成功经理", "v": [false, false, false, false, true]}, {"t": "SLA 保障与优先支持", "v": [false, false, false, false, true]}, {"t": "自定义集成开发", "v": [false, false, false, false, true]}, {"t": "数据迁移服务", "v": [false, false, false, false, true]}, {"t": "多品牌/多区域部署", "v": [false, false, false, false, true]}]}]}, {"key": "api", "label": "Tracking API", "note": "每个方案有效期 12 个月；新账号注册即一次性赠送 200 个免费单号额度。", "unitLabel": "", "plans": [{"name": "Basic", "cn": "基础版", "desc": "适合起步验证与小规模接入", "api": [5000, 119]}, {"name": "Advanced", "cn": "高级版", "desc": "适合稳定增长的业务系统", "api": [25000, 569]}, {"name": "Pro", "cn": "专业版", "desc": "适合高频查询的平台与 ERP", "api": [150000, 2869], "rec": true}, {"name": "Flagship", "cn": "旗舰版", "desc": "适合大规模物流数据业务", "api": [500000, 9299]}], "apiFeats": ["支持 3,500+ 运输商", "批量追踪与自动更新", "货件仪表盘与管理功能", "承运商识别与自动匹配", "兼容所有系统的 HTTP 协议", "SLA 承诺 99.9% 高可用性"], "ent": {"name": "定制方案", "desc": "更大单量或特殊渠道需求，联系销售团队获取定制报价", "feats": ["更大单量阶梯价", "特殊渠道运输商授权", "专属技术支持"], "cta": "联系我们"}, "cols": [], "recCol": -1, "cmp": []}];
+  }
+
+  pillList(key, labels) {
+    var self = this, st = this.state;
+    var later = function (fn) { clearTimeout(self._hv); self._hv = setTimeout(fn, 70); };
+    return labels.map(function (l, i) {
+      var on = st[key] === i;
+      var go = function () { clearTimeout(self._hv); if (self.state[key] !== i) { var o = {}; o[key] = i; o.anim = (self.state.anim || 0) + 1; self.setState(o); self.follow(460); } };
+      return { label: l, act: on ? '1' : '0', pick: go, hover: function (e) { self.hlEnter(e); later(go); },
+        style: 'position: relative; z-index: 1; border: 0; background: transparent; font-family: inherit; font-size: 14px; font-weight: 600; padding: 9px 18px; border-radius: 999px; cursor: pointer; min-height: 40px; white-space: nowrap; transition: color .25s ease; color: ' + (on ? '#FFFFFF' : '#9097A6') };
+    });
+  }
+  fxName() { return 'animation-name: ' + ((this.state.anim || 0) % 2 ? 'riseB' : 'riseA'); }
+
+  renderVals() {
+    var self = this, st = this.state;
+    var vals = this.commonVals({ home: 'index.html', tracking: 'tracking.html', returns: 'returns.html', api: 'api.html', blog: 'blog.html', cases: 'cases.html', caseEufy: 'case-eufy.html', integrations: 'integrations.html', pricing: 'pricing.html', docs: 'docs.html' });
+    var fmt = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
+    var P = this.P[st.prod];
+    vals.prods = this.pillList('prod', this.P.map(function (p) { return p.label; }));
+    vals.note = P.note;
+    vals.fxName = this.fxName();
+    vals.fxCls = '';
+    vals.isApi = P.key === 'api';
+    vals.apiFeats = P.apiFeats || [];
+    vals.ent = P.ent;
+    var maxUnit = 0;
+    P.plans.forEach(function (pl) { if (pl.api) maxUnit = Math.max(maxUnit, pl.api[1] / pl.api[0]); });
+    vals.plans = P.plans.map(function (pl, i) {
+      var key = P.key + i, rec = !!pl.rec;
+      var hasSel = !!pl.tiers, isApi = !!pl.api;
+      var qi = st.q[key] != null ? st.q[key] : 0;
+      var t = hasSel ? pl.tiers[qi] : null;
+      var price = pl.fixed || (t ? 'US $' + fmt(t.p) : isApi ? '$' + fmt(pl.api[1]) : '');
+      var unit = isApi ? pl.api[1] / pl.api[0] : 0;
+      var tk = st.tk[key] || 0;
+      var o = {
+        name: pl.name, cn: pl.cn, desc: pl.desc, rec: rec, price: price, per: isApi ? fmt(pl.api[0]) + ' 额度 · 12 个月' : pl.per,
+        priceCls: 'gtext ' + (tk ? (tk % 2 ? 'tka' : 'tkb') : ''),
+        hasSel: hasSel, noSel: !hasSel && !isApi, isApi: isApi, quotaTxt: pl.quotaTxt || '',
+        cta: pl.cta || '立即开始', fh: pl.fh || '', feats: pl.feats || [], hasFeats: !!(pl.feats && pl.feats.length),
+        unitLabel: P.unitLabel, over: pl.over || '',
+        btnCls: rec ? 'btn' : 'btn2',
+        style: 'position: relative; display: flex; flex-direction: column; gap: 18px; padding: 26px 24px; border-radius: 24px; box-sizing: border-box; ' + (rec ? 'background: linear-gradient(180deg, #1A1F33, #121522); border: 1px solid rgba(90,130,255,0.42); box-shadow: 0 0 40px rgba(60,100,230,0.18), inset 0 1px 0 rgba(255,255,255,0.14)' : 'border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04)') + '; ' + self.fxName()
+      };
+      o.btnStyle = (rec ? 'text-decoration: none; padding: 13px 26px; border-radius: 999px; background: linear-gradient(160deg, #4C7DFF, #1F4FE0); color: #FFFFFF; font-weight: 600; box-shadow: 0 0 28px rgba(47,107,255,0.35), inset 0 1px 0 rgba(255,255,255,0.3)' : 'text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1px solid rgba(200,210,235,0.28); background: rgba(200,210,235,0.04); font-weight: 600') + '; text-align: center; padding: 12px 20px; font-size: 14px';
+      if (hasSel) {
+        var n = pl.tiers.length - 1;
+        o.qi = qi; o.maxIdx = n; o.qTxt = fmt(t.q); o.minTxt = fmt(pl.tiers[0].q); o.maxTxt = fmt(pl.tiers[n].q);
+        o.aria = pl.name + ' 每月单量';
+        var pc = n ? qi / n * 100 : 0;
+        o.fill = 'background: linear-gradient(90deg, #4C7DFF 0%, #7FA2FF ' + pc + '%, rgba(200,210,235,0.12) ' + pc + '%)';
+        o.setQ = function (e) { var v = Number(e.target.value); if ((self.state.q[key] || 0) !== v) { var q = Object.assign({}, self.state.q); q[key] = v; var k2 = Object.assign({}, self.state.tk); k2[key] = (k2[key] || 0) + 1; self.setState({ q: q, tk: k2 }); } };
+      }
+      if (isApi) {
+        o.unitPrice = '$' + unit.toFixed(4);
+        o.unitBar = 'display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #4C7DFF, #8EAEFF); width: ' + Math.round(unit / maxUnit * 100) + '%';
+        var base = P.plans[0].api[1] / P.plans[0].api[0];
+        o.saveTxt = i ? '单价较基础版低 ' + Math.round((1 - unit / base) * 100) + '%' : '起步方案';
+      }
+      return o;
+    });
+    vals.hasCmp = P.cmp.length > 0;
+    vals.cmpTitle = P.label + ' 各方案权益';
+    var open = st.open[P.key] || ',';
+    var allOpen = P.cmp.every(function (g, gi) { return open.indexOf(',' + gi + ',') >= 0; });
+    vals.toggleTxt = allOpen ? '全部收起' : '全部展开';
+    vals.toggleAll = function () { var o2 = Object.assign({}, self.state.open); o2[P.key] = allOpen ? ',' : ',' + P.cmp.map(function (g, gi) { return gi; }).join(',') + ','; self.setState({ open: o2 }); };
+    var colBg = function (ci) { return ci === P.recCol ? 'background: rgba(76,125,255,0.06);' : ''; };
+    vals.cols = P.cols.map(function (c, ci) { return { t: c, style: 'display: flex; align-items: center; justify-content: center; align-self: stretch; margin: -16px 0; padding: 16px 4px; text-align: center; font-size: 14px; font-weight: 700; ' + (ci === P.recCol ? 'color: #9DB4FF; ' : '') + colBg(ci) }; });
+    vals.groups = P.cmp.map(function (g, gi) {
+      var on = open.indexOf(',' + gi + ',') >= 0;
+      return {
+        h: g.h, n: g.rows.length, exp: on ? 'true' : 'false',
+        toggle: function () { var o2 = Object.assign({}, self.state.open), s = o2[P.key] || ',', k = ',' + gi + ','; o2[P.key] = s.indexOf(k) >= 0 ? s.replace(k, ',') : s + gi + ','; self.setState({ open: o2 }); },
+        icon: 'flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; color: #C9CED9; border: 1px solid rgba(255,255,255,0.12); transition: transform .35s var(--eo); transform: rotate(' + (on ? 45 : 0) + 'deg)',
+        wrap: 'display: grid; transition: grid-template-rows .4s var(--eo), opacity .3s var(--eo); ' + (on ? 'grid-template-rows: 1fr; opacity: 1;' : 'grid-template-rows: 0fr; opacity: 0;'),
+        rows: g.rows.map(function (r) {
+          return { t: r.t, cells: r.v.map(function (y, ci) { return { y: y, n: !y, style: 'display: flex; align-items: center; justify-content: center; align-self: stretch; ' + colBg(ci) }; }) };
+        })
+      };
+    });
+    return vals;
+  }
+
+}
+</script>
+</body>
+</html>
