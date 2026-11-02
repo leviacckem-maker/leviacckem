@@ -640,7 +640,7 @@ a:hover .ar{transform:translateX(4px)}
 <sc-for list="{{ footer }}" as="f" hint-placeholder-count="4">
 <div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
 <span style="font-weight: 600">{{ f.h }}</span>
-<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="#news" style="text-decoration: none; color: #9097A6">{{ fi }}</a></sc-for>
+<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="{{ fi.href }}" style="text-decoration: none; color: #9097A6">{{ fi.t }}</a></sc-for>
 </div>
 </sc-for>
 </div>
@@ -875,15 +875,15 @@ class Component extends DCLogic {
     var menus = [
       { label: '产品', items: [{ t: 'Order Tracking 订单追踪', d: '品牌化追踪页 · 物流通知', href: 'tracking.html' }, { t: '17RETURNS 退换货', d: 'AI 驱动的自动化退换货', href: 'returns.html' }, { t: 'Tracking API', d: '3,500+ 承运商统一接口', href: 'api.html' }] },
       { label: '资源', items: [{ t: '博客', d: '趋势、技巧与洞察', href: 'blog.html' }, { t: '客户案例', d: '各行业品牌实践', href: 'cases.html' }, { t: '合作伙伴 & 集成', d: '电商平台与应用生态', href: 'integrations.html' }] },
-      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: 'api.html' }, { t: 'API 文档', d: '接口说明与示例', href: '#' }] },
-      { label: '价格', items: [] }
+      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: 'api.html' }, { t: 'API 文档', d: '接口说明与示例', href: 'docs.html' }] },
+      { label: '价格', items: [], href: 'pricing.html' }
     ];
     var navItems = menus.map(function (m, i) {
       var open = st.menu === i;
       return {
         label: m.label,
         caret: m.items.length ? (open ? ' ▲' : ' ▼') : '',
-        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } },
+        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } else if (m.href) { window.location.href = m.href; } },
         act: open ? '1' : '0',
         enter: function (e) { self.hlEnter(e); var nx = m.items.length ? i : -1; if (self.state.menu !== nx) self.setState({ menu: nx }); self.follow(460); },
         style: 'position: relative; z-index: 1; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 14px; padding: 10px 14px; border-radius: 999px; cursor: pointer; display: flex; gap: 6px; align-items: center; min-height: 44px'
@@ -1070,10 +1070,10 @@ class Component extends DCLogic {
         { cat: '增长', t: '电商留存营销：从小规模到百万级品牌的增长策略', img: 'img/n3_boxes.jpg' }
       ],
       footer: [
-        { h: '产品', items: ['运单查询', '物流通知', '退货管理'] },
-        { h: '开发者', items: ['API 文档', 'SDK', '状态页'] },
-        { h: '资源', items: ['博客', '客户案例', '合作伙伴 & 集成'] },
-        { h: '公司', items: ['关于我们', '联系我们', '包裹查询'] }
+        { h: '产品', items: [{ t: 'Order Tracking', href: 'tracking.html' }, { t: '17RETURNS', href: 'returns.html' }, { t: 'Tracking API', href: 'api.html' }, { t: '价格方案', href: 'pricing.html' }] },
+        { h: '开发者', items: [{ t: 'API 文档', href: 'docs.html' }, { t: 'WebHook', href: 'docs.html#webhook' }, { t: '错误代码', href: 'docs.html#errors' }] },
+        { h: '资源', items: [{ t: '博客', href: 'blog.html' }, { t: '客户案例', href: 'cases.html' }, { t: '合作伙伴 & 集成', href: 'integrations.html' }] },
+        { h: '公司', items: [{ t: '关于我们', href: '#' }, { t: '联系我们', href: '#cta' }, { t: '包裹查询', href: '#' }] }
       ]
     };
   }

@@ -297,7 +297,7 @@ a:hover .ar{transform:translateX(4px)}
 <sc-for list="{{ footer }}" as="f" hint-placeholder-count="4">
 <div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
 <span style="font-weight: 600">{{ f.h }}</span>
-<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="#news" style="text-decoration: none; color: #9097A6">{{ fi }}</a></sc-for>
+<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="{{ fi.href }}" style="text-decoration: none; color: #9097A6">{{ fi.t }}</a></sc-for>
 </div>
 </sc-for>
 </div>
@@ -353,8 +353,8 @@ class Component extends DCLogic {
     var menus = [
       { label: '产品', items: [{ t: 'Order Tracking 订单追踪', d: '品牌化追踪页 · 物流通知', href: pages.tracking }, { t: '17RETURNS 退换货', d: 'AI 驱动的自动化退换货', href: pages.returns }, { t: 'Tracking API', d: '3,500+ 承运商统一接口', href: pages.api }] },
       { label: '资源', items: [{ t: '博客', d: '趋势、技巧与洞察', href: pages.blog }, { t: '客户案例', d: '各行业品牌实践', href: pages.cases }, { t: '合作伙伴 & 集成', d: '电商平台与应用生态', href: pages.integrations }] },
-      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: pages.api }, { t: 'API 文档', d: '接口说明与示例', href: '#' }] },
-      { label: '价格', items: [] }
+      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: pages.api }, { t: 'API 文档', d: '接口说明与示例', href: pages.docs }] },
+      { label: '价格', items: [], href: pages.pricing }
     ];
     var navItems = menus.map(function (m, i) {
       var open = st.menu === i;
@@ -362,7 +362,7 @@ class Component extends DCLogic {
         label: m.label,
         caret: m.items.length ? (open ? ' ▲' : ' ▼') : '',
         act: open ? '1' : '0',
-        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } },
+        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } else if (m.href) { window.location.href = m.href; } },
         enter: function (e) { self.hlEnter(e); var nx = m.items.length ? i : -1; if (self.state.menu !== nx) { self.setState({ menu: nx }); self.follow(460); } },
         style: 'position: relative; z-index: 1; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 14px; padding: 10px 14px; border-radius: 999px; cursor: pointer; display: flex; gap: 6px; align-items: center; min-height: 44px'
       };
@@ -404,10 +404,10 @@ class Component extends DCLogic {
       faqs: faqs,
       faqLeave: function () { clearTimeout(self._fq); var f0 = self.state.faq; var s2 = f0 >= 0 ? ',' + f0 + ',' : ','; if (self.state.faqSet !== s2) self.setState({ faqSet: s2 }); },
       footer: [
-        { h: '产品', items: ['运单查询', '物流通知', '退货管理'] },
-        { h: '开发者', items: ['API 文档', 'SDK', '状态页'] },
-        { h: '资源', items: ['博客', '客户案例', '合作伙伴 & 集成'] },
-        { h: '公司', items: ['关于我们', '联系我们', '包裹查询'] }
+        { h: '产品', items: [{ t: 'Order Tracking', href: pages.tracking }, { t: '17RETURNS', href: pages.returns }, { t: 'Tracking API', href: pages.api }, { t: '价格方案', href: pages.pricing }] },
+        { h: '开发者', items: [{ t: 'API 文档', href: pages.docs }, { t: 'WebHook', href: pages.docs + '#webhook' }, { t: '错误代码', href: pages.docs + '#errors' }] },
+        { h: '资源', items: [{ t: '博客', href: pages.blog }, { t: '客户案例', href: pages.cases }, { t: '合作伙伴 & 集成', href: pages.integrations }] },
+        { h: '公司', items: [{ t: '关于我们', href: '#' }, { t: '联系我们', href: '#cta' }, { t: '包裹查询', href: '#' }] }
       ]
     };
   }
@@ -445,7 +445,7 @@ class Component extends DCLogic {
         imgStyle: 'position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.62) saturate(.9); transition: opacity .8s var(--eo), transform 3.6s linear; ' + (on ? 'opacity: 1; transform: scale(1.06);' : 'opacity: 0; transform: scale(1);')
       });
     });
-    return Object.assign(this.commonVals({ home: 'index.html', tracking: 'tracking.html', returns: 'returns.html', api: 'api.html', blog: 'blog.html', cases: 'cases.html', caseEufy: 'case-eufy.html', integrations: 'integrations.html' }), {
+    return Object.assign(this.commonVals({ home: 'index.html', tracking: 'tracking.html', returns: 'returns.html', api: 'api.html', blog: 'blog.html', cases: 'cases.html', caseEufy: 'case-eufy.html', integrations: 'integrations.html', pricing: 'pricing.html', docs: 'docs.html' }), {
       cases: cases,
       csCls: 'csx' + (st.csPaused ? ' paused' : ''),
       csPause: function () { if (self.state.csPaused) return; clearTimeout(self._cs); self._csLeft = Math.max(0, self._csLeft - (Date.now() - self._csAt)); self.setState({ csPaused: true }); },

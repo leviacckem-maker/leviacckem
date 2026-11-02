@@ -192,7 +192,7 @@ a:hover .ar{transform:translateX(4px)}
 <sc-for list="{{ footer }}" as="f" hint-placeholder-count="4">
 <div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
 <span style="font-weight: 600">{{ f.h }}</span>
-<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="#news" style="text-decoration: none; color: #9097A6">{{ fi }}</a></sc-for>
+<sc-for list="{{ f.items }}" as="fi" hint-placeholder-count="3"><a href="{{ fi.href }}" style="text-decoration: none; color: #9097A6">{{ fi.t }}</a></sc-for>
 </div>
 </sc-for>
 </div>
@@ -248,8 +248,8 @@ class Component extends DCLogic {
     var menus = [
       { label: '产品', items: [{ t: 'Order Tracking 订单追踪', d: '品牌化追踪页 · 物流通知', href: pages.tracking }, { t: '17RETURNS 退换货', d: 'AI 驱动的自动化退换货', href: pages.returns }, { t: 'Tracking API', d: '3,500+ 承运商统一接口', href: pages.api }] },
       { label: '资源', items: [{ t: '博客', d: '趋势、技巧与洞察', href: pages.blog }, { t: '客户案例', d: '各行业品牌实践', href: pages.cases }, { t: '合作伙伴 & 集成', d: '电商平台与应用生态', href: pages.integrations }] },
-      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: pages.api }, { t: 'API 文档', d: '接口说明与示例', href: '#' }] },
-      { label: '价格', items: [] }
+      { label: '开发者', items: [{ t: 'Tracking API', d: '产品介绍与价格', href: pages.api }, { t: 'API 文档', d: '接口说明与示例', href: pages.docs }] },
+      { label: '价格', items: [], href: pages.pricing }
     ];
     var navItems = menus.map(function (m, i) {
       var open = st.menu === i;
@@ -257,7 +257,7 @@ class Component extends DCLogic {
         label: m.label,
         caret: m.items.length ? (open ? ' ▲' : ' ▼') : '',
         act: open ? '1' : '0',
-        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } },
+        toggle: function () { if (m.items.length) { self.setState({ menu: open ? -1 : i }); self.follow(460); } else if (m.href) { window.location.href = m.href; } },
         enter: function (e) { self.hlEnter(e); var nx = m.items.length ? i : -1; if (self.state.menu !== nx) { self.setState({ menu: nx }); self.follow(460); } },
         style: 'position: relative; z-index: 1; background: none; border: 0; color: #F2F4F8; font-family: inherit; font-size: 14px; padding: 10px 14px; border-radius: 999px; cursor: pointer; display: flex; gap: 6px; align-items: center; min-height: 44px'
       };
@@ -299,10 +299,10 @@ class Component extends DCLogic {
       faqs: faqs,
       faqLeave: function () { clearTimeout(self._fq); var f0 = self.state.faq; var s2 = f0 >= 0 ? ',' + f0 + ',' : ','; if (self.state.faqSet !== s2) self.setState({ faqSet: s2 }); },
       footer: [
-        { h: '产品', items: ['运单查询', '物流通知', '退货管理'] },
-        { h: '开发者', items: ['API 文档', 'SDK', '状态页'] },
-        { h: '资源', items: ['博客', '客户案例', '合作伙伴 & 集成'] },
-        { h: '公司', items: ['关于我们', '联系我们', '包裹查询'] }
+        { h: '产品', items: [{ t: 'Order Tracking', href: pages.tracking }, { t: '17RETURNS', href: pages.returns }, { t: 'Tracking API', href: pages.api }, { t: '价格方案', href: pages.pricing }] },
+        { h: '开发者', items: [{ t: 'API 文档', href: pages.docs }, { t: 'WebHook', href: pages.docs + '#webhook' }, { t: '错误代码', href: pages.docs + '#errors' }] },
+        { h: '资源', items: [{ t: '博客', href: pages.blog }, { t: '客户案例', href: pages.cases }, { t: '合作伙伴 & 集成', href: pages.integrations }] },
+        { h: '公司', items: [{ t: '关于我们', href: '#' }, { t: '联系我们', href: '#cta' }, { t: '包裹查询', href: '#' }] }
       ]
     };
   }
@@ -328,7 +328,7 @@ class Component extends DCLogic {
 
   renderVals() {
     var self = this, st = this.state;
-    var vals = this.commonVals({ home: 'index.html', tracking: 'tracking.html', returns: 'returns.html', api: 'api.html', blog: 'blog.html', cases: 'cases.html', caseEufy: 'case-eufy.html', integrations: 'integrations.html' });
+    var vals = this.commonVals({ home: 'index.html', tracking: 'tracking.html', returns: 'returns.html', api: 'api.html', blog: 'blog.html', cases: 'cases.html', caseEufy: 'case-eufy.html', integrations: 'integrations.html', pricing: 'pricing.html', docs: 'docs.html' });
     var cats = ["全部", "产品动态", "品牌洞察", "行业活动", "售后指南"];
     var all = [["Klaviyo 中国内地首秀圆满落幕，200+ DTC 品牌杭州共议私域增长！", "August 26, 2026", "行业活动"], ["从卖爆全球到持续进化，电动滑板品牌 MEEPO 的出海之路", "August 26, 2026", "品牌洞察"], ["流量见顶，增长向内：华东这场品牌大会聊透了服务体验的增长价值", "August 21, 2026", "行业活动"], ["AI EDD 上新！用确定的送达预期，赢得更多订单", "August 13, 2026", "产品动态"], ["17RETURNS「立即换购」上新，开启以换代退新体验！", "August 5, 2026", "产品动态"], ["17TRACK 联合发起未来独角兽联盟！Maker Tool 闭门峰会圆满落幕！", "July 24, 2026", "行业活动"], ["17TRACK 已支持 TikTok Shipping 轨迹查询", "July 8, 2026", "产品动态"], ["Understanding Delivery Exceptions: Causes, Impacts, and Strategies for Ecommerce Success", "September 1, 2025", "售后指南"], ["A Deep Dive into the Post-Purchase Experience and its Impact on Brand Loyalty", "August 28, 2025", "售后指南"], ["Boost Customer Satisfaction with 17RETURNS Returns Management", "August 13, 2025", "售后指南"], ["Optimizing the Post-Purchase Experience in E-Commerce: Insights from 17TRACK", "August 6, 2025", "售后指南"], ["Optimizing E-commerce Order Tracking: Enhancing Customer Experience and Business Efficiency", "July 30, 2025", "售后指南"], ["What is Post-Purchase Evaluation?", "July 23, 2025", "售后指南"], ["E-commerce Returns and Reverse Logistics: Challenges and Opportunities", "July 17, 2025", "售后指南"], ["The Ultimate Guide to Minimizing E-Commerce Returns and Boosting Sales", "July 9, 2025", "售后指南"], ["Optimize Your E-commerce Product Page: 10 Ways to Enhance Content and User Experience", "July 2, 2025", "售后指南"], ["7 Strategies to Elevate E-Commerce Post-Purchase Retention", "June 25, 2025", "售后指南"], ["E-commerce Retention Marketing: Growth Strategies from Small Scale to Million-Dollar Brands", "June 18, 2025", "售后指南"], ["What is WISMO? A Comprehensive Guide to Reducing \"WISMO\" Calls", "June 11, 2025", "售后指南"], ["Consumer Post-Purchase Behavior: How to Boost Retention & Repeat Sales", "June 5, 2025", "售后指南"]];
     var covers = {"产品动态": "position: relative; height: 180px; border-radius: 16px; overflow: hidden; background: radial-gradient(80% 90% at 80% 0%, rgba(76,125,255,0.35), transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center", "品牌洞察": "position: relative; height: 180px; border-radius: 16px; overflow: hidden; background: radial-gradient(80% 90% at 20% 0%, rgba(126,216,198,0.28), transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center", "行业活动": "position: relative; height: 180px; border-radius: 16px; overflow: hidden; background: radial-gradient(80% 90% at 50% 0%, rgba(170,157,255,0.3), transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center", "售后指南": "position: relative; height: 180px; border-radius: 16px; overflow: hidden; background: radial-gradient(80% 90% at 80% 100%, rgba(127,205,242,0.26), transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center"};
