@@ -16,7 +16,8 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
 
 /* ---------- crop box: content area of 56:318, page background shows through ---------- */
 .viewport { position: relative; width: 100%; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
-.viewport.zoomed { cursor: grab; touch-action: none; }
+.viewport.pannable { cursor: grab; }
+.viewport.zoomed { touch-action: none; }
 .viewport.dragging { cursor: grabbing; }
 .canvas { position: absolute; left: 0; top: 0; transform-origin: 0 0; width: 2080px; height: 810px; }
 .wf-crop { position: relative; width: 2080px; height: 810px; overflow: hidden; }
@@ -75,6 +76,16 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
 .mini .sq { position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; width: 18px; height: 18px; border: 1px solid #2a4031; border-radius: 8px; background: #17241b; }
 .mini .sq i { display: block; width: 6px; height: 6px; border-radius: 1.5px; background: #8fd9a0; }
 .mini .mt { position: absolute; left: 26px; top: 2.5px; font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 10px; letter-spacing: .6px; line-height: 13px; color: #8fd9a0; white-space: nowrap; }
+/* ---------- reading mode: readable default scale, edge fades, hint, fullscreen ---------- */
+.stage { position: absolute; inset: 0; overflow: hidden; }
+.stage.ml { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 72px); mask-image: linear-gradient(90deg, transparent 0, #000 72px); }
+.stage.mr { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 72px), transparent 100%); mask-image: linear-gradient(90deg, #000 calc(100% - 72px), transparent 100%); }
+.stage.ml.mr { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 72px, #000 calc(100% - 72px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 72px, #000 calc(100% - 72px), transparent 100%); }
+.hint { position: absolute; left: 50%; bottom: 14px; z-index: 5; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; padding: 7px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; background: rgba(13,14,17,.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-size: 12px; line-height: 16px; color: rgba(242,244,245,.78); white-space: nowrap; pointer-events: none; transition: opacity .4s; }
+.hint.off { opacity: 0; }
+.zoom.row ~ .hint { bottom: 56px; }
+.viewport:fullscreen { background: #08090b; }
+.viewport:-webkit-full-screen { background: #08090b; }
 </style>
 </head>
 <body>
@@ -86,7 +97,10 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
   <button type="button" id="z-out" title="缩小（触控板双指捏合）" aria-label="缩小"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
   <div class="sep"></div>
   <button type="button" id="z-fit" title="还原全貌" aria-label="还原全貌"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button type="button" id="z-full" title="全屏查看" aria-label="全屏查看"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
+<div class="hint" id="z-hint">按住拖动，或用触控板左右滑动，查看完整流程</div>
+<div class="stage" id="stage">
 <div class="canvas" id="canvas">
 <div class="wf-crop">
 
@@ -249,33 +263,47 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
 </div>
 </div>
 </div>
+</div>
 
 <script>
 (function () {
   var W = 2080, H = 810, MAXK = 1.6, ROW = 48;   // ROW: room under the canvas for the control on narrow screens
+  var READ = 0.82, READ_NARROW = 0.62;           // default reading scale: text stays legible, canvas pans sideways
   var vp = document.getElementById("viewport");
   var canvas = document.getElementById("canvas");
+  var stage = document.getElementById("stage");
   var pct = document.getElementById("z-pct");
-  var bIn = document.getElementById("z-in"), bOut = document.getElementById("z-out"), bFit = document.getElementById("z-fit");
+  var hint = document.getElementById("z-hint");
+  var bIn = document.getElementById("z-in"), bOut = document.getElementById("z-out"), bFit = document.getElementById("z-fit"), bFull = document.getElementById("z-full");
   var embedded = window.self !== window.top;
   if (embedded) document.documentElement.classList.add("embedded");
   else document.body.classList.add("standalone");
 
-  var fit = 0, k = 1, x = 0, y = 0, vw = 0, vh = 0;
+  var fit = 0, base = 0, k = 1, x = 0, y = 0, vw = 0, vh = 0, touched = false, sized = false;
 
-  function zoomed() { return k > fit * 1.001; }
+  function isFull() { return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+  function canPan() { return W * k > vw + 1 || H * k > vh + 1; }
+  function zoomed() { return canPan(); }
   function clamp() {
     var cw = W * k, ch = H * k;
-    x = cw <= vw ? 0 : Math.min(0, Math.max(vw - cw, x));
-    y = ch <= vh ? 0 : Math.min(0, Math.max(vh - ch, y));
+    x = cw <= vw ? (vw - cw) / 2 : Math.min(0, Math.max(vw - cw, x));
+    y = ch <= vh ? (vh - ch) / 2 : Math.min(0, Math.max(vh - ch, y));
   }
-  function paint() { canvas.style.transform = "translate(" + x + "px," + y + "px) scale(" + k + ")"; }
+  function paint() {
+    canvas.style.transform = "translate(" + x + "px," + y + "px) scale(" + k + ")";
+    stage.classList.toggle("ml", x < -1);
+    stage.classList.toggle("mr", x + W * k > vw + 1);
+  }
+  function settle() {
+    if (!touched) { touched = true; hint.classList.add("off"); }
+  }
   function apply() {
     clamp(); paint();
-    pct.textContent = Math.round(k / fit * 100) + "%";   // 100% = the full overview
-    vp.classList.toggle("zoomed", zoomed());
-    bOut.disabled = !zoomed();
-    bFit.disabled = !zoomed();
+    pct.textContent = Math.round(k * 100) + "%";   // 100% = actual design size
+    vp.classList.toggle("pannable", canPan());
+    vp.classList.toggle("zoomed", k > base + 1e-3 && H * k > vh + 1);
+    bOut.disabled = k <= fit + 1e-3;
+    bFit.disabled = k <= fit + 1e-3;
     bIn.disabled = k >= MAXK - 1e-3;
   }
   function zoomAt(nk, cx, cy) {
@@ -284,27 +312,47 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
     x = cx - (cx - x) * (nk / k);
     y = cy - (cy - y) * (nk / k);
     k = nk;
+    settle();
     apply();
   }
-  function layout() {
+  function layout(reset) {
     if (!vp.clientWidth) return;            // hidden / not laid out yet: wait for a real size
-    var wasFit = !fit || !zoomed();
+    var full = isFull();
+    var wasBase = !sized || reset || Math.abs(k - base) < 1e-3;
     vw = vp.clientWidth;
     fit = Math.min(1, vw / W);
-    var narrow = vw < 640;
+    var narrow = vw < 640 && !full;
     document.querySelector(".zoom").classList.toggle("row", narrow);
-    vh = Math.round(H * fit) + (narrow ? ROW : 0);
-    vp.style.height = vh + "px";
-    if (wasFit) { k = fit; x = 0; y = 0; } else { k = Math.max(fit, k); }
+    if (full) {
+      vh = window.innerHeight;
+      base = Math.max(fit, Math.min(1.2, (vh - 32) / H));
+      vp.style.height = "100%";
+    } else {
+      base = Math.max(fit, narrow ? READ_NARROW : READ);
+      vh = Math.round(H * base) + (narrow ? ROW : 0);
+      vp.style.height = vh + "px";
+    }
+    if (wasBase) { k = base; x = 0; y = 0; } else { k = Math.max(fit, k); }
+    sized = true;
+    hint.style.display = W * base > vw + 1 ? "" : "none";
     apply();
     if (embedded) {
       try { window.parent.postMessage({ __previewFrameHeight: Math.ceil(document.body.getBoundingClientRect().height) }, "*"); } catch (e) {}
     }
   }
 
+  bFull.addEventListener("click", function () {
+    if (isFull()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    var req = vp.requestFullscreen || vp.webkitRequestFullscreen;
+    if (req) req.call(vp);
+  });
+  document.addEventListener("fullscreenchange", function () { layout(true); bFull.title = isFull() ? "退出全屏" : "全屏查看"; });
+  document.addEventListener("webkitfullscreenchange", function () { layout(true); });
+  if (!(vp.requestFullscreen || vp.webkitRequestFullscreen)) bFull.style.display = "none";
+
   bIn.addEventListener("click", function () { zoomAt(k * 1.25); });
   bOut.addEventListener("click", function () { zoomAt(k / 1.25); });
-  bFit.addEventListener("click", function () { k = fit; x = 0; y = 0; apply(); });
+  bFit.addEventListener("click", function () { k = fit; x = 0; y = 0; settle(); apply(); });
 
   function local(e) { var r = vp.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
 
@@ -318,7 +366,7 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
       // two-finger pan while zoomed; hand the scroll back to the page at the top/bottom edge
       var ox = x, oy = y;
       x -= e.deltaX; y -= e.deltaY; clamp();
-      if (x !== ox || y !== oy) { e.preventDefault(); paint(); }
+      if (x !== ox || y !== oy) { e.preventDefault(); settle(); paint(); }
     }
   }, { passive: false });
 
@@ -354,6 +402,7 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
     } else if (drag) {
       x = drag.x + (pts[e.pointerId][0] - drag.px);
       y = drag.y + (pts[e.pointerId][1] - drag.py);
+      settle();
       apply();
     }
   });
@@ -367,6 +416,8 @@ html.embedded, html.embedded body { background: transparent; color-scheme: dark;
 
   window.addEventListener("resize", layout);
   if (window.ResizeObserver) new ResizeObserver(function () { if (vp.clientWidth !== vw) layout(); }).observe(vp);
+  if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) hint.textContent = "左右滑动查看完整流程";
+  setTimeout(function () { hint.classList.add("off"); }, 7000);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
   window.addEventListener("load", layout);
   layout();
